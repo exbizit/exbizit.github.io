@@ -42,10 +42,11 @@ const DRY = process.argv.includes('--dry')
 // `user-top-read` scope, so the grid fills without asking for more access.
 // Order matters: short_term lands first, so current listening sits at the top
 // and older favourites fill in behind it.
-const PER_RANGE = 50
+const PER_RANGE = 50        // Spotify's max per request
+const PAGES = 4             // pages per time range, via offset (up to 200 each)
 const RANGES = ['short_term', 'medium_term', 'long_term']
-const MAX_ALBUMS = 64      // 8 rows of 8 on desktop; raise for more
-const ARTIST_LIMIT = 16
+const MAX_ALBUMS = 160     // 20 rows of 8 on desktop; raise for more
+const ARTIST_LIMIT = 48
 
 /**
  * Band names from bands.ts, so the page showcases OTHER artists rather than
@@ -99,6 +100,29 @@ async function get(url, token) {
     throw new Error(`${res.status}${hint}: ${body.slice(0, 200)}`)
   }
   return JSON.parse(body)
+}
+
+/**
+ * /me/top/{tracks|artists} for one time range, paged with offset. Stops early
+ * when Spotify runs out, and a failed page keeps whatever came before it.
+ */
+async function topPaged(kind, range, token) {
+  const out = []
+  for (let page = 0; page < PAGES; page++) {
+    try {
+      const data = await get(
+        `https://api.spotify.com/v1/me/top/${kind}?time_range=${range}&limit=${PER_RANGE}&offset=${page * PER_RANGE}`,
+        token
+      )
+      const items = data.items ?? []
+      out.push(...items)
+      if (items.length < PER_RANGE) break
+    } catch (e) {
+      console.error(`  ${kind} ${range} page ${page + 1} failed: ${e.message}`)
+      break
+    }
+  }
+  return out
 }
 
 /** Spotify track object -> our shape. Picks the ~300px art, not the 640px one. */
@@ -175,17 +199,9 @@ async function main() {
     console.log('top tracks:')
     // Separate call per range — one failing shouldn't cost us the others.
     for (const range of RANGES) {
-      try {
-        const data = await get(
-          `https://api.spotify.com/v1/me/top/tracks?time_range=${range}&limit=${PER_RANGE}`,
-          token
-        )
-        const items = data.items ?? []
-        console.log(`  ${range.padEnd(12)} ${items.length} track(s)`)
-        raw.push(...items)
-      } catch (e) {
-        console.error(`  ${range.padEnd(12)} failed: ${e.message}`)
-      }
+      const items = await topPaged('tracks', range, token)
+      console.log(`  ${range.padEnd(12)} ${items.length} track(s)`)
+      raw.push(...items)
     }
   }
 
@@ -193,16 +209,19 @@ async function main() {
 
   // Top artists for the same window — a separate endpoint, so a failure here
   // shouldn't lose the tracks we already have.
+  // All three windows, recent first, de-duplicated by name.
   let artists = []
-  try {
-    const a = await get(
-      `https://api.spotify.com/v1/me/top/artists?time_range=short_term&limit=${ARTIST_LIMIT}`,
-      token
-    )
-    artists = (a.items ?? []).map(mapArtist).filter(Boolean)
+  {
+    const seen = new Set()
+    for (const range of RANGES) {
+      for (const a of (await topPaged('artists', range, token)).map(mapArtist).filter(Boolean)) {
+        if (!seen.has(norm(a.name))) {
+          seen.add(norm(a.name))
+          artists.push(a)
+        }
+      }
+    }
     console.log(`${artists.length} top artist(s)`)
-  } catch (e) {
-    console.error(`top artists failed (continuing without them): ${e.message}`)
   }
 
   // Drop our own bands — this page exists to point at other people's music
@@ -213,7 +232,7 @@ async function main() {
     if (hit) excluded.push(`${t.artist} — ${t.album}`)
     return !hit
   })
-  artists = artists.filter(a => !own.has(norm(a.name)))
+  artists = artists.filter(a => !own.has(norm(a.name))).slice(0, ARTIST_LIMIT)
 
   if (excluded.length) {
     console.log(`\nexcluded ${excluded.length} (Hostersphere artists):`)
