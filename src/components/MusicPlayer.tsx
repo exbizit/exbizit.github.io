@@ -12,7 +12,8 @@ import { BrandIcon } from './SocialLinks'
 type Source = 'bandcamp' | 'spotify'
 
 const FONT_ID = 'play-music-font'
-const FONT_FAMILY = "'Rubik Wet Paint', system-ui, sans-serif"
+// Pixel blackletter: gothic sigil shapes built on a screen grid
+const FONT_FAMILY = "'Jacquard 24', system-ui, sans-serif"
 
 /** Loads just the glyphs the button uses from Google Fonts, once. */
 function useButtonFont() {
@@ -22,7 +23,7 @@ function useButtonFont() {
     link.id = FONT_ID
     link.rel = 'stylesheet'
     link.href =
-      'https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap&text=' +
+      'https://fonts.googleapis.com/css2?family=Jacquard+24&display=swap&text=' +
       encodeURIComponent('PLAY MUSIC')
     document.head.appendChild(link)
   }, [])
@@ -154,7 +155,7 @@ export default function MusicPlayer({
         ) : (
           <>
             <span aria-hidden="true" style={{ fontSize: '1.4rem', lineHeight: 1 }}>♫</span>
-            <span style={{ fontFamily: FONT_FAMILY, fontSize: '1.15rem', letterSpacing: '0.02em', lineHeight: 1 }}>
+            <span style={{ fontFamily: FONT_FAMILY, fontSize: '1.45rem', letterSpacing: '0.04em', lineHeight: 1 }}>
               PLAY MUSIC
             </span>
           </>
