@@ -10,6 +10,7 @@
     "deploy": "npm run build && gh-pages -d dist",
     "shows": "node scripts/fetch-shows.mjs",
     "listening": "node scripts/fetch-listening.mjs",
+    "discography": "node scripts/fetch-discography.mjs",
     "spotify-auth": "node scripts/spotify-auth.mjs",
     "photos": "python3 scripts/build-photos.py"
   },

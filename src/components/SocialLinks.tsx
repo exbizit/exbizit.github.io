@@ -16,15 +16,15 @@ const ICON_SLUGS: Partial<Record<SocialLink['platform'], string>> = {
   youtube: 'youtube',
 }
 
-function BrandIcon({ slug }: { slug: string }) {
+export function BrandIcon({ slug, size = 14 }: { slug: string; size?: number }) {
   const url = `url(${SIMPLE_ICONS}/${slug}.svg)`
   return (
     <span
       aria-hidden="true"
       className="shrink-0 inline-block"
       style={{
-        width: 14,
-        height: 14,
+        width: size,
+        height: size,
         backgroundColor: 'currentColor',
         WebkitMaskImage: url,
         maskImage: url,

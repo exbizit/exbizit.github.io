@@ -35,17 +35,25 @@ jobs:
           SPOTIFY_PROFILE_URL: ${{ secrets.SPOTIFY_PROFILE_URL }}
         run: npm run listening
 
+      - name: Pull band releases (covers + platform links)
+        # A failure here shouldn't block the listening refresh
+        continue-on-error: true
+        env:
+          SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+          SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+        run: npm run discography
+
       - name: Commit if anything changed
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/data/listening.generated.json
+          git add src/data/listening.generated.json src/data/discography.generated.json
           # --quiet exits non-zero when there IS a change; guard so a no-op week
           # doesn't fail the run
           if git diff --staged --quiet; then
             echo "No change this week."
           else
-            git commit -m "chore: refresh listening data"
+            git commit -m "chore: refresh listening and release data"
             git push
           fi
 

@@ -6,6 +6,8 @@ import VideoEmbed from '../components/VideoEmbed'
 import BandcampPlayer from '../components/BandcampPlayer'
 import SpotifyEmbed from '../components/SpotifyEmbed'
 import SocialLinks from '../components/SocialLinks'
+import ReleaseStrip from '../components/ReleaseStrip'
+import { getReleases } from '../data/discography'
 import MembersList from '../components/MembersList'
 import ShowList from '../components/ShowList'
 import Sigil from '../components/Sigil'
@@ -215,6 +217,7 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
           )}
 
           <SocialLinks socials={band.socials} accentColor={band.accentColor} />
+          <ReleaseStrip releases={getReleases(band.slug)} accentColor={band.accentColor} />
         </div>
       </section>
 

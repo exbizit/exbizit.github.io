@@ -1,0 +1,3 @@
+{
+  "_readme": "Hand-set links by Spotify album id; these win over npm run discography. Example: \"2ty6Nyov...\": { \"bandcamp\": \"https://...\", \"appleMusic\": \"https://...\" }"
+}
