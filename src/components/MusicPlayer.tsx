@@ -34,17 +34,20 @@ export default function MusicPlayer({
   bandcamp,
   spotifyArtistId,
   defaultSource,
+  spotifyAlbumId,
 }: {
   bandName: string
   accentColor: string
   bandcamp?: { embedAlbumId: string; albumUrl: string }
   spotifyArtistId?: string | null
   defaultSource?: Source
+  /** Pin one album in the Spotify tab instead of the artist profile */
+  spotifyAlbumId?: string
 }) {
   useButtonFont()
   const sources: Source[] = [
     ...(bandcamp ? (['bandcamp'] as const) : []),
-    ...(spotifyArtistId ? (['spotify'] as const) : []),
+    ...(spotifyArtistId || spotifyAlbumId ? (['spotify'] as const) : []),
   ]
   const [open, setOpen] = useState(false)
   const [tab, setTab] = useState<Source>(
@@ -115,10 +118,12 @@ export default function MusicPlayer({
               <a href={bandcamp.albumUrl}>{bandName} on Bandcamp</a>
             </iframe>
           )}
-          {spotifyArtistId && loaded.spotify && (
+          {(spotifyArtistId || spotifyAlbumId) && loaded.spotify && (
             <iframe
               style={{ ...frame, display: tab === 'spotify' ? 'block' : 'none' }}
-              src={`https://open.spotify.com/embed/artist/${spotifyArtistId}?utm_source=generator&theme=0`}
+              src={`https://open.spotify.com/embed/${
+                spotifyAlbumId ? `album/${spotifyAlbumId}` : `artist/${spotifyArtistId}`
+              }?utm_source=generator&theme=0`}
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               title={`${bandName} on Spotify`}
             />

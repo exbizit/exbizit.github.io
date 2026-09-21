@@ -101,6 +101,8 @@ export interface Band {
   }
   /** Which tab the floating music player opens on when both exist (default Bandcamp) */
   playerDefault?: 'bandcamp' | 'spotify'
+  /** Spotify album the music player shows instead of the artist's whole profile */
+  spotifyPlayerAlbumId?: string
   /** Other artists' releases this project appears on (Spotify album/single ids) */
   featuredOn?: {
     title: string
@@ -314,6 +316,7 @@ export const BANDS: Band[] = [
     ],
     heroImage: '/photos/headbanned/phishing-cover.jpg',
     playerDefault: 'spotify',   // Bandcamp only has part of the catalogue
+    spotifyPlayerAlbumId: '3SM7BZN93605bQDOOydIWk',   // Keep Phishing
     isActive: true,
     isSoloBrett: true,
     accentColor: '#8B00FF', // deep purple

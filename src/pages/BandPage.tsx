@@ -473,6 +473,7 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
         bandName={band.name}
         accentColor={band.accentColor}
         defaultSource={band.playerDefault}
+        spotifyAlbumId={band.spotifyPlayerAlbumId}
         bandcamp={
           band.bandcamp?.embedAlbumId
             ? { embedAlbumId: band.bandcamp.embedAlbumId, albumUrl: band.bandcamp.albumUrl }
