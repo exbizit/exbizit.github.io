@@ -219,12 +219,12 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
       </section>
 
       {/* ── Body ─────────────────────────────────────────────────────────── */}
-      <div className="max-w-screen-2xl mx-auto px-5 md:px-8 py-12 grid grid-cols-1 lg:grid-cols-3 gap-10">
-        <div className="lg:col-span-2 space-y-12">
+      <div className="max-w-screen-2xl mx-auto px-5 md:px-8 py-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="lg:col-span-2 space-y-8">
 
           {band.latestRelease && (
             <section>
-              <p className="label mb-4">Latest release</p>
+              <p className="label mb-3">Latest release</p>
               <h2
                 className="display"
                 style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', color: 'var(--bone)' }}
@@ -232,7 +232,7 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
                 {band.latestRelease.title}
               </h2>
               {(band.latestRelease.type || band.latestRelease.date) && (
-                <p className="label mt-3 mb-5" style={{ color: 'var(--ash)' }}>
+                <p className="label mt-2 mb-3" style={{ color: 'var(--ash)' }}>
                   {[band.latestRelease.type, band.latestRelease.date].filter(Boolean).join(' · ')}
                 </p>
               )}
@@ -254,7 +254,7 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
 
           {shows.length > 0 && (
             <section>
-              <p className="label mb-6">Upcoming</p>
+              <p className="label mb-3">Upcoming</p>
               <ShowList shows={shows} omitBandSlug={band.slug} accentColor={band.accentColor} />
               <Link
                 to="/shows"
@@ -268,8 +268,8 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
 
           {band.press && band.press.length > 0 && (
             <section>
-              <p className="label mb-6">Press</p>
-              <div className="space-y-8">
+              <p className="label mb-3">Press</p>
+              <div className="space-y-5">
                 {band.press.map((q, i) => (
                   <blockquote
                     key={i}
@@ -310,13 +310,13 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
           )}
 
           <section>
-            <p className="label mb-6">About</p>
+            <p className="label mb-3">About</p>
             <p
               style={{
                 color: isTodo(band.description) ? 'var(--dust)' : 'var(--bone)',
                 fontStyle: isTodo(band.description) ? 'italic' : 'normal',
                 maxWidth: '62ch',
-                lineHeight: 1.8,
+                lineHeight: 1.65,
                 fontWeight: 300,
               }}
             >
@@ -326,8 +326,8 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
 
           {band.videos.length > 0 && (
             <section>
-              <p className="label mb-6">Video</p>
-              <div className="space-y-8">
+              <p className="label mb-3">Video</p>
+              <div className="space-y-5">
                 {band.videos.map((video, i) => (
                   <div key={i}>
                     <VideoEmbed {...video} />
@@ -342,7 +342,7 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
 
           {(band.bandcamp || spotifyArtistId) && (
             <section>
-              <p className="label mb-6">Music</p>
+              <p className="label mb-3">Music</p>
               <div className="space-y-4">
                 {band.bandcamp && (
                   <BandcampPlayer
@@ -361,8 +361,8 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
 
           {band.photos.length > 0 && (
             <section>
-              <p className="label mb-6">Photos</p>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+              <p className="label mb-3">Photos</p>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {band.photos.map((photo, i) => (
                   <figure key={photo.src}>
                     <button
@@ -397,22 +397,22 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
         </div>
 
         {/* ── Sidebar ─────────────────────────────────────────────────────── */}
-        <aside className="space-y-8">
+        <aside className="space-y-6">
           <div style={{ borderTop: `2px solid ${band.accentColor}`, paddingTop: '1.25rem' }}>
-            <p className="label mb-5">{band.isSoloBrett ? 'Project' : 'Members'}</p>
+            <p className="label mb-3">{band.isSoloBrett ? 'Project' : 'Members'}</p>
             <MembersList members={band.members} accentColor={band.accentColor} />
           </div>
 
           {band.contributors && band.contributors.length > 0 && (
             <div style={{ borderTop: '1px solid var(--iron)', paddingTop: '1.25rem' }}>
-              <p className="label mb-5">Contributing artists</p>
+              <p className="label mb-3">Contributing artists</p>
               <MembersList members={band.contributors} accentColor={band.accentColor} />
             </div>
           )}
 
           {band.visualArtists && band.visualArtists.length > 0 && (
             <div style={{ borderTop: '1px solid var(--iron)', paddingTop: '1.25rem' }}>
-              <p className="label mb-5">{band.visualArtistsLabel ?? 'Visual artists'}</p>
+              <p className="label mb-3">{band.visualArtistsLabel ?? 'Visual artists'}</p>
               <ul className="space-y-2">
                 {band.visualArtists.map(a => (
                   <li key={a.handle} className="flex items-baseline gap-2 text-sm">
@@ -437,7 +437,7 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
 
           {band.genre.some(g => !g.startsWith('//')) && (
             <div style={{ borderTop: '1px solid var(--iron)', paddingTop: '1.25rem' }}>
-              <p className="label mb-5">Genre</p>
+              <p className="label mb-3">Genre</p>
               <div className="flex flex-wrap gap-2">
                 {band.genre
                   .filter(g => !g.startsWith('//'))

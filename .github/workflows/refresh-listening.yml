@@ -49,9 +49,4 @@ jobs:
             git push
           fi
 
-      - name: Build and deploy
-        run: |
-          npm run build
-          npx gh-pages -d dist -u "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # Deploying is handled by deploy.yml, which runs after this workflow finishes.

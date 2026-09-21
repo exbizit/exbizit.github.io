@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useEffect, useRef, useState } from 'react'
 import {
   LISTENING,
   TOP_ARTISTS,
@@ -22,7 +23,13 @@ import { useDocumentTitle } from '../hooks/useDocumentTitle'
  * It escapes the tile rather than cramming a track list into a ~130px square,
  * so it needs a stacking context above the grid and a parent that doesn't clip.
  * Desktop only — there is no hover on touch, where the caption shows instead.
+ *
+ * Placement is measured each time the pointer enters the tile: the panel is
+ * nudged sideways to stay inside the window, and flips below the tile when
+ * there isn't room above it (under the fixed nav).
  */
+const EDGE = 12   // min gap between the panel and the window edge / nav
+const GAP = 8     // gap between the panel and its tile
 function HoverPanel({
   title,
   subtitle,
@@ -35,10 +42,36 @@ function HoverPanel({
   const shown = (tracks ?? []).slice(0, 5)
   const extra = (tracks ?? []).length - shown.length
 
+  const ref = useRef<HTMLDivElement>(null)
+  const [shift, setShift] = useState(0)
+  const [below, setBelow] = useState(false)
+
+  useEffect(() => {
+    const panel = ref.current
+    const host = panel?.parentElement
+    if (!panel || !host) return
+    const place = () => {
+      const tile = host.getBoundingClientRect()
+      const width = panel.offsetWidth
+      const centredLeft = tile.left + tile.width / 2 - width / 2
+      const maxLeft = document.documentElement.clientWidth - EDGE - width
+      setShift(Math.max(EDGE, Math.min(centredLeft, maxLeft)) - centredLeft)
+      const navBottom = document.querySelector('nav')?.getBoundingClientRect().bottom ?? 0
+      setBelow(tile.top - GAP - panel.offsetHeight < Math.max(navBottom, 0) + EDGE)
+    }
+    host.addEventListener('pointerenter', place)
+    return () => host.removeEventListener('pointerenter', place)
+  }, [])
+
   return (
     <div
-      className="absolute left-1/2 bottom-full z-30 hidden md:block opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none"
-      style={{ transform: 'translateX(-50%)', width: '208px', marginBottom: '8px' }}
+      ref={ref}
+      className={`absolute left-1/2 ${below ? 'top-full' : 'bottom-full'} z-30 hidden md:block opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none`}
+      style={{
+        transform: `translateX(calc(-50% + ${shift}px))`,
+        width: '208px',
+        ...(below ? { marginTop: `${GAP}px` } : { marginBottom: `${GAP}px` }),
+      }}
     >
       <div
         className="p-3 text-left"

@@ -1,0 +1,63 @@
+name: Deploy to GitHub Pages
+
+# Builds the site and publishes dist/ to GitHub Pages.
+# One-time setup: repo Settings -> Pages -> Source: "GitHub Actions".
+
+on:
+  push:
+    branches: [main]
+  # Commits pushed by an Action's GITHUB_TOKEN don't trigger `push` workflows,
+  # so redeploy explicitly after the weekly listening refresh.
+  workflow_run:
+    workflows: ['Refresh listening data']
+    types: [completed]
+  workflow_dispatch:      # "Run workflow" button in the Actions tab
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deploy at a time; a newer push cancels an older queued one.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main       # workflow_run would otherwise build the pre-refresh commit
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build
+        env:
+          # Web3Forms keys: .env.local isn't in the repo, so the build reads them
+          # from repo Settings -> Secrets and variables -> Actions.
+          VITE_W3F_KEY_PRIMARY: ${{ secrets.VITE_W3F_KEY_PRIMARY }}
+          VITE_W3F_KEY_HOSTER: ${{ secrets.VITE_W3F_KEY_HOSTER }}
+          VITE_W3F_KEY_MARYS: ${{ secrets.VITE_W3F_KEY_MARYS }}
+          VITE_W3F_KEY_ROGERS: ${{ secrets.VITE_W3F_KEY_ROGERS }}
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

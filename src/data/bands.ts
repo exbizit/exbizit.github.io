@@ -259,6 +259,7 @@ export const BANDS: Band[] = [
       { handle: 'eastdocht', name: 'East' },
       { handle: 'hklineart', name: 'Hannah Kline' },
       { handle: 'photosbymaddog' },
+      { handle: 'travlorkian' },
     ],
     socials: [
       { platform: 'bandcamp', url: 'https://maryswhitelie.bandcamp.com/album/stable-of-stone', label: 'Stable of Stone' },
