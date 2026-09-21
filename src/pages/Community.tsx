@@ -447,6 +447,20 @@ export default function Community() {
             </form>
           </>
         )}
+
+        {/* Credit where the idea came from */}
+        <p className="mt-10 label" style={{ color: 'var(--dust)' }}>
+          board idea lovingly borrowed from{' '}
+          <a
+            href="https://theasheleycatacombs.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-2 hover:text-white"
+            style={{ color: 'var(--ash)' }}
+          >
+            theasheleycatacombs.com
+          </a>
+        </p>
       </div>
     </div>
   )
