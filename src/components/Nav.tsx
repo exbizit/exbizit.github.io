@@ -65,7 +65,7 @@ export default function Nav() {
     >
       <div className="max-w-7xl mx-auto px-4 flex flex-wrap items-center">
         {/* Bands. Scrolls sideways only if the bands alone overflow the window. */}
-        <div className="flex items-center overflow-x-auto min-w-0">
+        <div className="flex items-center overflow-x-auto min-w-0 no-scrollbar">
           {BANDS.map(band => {
             const to = bandPath(band.slug)
             const active = pathname === to
@@ -75,7 +75,7 @@ export default function Nav() {
                 to={to}
                 aria-current={active ? 'page' : undefined}
                 aria-label={band.wordmark ? band.name : undefined}
-                className="nav-item h-14 px-3 flex items-center whitespace-nowrap shrink-0"
+                className="nav-item h-11 md:h-14 px-3 flex items-center whitespace-nowrap shrink-0"
                 style={{ ['--accent' as string]: band.accentColor }}
               >
                 {band.wordmark ? (
@@ -101,7 +101,7 @@ export default function Nav() {
 
         {/* Utility pages. When there isn't room beside the bands, this whole
             group wraps onto its own row rather than hiding off-screen. */}
-        <div className="flex items-center">
+        <div className="flex items-center pb-1.5 md:pb-0">
           <span
             className="mx-2 shrink-0 hidden md:block"
             style={{ width: '1px', height: '14px', background: 'var(--iron)' }}
@@ -116,7 +116,7 @@ export default function Nav() {
               key={item.to}
               to={item.to}
               aria-current={pathname === item.to ? 'page' : undefined}
-              className="nav-item label h-10 md:h-14 px-3 flex items-center whitespace-nowrap shrink-0"
+              className="nav-item label h-7 md:h-14 px-3 flex items-center whitespace-nowrap shrink-0"
               style={{ ['--accent' as string]: 'var(--bone)' }}
             >
               {item.label}

@@ -117,3 +117,7 @@
   }
   .sigil-stroke { stroke-dashoffset: 0; }
 }
+
+/* Sideways-scrolling rows without a visible (grey) scrollbar */
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
