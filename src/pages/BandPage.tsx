@@ -209,14 +209,15 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
 
           <SocialLinks socials={band.socials} accentColor={band.accentColor} />
           {/* Next show, then the release covers, in one row under the links */}
-          <div className="mt-3 flex flex-col md:flex-row md:items-start gap-3">
+          <div className="mt-3 flex flex-wrap items-start gap-3">
             <NextShowAlert
               shows={shows}
               bandSlug={band.slug}
               accentColor={band.accentColor}
               className="shrink-0"
             />
-            <div className="min-w-0 flex-1">
+            {/* Stays beside the card until not even one cover fits, then wraps */}
+            <div className="min-w-0" style={{ flex: '1 1 110px' }}>
               <ReleaseStrip releases={getReleases(band.slug)} accentColor={band.accentColor} />
             </div>
           </div>
