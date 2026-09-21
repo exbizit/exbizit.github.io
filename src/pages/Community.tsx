@@ -409,10 +409,11 @@ export default function Community() {
                               type="button"
                               aria-label="Add a reaction"
                               title="React"
-                              className="flex items-center justify-center rounded-full text-xs opacity-50 transition group-hover/msg:opacity-100 hover:scale-110"
-                              style={{ width: 24, height: 22, border: '1px dashed var(--iron)', color: 'var(--ash)' }}
+                              className="flex items-center gap-1 rounded-full px-2.5 text-sm font-semibold opacity-80 transition group-hover/msg:opacity-100 hover:scale-110"
+                              style={{ height: 28, border: `1.5px solid ${hex}`, color: hex, background: `${hex}1f` }}
                             >
-                              +
+                              <span aria-hidden style={{ fontSize: '1rem', lineHeight: 1 }}>☺</span>
+                              <span aria-hidden>+</span>
                             </button>
                             <div
                               className="absolute left-full ml-1 z-10 flex gap-1 rounded-full px-1.5 py-1 invisible opacity-0 -translate-x-1 transition-all duration-150 group-hover/react:visible group-hover/react:opacity-100 group-hover/react:translate-x-0 group-focus-within/react:visible group-focus-within/react:opacity-100 group-focus-within/react:translate-x-0"
@@ -425,7 +426,7 @@ export default function Community() {
                                   onClick={() => react(p.id, r.id)}
                                   aria-label={r.label}
                                   title={r.label}
-                                  className="rounded-full px-1.5 text-sm transition-transform duration-150 hover:scale-125 hover:-rotate-12"
+                                  className="rounded-full px-1.5 text-base transition-transform duration-150 hover:scale-125 hover:-rotate-12"
                                   style={{ color: p.mine?.includes(r.id) ? hex : 'var(--bone)' }}
                                 >
                                   {r.glyph}
@@ -550,6 +551,16 @@ export default function Community() {
             style={{ color: 'var(--ash)' }}
           >
             theasheleycatacombs.com
+          </a>
+          {' · '}border design by{' '}
+          <a
+            href="https://instagram.com/eastdocht"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-2 hover:text-white"
+            style={{ color: 'var(--ash)' }}
+          >
+            @eastdocht
           </a>
         </p>
       </div>
