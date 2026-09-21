@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { BOARD_API, TURNSTILE_SITE_KEY, MAX_NAME, MAX_MESSAGE, type BoardPost } from '../data/board'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 
@@ -58,6 +58,9 @@ export default function Community() {
   const admin = typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('admin')
 
   const widgetEl = useRef<HTMLDivElement>(null)
+  const boardEl = useRef<HTMLDivElement>(null)
+  // After the first load or a new post, jump the board to its newest (bottom) message
+  const stickToBottom = useRef(true)
   const widgetId = useRef<string | null>(null)
 
   const load = useCallback(async (before?: number) => {
@@ -76,6 +79,26 @@ export default function Community() {
   useEffect(() => {
     load()
   }, [load])
+
+  // Keep the view pinned to the newest message when asked; when older messages
+  // load in at the top, keep the reader where they were instead.
+  const heightBeforeOlder = useRef<number | null>(null)
+  useLayoutEffect(() => {
+    const el = boardEl.current
+    if (!el) return
+    if (heightBeforeOlder.current !== null) {
+      el.scrollTop += el.scrollHeight - heightBeforeOlder.current
+      heightBeforeOlder.current = null
+    } else if (stickToBottom.current && posts.length > 0) {
+      el.scrollTop = el.scrollHeight
+      stickToBottom.current = false
+    }
+  }, [posts])
+
+  const loadOlder = () => {
+    heightBeforeOlder.current = boardEl.current?.scrollHeight ?? null
+    load(posts[posts.length - 1]?.id)
+  }
 
   useEffect(() => {
     if (!BOARD_API || !widgetEl.current) return
@@ -114,6 +137,7 @@ export default function Community() {
       if (!res.ok) {
         setError(data.error ?? 'Could not post. Try again.')
       } else {
+        stickToBottom.current = true
         setPosts(p => [data.post, ...p])
         setMessage('')
       }
@@ -219,7 +243,64 @@ export default function Community() {
           <p style={{ color: 'var(--dust)' }}>The board is being set up. Check back soon.</p>
         ) : (
           <>
-            <form onSubmit={submit} className="space-y-3 mb-10">
+            {/* The board: a scrolling window, oldest at the top, newest at the bottom */}
+            <div
+              ref={boardEl}
+              className="mb-6 overflow-y-auto overscroll-contain"
+              style={{
+                maxHeight: 'min(60vh, 560px)',
+                minHeight: 160,
+                border: '1px solid var(--iron)',
+                background: '#050505',
+              }}
+              aria-label="Messages"
+            >
+              {more && (
+                <div className="text-center py-3" style={{ borderBottom: '1px solid var(--iron)' }}>
+                  <button
+                    type="button"
+                    onClick={loadOlder}
+                    className="label hover:text-white"
+                    style={{ color: 'var(--ash)' }}
+                  >
+                    Older messages
+                  </button>
+                </div>
+              )}
+
+              {loadError && (
+                <p className="p-4" style={{ color: 'var(--dust)' }}>Couldn’t load messages. Reload to try again.</p>
+              )}
+              {!loadError && posts.length === 0 && (
+                <p className="p-4" style={{ color: 'var(--dust)' }}>No messages yet. Be the first.</p>
+              )}
+
+              <ul>
+                {[...posts].reverse().map(p => (
+                  <li key={p.id} className="px-4 py-3" style={{ borderBottom: '1px solid var(--iron)' }}>
+                    <p className="flex items-baseline gap-2">
+                      <span className="font-semibold" style={{ color: 'var(--bone)' }}>{p.name}</span>
+                      <span className="label" style={{ color: 'var(--dust)' }}>{timeAgo(p.created_at)}</span>
+                      {admin && (
+                        <button
+                          type="button"
+                          onClick={() => remove(p.id)}
+                          className="label ml-auto hover:text-white"
+                          style={{ color: '#ff6b6b' }}
+                        >
+                          Delete
+                        </button>
+                      )}
+                    </p>
+                    <p className="mt-1 whitespace-pre-wrap break-words" style={{ color: 'var(--ash)', lineHeight: 1.6 }}>
+                      {p.message}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <form onSubmit={submit} className="space-y-3">
               <input
                 value={name}
                 onChange={e => setName(e.target.value)}
@@ -261,48 +342,6 @@ export default function Community() {
                 {sending ? 'Posting…' : 'Post message'}
               </button>
             </form>
-
-            {loadError && (
-              <p style={{ color: 'var(--dust)' }}>Couldn’t load messages. Reload to try again.</p>
-            )}
-            {!loadError && posts.length === 0 && (
-              <p style={{ color: 'var(--dust)' }}>No messages yet. Be the first.</p>
-            )}
-
-            <ul style={{ borderTop: '1px solid var(--iron)' }}>
-              {posts.map(p => (
-                <li key={p.id} className="py-4" style={{ borderBottom: '1px solid var(--iron)' }}>
-                  <p className="flex items-baseline gap-2">
-                    <span className="font-semibold" style={{ color: 'var(--bone)' }}>{p.name}</span>
-                    <span className="label" style={{ color: 'var(--dust)' }}>{timeAgo(p.created_at)}</span>
-                    {admin && (
-                      <button
-                        type="button"
-                        onClick={() => remove(p.id)}
-                        className="label ml-auto hover:text-white"
-                        style={{ color: '#ff6b6b' }}
-                      >
-                        Delete
-                      </button>
-                    )}
-                  </p>
-                  <p className="mt-1 whitespace-pre-wrap break-words" style={{ color: 'var(--ash)', lineHeight: 1.6 }}>
-                    {p.message}
-                  </p>
-                </li>
-              ))}
-            </ul>
-
-            {more && (
-              <button
-                type="button"
-                onClick={() => load(posts[posts.length - 1]?.id)}
-                className="label mt-6 hover:text-white"
-                style={{ color: 'var(--ash)' }}
-              >
-                Older messages
-              </button>
-            )}
           </>
         )}
       </div>
