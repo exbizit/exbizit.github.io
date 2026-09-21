@@ -1,9 +1,12 @@
 import { useState } from 'react'
+import { BrandIcon } from './SocialLinks'
 
 /**
- * Bandcamp's slim player, pinned to the bottom of the window so music keeps
- * playing (and stays in view) while the page scrolls. The × hides it for the
- * rest of the visit to this page; it comes back on the next band page.
+ * A floating Bandcamp button in the bottom-right corner. Tapping it opens the
+ * full player above it; tapping again tucks the player away.
+ *
+ * The player loads on first open and then stays mounted while collapsed, only
+ * hidden, so the music keeps playing as you scroll and close the panel.
  */
 export default function StickyBandcamp({
   embedAlbumId,
@@ -16,42 +19,67 @@ export default function StickyBandcamp({
   bandName: string
   accentColor: string
 }) {
-  const [open, setOpen] = useState(true)
-  if (!open) return null
+  const [open, setOpen] = useState(false)
+  const [loaded, setLoaded] = useState(false)
   const linkColor = accentColor.replace('#', '')
 
+  const toggle = () => {
+    setLoaded(true)
+    setOpen(o => !o)
+  }
+
   return (
-    <>
-      {/* Spacer so the bar never covers the end of the page */}
-      <div aria-hidden="true" style={{ height: '64px' }} />
-      <div
-        className="fixed bottom-0 left-0 right-0 z-40"
-        style={{
-          background: 'rgba(0,0,0,0.92)',
-          backdropFilter: 'blur(6px)',
-          borderTop: '1px solid var(--iron)',
-        }}
-      >
-        <div className="max-w-screen-2xl mx-auto px-5 md:px-8 py-2 flex items-center gap-3">
+    <div className="fixed z-40 flex flex-col items-end gap-3" style={{ right: 16, bottom: 16 }}>
+      {loaded && (
+        <div
+          id="bandcamp-panel"
+          className="transition-all duration-200 origin-bottom-right"
+          style={{
+            width: 'min(350px, calc(100vw - 32px))',
+            background: '#000',
+            border: '1px solid var(--iron)',
+            boxShadow: '0 12px 40px rgba(0,0,0,0.6)',
+            opacity: open ? 1 : 0,
+            transform: open ? 'none' : 'translateY(8px) scale(0.98)',
+            visibility: open ? 'visible' : 'hidden',
+            // Collapsed: out of the way but still mounted, so audio carries on
+            pointerEvents: open ? 'auto' : 'none',
+          }}
+        >
           <iframe
-            style={{ border: 0, width: '100%', maxWidth: '700px', height: '42px', display: 'block' }}
-            src={`https://bandcamp.com/EmbeddedPlayer/album=${embedAlbumId}/size=small/bgcol=000000/linkcol=${linkColor}/artwork=small/transparent=true/`}
+            style={{ border: 0, width: '100%', height: '340px', display: 'block' }}
+            src={`https://bandcamp.com/EmbeddedPlayer/album=${embedAlbumId}/size=large/bgcol=000000/linkcol=${linkColor}/tracklist=true/artwork=small/transparent=true/`}
             seamless
             title={`${bandName} on Bandcamp`}
           >
             <a href={albumUrl}>{bandName} on Bandcamp</a>
           </iframe>
-          <button
-            type="button"
-            onClick={() => setOpen(false)}
-            aria-label="Hide player"
-            className="ml-auto shrink-0 px-2 leading-none transition-colors hover:text-white"
-            style={{ color: 'var(--ash)', fontSize: '1.25rem' }}
-          >
-            ×
-          </button>
         </div>
-      </div>
-    </>
+      )}
+
+      <button
+        type="button"
+        onClick={toggle}
+        aria-expanded={open}
+        aria-controls="bandcamp-panel"
+        aria-label={open ? 'Hide Bandcamp player' : `Play ${bandName} on Bandcamp`}
+        title={open ? 'Hide player' : 'Listen on Bandcamp'}
+        className="flex items-center justify-center rounded-full transition-transform duration-200 hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+        style={{
+          width: 56,
+          height: 56,
+          background: accentColor,
+          color: '#000',
+          boxShadow: '0 6px 24px rgba(0,0,0,0.5)',
+          outlineColor: accentColor,
+        }}
+      >
+        {open ? (
+          <span aria-hidden="true" style={{ fontSize: '1.6rem', lineHeight: 1 }}>×</span>
+        ) : (
+          <BrandIcon slug="bandcamp" size={24} />
+        )}
+      </button>
+    </div>
   )
 }
