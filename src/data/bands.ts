@@ -141,7 +141,7 @@ export const BANDS: Band[] = [
     name: 'Hoster',
     tagline: 'Some Sorta Rock Music in Central Florida',
     description:
-      'Indie Rock featuring a variety of songwriters, singers, and styles. They are influenced by artists like Wednesday, The Hold Steady, Madison Cunningham, and The Districts. Their first single "Before Again" was released in October 2024, followed by their EP "A Little Strange" in July 2025. In 2026, Hoster performed on WPRK Flower Hour, and they released a live recording from that session , "Gnocchi".',
+      'Indie Rock blending multiple songwriters and styles. Influenced by artists like Wednesday, The Hold Steady, Madison Cunningham, and The Districts. Their first single "Before Again" was released in October 2024, followed by their EP "A Little Strange" in July 2025. In 2026, Hoster performed on WPRK Flower Hour, and they released a live recording from that session , "Gnocchi".',
     genre: ['indie rock', 'alternative', 'rock'],
     members: [
       { name: 'Mason K' },
