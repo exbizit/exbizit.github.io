@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import { getBandBySlug, bandPath } from '../data/bands'
 import { getShowsForBand } from '../data/shows'
 import VideoEmbed from '../components/VideoEmbed'
-import StickyBandcamp from '../components/StickyBandcamp'
+import MusicPlayer from '../components/MusicPlayer'
 import SocialLinks from '../components/SocialLinks'
 import ReleaseStrip from '../components/ReleaseStrip'
 import { getReleases } from '../data/discography'
@@ -468,15 +468,22 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
         </aside>
       </div>
 
-      {band.bandcamp?.embedAlbumId && (
-        <StickyBandcamp
-          key={band.slug}
-          embedAlbumId={band.bandcamp.embedAlbumId}
-          albumUrl={band.bandcamp.albumUrl}
-          bandName={band.name}
-          accentColor={band.accentColor}
-        />
-      )}
+      <MusicPlayer
+        key={band.slug}
+        bandName={band.name}
+        accentColor={band.accentColor}
+        defaultSource={band.playerDefault}
+        bandcamp={
+          band.bandcamp?.embedAlbumId
+            ? { embedAlbumId: band.bandcamp.embedAlbumId, albumUrl: band.bandcamp.albumUrl }
+            : undefined
+        }
+        spotifyArtistId={
+          band.socials
+            .find(s => s.platform === 'spotify')
+            ?.url.match(/open\.spotify\.com\/artist\/([A-Za-z0-9]+)/)?.[1] ?? null
+        }
+      />
 
       <Lightbox
         photos={band.photos}

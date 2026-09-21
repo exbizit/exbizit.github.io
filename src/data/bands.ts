@@ -99,6 +99,8 @@ export interface Band {
     date?: string          // as it should read on the page
     spotifyAlbumId?: string
   }
+  /** Which tab the floating music player opens on when both exist (default Bandcamp) */
+  playerDefault?: 'bandcamp' | 'spotify'
   /** Other artists' releases this project appears on (Spotify album/single ids) */
   featuredOn?: {
     title: string
@@ -311,12 +313,7 @@ export const BANDS: Band[] = [
       { name: 'Benny Q' },
     ],
     heroImage: '/photos/headbanned/phishing-cover.jpg',
-    latestRelease: {
-      title: 'Keep Phishing',
-      type: 'Album',
-      date: 'September 2025',
-      spotifyAlbumId: '3SM7BZN93605bQDOOydIWk',
-    },
+    playerDefault: 'spotify',   // Bandcamp only has part of the catalogue
     isActive: true,
     isSoloBrett: true,
     accentColor: '#8B00FF', // deep purple
