@@ -3,9 +3,8 @@ import { type Show, formatShowDate } from '../data/shows'
 import { getBandBySlug } from '../data/bands'
 
 /**
- * The band's next show as a small alert in the top-right of the hero, with a
- * link to tickets and a count of any further dates.
- * On phones it sits in the flow above the band name instead.
+ * The band's next show as a small alert card, with a link to tickets and a
+ * count of any further dates. Sits to the left of the release covers.
  */
 export default function NextShowAlert({
   shows,

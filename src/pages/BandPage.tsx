@@ -133,22 +133,7 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
           </div>
         )}
 
-        {/* Next show: pinned top-right on larger screens */}
-        <NextShowAlert
-          shows={shows}
-          bandSlug={band.slug}
-          accentColor={band.accentColor}
-          className="hidden md:block absolute z-10 right-5 md:right-8 top-20"
-        />
-
         <div className={asHeader ? 'relative' : 'relative max-w-7xl mx-auto'}>
-          {/* ...and above the name on phones */}
-          <NextShowAlert
-            shows={shows}
-            bandSlug={band.slug}
-            accentColor={band.accentColor}
-            className="md:hidden mb-5"
-          />
           <div className={`flex items-center gap-4 md:gap-5 flex-wrap ${lineUnderLogo ? 'mb-3' : 'mb-2'}`}>
             {band.logo && (
               // The logo gets its own column so an accent line can sit centred
@@ -223,7 +208,18 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
           )}
 
           <SocialLinks socials={band.socials} accentColor={band.accentColor} />
-          <ReleaseStrip releases={getReleases(band.slug)} accentColor={band.accentColor} />
+          {/* Next show, then the release covers, in one row under the links */}
+          <div className="mt-3 flex flex-col md:flex-row md:items-start gap-3">
+            <NextShowAlert
+              shows={shows}
+              bandSlug={band.slug}
+              accentColor={band.accentColor}
+              className="shrink-0"
+            />
+            <div className="min-w-0 flex-1">
+              <ReleaseStrip releases={getReleases(band.slug)} accentColor={band.accentColor} />
+            </div>
+          </div>
         </div>
       </section>
 

@@ -25,7 +25,7 @@ export default function ReleaseStrip({
 
   return (
     <ul
-      className="flex gap-2 md:gap-3 overflow-x-auto mt-3"
+      className="flex gap-2 md:gap-3 overflow-x-auto"
       style={{ scrollbarWidth: 'thin' }}
       aria-label="Releases"
     >
