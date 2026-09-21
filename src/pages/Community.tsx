@@ -164,28 +164,56 @@ export default function Community() {
         <h1 className="display" style={{ fontSize: 'clamp(2rem, 6vw, 3.5rem)', color: 'var(--bone)' }}>
           Community
         </h1>
-        <p className="mt-2 mb-5" style={{ color: 'var(--ash)', maxWidth: '52ch' }}>
-          Leave a message for the bands and everyone else here. Posts show up right away.
-        </p>
-
-        <section
-          aria-labelledby="guidelines"
-          className="mb-8 p-4"
-          style={{ border: '1px solid var(--iron)', borderLeft: '3px solid var(--bone)' }}
-        >
-          <h2 id="guidelines" className="label mb-2" style={{ color: 'var(--bone)' }}>
-            Community guidelines
-          </h2>
-          <ul className="space-y-1" style={{ color: 'var(--ash)', fontSize: '0.95rem' }}>
-            <li>No obscenities or slurs, including disguised spellings.</li>
-            <li>No links.</li>
-            <li>No spam: posting is limited to one message every 30 seconds and five an hour.</li>
-            <li>Be kind to the bands and to each other.</li>
-          </ul>
-          <p className="mt-2" style={{ color: 'var(--dust)', fontSize: '0.85rem' }}>
-            Messages that break these are blocked automatically or removed.
+        <div className="mt-2 mb-8 flex flex-wrap items-center gap-x-3 gap-y-2">
+          <p style={{ color: 'var(--ash)', maxWidth: '52ch' }}>
+            Leave a message for the bands and everyone else here. Posts show up right away.
           </p>
-        </section>
+
+          {/* House rules: a little tag that pops open on hover, focus or tap */}
+          <div className="group relative">
+            <button
+              type="button"
+              aria-describedby="house-rules"
+              className="label px-2.5 py-1 rounded-full transition-transform duration-200 group-hover:-rotate-3 group-focus-within:-rotate-3"
+              style={{ border: '1px dashed var(--bone)', color: 'var(--bone)' }}
+            >
+              ✦ house rules
+            </button>
+            <div
+              id="house-rules"
+              role="tooltip"
+              className="absolute left-0 top-full mt-2 z-20 w-72 p-4 rounded-2xl -rotate-1 invisible opacity-0 translate-y-1 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-0"
+              style={{
+                background: '#0b0b0b',
+                border: '1px dashed var(--bone)',
+                boxShadow: '4px 4px 0 var(--iron)',
+              }}
+            >
+              <p className="mb-2" style={{ color: 'var(--bone)', fontWeight: 600 }}>
+                be nice or be bounced ✦
+              </p>
+              <ul className="space-y-1.5" style={{ color: 'var(--ash)', fontSize: '0.9rem' }}>
+                <li>
+                  <span style={{ color: 'var(--bone)' }}>✕</span> no swears or slurs (we see you,
+                  sh1t-spellers)
+                </li>
+                <li>
+                  <span style={{ color: 'var(--bone)' }}>✕</span> no links
+                </li>
+                <li>
+                  <span style={{ color: 'var(--bone)' }}>✕</span> no spam: one post every 30 seconds,
+                  five an hour
+                </li>
+                <li>
+                  <span style={{ color: 'var(--bone)' }}>♡</span> be sweet to the bands and each other
+                </li>
+              </ul>
+              <p className="mt-2" style={{ color: 'var(--dust)', fontSize: '0.8rem' }}>
+                Rule-breakers get blocked automatically or tidied away.
+              </p>
+            </div>
+          </div>
+        </div>
 
         {!BOARD_API ? (
           <p style={{ color: 'var(--dust)' }}>The board is being set up. Check back soon.</p>
