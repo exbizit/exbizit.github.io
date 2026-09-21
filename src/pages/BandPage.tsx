@@ -8,7 +8,7 @@ import SocialLinks from '../components/SocialLinks'
 import ReleaseStrip from '../components/ReleaseStrip'
 import { getReleases } from '../data/discography'
 import MembersList from '../components/MembersList'
-import ShowList from '../components/ShowList'
+import NextShowAlert from '../components/NextShowAlert'
 import Sigil from '../components/Sigil'
 import PhotoFrame from '../components/PhotoFrame'
 import Lightbox from '../components/Lightbox'
@@ -133,7 +133,22 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
           </div>
         )}
 
+        {/* Next show: pinned top-right on larger screens */}
+        <NextShowAlert
+          shows={shows}
+          bandSlug={band.slug}
+          accentColor={band.accentColor}
+          className="hidden md:block absolute z-10 right-5 md:right-8 top-20"
+        />
+
         <div className={asHeader ? 'relative' : 'relative max-w-7xl mx-auto'}>
+          {/* ...and above the name on phones */}
+          <NextShowAlert
+            shows={shows}
+            bandSlug={band.slug}
+            accentColor={band.accentColor}
+            className="md:hidden mb-5"
+          />
           <div className={`flex items-center gap-4 md:gap-5 flex-wrap ${lineUnderLogo ? 'mb-3' : 'mb-2'}`}>
             {band.logo && (
               // The logo gets its own column so an accent line can sit centred
@@ -243,20 +258,6 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
                   style={{ border: 0, borderRadius: '12px', display: 'block', maxWidth: '760px' }}
                 />
               )}
-            </section>
-          )}
-
-          {shows.length > 0 && (
-            <section>
-              <p className="label mb-3">Upcoming</p>
-              <ShowList shows={shows} omitBandSlug={band.slug} accentColor={band.accentColor} />
-              <Link
-                to="/shows"
-                className="label inline-block mt-5 hover:text-white"
-                style={{ color: band.accentColor }}
-              >
-                All dates →
-              </Link>
             </section>
           )}
 
