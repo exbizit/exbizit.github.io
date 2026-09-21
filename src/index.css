@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* True black, not a tinted near-black — the contrast IS the aesthetic */
+  --void:   #000000;
+  --bone:   #FFFFFF;
+  --ash:    #8C8C8C;   /* secondary text */
+  --dust:   #4A4A4A;   /* placeholder / tertiary */
+  --iron:   #242424;   /* hairlines */
+}
+
+@layer base {
+  html {
+    background-color: var(--void);
+    color: var(--bone);
+    font-family: 'Chakra Petch', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  * { box-sizing: border-box; }
+  body { overflow-x: hidden; }
+}
+
+@layer components {
+  /* Falls back to the system face on pages with no band typography set */
+  .label {
+    font-family: var(--font-body, 'Chakra Petch', sans-serif);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ash);
+  }
+
+  /* Display type — tight, high contrast */
+  .display {
+    font-family: var(--font-display, 'Chakra Petch', sans-serif);
+    font-weight: var(--display-weight, 700);
+    letter-spacing: var(--display-tracking, -0.03em);
+    line-height: 0.88;
+  }
+
+  /* Photos: high-contrast monochrome, edges dissolving into the void */
+  .photo-dissolve {
+    filter: grayscale(1) contrast(1.25) brightness(0.92);
+    -webkit-mask-image: radial-gradient(ellipse 78% 78% at 50% 45%, #000 42%, transparent 100%);
+    mask-image: radial-gradient(ellipse 78% 78% at 50% 45%, #000 42%, transparent 100%);
+  }
+
+  .photo-edge-fade {
+    filter: grayscale(1) contrast(1.2);
+    -webkit-mask-image: linear-gradient(to bottom, #000 30%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 30%, transparent 100%);
+  }
+
+  .hairline { border-color: var(--iron); }
+}
+
+/* ── Sigil motion ─────────────────────────────────────────────────────────
+   One orchestrated draw-on at load, then a very slow drift. Nothing else
+   on the page moves on its own. */
+@keyframes sigil-draw {
+  from { stroke-dashoffset: var(--dash, 400); }
+  to   { stroke-dashoffset: 0; }
+}
+@keyframes sigil-drift {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes thorn-emerge {
+  from { opacity: 0; transform: scale(0.82); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.sigil-stroke {
+  stroke-dasharray: var(--dash, 400);
+  animation: sigil-draw 2.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.sigil-thorn {
+  animation: thorn-emerge 1.4s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  transform-origin: center;
+}
+.sigil-drift { animation: sigil-drift 140s linear infinite; transform-origin: center; }
+.sigil-drift-reverse { animation: sigil-drift 190s linear infinite reverse; transform-origin: center; }
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--void); }
+::-webkit-scrollbar-thumb { background: var(--iron); }
+::-webkit-scrollbar-thumb:hover { background: var(--bone); }
+
+:focus-visible { outline: 1px solid var(--bone); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .sigil-stroke { stroke-dashoffset: 0; }
+}

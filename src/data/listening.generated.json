@@ -1,0 +1,520 @@
+{
+  "updated": "2026-09-21T01:24:12.678Z",
+  "profileUrl": "https://open.spotify.com/user/brettbissey",
+  "artists": [
+    {
+      "name": "Yeat",
+      "imageUrl": "https://i.scdn.co/image/ab67616100005174fc759f7938b4c65bfe41c4ff",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/3qiHUAX7zY4Qnjx8TNUzVx",
+      "tracks": [
+        "EARNËD IT",
+        "Goin Back 2 Ella",
+        "IN2THAT",
+        "Forëally / 4Ly",
+        "Tëslas & Rovers",
+        "MISS MY DAWG (feat. Drake)"
+      ]
+    },
+    {
+      "name": "Total Wife",
+      "imageUrl": "https://i.scdn.co/image/ab676161000051742630949a46408a7818fe333d",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/1JQhIj3MeXcTYorKsa5SBz",
+      "tracks": [
+        "make.it.last.x.full.body.2.recovery",
+        "naoisa",
+        "in my head",
+        "make it last",
+        "second spring",
+        "still asleep"
+      ]
+    },
+    {
+      "name": "Playboi Carti",
+      "imageUrl": "https://i.scdn.co/image/ab67616100005174ba50ca67ffc3097f6ea1710a",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/699OTQXzgjhIYAHMy9RyPD",
+      "tracks": [
+        "POP OUT",
+        "FOMDJ",
+        "OPM BABI",
+        "OLYMPIAN",
+        "CRANK",
+        "LIKE WEEZY"
+      ]
+    },
+    {
+      "name": "Wednesday",
+      "imageUrl": "https://i.scdn.co/image/ab67616100005174cbf22720296d758d8b373a85",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/4j7DrazfBZLLD0OrVoAtEe",
+      "tracks": [
+        "Twin Plagues",
+        "June 2 - Early Version"
+      ]
+    },
+    {
+      "name": "Horse Vision",
+      "imageUrl": "https://i.scdn.co/image/ab676161000051747918e01b086d148982fabb07",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/28gAkTGnjn8QZllb4EU4OM",
+      "tracks": []
+    },
+    {
+      "name": "Alex G",
+      "imageUrl": "https://i.scdn.co/image/ab67616100005174cfa32469a372188d27bd17b7",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/6lcwlkAjBPSKnFBZjjZFJs",
+      "tracks": []
+    },
+    {
+      "name": "Bright Eyes",
+      "imageUrl": "https://i.scdn.co/image/ab676161000051744a1dbd8cba6b67acd9bd44e2",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/5o206eFLx38glA2bb4zqIU",
+      "tracks": [
+        "The City Has Sex"
+      ]
+    },
+    {
+      "name": "sallywants",
+      "imageUrl": "https://i.scdn.co/image/ab6761610000517453e384d224c622d499b77f3e",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/3sxUJTma27IDz1vRS8n8iZ",
+      "tracks": [
+        "song for kim",
+        "fun",
+        "spin"
+      ]
+    },
+    {
+      "name": "Bladee",
+      "imageUrl": "https://i.scdn.co/image/ab676161000051743c4ebaf1561b2ab468cca261",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/2xvtxDNInKDV4AvGmjw6d1",
+      "tracks": [
+        "Durins Bane"
+      ]
+    },
+    {
+      "name": "Bedridden",
+      "imageUrl": "https://i.scdn.co/image/ab67616100005174ccee66bdd071e70eb12af828",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/60aV5uqvJL1hzJjuZrwPZn",
+      "tracks": [
+        "Clara’s Mouth"
+      ]
+    },
+    {
+      "name": "Weatherday",
+      "imageUrl": "https://i.scdn.co/image/ab676161000051740e3e87198646814b0554fe5b",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/6pmR08TKSTs8rll6W99VnK",
+      "tracks": []
+    },
+    {
+      "name": "Eiafuawn",
+      "imageUrl": "https://i.scdn.co/image/ab676161000051749e2ec1abf74c15511dd1a697",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/73su3oDG4DKZP77Jzz1CX6",
+      "tracks": [
+        "Take Me To My Room"
+      ]
+    },
+    {
+      "name": "soap box derby",
+      "imageUrl": "https://i.scdn.co/image/ab67616100005174d14a50bace710ffbbf440a02",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/45Nv8P8qK8SveoOoBP4l9O",
+      "tracks": [
+        "anniversary",
+        "twelve hours",
+        "bitter apparition",
+        "a window between us"
+      ]
+    },
+    {
+      "name": "They Are Gutting a Body of Water",
+      "imageUrl": "https://i.scdn.co/image/ab6761610000517492258ad2dfc70241d72496e3",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/2VhTBaV2Io9AJe661MUTEj",
+      "tracks": [
+        "the chase"
+      ]
+    }
+  ],
+  "items": [
+    {
+      "artist": "Yeat",
+      "album": "COCOON",
+      "track": "EARNËD IT",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e027013f42ca4a4d0965d5ad6c1",
+      "url": "https://open.spotify.com/track/0F0uSTQGmuF1JxmEtbZFxw",
+      "tracks": [
+        "EARNËD IT",
+        "IN2THAT",
+        "MISS MY DAWG (feat. Drake)",
+        "LUH BIRK",
+        "HOLY WATËR",
+        "COCOON",
+        "TËNNIS"
+      ]
+    },
+    {
+      "artist": "Total Wife, Full Body 2",
+      "album": "make.it.last.x.full.body.2.recovery",
+      "track": "make.it.last.x.full.body.2.recovery",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02d6bccb6c4b27389c31e5afb8",
+      "url": "https://open.spotify.com/track/531gmabvCuMNEeVcHQjGgs",
+      "tracks": [
+        "make.it.last.x.full.body.2.recovery"
+      ]
+    },
+    {
+      "artist": "Yeat",
+      "album": "4L",
+      "track": "Goin Back 2 Ella",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02172e4d38f7508dfdb5e4c015",
+      "url": "https://open.spotify.com/track/1XGJkd545elGBmcNTHMjOD",
+      "tracks": [
+        "Goin Back 2 Ella",
+        "Forëally / 4Ly",
+        "Tëslas & Rovers",
+        "Ok Kool",
+        "Jus Wokëup",
+        "Chanëlly",
+        "Mountain Climbërs",
+        "Sorry Bout That",
+        "Livë Hi",
+        "All I See",
+        "Bëd Side",
+        "Off Tha Lot",
+        "Talk 2 God",
+        "Swërved It",
+        "Money Twërk"
+      ]
+    },
+    {
+      "artist": "sallywants",
+      "album": "song for kim / fun",
+      "track": "song for kim",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e024bed2518aff9297a89badd67",
+      "url": "https://open.spotify.com/track/0PM0Jn3xpZqXsrqujglhIx",
+      "tracks": [
+        "song for kim",
+        "fun"
+      ]
+    },
+    {
+      "artist": "First Day Back",
+      "album": "Forward",
+      "track": "Sure, Ok",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0295be210d3b58d0796e577798",
+      "url": "https://open.spotify.com/track/7fqfrQxzYG8qLzMuDX3tyJ",
+      "tracks": [
+        "Sure, Ok"
+      ]
+    },
+    {
+      "artist": "Total Wife",
+      "album": "come back down",
+      "track": "naoisa",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e022d27b11607e9dacf350505af",
+      "url": "https://open.spotify.com/track/76wZozulxDjEPjjVfgz3pg",
+      "tracks": [
+        "naoisa",
+        "in my head",
+        "make it last",
+        "second spring",
+        "still asleep",
+        "chloe"
+      ]
+    },
+    {
+      "artist": "sallywants",
+      "album": "spin",
+      "track": "spin",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02c0753eb8eec38c8ce6137e03",
+      "url": "https://open.spotify.com/track/0VV5qw8aRLPwudmgDfjRok",
+      "tracks": [
+        "spin"
+      ]
+    },
+    {
+      "artist": "partner",
+      "album": "Digging",
+      "track": "Digging",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e027d3f57bb790ac36f0ac205c5",
+      "url": "https://open.spotify.com/track/2HVDnly7Yzlvdh8c34oaFK",
+      "tracks": [
+        "Digging"
+      ]
+    },
+    {
+      "artist": "Che",
+      "album": "REST IN BASS: ENCORE",
+      "track": "MAKE OUT WITH MY CHOPPA",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02f7f1e129b06640d7836c9a5c",
+      "url": "https://open.spotify.com/track/1gK8piCdSoSZoLxB0K5mOe",
+      "tracks": [
+        "MAKE OUT WITH MY CHOPPA"
+      ]
+    },
+    {
+      "artist": "Playboi Carti",
+      "album": "MUSIC",
+      "track": "POP OUT",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e026b219c8d8462bfe254a20469",
+      "url": "https://open.spotify.com/track/3j3SfV4hAcR4XjCvW393Gr",
+      "tracks": [
+        "POP OUT",
+        "OPM BABI",
+        "OLYMPIAN",
+        "CRANK",
+        "LIKE WEEZY",
+        "I SEEEEEE YOU BABY BOI"
+      ]
+    },
+    {
+      "artist": "Bright Eyes",
+      "album": "Letting Off The Happiness",
+      "track": "The City Has Sex",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e024c31e8a6ae5e551495a27b90",
+      "url": "https://open.spotify.com/track/0jrMDJAYxwyRcRDCVZ7OeQ",
+      "tracks": [
+        "The City Has Sex"
+      ]
+    },
+    {
+      "artist": "Bedridden",
+      "album": "Amateur Heartthrob",
+      "track": "Clara’s Mouth",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e020706ccbf7a9d5c242ab7aa1c",
+      "url": "https://open.spotify.com/track/1Kbz3AER5Ga4O4U4C94EPM",
+      "tracks": [
+        "Clara’s Mouth"
+      ]
+    },
+    {
+      "artist": "Wednesday",
+      "album": "Twin Plagues",
+      "track": "Twin Plagues",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02e2adbcd227b4e6eea8923b71",
+      "url": "https://open.spotify.com/track/5OeHMVPyqAyfAkeZm9MwSI",
+      "tracks": [
+        "Twin Plagues"
+      ]
+    },
+    {
+      "artist": "Eiafuawn",
+      "album": "Endless Body",
+      "track": "Take Me To My Room",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02d68a582eac818f6dd697c0b8",
+      "url": "https://open.spotify.com/track/5Zex4ANBUaqsDkFwoPTh6v",
+      "tracks": [
+        "Take Me To My Room"
+      ]
+    },
+    {
+      "artist": "soap box derby",
+      "album": "anniversary",
+      "track": "anniversary",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02b581953cd7b1c9f456f8958a",
+      "url": "https://open.spotify.com/track/5H0qzWcgVlD8dQzd6Q3uGB",
+      "tracks": [
+        "anniversary"
+      ]
+    },
+    {
+      "artist": "They Are Gutting a Body of Water",
+      "album": "LOTTO",
+      "track": "the chase",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0284670a29dc9517abaa833144",
+      "url": "https://open.spotify.com/track/6644GA3zEDSw7XChsTNY76",
+      "tracks": [
+        "the chase"
+      ]
+    },
+    {
+      "artist": "Wednesday",
+      "album": "Bleeds (Deluxe)",
+      "track": "June 2 - Early Version",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02fd9e42d13d827726d78063a0",
+      "url": "https://open.spotify.com/track/6DuR0uC5L9oqUxlHvHuu8t",
+      "tracks": [
+        "June 2 - Early Version"
+      ]
+    },
+    {
+      "artist": "Playboi Carti",
+      "album": "MUSIC - SORRY 4 DA WAIT",
+      "track": "FOMDJ",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e026da4ec0bce9baf42436db10a",
+      "url": "https://open.spotify.com/track/7bO7a1KrtmGNDIOy2u3siZ",
+      "tracks": [
+        "FOMDJ",
+        "OPM BABI",
+        "OLYMPIAN",
+        "POP OUT",
+        "LIKE WEEZY",
+        "I SEEEEEE YOU BABY BOI",
+        "DIFFERENT DAY",
+        "MUNYUN",
+        "CRANK",
+        "DIS 1 GOT IT",
+        "MOJO JOJO",
+        "OVERLY",
+        "K POP",
+        "EVIL J0RDAN",
+        "WALK",
+        "RADAR",
+        "2024",
+        "BACKR00MS (with Travis Scott)",
+        "TOXIC (with Skepta)",
+        "HBA",
+        "SOUTH ATLANTA BABY",
+        "GOOD CREDIT (with Kendrick Lamar)",
+        "TRIM (with Future)",
+        "FINE SHIT",
+        "WAKE UP F1LTHY (with Travis Scott)"
+      ]
+    },
+    {
+      "artist": "Toner",
+      "album": "Cleo",
+      "track": "Cleo",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e021e883d0fd4d29898ebccd6f4",
+      "url": "https://open.spotify.com/track/2GcyaxeLcrIezbiQckjf2R",
+      "tracks": [
+        "Cleo"
+      ]
+    },
+    {
+      "artist": "Flowers For Emily",
+      "album": "Elijay",
+      "track": "Reversal",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0206b3ccdc0d5d016e4dad9d2a",
+      "url": "https://open.spotify.com/track/2KVi7ff6DugfDBBvUznKrq",
+      "tracks": [
+        "Reversal",
+        "Recover",
+        "+44",
+        "Dissonance",
+        "Calendar",
+        "a wild sheep chase",
+        "Everyday",
+        "Elijay, GA"
+      ]
+    },
+    {
+      "artist": "feeble little horse",
+      "album": "bitknot",
+      "track": "Doorway",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02b89878a9b4cf4b7b71625711",
+      "url": "https://open.spotify.com/track/6jSdPCPsSI6ZBFzLluYVlh",
+      "tracks": [
+        "Doorway",
+        "Dior",
+        "Poison",
+        "Cradle",
+        "Guts"
+      ]
+    },
+    {
+      "artist": "Turnstile",
+      "album": "Step to Rhythm",
+      "track": "7",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e027232e39fbe7bd41d35de013d",
+      "url": "https://open.spotify.com/track/6VHhnEVCYvxlQQr5kbWd5i",
+      "tracks": [
+        "7"
+      ]
+    },
+    {
+      "artist": "Lil Novi, North West",
+      "album": "MULA THA ROOT OF ALL EVIL",
+      "track": "MULA THA ROOT OF ALL EVIL",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02744fbce8be1af93e9f3d7c38",
+      "url": "https://open.spotify.com/track/178Kk0lBFBHRh8EhuRj7YY",
+      "tracks": [
+        "MULA THA ROOT OF ALL EVIL"
+      ]
+    },
+    {
+      "artist": "Yeat",
+      "album": "2 Alivë",
+      "track": "Poppin",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02ce4e6757336a09f7e7ead6ef",
+      "url": "https://open.spotify.com/track/3wn8nOygkHLUQ9dlXM1rKW",
+      "tracks": [
+        "Poppin",
+        "Taliban",
+        "Nvr again",
+        "On tha linë"
+      ]
+    },
+    {
+      "artist": "soap box derby",
+      "album": "twelve hours",
+      "track": "twelve hours",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02f6ee225816d0df324cb8b95c",
+      "url": "https://open.spotify.com/track/2VaG8NIHO7sBaIQBGKcoyM",
+      "tracks": [
+        "twelve hours"
+      ]
+    },
+    {
+      "artist": "soap box derby",
+      "album": "a window between us / bitter apparition",
+      "track": "bitter apparition",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e022dc2ccbc1de60d9ced550272",
+      "url": "https://open.spotify.com/track/2K412CJbRdiM2Hj1ES4b95",
+      "tracks": [
+        "bitter apparition",
+        "a window between us"
+      ]
+    },
+    {
+      "artist": "Yeat",
+      "album": "Up 2 Më",
+      "track": "Lying 4 fun",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0237e87168ba4bc06413a2fc27",
+      "url": "https://open.spotify.com/track/4VhHzTRapoR0Y1e9QKEijz",
+      "tracks": [
+        "Lying 4 fun",
+        "Gët Busy"
+      ]
+    },
+    {
+      "artist": "Bladee",
+      "album": "Sulfur Surfer",
+      "track": "Durins Bane",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0245114642b5642bace31a8819",
+      "url": "https://open.spotify.com/track/36JQQxmWRgFsr9pRL0jHuC",
+      "tracks": [
+        "Durins Bane"
+      ]
+    },
+    {
+      "artist": "Flowers For Emily",
+      "album": "Plastic",
+      "track": "Plastic",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e021063df1633cf4e9a0a3dfc06",
+      "url": "https://open.spotify.com/track/6AlvNpUg5OOorMWX0vK32f",
+      "tracks": [
+        "Plastic"
+      ]
+    },
+    {
+      "artist": "Elliott Smith",
+      "album": "Either/Or",
+      "track": "Cupid's Trick",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e022f3552dc6f9e4e2748c5b8ba",
+      "url": "https://open.spotify.com/track/02dNJoluauc40mVrZaQCs4",
+      "tracks": [
+        "Cupid's Trick"
+      ]
+    }
+  ]
+}

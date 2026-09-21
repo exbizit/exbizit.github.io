@@ -1,0 +1,57 @@
+name: Refresh listening data
+
+# GitHub Pages only serves files — it never runs your code. This Action is what
+# actually executes `npm run listening`, commits the refreshed JSON, and lets the
+# deploy pick it up. Credentials live in repo Secrets, never in the repo itself.
+
+on:
+  schedule:
+    # Mondays 09:00 UTC. Spotify's top-tracks windows move slowly, so daily would
+    # mostly produce empty commits.
+    - cron: '0 9 * * 1'
+  workflow_dispatch:      # lets you run it by hand from the Actions tab
+
+permissions:
+  contents: write         # needed to commit the refreshed data back
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Pull from Spotify
+        env:
+          SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+          SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+          SPOTIFY_REFRESH_TOKEN: ${{ secrets.SPOTIFY_REFRESH_TOKEN }}
+          SPOTIFY_PROFILE_URL: ${{ secrets.SPOTIFY_PROFILE_URL }}
+        run: npm run listening
+
+      - name: Commit if anything changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/listening.generated.json
+          # --quiet exits non-zero when there IS a change; guard so a no-op week
+          # doesn't fail the run
+          if git diff --staged --quiet; then
+            echo "No change this week."
+          else
+            git commit -m "chore: refresh listening data"
+            git push
+          fi
+
+      - name: Build and deploy
+        run: |
+          npm run build
+          npx gh-pages -d dist -u "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
