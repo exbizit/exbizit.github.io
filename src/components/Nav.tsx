@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { BANDS, bandPath, type Band } from '../data/bands'
 import { useNavFonts } from '../hooks/useNavFonts'
@@ -46,11 +46,19 @@ export default function Nav() {
   // The utility links wrap to a second row on narrow windows, so the nav's
   // height varies. Publish it as --nav-h; pages pad their tops by it.
   const navRef = useRef<HTMLElement>(null)
+  const bandsRef = useRef<HTMLDivElement>(null)
+  const utilRef = useRef<HTMLDivElement>(null)
+  // True when the utility links have dropped onto their own row. Measured, not
+  // tied to a breakpoint, because where it wraps depends on the band wordmarks.
+  const [wrapped, setWrapped] = useState(false)
   useEffect(() => {
     const el = navRef.current
     if (!el) return
-    const set = () =>
+    const set = () => {
+      const b = bandsRef.current, u = utilRef.current
+      if (b && u) setWrapped(u.offsetTop > b.offsetTop + 4)
       document.documentElement.style.setProperty('--nav-h', `${el.offsetHeight}px`)
+    }
     set()
     const ro = new ResizeObserver(set)
     ro.observe(el)
@@ -65,7 +73,7 @@ export default function Nav() {
     >
       <div className="max-w-7xl mx-auto px-4 flex flex-wrap items-center">
         {/* Bands. Scrolls sideways only if the bands alone overflow the window. */}
-        <div className="flex items-center overflow-x-auto min-w-0 no-scrollbar">
+        <div ref={bandsRef} className="flex items-center overflow-x-auto min-w-0 no-scrollbar">
           {BANDS.map(band => {
             const to = bandPath(band.slug)
             const active = pathname === to
@@ -75,7 +83,7 @@ export default function Nav() {
                 to={to}
                 aria-current={active ? 'page' : undefined}
                 aria-label={band.wordmark ? band.name : undefined}
-                className="nav-item h-11 md:h-14 px-3 flex items-center whitespace-nowrap shrink-0"
+                className={`nav-item ${wrapped ? 'h-11' : 'h-14'} px-3 flex items-center whitespace-nowrap shrink-0`}
                 style={{ ['--accent' as string]: band.accentColor }}
               >
                 {band.wordmark ? (
@@ -101,9 +109,11 @@ export default function Nav() {
 
         {/* Utility pages. When there isn't room beside the bands, this whole
             group wraps onto its own row rather than hiding off-screen. */}
-        <div className="flex items-center pb-1.5 md:pb-0">
+        <div ref={utilRef} className={`flex items-center ${wrapped ? 'pb-1.5' : ''}`}>
           <span
-            className="mx-2 shrink-0 hidden md:block"
+            // invisible rather than removed when wrapped: keeping its width stops the
+            // row from flip-flopping between wrapped and not at the boundary
+            className={`mx-2 shrink-0 ${wrapped ? 'invisible' : ''}`}
             style={{ width: '1px', height: '14px', background: 'var(--iron)' }}
             aria-hidden
           />
@@ -116,7 +126,7 @@ export default function Nav() {
               key={item.to}
               to={item.to}
               aria-current={pathname === item.to ? 'page' : undefined}
-              className="nav-item label h-7 md:h-14 px-3 flex items-center whitespace-nowrap shrink-0"
+              className={`nav-item label ${wrapped ? 'h-7' : 'h-14'} px-3 flex items-center whitespace-nowrap shrink-0`}
               style={{ ['--accent' as string]: 'var(--bone)' }}
             >
               {item.label}
