@@ -306,7 +306,7 @@ export const BANDS: Band[] = [
     tagline: "Indie-folk project established in 2015",
     description:
       "Head Banned starting writing and producing music in 2015; amounting to 7 full length albums, a live album, and a split EP with zeroindex. While Head Banned continues as a solo project, it played full band shows in Orlando from 2017-2021.",
-    genre: ['indie folk', 'singer-songwriter', 'psychedelia', 'indie-electronic'],
+    genre: ['indie folk', 'singer-songwriter', 'alternative', 'psychedelia', 'indie-electronic'],
     members: [
       { name: 'Brett B', role: 'songwriting & production' },
     ],
