@@ -359,6 +359,26 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
             </section>
           )}
 
+          {band.featuredOn && band.featuredOn.length > 0 && (
+            <section>
+              <p className="label mb-3">Featured on</p>
+              <div className="space-y-3">
+                {band.featuredOn.map(f => (
+                  <iframe
+                    key={f.spotifyAlbumId}
+                    src={`https://open.spotify.com/embed/album/${f.spotifyAlbumId}?utm_source=generator&theme=0`}
+                    title={`${f.title} by ${f.artist} on Spotify`}
+                    width="100%"
+                    height="152"
+                    loading="lazy"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    style={{ border: 0, borderRadius: '12px', display: 'block', maxWidth: '760px' }}
+                  />
+                ))}
+              </div>
+            </section>
+          )}
+
           {band.photos.length > 0 && (
             <section>
               <p className="label mb-3">Photos</p>

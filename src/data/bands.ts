@@ -99,6 +99,12 @@ export interface Band {
     date?: string          // as it should read on the page
     spotifyAlbumId?: string
   }
+  /** Other artists' releases this project appears on (Spotify album/single ids) */
+  featuredOn?: {
+    title: string
+    artist: string
+    spotifyAlbumId: string
+  }[]
   /** Centre the accent line under the logo rather than under the name */
   accentUnderLogo?: boolean
   /** CSS height for the wordmark in the hero. Wide artwork needs a smaller value. */
@@ -370,6 +376,10 @@ export const BANDS: Band[] = [
     ],
     videos: [],
     heroPosition: 'center bottom',   // photo's bottom edge pinned to the hero's
+    featuredOn: [
+      // cqgator, feat. zeroindex & shinji death cult (single, 2024)
+      { title: 'around for me', artist: 'cqgator', spotifyAlbumId: '2ty6NyovJ2UnvoxIDsv9Nt' },
+    ],
     photos: [
       { src: '/photos/zeroindex/mixing.jpg' },
       { src: '/photos/zeroindex/grindset-cover.jpg', caption: 'Grindset' },
