@@ -6,7 +6,7 @@
  * TURNSTILE_SITE_KEY: the Turnstile widget's site key (the secret key lives
  *            only in Cloudflare, as a Worker secret).
  */
-export const BOARD_API = ''
+export const BOARD_API = 'https://hostersphere-board.hostersphere-board.workers.dev'
 export const TURNSTILE_SITE_KEY = '0x4AAAAAAE_CrzZZSJuVk1Gy'
 
 export const MAX_NAME = 40
