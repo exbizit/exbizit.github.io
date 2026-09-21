@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef } from 'react'
+import { createPortal } from 'react-dom'
 import type { Photo } from '../data/bands'
 
 /**
@@ -63,7 +64,9 @@ export default function Lightbox({ photos, index, onClose, onNavigate, label }: 
   const photo = photos[index!]
   const many = photos.length > 1
 
-  return (
+  // Portalled to <body>: a parent with a backdrop blur, transform or overflow
+  // clip would otherwise trap this fixed overlay inside it, under the nav.
+  return createPortal(
     <div
       role="dialog"
       aria-modal="true"
@@ -143,6 +146,7 @@ export default function Lightbox({ photos, index, onClose, onNavigate, label }: 
           </p>
         )}
       </div>
-    </div>
+    </div>,
+    document.body
   )
 }
