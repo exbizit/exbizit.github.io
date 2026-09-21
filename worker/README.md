@@ -53,3 +53,16 @@ Blocked words beyond the built-in English list: add them to `EXTRA_BLOCKED` in
 npx wrangler tail     # live logs
 npx wrangler d1 execute hostersphere-board --remote --command "SELECT id, name, message FROM posts ORDER BY id DESC LIMIT 20"
 ```
+
+## Migrations
+
+Run each file in `migrations/` once, in order, **before** deploying code that
+needs it:
+
+```bash
+npx wrangler d1 execute hostersphere-board --remote --file=migrations/0002_color_icon.sql
+npx wrangler deploy
+```
+
+(`schema.sql` already includes every migration, for a brand-new database.)
+

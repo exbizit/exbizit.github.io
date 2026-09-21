@@ -1,5 +1,15 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { BOARD_API, TURNSTILE_SITE_KEY, MAX_NAME, MAX_MESSAGE, type BoardPost } from '../data/board'
+import {
+  BOARD_API,
+  TURNSTILE_SITE_KEY,
+  MAX_NAME,
+  MAX_MESSAGE,
+  COLORS,
+  ICONS,
+  colorHex,
+  iconGlyph,
+  type BoardPost,
+} from '../data/board'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 
 declare global {
@@ -50,6 +60,8 @@ export default function Community() {
   const [loadError, setLoadError] = useState(false)
   const [name, setName] = useState('')
   const [message, setMessage] = useState('')
+  const [color, setColor] = useState<string | null>(null)
+  const [icon, setIcon] = useState<string | null>(null)
   const [token, setToken] = useState<string | null>(null)
   const [sending, setSending] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -131,7 +143,7 @@ export default function Community() {
       const res = await fetch(`${BOARD_API}/posts`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, message, token }),
+        body: JSON.stringify({ name, message, token, color, icon }),
       })
       const data = await res.json()
       if (!res.ok) {
@@ -246,12 +258,13 @@ export default function Community() {
             {/* The board: a scrolling window, oldest at the top, newest at the bottom */}
             <div
               ref={boardEl}
-              className="mb-6 overflow-y-auto overscroll-contain"
+              className="mb-6 overflow-y-auto overscroll-contain rounded-2xl p-2 sm:p-3"
               style={{
                 maxHeight: 'min(60vh, 560px)',
                 minHeight: 160,
-                border: '1px solid var(--iron)',
-                background: '#050505',
+                // Rainbow rim made from the pickable colours, dotted paper inside
+                border: '2px solid transparent',
+                background: `radial-gradient(circle, #1a1a1a 1px, transparent 1.5px) 0 0 / 18px 18px, linear-gradient(#060606, #060606) padding-box, linear-gradient(120deg, ${COLORS.map(c => c.hex).join(', ')}) border-box`,
               }}
               aria-label="Messages"
             >
@@ -275,28 +288,65 @@ export default function Community() {
                 <p className="p-4" style={{ color: 'var(--dust)' }}>No messages yet. Be the first.</p>
               )}
 
-              <ul>
-                {[...posts].reverse().map(p => (
-                  <li key={p.id} className="px-4 py-3" style={{ borderBottom: '1px solid var(--iron)' }}>
-                    <p className="flex items-baseline gap-2">
-                      <span className="font-semibold" style={{ color: 'var(--bone)' }}>{p.name}</span>
-                      <span className="label" style={{ color: 'var(--dust)' }}>{timeAgo(p.created_at)}</span>
-                      {admin && (
-                        <button
-                          type="button"
-                          onClick={() => remove(p.id)}
-                          className="label ml-auto hover:text-white"
-                          style={{ color: '#ff6b6b' }}
+              <ul className="space-y-2">
+                {[...posts].reverse().map((p, i) => {
+                  const hex = colorHex(p.color) ?? '#8a8a8a'
+                  const glyph = iconGlyph(p.icon)
+                  // Alternate a tiny tilt so the wall looks pinned-up, not printed
+                  const tilt = i % 2 ? 'hover:rotate-[0.6deg]' : 'hover:-rotate-[0.6deg]'
+                  return (
+                    <li
+                      key={p.id}
+                      className={`group/msg flex gap-3 rounded-xl px-3 py-2.5 transition-transform duration-200 hover:-translate-y-0.5 ${tilt} motion-reduce:transform-none`}
+                      style={{
+                        background: `${hex}14`,
+                        borderLeft: `3px solid ${hex}`,
+                      }}
+                    >
+                      <span
+                        aria-hidden
+                        className="shrink-0 flex items-center justify-center rounded-full transition-transform duration-300 group-hover/msg:rotate-[20deg] group-hover/msg:scale-125 motion-reduce:transform-none"
+                        style={{
+                          width: 30,
+                          height: 30,
+                          background: hex,
+                          color: '#000',
+                          fontSize: '1rem',
+                          lineHeight: 1,
+                        }}
+                      >
+                        {glyph ?? p.name.trim().charAt(0).toUpperCase()}
+                      </span>
+                      <div className="min-w-0 flex-1">
+                        <p className="flex items-baseline gap-2">
+                          <span className="font-semibold" style={{ color: hex }}>{p.name}</span>
+                          <span
+                            className="label opacity-60 transition-opacity group-hover/msg:opacity-100"
+                            style={{ color: 'var(--dust)' }}
+                          >
+                            {timeAgo(p.created_at)}
+                          </span>
+                          {admin && (
+                            <button
+                              type="button"
+                              onClick={() => remove(p.id)}
+                              className="label ml-auto hover:text-white"
+                              style={{ color: '#ff6b6b' }}
+                            >
+                              Delete
+                            </button>
+                          )}
+                        </p>
+                        <p
+                          className="mt-0.5 whitespace-pre-wrap break-words"
+                          style={{ color: 'var(--bone)', lineHeight: 1.55 }}
                         >
-                          Delete
-                        </button>
-                      )}
-                    </p>
-                    <p className="mt-1 whitespace-pre-wrap break-words" style={{ color: 'var(--ash)', lineHeight: 1.6 }}>
-                      {p.message}
-                    </p>
-                  </li>
-                ))}
+                          {p.message}
+                        </p>
+                      </div>
+                    </li>
+                  )
+                })}
               </ul>
             </div>
 
@@ -327,6 +377,59 @@ export default function Community() {
                   {message.length}/{MAX_MESSAGE}
                 </p>
               </div>
+              {/* Optional flair */}
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+                <div className="flex items-center gap-2" role="radiogroup" aria-label="Colour (optional)">
+                  <span className="label" style={{ color: 'var(--dust)' }}>colour</span>
+                  {COLORS.map(c => (
+                    <button
+                      key={c.id}
+                      type="button"
+                      role="radio"
+                      aria-checked={color === c.id}
+                      aria-label={c.label}
+                      title={c.label}
+                      onClick={() => setColor(color === c.id ? null : c.id)}
+                      className="rounded-full transition-transform duration-150 hover:scale-125"
+                      style={{
+                        width: 20,
+                        height: 20,
+                        background: c.hex,
+                        outline: color === c.id ? `2px solid ${c.hex}` : 'none',
+                        outlineOffset: 2,
+                        transform: color === c.id ? 'scale(1.15)' : undefined,
+                      }}
+                    />
+                  ))}
+                </div>
+                <div className="flex flex-wrap items-center gap-1" role="radiogroup" aria-label="Icon (optional)">
+                  <span className="label mr-1" style={{ color: 'var(--dust)' }}>icon</span>
+                  {ICONS.map(ic => (
+                    <button
+                      key={ic.id}
+                      type="button"
+                      role="radio"
+                      aria-checked={icon === ic.id}
+                      aria-label={ic.label}
+                      title={ic.label}
+                      onClick={() => setIcon(icon === ic.id ? null : ic.id)}
+                      className="flex items-center justify-center rounded-full transition-transform duration-150 hover:scale-125 hover:-rotate-12"
+                      style={{
+                        width: 28,
+                        height: 28,
+                        fontSize: '0.95rem',
+                        lineHeight: 1,
+                        background: icon === ic.id ? colorHex(color) ?? 'var(--bone)' : 'transparent',
+                        color: icon === ic.id ? '#000' : 'var(--ash)',
+                        border: '1px solid var(--iron)',
+                      }}
+                    >
+                      {ic.glyph}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
               <div ref={widgetEl} />
               {error && (
                 <p role="alert" style={{ color: '#ff6b6b', fontSize: '0.9rem' }}>

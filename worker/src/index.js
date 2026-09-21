@@ -2,7 +2,7 @@
  * Community board API.
  *
  *   GET    /posts?before=<id>   newest 50 visible posts (older page with `before`)
- *   POST   /posts               { name, message, token }  -> the new post
+ *   POST   /posts               { name, message, token, color?, icon? }  -> the new post
  *   DELETE /posts/<id>          hide a post; needs  Authorization: Bearer <ADMIN_TOKEN>
  *
  * Every post passes, in order: Turnstile bot check, length limits, rate limits,
@@ -16,6 +16,11 @@ const MAX_NAME = 40
 const MAX_MESSAGE = 500
 const MIN_GAP_MS = 30_000          // one post per 30s per visitor
 const HOURLY_MAX = 5               // and at most 5 per hour
+
+// Optional flair. Only these ids are accepted; anything else is stored as null.
+// Keep in sync with COLORS / ICONS in src/data/board.ts on the site.
+const COLORS = new Set(['toaster', 'ember', 'grape', 'lime', 'amber', 'bubblegum', 'sky', 'bone'])
+const ICONS = new Set(['sparkle', 'heart', 'star', 'moon', 'notes', 'flower', 'sun', 'skull', 'peace', 'bolt'])
 
 const MESSAGES = {
   bot: 'Could not verify you are human. Reload the page and try again.',
@@ -64,7 +69,7 @@ export default {
 async function list(env, url) {
   const before = Number(url.searchParams.get('before')) || Number.MAX_SAFE_INTEGER
   const { results } = await env.DB.prepare(
-    'SELECT id, name, message, created_at FROM posts WHERE hidden = 0 AND id < ? ORDER BY id DESC LIMIT ?'
+    'SELECT id, name, message, created_at, color, icon FROM posts WHERE hidden = 0 AND id < ? ORDER BY id DESC LIMIT ?'
   )
     .bind(before, PAGE)
     .all()
@@ -82,6 +87,8 @@ async function create(req, env, json) {
   const name = String(body.name ?? '').replace(/\s+/g, ' ').trim()
   const message = String(body.message ?? '').replace(/\r\n/g, '\n').replace(/\n{3,}/g, '\n\n').trim()
   const fail = (code, status = 400) => json({ error: MESSAGES[code], code }, status)
+  const color = COLORS.has(body.color) ? body.color : null
+  const icon = ICONS.has(body.icon) ? body.icon : null
 
   // 1. Bot check
   if (!(await turnstileOk(env, body.token, ip))) return fail('bot', 403)
@@ -106,9 +113,9 @@ async function create(req, env, json) {
   if (problem) return fail(problem)
 
   const row = await env.DB.prepare(
-    'INSERT INTO posts (name, message, created_at, ip_hash) VALUES (?, ?, ?, ?) RETURNING id, name, message, created_at'
+    'INSERT INTO posts (name, message, created_at, ip_hash, color, icon) VALUES (?, ?, ?, ?, ?, ?) RETURNING id, name, message, created_at, color, icon'
   )
-    .bind(name, message, now, ipHash)
+    .bind(name, message, now, ipHash, color, icon)
     .first()
   return json({ post: row }, 201)
 }
