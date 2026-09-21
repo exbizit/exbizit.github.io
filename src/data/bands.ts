@@ -315,6 +315,7 @@ export const BANDS: Band[] = [
       { name: 'Cody L' },
       { name: 'Freddy H' },
       { name: 'Benny Q' },
+      { name: 'Chris D'}
     ],
     heroImage: '/photos/headbanned/phishing-cover.jpg',
     playerDefault: 'spotify',   // Bandcamp only has part of the catalogue
