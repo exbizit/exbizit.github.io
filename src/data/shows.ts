@@ -23,6 +23,8 @@ export interface Show {
   ticketUrl?: string
   status?: ShowStatus
   note?: string
+  /** Show poster image URL (e.g. the TicketWeb event art) */
+  poster?: string
   /** 'ticketweb' rows are overwritten by the importer — hand-edit 'manual' rows only */
   source?: 'manual' | 'ticketweb'
 }
@@ -56,6 +58,8 @@ export const MANUAL_SHOWS: Show[] = [
       'https://www.ticketweb.com/event/sally-wants-with-velora-eyelash-framework-tickets/14328064',
     status: 'onsale',
     note: 'All ages · 1201 N Mills Ave',
+    // Poster from the TicketWeb event page (full-size '_Original' variant)
+    poster: 'https://i.ticketweb.com/i/00/13/04/43/54_Original.jpg',
     source: 'manual',
   },
 ]

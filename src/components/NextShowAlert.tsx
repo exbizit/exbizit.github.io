@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import Lightbox from './Lightbox'
 import { type Show, formatShowDate } from '../data/shows'
 import { getBandBySlug } from '../data/bands'
 
@@ -17,6 +19,8 @@ export default function NextShowAlert({
   accentColor: string
   className?: string
 }) {
+  // Before the early return: hooks must run on every render
+  const [posterOpen, setPosterOpen] = useState(false)
   const next = shows[0]
   if (!next) return null
   const { day, month, weekday, time } = formatShowDate(next.date)
@@ -32,14 +36,15 @@ export default function NextShowAlert({
       aria-label="Next show"
       className={className}
       style={{
-        width: 'min(300px, 100%)',
+        width: 'min(360px, 100%)',
         background: 'rgba(0,0,0,0.78)',
         backdropFilter: 'blur(6px)',
         border: '1px solid var(--iron)',
         borderLeft: `3px solid ${accentColor}`,
       }}
     >
-      <div className="p-3">
+      <div className="p-3 flex gap-3">
+        <div className="min-w-0 flex-1">
         <p className="label flex items-center gap-2" style={{ color: accentColor }}>
           <span className="relative flex" style={{ width: 8, height: 8 }} aria-hidden>
             <span
@@ -89,7 +94,36 @@ export default function NextShowAlert({
             {more > 0 ? `+${more} more ${more === 1 ? 'date' : 'dates'}` : 'All shows'}
           </Link>
         </div>
+        </div>
+
+        {next.poster && (
+          <button
+            type="button"
+            onClick={() => setPosterOpen(true)}
+            aria-label="View poster"
+            title="View poster"
+            className="shrink-0 self-start transition-opacity hover:opacity-80"
+            style={{ width: 72, border: '1px solid var(--iron)' }}
+          >
+            <img
+              src={next.poster}
+              alt=""
+              className="block w-full"
+              style={{ aspectRatio: '928 / 1200', objectFit: 'cover' }}
+            />
+          </button>
+        )}
       </div>
+
+      {next.poster && (
+        <Lightbox
+          photos={[{ src: next.poster, caption: `${next.venue} · ${weekday} ${day} ${month}` }]}
+          index={posterOpen ? 0 : null}
+          onClose={() => setPosterOpen(false)}
+          onNavigate={() => {}}
+          label="Show poster"
+        />
+      )}
     </aside>
   )
 }

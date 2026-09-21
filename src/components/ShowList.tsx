@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { type Show, formatShowDate } from '../data/shows'
 import { getBandBySlug, bandPath } from '../data/bands'
@@ -27,103 +28,151 @@ export default function ShowList({ shows, omitBandSlug, accentColor = 'var(--bon
 
   return (
     <div style={{ borderTop: '1px solid var(--iron)' }}>
-      {shows.map(show => {
-        const { day, month, weekday, time } = formatShowDate(show.date)
-        const rosterBands = show.lineup
-          .filter(slug => slug !== omitBandSlug)
-          .map(getBandBySlug)
-          .filter((b): b is NonNullable<typeof b> => Boolean(b))
-        const rowAccent = getBandBySlug(show.lineup[0])?.accentColor ?? accentColor
-        const isOff = show.status === 'soldout' || show.status === 'cancelled'
+      {shows.map(show => (
+        <ShowRow key={show.id} show={show} omitBandSlug={omitBandSlug} accentColor={accentColor} />
+      ))}
+    </div>
+  )
+}
 
-        return (
-          <div
-            key={show.id}
-            className="flex flex-col sm:flex-row sm:items-center gap-4 py-5"
-            style={{ borderBottom: '1px solid var(--iron)', opacity: isOff ? 0.55 : 1 }}
-          >
-            {/* Date block */}
-            <div className="flex items-baseline gap-2 sm:w-28 shrink-0">
-              <span
-                className="display leading-none"
-                style={{ fontSize: '2rem', color: rowAccent, letterSpacing: '-0.03em' }}
-              >
-                {day}
+function ShowRow({
+  show,
+  omitBandSlug,
+  accentColor,
+}: {
+  show: Show
+  omitBandSlug?: string
+  accentColor: string
+}) {
+  const [open, setOpen] = useState(false)
+  const { day, month, weekday, time } = formatShowDate(show.date)
+  const rosterBands = show.lineup
+    .filter(slug => slug !== omitBandSlug)
+    .map(getBandBySlug)
+    .filter((b): b is NonNullable<typeof b> => Boolean(b))
+  const rowAccent = getBandBySlug(show.lineup[0])?.accentColor ?? accentColor
+  const isOff = show.status === 'soldout' || show.status === 'cancelled'
+
+  return (
+    <div style={{ borderBottom: '1px solid var(--iron)' }}>
+    <div
+      className="flex flex-col sm:flex-row sm:items-center gap-4 py-5"
+      style={{ opacity: isOff ? 0.55 : 1 }}
+    >
+      {/* Date block */}
+      <div className="flex items-baseline gap-2 sm:w-28 shrink-0">
+        <span
+          className="display leading-none"
+          style={{ fontSize: '2rem', color: rowAccent, letterSpacing: '-0.03em' }}
+        >
+          {day}
+        </span>
+        <div className="font-mono text-xs leading-tight" style={{ color: 'var(--ash)' }}>
+          <div>{month}</div>
+          <div style={{ color: 'var(--dust)' }}>{weekday}</div>
+        </div>
+      </div>
+
+      {/* Poster thumbnail: toggles the full poster below the row */}
+      {show.poster && (
+        <button
+          type="button"
+          onClick={() => setOpen(o => !o)}
+          aria-expanded={open}
+          aria-label={open ? 'Hide poster' : 'Show poster'}
+          title={open ? 'Hide poster' : 'Show poster'}
+          className="shrink-0 self-start sm:self-center transition-opacity hover:opacity-80"
+          style={{ width: 44, border: `1px solid ${open ? rowAccent : 'var(--iron)'}` }}
+        >
+          <img
+            src={show.poster}
+            alt=""
+            loading="lazy"
+            className="block w-full"
+            style={{ aspectRatio: '928 / 1200', objectFit: 'cover' }}
+          />
+        </button>
+      )}
+
+      {/* Venue + lineup */}
+      <div className="flex-1 min-w-0">
+        <p className="font-semibold text-base" style={{ color: 'var(--bone)' }}>
+          {show.venue}
+        </p>
+        <p className="font-mono text-xs mt-0.5" style={{ color: 'var(--ash)' }}>
+          {show.city} · {time}
+        </p>
+
+        {(rosterBands.length > 0 || show.alsoPlaying?.length) && (
+          <p className="font-mono text-xs mt-1.5" style={{ color: 'var(--dust)' }}>
+            w/{' '}
+            {rosterBands.map((b, i) => (
+              <span key={b.slug}>
+                {i > 0 && ', '}
+                <Link
+                  to={bandPath(b.slug)}
+                  className="hover:underline"
+                  style={{ color: b.accentColor }}
+                >
+                  {b.name}
+                </Link>
               </span>
-              <div className="font-mono text-xs leading-tight" style={{ color: 'var(--ash)' }}>
-                <div>{month}</div>
-                <div style={{ color: 'var(--dust)' }}>{weekday}</div>
-              </div>
-            </div>
+            ))}
+            {show.alsoPlaying?.length ? (
+              <span>
+                {rosterBands.length > 0 && ', '}
+                {show.alsoPlaying.join(', ')}
+              </span>
+            ) : null}
+          </p>
+        )}
 
-            {/* Venue + lineup */}
-            <div className="flex-1 min-w-0">
-              <p className="font-semibold text-base" style={{ color: 'var(--bone)' }}>
-                {show.venue}
-              </p>
-              <p className="font-mono text-xs mt-0.5" style={{ color: 'var(--ash)' }}>
-                {show.city} · {time}
-              </p>
+        {show.note && (
+          <p className="font-mono text-xs mt-1" style={{ color: 'var(--dust)' }}>
+            {show.note}
+          </p>
+        )}
+      </div>
 
-              {(rosterBands.length > 0 || show.alsoPlaying?.length) && (
-                <p className="font-mono text-xs mt-1.5" style={{ color: 'var(--dust)' }}>
-                  w/{' '}
-                  {rosterBands.map((b, i) => (
-                    <span key={b.slug}>
-                      {i > 0 && ', '}
-                      <Link
-                        to={bandPath(b.slug)}
-                        className="hover:underline"
-                        style={{ color: b.accentColor }}
-                      >
-                        {b.name}
-                      </Link>
-                    </span>
-                  ))}
-                  {show.alsoPlaying?.length ? (
-                    <span>
-                      {rosterBands.length > 0 && ', '}
-                      {show.alsoPlaying.join(', ')}
-                    </span>
-                  ) : null}
-                </p>
-              )}
+      {/* Ticket action */}
+      <div className="shrink-0">
+        {show.status && STATUS_LABEL[show.status] ? (
+          <span
+            className="font-mono text-xs px-3 py-2 inline-block"
+            style={{ border: '1px solid var(--iron)', color: 'var(--ash)' }}
+          >
+            {STATUS_LABEL[show.status]}
+          </span>
+        ) : show.ticketUrl ? (
+          <a
+            href={show.ticketUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-xs font-bold px-4 py-2 inline-block transition-opacity hover:opacity-80"
+            style={{ background: rowAccent, color: 'var(--void)' }}
+          >
+            TICKETS →
+          </a>
+        ) : (
+          <span className="label" style={{ color: 'var(--dust)' }}>
+            at the door
+          </span>
+        )}
+      </div>
+    </div>
 
-              {show.note && (
-                <p className="font-mono text-xs mt-1" style={{ color: 'var(--dust)' }}>
-                  {show.note}
-                </p>
-              )}
-            </div>
-
-            {/* Ticket action */}
-            <div className="shrink-0">
-              {show.status && STATUS_LABEL[show.status] ? (
-                <span
-                  className="font-mono text-xs px-3 py-2 inline-block"
-                  style={{ border: '1px solid var(--iron)', color: 'var(--ash)' }}
-                >
-                  {STATUS_LABEL[show.status]}
-                </span>
-              ) : show.ticketUrl ? (
-                <a
-                  href={show.ticketUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-mono text-xs font-bold px-4 py-2 inline-block transition-opacity hover:opacity-80"
-                  style={{ background: rowAccent, color: 'var(--void)' }}
-                >
-                  TICKETS →
-                </a>
-              ) : (
-                <span className="label" style={{ color: 'var(--dust)' }}>
-                  at the door
-                </span>
-              )}
-            </div>
-          </div>
-        )
-      })}
+    {show.poster && open && (
+      <div className="pb-5">
+        <a href={show.poster} target="_blank" rel="noopener noreferrer" title="Open full size">
+          <img
+            src={show.poster}
+            alt={`Poster: ${show.venue}, ${month} ${day}`}
+            className="block w-full"
+            style={{ maxWidth: 420 }}
+          />
+        </a>
+      </div>
+    )}
     </div>
   )
 }
