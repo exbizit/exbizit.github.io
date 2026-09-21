@@ -120,6 +120,7 @@ export default function Nav() {
           {[
             { to: '/shows', label: 'SHOWS' },
             { to: '/listening', label: 'LISTENING' },
+            { to: '/community', label: 'COMMUNITY' },
             { to: '/contact', label: 'BOOKING' },
           ].map(item => (
             <Link

@@ -1,0 +1,19 @@
+# Community board API: a Cloudflare Worker + D1 database.
+# Setup steps are in worker/README.md.
+name = "hostersphere-board"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "hostersphere-board"
+# Paste the id printed by `npx wrangler d1 create hostersphere-board`
+database_id = "REPLACE_WITH_DATABASE_ID"
+
+[vars]
+# Sites allowed to call this API from a browser
+ALLOWED_ORIGINS = "https://hoster.band,https://www.hoster.band,https://exbizit.github.io,http://localhost:5173"
+
+# Secrets (never in this file; set with `npx wrangler secret put <NAME>`):
+#   TURNSTILE_SECRET  Turnstile widget secret key
+#   ADMIN_TOKEN       any long random string; lets you delete posts

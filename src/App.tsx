@@ -4,6 +4,7 @@ import BandPage from './pages/BandPage'
 import Shows from './pages/Shows'
 import Listening from './pages/Listening'
 import Contact from './pages/Contact'
+import Community from './pages/Community'
 import { ROOT_BAND_SLUG } from './data/bands'
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="/shows" element={<Shows />} />
           <Route path="/listening" element={<Listening />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/community" element={<Community />} />
 
           {/* One canonical URL per band: /hoster folds into / */}
           <Route path={`/${ROOT_BAND_SLUG}`} element={<Navigate to="/" replace />} />
