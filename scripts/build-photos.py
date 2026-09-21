@@ -189,6 +189,24 @@ MANIFEST = [
   (photo,    'misc/crowd-pic.JPG',                     'shared/crowd.jpg', {}),
 ]
 
+def favicons(src, public):
+    """Browser-tab icons from the Hoster toaster. Transparent square PNGs + .ico
+    for tabs; the Apple touch icon gets a black square (iOS fills transparency
+    with white)."""
+    im = _open(src).convert('RGBA')
+    im = im.crop(im.getchannel('A').getbbox())
+    side = max(im.size)
+    sq = Image.new('RGBA', (side, side), (0, 0, 0, 0))
+    sq.paste(im, ((side - im.width) // 2, (side - im.height) // 2), im)
+    for n in (32, 192):
+        sq.resize((n, n), Image.LANCZOS).save(public / f'favicon-{n}.png', optimize=True)
+    sq.resize((64, 64), Image.LANCZOS).save(public / 'favicon.ico', sizes=[(16, 16), (32, 32), (48, 48), (64, 64)])
+    pad = int(side * 0.12)
+    touch = Image.new('RGBA', (side + 2 * pad, side + 2 * pad), (0, 0, 0, 255))
+    touch.paste(sq, (pad, pad), sq)
+    touch.convert('RGB').resize((180, 180), Image.LANCZOS).save(public / 'apple-touch-icon.png', optimize=True)
+    print("  favicons: favicon.ico, favicon-32.png, favicon-192.png, apple-touch-icon.png")
+
 def main():
     src_root, out_root = ROOT / 'photos', ROOT / 'public' / 'photos'
     missing, before, after = [], 0, 0
@@ -202,6 +220,10 @@ def main():
         before += sp.stat().st_size; after += dp.stat().st_size
         note = '' if size == orig else f'  (from {orig[0]}x{orig[1]})'
         print(f"  {size[0]:>4}x{size[1]:<4} {dp.stat().st_size/1024:6.0f}KB  {d}{note}")
+
+    fav_src = src_root / 'hoster' / 'hosterLogo.png'
+    if fav_src.exists():
+        favicons(fav_src, ROOT / 'public')
 
     # originals nobody has mapped yet — the easy thing to forget
     mapped = {s for _, s, _, _ in MANIFEST}
