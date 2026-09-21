@@ -38,6 +38,15 @@ export const ICONS: { id: string; glyph: string; label: string }[] = [
   { id: 'bolt', glyph: 'ϟ', label: 'Bolt' },
 ]
 
+/** Reactions anyone can add to a message. Keep ids in sync with REACTIONS in worker/src/index.js. */
+export const REACTIONS: { id: string; glyph: string; label: string }[] = [
+  { id: 'plus1', glyph: '+1', label: 'Plus one' },
+  { id: 'heart', glyph: '♥', label: 'Love' },
+  { id: 'star', glyph: '★', label: 'Star' },
+  { id: 'notes', glyph: '♫', label: 'Music' },
+  { id: 'skull', glyph: '☠', label: 'Skull' },
+]
+
 export const colorHex = (id?: string | null) => COLORS.find(c => c.id === id)?.hex ?? null
 export const iconGlyph = (id?: string | null) => ICONS.find(i => i.id === id)?.glyph ?? null
 
@@ -48,4 +57,8 @@ export interface BoardPost {
   created_at: number
   color?: string | null
   icon?: string | null
+  /** count per reaction id */
+  reactions?: Record<string, number>
+  /** reaction ids this visitor has added */
+  mine?: string[]
 }

@@ -6,6 +6,7 @@ import {
   MAX_MESSAGE,
   COLORS,
   ICONS,
+  REACTIONS,
   colorHex,
   iconGlyph,
   type BoardPost,
@@ -160,6 +161,34 @@ export default function Community() {
       setToken(null)
       if (widgetId.current && window.turnstile) window.turnstile.reset(widgetId.current)
       setSending(false)
+    }
+  }
+
+  // Toggle this visitor's reaction. Updates at once, then settles on the
+  // server's counts (or rolls back if the request fails).
+  const react = async (id: number, kind: string) => {
+    const before = posts.find(p => p.id === id)
+    if (!before) return
+    const had = before.mine?.includes(kind) ?? false
+    const optimistic = (p: BoardPost): BoardPost => {
+      const counts = { ...(p.reactions ?? {}) }
+      counts[kind] = Math.max(0, (counts[kind] ?? 0) + (had ? -1 : 1))
+      if (!counts[kind]) delete counts[kind]
+      const mine = had ? (p.mine ?? []).filter(k => k !== kind) : [...(p.mine ?? []), kind]
+      return { ...p, reactions: counts, mine }
+    }
+    setPosts(ps => ps.map(p => (p.id === id ? optimistic(p) : p)))
+    try {
+      const res = await fetch(`${BOARD_API}/posts/${id}/react`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ kind }),
+      })
+      if (!res.ok) throw new Error()
+      const data = await res.json()
+      setPosts(ps => ps.map(p => (p.id === id ? { ...p, reactions: data.reactions, mine: data.mine } : p)))
+    } catch {
+      setPosts(ps => ps.map(p => (p.id === id ? before : p)))
     }
   }
 
@@ -349,6 +378,62 @@ export default function Community() {
                         >
                           {p.message}
                         </p>
+
+                        {/* Reactions: existing ones as chips, the rest on hover of the + */}
+                        <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
+                          {REACTIONS.filter(r => p.reactions?.[r.id]).map(r => {
+                            const mineOn = p.mine?.includes(r.id)
+                            return (
+                              <button
+                                key={r.id}
+                                type="button"
+                                onClick={() => react(p.id, r.id)}
+                                aria-pressed={mineOn}
+                                aria-label={`${r.label}: ${p.reactions?.[r.id]}`}
+                                title={mineOn ? `Remove your ${r.label.toLowerCase()}` : r.label}
+                                className="flex items-center gap-1 rounded-full px-2 py-0.5 text-xs transition-transform duration-150 hover:scale-110 active:scale-95"
+                                style={{
+                                  background: mineOn ? hex : 'rgba(255,255,255,0.06)',
+                                  color: mineOn ? '#000' : 'var(--bone)',
+                                  border: `1px solid ${mineOn ? hex : 'var(--iron)'}`,
+                                }}
+                              >
+                                <span aria-hidden>{r.glyph}</span>
+                                <span className="font-semibold">{p.reactions?.[r.id]}</span>
+                              </button>
+                            )
+                          })}
+
+                          <div className="group/react relative flex items-center">
+                            <button
+                              type="button"
+                              aria-label="Add a reaction"
+                              title="React"
+                              className="flex items-center justify-center rounded-full text-xs opacity-50 transition group-hover/msg:opacity-100 hover:scale-110"
+                              style={{ width: 24, height: 22, border: '1px dashed var(--iron)', color: 'var(--ash)' }}
+                            >
+                              +
+                            </button>
+                            <div
+                              className="absolute left-full ml-1 z-10 flex gap-1 rounded-full px-1.5 py-1 invisible opacity-0 -translate-x-1 transition-all duration-150 group-hover/react:visible group-hover/react:opacity-100 group-hover/react:translate-x-0 group-focus-within/react:visible group-focus-within/react:opacity-100 group-focus-within/react:translate-x-0"
+                              style={{ background: '#111', border: `1px solid ${hex}` }}
+                            >
+                              {REACTIONS.map(r => (
+                                <button
+                                  key={r.id}
+                                  type="button"
+                                  onClick={() => react(p.id, r.id)}
+                                  aria-label={r.label}
+                                  title={r.label}
+                                  className="rounded-full px-1.5 text-sm transition-transform duration-150 hover:scale-125 hover:-rotate-12"
+                                  style={{ color: p.mine?.includes(r.id) ? hex : 'var(--bone)' }}
+                                >
+                                  {r.glyph}
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </li>
                   )

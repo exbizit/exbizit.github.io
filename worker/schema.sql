@@ -11,3 +11,11 @@ CREATE TABLE IF NOT EXISTS posts (
 );
 CREATE INDEX IF NOT EXISTS idx_posts_visible ON posts (hidden, id);
 CREATE INDEX IF NOT EXISTS idx_posts_ip_time ON posts (ip_hash, created_at);
+CREATE TABLE IF NOT EXISTS reactions (
+  post_id    INTEGER NOT NULL,
+  kind       TEXT    NOT NULL,            -- one of REACTIONS in src/index.js
+  ip_hash    TEXT    NOT NULL,
+  created_at INTEGER NOT NULL,
+  PRIMARY KEY (post_id, kind, ip_hash)
+);
+CREATE INDEX IF NOT EXISTS idx_reactions_ip_time ON reactions (ip_hash, created_at);
