@@ -11,7 +11,9 @@ import { useNavFonts } from '../hooks/useNavFonts'
  * true proportions, so no aspect ratios need hard-coding.
  */
 function MaskedWordmark({ band }: { band: Band }) {
-  const h = band.fonts?.navSize ?? '26px'
+  // Scales down with the window, but never below 20px tall (it used to shrink
+  // to nothing when the nav ran out of room).
+  const h = `clamp(20px, 3.4vw, ${band.fonts?.navSize ?? '26px'})`
   const src = band.wordmark!
   const mask = {
     WebkitMaskImage: `url(${src})`,
@@ -46,7 +48,7 @@ export default function Nav() {
       className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm"
     >
       <div className="max-w-7xl mx-auto px-4 h-14 flex items-center gap-4">
-        <div className="flex items-center gap-0 overflow-x-auto">
+        <div className="flex items-center gap-0 overflow-x-auto min-w-0">
           {BANDS.map(band => {
             const to = bandPath(band.slug)
             const active = pathname === to
@@ -56,7 +58,7 @@ export default function Nav() {
                 to={to}
                 aria-current={active ? 'page' : undefined}
                 aria-label={band.wordmark ? band.name : undefined}
-                className="nav-item h-14 px-3 flex items-center whitespace-nowrap"
+                className="nav-item h-14 px-3 flex items-center whitespace-nowrap shrink-0"
                 style={{ ['--accent' as string]: band.accentColor }}
               >
                 {band.wordmark ? (
@@ -93,7 +95,7 @@ export default function Nav() {
               key={item.to}
               to={item.to}
               aria-current={pathname === item.to ? 'page' : undefined}
-              className="nav-item label h-14 px-3 flex items-center whitespace-nowrap"
+              className="nav-item label h-14 px-3 flex items-center whitespace-nowrap shrink-0"
               style={{ ['--accent' as string]: 'var(--bone)' }}
             >
               {item.label}
