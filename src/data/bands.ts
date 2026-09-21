@@ -172,6 +172,7 @@ export const BANDS: Band[] = [
       { handle: 'headbannedband' },
       { handle: 'theaustinpalmer' },
       { handle: 'allycantdance' },
+      { handle: 'mccoy_brendan' },
     ],
     wordmark: '/photos/hoster/wordmark.png',
 
