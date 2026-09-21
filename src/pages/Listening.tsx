@@ -12,6 +12,13 @@ import { getBandBySlug, bandPath } from '../data/bands'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 
 /**
+ * Top-artist circles above the album grid. Hidden for now (albums only);
+ * set to true to bring them back, in full colour. The data is still fetched
+ * by `npm run listening`, so nothing else needs to change.
+ */
+const SHOW_ARTISTS = false
+
+/**
  * One album tile. The grid reads as a wall of art; detail arrives on hover.
  *
  * Hover doesn't exist on touch, so below `md` the caption is always visible —
@@ -229,7 +236,7 @@ export default function Listening() {
           <>
             {/* Artists small and first — the album wall is the point */}
             {/* wrap, not overflow-x-auto — a scroll container clips hover panels */}
-            {TOP_ARTISTS.length > 0 && (
+            {SHOW_ARTISTS && TOP_ARTISTS.length > 0 && (
               <div className="flex flex-wrap gap-4 mb-10">
                 {TOP_ARTISTS.map(a => (
                   <a
@@ -256,12 +263,7 @@ export default function Listening() {
                           src={a.imageUrl}
                           alt={a.name}
                           loading="lazy"
-                          className="w-full h-full object-cover transition-all duration-500"
-                          style={{ filter: 'grayscale(1) contrast(1.1)' }}
-                          onMouseEnter={e => (e.currentTarget.style.filter = 'none')}
-                          onMouseLeave={e =>
-                            (e.currentTarget.style.filter = 'grayscale(1) contrast(1.1)')
-                          }
+                          className="w-full h-full object-cover"
                         />
                       )}
                     </div>
