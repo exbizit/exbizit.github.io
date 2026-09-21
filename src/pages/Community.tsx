@@ -164,10 +164,28 @@ export default function Community() {
         <h1 className="display" style={{ fontSize: 'clamp(2rem, 6vw, 3.5rem)', color: 'var(--bone)' }}>
           Community
         </h1>
-        <p className="mt-2 mb-8" style={{ color: 'var(--ash)', maxWidth: '52ch' }}>
-          Leave a message for the bands and everyone else here. Posts show up right away. Keep it
-          kind: no slurs, swearing or links.
+        <p className="mt-2 mb-5" style={{ color: 'var(--ash)', maxWidth: '52ch' }}>
+          Leave a message for the bands and everyone else here. Posts show up right away.
         </p>
+
+        <section
+          aria-labelledby="guidelines"
+          className="mb-8 p-4"
+          style={{ border: '1px solid var(--iron)', borderLeft: '3px solid var(--bone)' }}
+        >
+          <h2 id="guidelines" className="label mb-2" style={{ color: 'var(--bone)' }}>
+            Community guidelines
+          </h2>
+          <ul className="space-y-1" style={{ color: 'var(--ash)', fontSize: '0.95rem' }}>
+            <li>No obscenities or slurs, including disguised spellings.</li>
+            <li>No links.</li>
+            <li>No spam: posting is limited to one message every 30 seconds and five an hour.</li>
+            <li>Be kind to the bands and to each other.</li>
+          </ul>
+          <p className="mt-2" style={{ color: 'var(--dust)', fontSize: '0.85rem' }}>
+            Messages that break these are blocked automatically or removed.
+          </p>
+        </section>
 
         {!BOARD_API ? (
           <p style={{ color: 'var(--dust)' }}>The board is being set up. Check back soon.</p>
