@@ -158,6 +158,7 @@ export const BANDS: Band[] = [
       { name: 'Austin T' },
       { name: 'Brett B' },
       { name: 'Austin P' },
+      { name: 'Rachel G' }
     ],
     isActive: true,
     accentColor: '#63909C', // toaster teal — sampled from the logo, lifted to 6:1 on black
