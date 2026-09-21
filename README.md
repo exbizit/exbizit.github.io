@@ -104,31 +104,6 @@ Write a double bill **once** and it appears on `/shows` and on each listed band'
 where the lineup renders as "w/ Mary's White Lie" with that band linked. Past dates move to
 a Past section automatically; `getUpcomingShows()` treats a show later tonight as upcoming.
 
-### Auto-importing from TicketWeb — what I found
-
-**There is no official TicketWeb API.** Ticketmaster's Discovery API (TicketWeb's parent
-company) documents coverage for "Ticketmaster, Universe, FrontGate Tickets and Ticketmaster
-Resale" — TicketWeb is not among them. So there's no supported endpoint to pull your
-TicketWeb dates from.
-
-Realistic options, roughly best first:
-
-1. **Bandsintown** — purpose-built for artist event listings and free, and you may already
-   maintain a profile there. It also syndicates to Spotify and Facebook. *I could not verify
-   their current API terms — their docs returned 403 — so confirm before building on it.*
-2. **Scrape your TicketWeb artist page at build time.** A GitHub Action on a cron schedule
-   fetches the page, writes `src/data/shows.generated.json`, and commits it. Runs server-side
-   so there's no CORS problem and no key in the browser. Fragile: breaks when their markup
-   changes.
-3. **Manual entry** — what's wired now. For a handful of shows a year this is honestly fine,
-   and it never breaks.
-
-Either automated route uses the same shape: a scheduled Action writes a JSON file, and
-`shows.ts` merges it with hand-written rows. `source: 'ticketweb'` marks generated rows so
-the importer can replace them without touching your `'manual'` ones. Say the word and I'll
-build it once we've settled on a source.
-
----
 
 ## Deploy to GitHub Pages (free)
 
