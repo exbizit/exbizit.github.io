@@ -143,12 +143,12 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
         )}
 
         <div className={asHeader ? 'relative' : 'relative max-w-7xl mx-auto'}>
-          <div className={`flex items-center gap-4 md:gap-5 flex-wrap ${lineUnderLogo ? 'mb-7' : 'mb-5'}`}>
+          <div className={`flex items-center gap-4 md:gap-5 flex-wrap ${lineUnderLogo ? 'mb-3' : 'mb-2'}`}>
             {band.logo && (
               // The logo gets its own column so an accent line can sit centred
               // under it, and wrap WITH it on phones instead of landing on the
               // wordmark when the row breaks.
-              <div className="shrink-0 flex flex-col items-center gap-4">
+              <div className="shrink-0 flex flex-col items-center gap-3">
                 <img
                   src={band.logo}
                   alt=""
@@ -197,14 +197,14 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
           {/* Single hairline of colour — under the name, unless it sits under the logo */}
           {!lineUnderLogo && (
             <div
-              className="mb-6"
+              className="mb-3"
               style={{ width: '96px', height: '2px', background: band.accentColor }}
             />
           )}
 
           {band.tagline && (
             <p
-              className="mb-7"
+              className="mb-3"
               style={{
                 color: isTodo(band.tagline) ? 'var(--dust)' : 'var(--bone)',
                 fontStyle: isTodo(band.tagline) ? 'italic' : 'normal',
