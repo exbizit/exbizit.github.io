@@ -75,7 +75,7 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
     >
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section
-        className={`relative overflow-hidden ${asHeader ? 'px-5 md:px-8 flex flex-col justify-end pt-24 pb-10' : 'px-6 py-24'}`}
+        className={`relative overflow-hidden ${asHeader ? 'px-5 md:px-8 flex flex-col justify-end pt-24 pb-4' : 'px-6 pt-24 pb-6'}`}
         style={{
           borderBottom: '1px solid var(--iron)',
           // A photo header needs room to be seen; the name sits at its foot.
@@ -222,7 +222,7 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
       </section>
 
       {/* ── Body ─────────────────────────────────────────────────────────── */}
-      <div className="max-w-screen-2xl mx-auto px-5 md:px-8 py-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="max-w-screen-2xl mx-auto px-5 md:px-8 pt-4 pb-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2 space-y-8">
 
           {band.latestRelease && (

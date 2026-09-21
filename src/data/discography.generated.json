@@ -1,4 +1,225 @@
 {
-  "updated": null,
-  "bands": {}
+  "updated": "2026-09-21T05:38:12.067Z",
+  "bands": {
+    "hoster": [
+      {
+        "id": "7LhQpj6cIZZXKjRqYUQV7X",
+        "title": "Gnocchi (Live on WPRK Flower Hour)",
+        "type": "single",
+        "date": "2026-08-03",
+        "cover": "https://i.scdn.co/image/ab67616d00001e024ca0d051d8335544927a348d",
+        "spotify": "https://open.spotify.com/album/7LhQpj6cIZZXKjRqYUQV7X",
+        "appleMusic": "https://music.apple.com/us/album/gnocchi-live-on-wprk-flower-hour-single/6795084477",
+        "bandcamp": null
+      },
+      {
+        "id": "5Y0fVqDOSgQYgegoPh79Gd",
+        "title": "A Little Strange",
+        "type": "single",
+        "date": "2025-07-04",
+        "cover": "https://i.scdn.co/image/ab67616d00001e0200bda62d17d1d5502d9af25c",
+        "spotify": "https://open.spotify.com/album/5Y0fVqDOSgQYgegoPh79Gd",
+        "appleMusic": "https://music.apple.com/us/album/a-little-strange-single/1822282849",
+        "bandcamp": "https://hosterband.bandcamp.com/album/a-little-strange"
+      },
+      {
+        "id": "2OHre9RrKe9qziVwjbgZIH",
+        "title": "Before, Again",
+        "type": "single",
+        "date": "2024-10-18",
+        "cover": "https://i.scdn.co/image/ab67616d00001e027de271808debf3349abfe381",
+        "spotify": "https://open.spotify.com/album/2OHre9RrKe9qziVwjbgZIH",
+        "appleMusic": "https://music.apple.com/us/album/before-again-single/1772220066",
+        "bandcamp": null
+      }
+    ],
+    "maryswhitelie": [
+      {
+        "id": "6aWVmCyO2q2AbcGYQpXS7z",
+        "title": "Stable of Stone",
+        "type": "single",
+        "date": "2026-08-20",
+        "cover": "https://i.scdn.co/image/ab67616d00001e02429559c9301393bce86e7393",
+        "spotify": "https://open.spotify.com/album/6aWVmCyO2q2AbcGYQpXS7z",
+        "appleMusic": "https://music.apple.com/us/album/stable-of-stone-single/6797468977",
+        "bandcamp": "https://maryswhitelie.bandcamp.com/album/stable-of-stone"
+      }
+    ],
+    "headbanned": [
+      {
+        "id": "3SM7BZN93605bQDOOydIWk",
+        "title": "Keep Phishing",
+        "type": "album",
+        "date": "2025-09-12",
+        "cover": "https://i.scdn.co/image/ab67616d00001e02e5244aec05215c52007205b4",
+        "spotify": "https://open.spotify.com/album/3SM7BZN93605bQDOOydIWk",
+        "appleMusic": "https://music.apple.com/us/album/keep-phishing/1839252771",
+        "bandcamp": null
+      },
+      {
+        "id": "3xbcDPpfQnM9hRvJb2wk3U",
+        "title": "Try",
+        "type": "single",
+        "date": "2023-10-13",
+        "cover": "https://i.scdn.co/image/ab67616d00001e02ed3789342f2491a73c456272",
+        "spotify": "https://open.spotify.com/album/3xbcDPpfQnM9hRvJb2wk3U",
+        "appleMusic": "https://music.apple.com/us/album/try-single/1711445645",
+        "bandcamp": null
+      },
+      {
+        "id": "407Xkkg1ZNrD6aE9HEbQRz",
+        "title": "Live at Will's Pub",
+        "type": "album",
+        "date": "2022-01-14",
+        "cover": "https://i.scdn.co/image/ab67616d00001e024f17d217f928c106b4e55711",
+        "spotify": "https://open.spotify.com/album/407Xkkg1ZNrD6aE9HEbQRz",
+        "appleMusic": "https://music.apple.com/us/album/live-at-wills-pub/1603923116",
+        "bandcamp": null
+      },
+      {
+        "id": "1cqJkBZKBkHjHjfRB36V0Q",
+        "title": "Chrysalis (Live at Will's Pub, Orlando, 2021)",
+        "type": "single",
+        "date": "2021-10-08",
+        "cover": "https://i.scdn.co/image/ab67616d00001e028e388f9c480130ed5cfeda85",
+        "spotify": "https://open.spotify.com/album/1cqJkBZKBkHjHjfRB36V0Q",
+        "appleMusic": null,
+        "bandcamp": null
+      },
+      {
+        "id": "1SYnpRtlnWnYF6GHZ0KAhB",
+        "title": "Demoniac",
+        "type": "album",
+        "date": "2020-07-08",
+        "cover": "https://i.scdn.co/image/ab67616d00001e02be3f277f6dcb6add28af8d19",
+        "spotify": "https://open.spotify.com/album/1SYnpRtlnWnYF6GHZ0KAhB",
+        "appleMusic": "https://music.apple.com/us/album/demoniac/1525268632",
+        "bandcamp": "https://headbanned.bandcamp.com/album/demoniac"
+      },
+      {
+        "id": "5MTUbKwFnCAK8tPoKP7ze0",
+        "title": "Liberatus: People Liberate Themselves",
+        "type": "album",
+        "date": "2019-02-22",
+        "cover": "https://i.scdn.co/image/ab67616d00001e02eaeba26d17fa93d58155f320",
+        "spotify": "https://open.spotify.com/album/5MTUbKwFnCAK8tPoKP7ze0",
+        "appleMusic": "https://music.apple.com/us/album/liberatus-people-liberate-themselves/1453385809",
+        "bandcamp": null
+      },
+      {
+        "id": "1uJIRHIvZjFNT5Iqd47SCX",
+        "title": "Cuddle Puddle",
+        "type": "single",
+        "date": "2019-02-09",
+        "cover": "https://i.scdn.co/image/ab67616d00001e02d8e9fc336f58f9c3dad97034",
+        "spotify": "https://open.spotify.com/album/1uJIRHIvZjFNT5Iqd47SCX",
+        "appleMusic": "https://music.apple.com/us/album/cuddle-puddle-single/1452692411",
+        "bandcamp": null
+      },
+      {
+        "id": "7ljRvDyzRhBb5AOuL5XVQi",
+        "title": "Litter Box",
+        "type": "album",
+        "date": "2018-01-05",
+        "cover": "https://i.scdn.co/image/ab67616d00001e0206d62dfcf575387f602ac278",
+        "spotify": "https://open.spotify.com/album/7ljRvDyzRhBb5AOuL5XVQi",
+        "appleMusic": "https://music.apple.com/us/album/litter-box/1356711362",
+        "bandcamp": "https://headbanned.bandcamp.com/album/litter-box"
+      },
+      {
+        "id": "33YMFyCs55QpMuuDLrynEL",
+        "title": "Bum U 4 a Bit",
+        "type": "single",
+        "date": "2017-10-22",
+        "cover": "https://i.scdn.co/image/ab67616d00001e0284f3c2198a2b7078df23fdc5",
+        "spotify": "https://open.spotify.com/album/33YMFyCs55QpMuuDLrynEL",
+        "appleMusic": "https://music.apple.com/us/album/bum-u-4-a-bit-single/1363170581",
+        "bandcamp": "https://headbanned.bandcamp.com/album/bum-u-4-a-bit"
+      },
+      {
+        "id": "5pTErwk93Vdo5d8S66Jetk",
+        "title": "Lucid Screaming",
+        "type": "album",
+        "date": "2017-05-09",
+        "cover": "https://i.scdn.co/image/ab67616d00001e02b3c9f07502dc871b3fd8a818",
+        "spotify": "https://open.spotify.com/album/5pTErwk93Vdo5d8S66Jetk",
+        "appleMusic": "https://music.apple.com/us/album/lucid-screaming/1359326371",
+        "bandcamp": null
+      },
+      {
+        "id": "5CJfhhhQQppdBnMoMAgNRn",
+        "title": "Inner Outrage",
+        "type": "album",
+        "date": "2016-08-02",
+        "cover": "https://i.scdn.co/image/ab67616d00001e027120bca565fdda4719e8f026",
+        "spotify": "https://open.spotify.com/album/5CJfhhhQQppdBnMoMAgNRn",
+        "appleMusic": "https://music.apple.com/us/album/inner-outrage/1361119548",
+        "bandcamp": "https://headbanned.bandcamp.com/album/inner-outrage"
+      },
+      {
+        "id": "5WGb7XttHvAvCk6KNVaZfA",
+        "title": "Anticipation of a Story",
+        "type": "album",
+        "date": "2015-08-18",
+        "cover": "https://i.scdn.co/image/ab67616d00001e024c24953623e1bf9d363910ac",
+        "spotify": "https://open.spotify.com/album/5WGb7XttHvAvCk6KNVaZfA",
+        "appleMusic": "https://music.apple.com/us/album/anticipation-of-a-story/1357727470",
+        "bandcamp": "https://headbanned.bandcamp.com/album/anticipation-of-a-story"
+      }
+    ],
+    "zeroindex": [
+      {
+        "id": "3refLta7tVoEwhMJCnYrFK",
+        "title": "grindset",
+        "type": "single",
+        "date": "2026-03-06",
+        "cover": "https://i.scdn.co/image/ab67616d00001e02e1f576bd16fb6cabbe0cb9ef",
+        "spotify": "https://open.spotify.com/album/3refLta7tVoEwhMJCnYrFK",
+        "appleMusic": "https://music.apple.com/us/album/grindset-single/1880643712",
+        "bandcamp": null
+      },
+      {
+        "id": "1tC1NN3RAc5BsjlSszjj8g",
+        "title": "Rachel's Only (Möving)",
+        "type": "single",
+        "date": "2025-11-05",
+        "cover": "https://i.scdn.co/image/ab67616d00001e024f27c851b3194ffb6a96f7ab",
+        "spotify": "https://open.spotify.com/album/1tC1NN3RAc5BsjlSszjj8g",
+        "appleMusic": "https://music.apple.com/us/album/rachels-only-m%C3%B6ving-single/1851436129",
+        "bandcamp": null
+      },
+      {
+        "id": "6WvL7SbOR4YQ7hMCw0Uq5Z",
+        "title": "All The Sights Around You",
+        "type": "album",
+        "date": "2023-12-01",
+        "cover": "https://i.scdn.co/image/ab67616d00001e0275086d63ba9bad2fa7b8fbc9",
+        "spotify": "https://open.spotify.com/album/6WvL7SbOR4YQ7hMCw0Uq5Z",
+        "appleMusic": "https://music.apple.com/us/album/all-the-sights-around-you/1719017573",
+        "bandcamp": null
+      }
+    ],
+    "rogersonlyson": [
+      {
+        "id": "07BQ5A74Fx586R7DwtHUzA",
+        "title": "lost project b/w emitting light",
+        "type": "single",
+        "date": "2024-08-02",
+        "cover": "https://i.scdn.co/image/ab67616d00001e025f960f4fd7bf909d40c9ca96",
+        "spotify": "https://open.spotify.com/album/07BQ5A74Fx586R7DwtHUzA",
+        "appleMusic": "https://music.apple.com/us/album/lost-project-b-w-emitting-light-single/1758647539",
+        "bandcamp": "https://rogersonlyson.bandcamp.com/album/lost-project-b-w-emitting-light"
+      },
+      {
+        "id": "0VX3bCGOXm8eDkUrqX6hpk",
+        "title": "Marie",
+        "type": "album",
+        "date": "2024-01-01",
+        "cover": "https://i.scdn.co/image/ab67616d00001e028f35b27316a8dd8d9067fd36",
+        "spotify": "https://open.spotify.com/album/0VX3bCGOXm8eDkUrqX6hpk",
+        "appleMusic": "https://music.apple.com/us/album/marie/1722642380",
+        "bandcamp": "https://rogersonlyson.bandcamp.com/album/marie"
+      }
+    ]
+  }
 }

@@ -25,7 +25,7 @@ export default function ReleaseStrip({
 
   return (
     <ul
-      className="flex gap-2 md:gap-3 overflow-x-auto mt-8 pb-1"
+      className="flex gap-2 md:gap-3 overflow-x-auto mt-3"
       style={{ scrollbarWidth: 'thin' }}
       aria-label="Releases"
     >
@@ -37,7 +37,7 @@ export default function ReleaseStrip({
             <div
               tabIndex={0}
               className="group relative block overflow-hidden outline-none focus-visible:ring-2"
-              style={{ ['--tw-ring-color' as string]: accentColor, width: 'clamp(84px, 9vw, 132px)', aspectRatio: '1' }}
+              style={{ ['--tw-ring-color' as string]: accentColor, width: 'clamp(104px, 11vw, 164px)', aspectRatio: '1' }}
             >
               <img
                 src={r.cover ?? undefined}
@@ -53,7 +53,7 @@ export default function ReleaseStrip({
                   {r.title}
                   {year && <span style={{ color: 'var(--ash)' }}> {year}</span>}
                 </p>
-                <div className="flex gap-2">
+                <div className="flex items-center -ml-0.5">
                   {links.map(p => (
                     <a
                       key={p.key}
@@ -62,12 +62,12 @@ export default function ReleaseStrip({
                       rel="noopener noreferrer"
                       aria-label={`${r.title} on ${p.label}`}
                       title={p.label}
-                      className="p-1 transition-colors"
+                      className="p-0.5 transition-colors"
                       style={{ color: 'var(--bone)' }}
                       onMouseEnter={e => (e.currentTarget.style.color = accentColor)}
                       onMouseLeave={e => (e.currentTarget.style.color = 'var(--bone)')}
                     >
-                      <BrandIcon slug={p.icon} size={18} />
+                      <BrandIcon slug={p.icon} size={16} />
                     </a>
                   ))}
                 </div>
