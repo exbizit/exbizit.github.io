@@ -29,7 +29,7 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
     return (
       <div
         className="flex flex-col items-center justify-center min-h-screen gap-6"
-        style={{ paddingTop: '56px' }}
+        style={{ paddingTop: 'var(--nav-h, 56px)' }}
       >
         <Sigil size={180} points={8} opacity={0.35} />
         <p className="label">Band not found</p>
@@ -53,7 +53,7 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
   return (
     <div
       style={{
-        paddingTop: '56px',
+        paddingTop: 'var(--nav-h, 56px)',
         // Scoped to this page — the nav and utility pages keep the system face
         ...(f && {
           ['--font-display' as string]: f.display,

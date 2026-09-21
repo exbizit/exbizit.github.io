@@ -47,7 +47,7 @@ export default function Contact() {
   }
 
   return (
-    <div style={{ paddingTop: '56px' }}>
+    <div style={{ paddingTop: 'var(--nav-h, 56px)' }}>
       <section className="px-6 py-20" style={{ borderBottom: '1px solid var(--iron)' }}>
         <div className="max-w-7xl mx-auto">
           <p className="label mb-6">

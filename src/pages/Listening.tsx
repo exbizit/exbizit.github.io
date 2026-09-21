@@ -176,7 +176,7 @@ export default function Listening() {
   const empty = LISTENING.length === 0 && TOP_ARTISTS.length === 0
 
   return (
-    <div style={{ paddingTop: '56px' }}>
+    <div style={{ paddingTop: 'var(--nav-h, 56px)' }}>
       {/* Compact header. This is a utility page — the art carries it, not the
           type — and the meta sits inline rather than claiming its own band. */}
       <div className="max-w-7xl mx-auto px-4 pt-10 pb-6">
