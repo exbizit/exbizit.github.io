@@ -9,7 +9,9 @@ import { getBandBySlug, type Band } from '../data/bands'
  * so it survives page changes: start a record, wander the site, it keeps going.
  *
  * - On a band page it offers that band's Bandcamp / Spotify (tabs when both).
- * - Elsewhere it shows whatever you last had loaded.
+ * - On other pages it only appears while something is playing, and shows that.
+ *   "Playing" = the player you last clicked into (Bandcamp can't report play
+ *   state, so that's the best signal available).
  * - A player keeps running while hidden. Clicking into any other player on the
  *   site (another band's, a video, a Spotify embed) stops this one, and vice
  *   versa (lib/audioFocus.ts), so only one source plays at a time.
@@ -66,21 +68,32 @@ export default function MusicPlayer() {
   const [sessions, setSessions] = useState<Session[]>([])
   const [open, setOpen] = useState(false)
   const [tabs, setTabs] = useState<Record<string, Source>>({})
+  // The player the visitor last clicked into, i.e. the one making sound
+  const [active, setActive] = useState<Session | null>(null)
 
   const pageBand = pageSlug ? getBandBySlug(pageSlug) : undefined
-  const lastSlug = sessions[sessions.length - 1]?.slug ?? null
-  // The band the button is for: this page's, else whatever was last loaded
-  const band = pageBand && sourcesFor(pageBand).length ? pageBand : lastSlug ? getBandBySlug(lastSlug) : undefined
+  // The band the button is for: this page's, else whatever is playing
+  const band =
+    pageBand && sourcesFor(pageBand).length
+      ? pageBand
+      : active
+        ? getBandBySlug(active.slug)
+        : undefined
   const sources = band ? sourcesFor(band) : []
   const tab: Source | undefined = band
-    ? tabs[band.slug] ??
-      (band.playerDefault && sources.includes(band.playerDefault) ? band.playerDefault : sources[0])
+    ? active && !pageBand && active.slug === band.slug
+      ? active.source
+      : tabs[band.slug] ??
+        (band.playerDefault && sources.includes(band.playerDefault) ? band.playerDefault : sources[0])
     : undefined
 
   // Arriving on a different band's page folds the panel away; its button then
   // opens that band. Anything already playing carries on underneath.
+  // Players that were opened but never played are cleared away too.
   useEffect(() => {
     setOpen(false)
+    setSessions(ss => ss.filter(s => active && s.slug === active.slug && s.source === active.source))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageSlug])
 
   if (!band || !tab) return null
@@ -89,8 +102,11 @@ export default function MusicPlayer() {
     sessions.some(s => s.slug === slug && s.source === source)
   const ensure = (slug: string, source: Source) =>
     setSessions(ss => (ss.some(s => s.slug === slug && s.source === source) ? ss : [...ss, { slug, source }]))
-  const drop = (slug: string, source?: Source) =>
-    setSessions(ss => ss.filter(s => !(s.slug === slug && (!source || s.source === source))))
+  const drop = (slug: string, source?: Source) => {
+    const hit = (s: Session) => s.slug === slug && (!source || s.source === source)
+    setSessions(ss => ss.filter(s => !hit(s)))
+    setActive(a => (a && hit(a) ? null : a))
+  }
 
   const toggle = () => {
     ensure(band.slug, tab)
@@ -101,9 +117,8 @@ export default function MusicPlayer() {
     ensure(band.slug, s)
   }
 
-  const elsewhere = [...new Set(sessions.filter(s => s.slug !== band.slug).map(s => s.slug))]
-    .map(getBandBySlug)
-    .filter((b): b is Band => Boolean(b))
+  // Something from another band still playing underneath this page's player
+  const elsewhere = active && active.slug !== band.slug ? getBandBySlug(active.slug) : undefined
 
   const accent = band.accentColor
   const frame = { border: 0, width: '100%', height: '352px' } as const
@@ -125,15 +140,15 @@ export default function MusicPlayer() {
             pointerEvents: open ? 'auto' : 'none',
           }}
         >
-          {elsewhere.length > 0 && (
+          {elsewhere && (
             <div
               className="label flex items-center gap-2 px-3 py-1.5"
               style={{ color: 'var(--ash)', borderBottom: '1px solid var(--iron)' }}
             >
-              <span>Still loaded: {elsewhere.map(b => b.name).join(', ')}</span>
+              <span>Now playing: {elsewhere.name}</span>
               <button
                 type="button"
-                onClick={() => elsewhere.forEach(b => drop(b.slug))}
+                onClick={() => drop(elsewhere.slug)}
                 className="ml-auto hover:text-white"
                 style={{ color: 'var(--bone)' }}
               >
@@ -175,6 +190,7 @@ export default function MusicPlayer() {
                 key={`${s.slug}:${s.source}`}
                 stopWith="custom"
                 onStop={() => drop(s.slug, s.source)}
+                onActivate={() => setActive(s)}
                 src={frameSrc(b, s.source)}
                 title={`${b.name} on ${s.source === 'bandcamp' ? 'Bandcamp' : 'Spotify'}`}
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"

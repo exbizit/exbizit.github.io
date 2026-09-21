@@ -9,15 +9,20 @@ import { registerAudio, reloadFrame, pauseYouTube } from '../lib/audioFocus'
 export default function AudioFrame({
   stopWith = 'reload',
   onStop,
+  onActivate,
   ...props
 }: IframeHTMLAttributes<HTMLIFrameElement> & {
   stopWith?: 'reload' | 'youtube' | 'custom'
   /** For stopWith="custom" */
   onStop?: () => void
+  /** Called when the visitor clicks into this player (it now has the audio) */
+  onActivate?: () => void
 }) {
   const ref = useRef<HTMLIFrameElement>(null)
   const onStopRef = useRef(onStop)
   onStopRef.current = onStop
+  const onActivateRef = useRef(onActivate)
+  onActivateRef.current = onActivate
 
   useEffect(() => {
     const el = ref.current
@@ -26,7 +31,7 @@ export default function AudioFrame({
       if (stopWith === 'youtube') pauseYouTube(el)
       else if (stopWith === 'custom') onStopRef.current?.()
       else reloadFrame(el)
-    })
+    }, () => onActivateRef.current?.())
   }, [stopWith])
 
   return <iframe ref={ref} {...props} />

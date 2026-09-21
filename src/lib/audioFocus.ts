@@ -11,7 +11,7 @@
  * floating player), a pause message (YouTube), or reload the frame (Spotify,
  * which otherwise can't be paused from outside without its own API).
  */
-type Entry = { el: HTMLIFrameElement; stop: () => void }
+type Entry = { el: HTMLIFrameElement; stop: () => void; activate?: () => void }
 
 const entries = new Set<Entry>()
 let lastActive: Element | null = null
@@ -25,14 +25,19 @@ function check() {
   const owner = [...entries].find(e => e.el === active)
   if (!owner) return
   for (const e of [...entries]) if (e !== owner) e.stop()
+  owner.activate?.()
 }
 
 // Clicking into the first iframe blurs the window; moving between iframes
 // doesn't fire anything, so a light poll covers that case.
 const onBlur = () => setTimeout(check, 0)
 
-export function registerAudio(el: HTMLIFrameElement, stop: () => void): () => void {
-  const entry = { el, stop }
+export function registerAudio(
+  el: HTMLIFrameElement,
+  stop: () => void,
+  activate?: () => void
+): () => void {
+  const entry = { el, stop, activate }
   entries.add(entry)
   if (entries.size === 1) {
     window.addEventListener('blur', onBlur)
