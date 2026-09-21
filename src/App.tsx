@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Nav from './components/Nav'
+import MusicPlayer from './components/MusicPlayer'
+import { MusicProvider } from './components/MusicContext'
 import BandPage from './pages/BandPage'
 import Shows from './pages/Shows'
 import Listening from './pages/Listening'
@@ -10,6 +12,7 @@ import { ROOT_BAND_SLUG } from './data/bands'
 export default function App() {
   return (
     <BrowserRouter>
+      <MusicProvider>
       <Nav />
       <main>
         <Routes>
@@ -32,6 +35,9 @@ export default function App() {
           <Route path="/:slug" element={<BandPage />} />
         </Routes>
       </main>
+      {/* Outside the routes, so music keeps playing across pages */}
+      <MusicPlayer />
+      </MusicProvider>
     </BrowserRouter>
   )
 }

@@ -3,7 +3,8 @@ import { useParams, Link } from 'react-router-dom'
 import { getBandBySlug, bandPath } from '../data/bands'
 import { getShowsForBand } from '../data/shows'
 import VideoEmbed from '../components/VideoEmbed'
-import MusicPlayer from '../components/MusicPlayer'
+import AudioFrame from '../components/AudioFrame'
+import { usePageBand } from '../components/MusicContext'
 import SocialLinks from '../components/SocialLinks'
 import ReleaseStrip from '../components/ReleaseStrip'
 import { getReleases } from '../data/discography'
@@ -24,6 +25,7 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
   useDocumentTitle(band?.name, false) // band name only
   useBandFonts(band?.fonts)
+  usePageBand(band?.slug) // the site-wide music player offers this band
 
   if (!band) {
     return (
@@ -243,7 +245,7 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
                 </p>
               )}
               {band.latestRelease.spotifyAlbumId && (
-                <iframe
+                <AudioFrame
                   src={`https://open.spotify.com/embed/album/${band.latestRelease.spotifyAlbumId}?utm_source=generator&theme=0`}
                   title={`${band.latestRelease.title} by ${band.name} on Spotify`}
                   width="100%"
@@ -337,7 +339,7 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
               <p className="label mb-3">Featured on</p>
               <div className="space-y-3">
                 {band.featuredOn.map(f => (
-                  <iframe
+                  <AudioFrame
                     key={f.spotifyAlbumId}
                     src={`https://open.spotify.com/embed/album/${f.spotifyAlbumId}?utm_source=generator&theme=0`}
                     title={`${f.title} by ${f.artist} on Spotify`}
@@ -466,23 +468,6 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
         </aside>
       </div>
 
-      <MusicPlayer
-        key={band.slug}
-        bandName={band.name}
-        accentColor={band.accentColor}
-        defaultSource={band.playerDefault}
-        spotifyAlbumId={band.spotifyPlayerAlbumId}
-        bandcamp={
-          band.bandcamp?.embedAlbumId
-            ? { embedAlbumId: band.bandcamp.embedAlbumId, albumUrl: band.bandcamp.albumUrl }
-            : undefined
-        }
-        spotifyArtistId={
-          band.socials
-            .find(s => s.platform === 'spotify')
-            ?.url.match(/open\.spotify\.com\/artist\/([A-Za-z0-9]+)/)?.[1] ?? null
-        }
-      />
 
       <Lightbox
         photos={band.photos}

@@ -225,7 +225,7 @@ export const BANDS: Band[] = [
       "artists Head Banned and Roger's Only Son. Debut EP Stable of Stone arrived August 2026 and features " +
       'three originals plus adjusted-speed "nightcore" bonus versions. ' +
       'The EP is self-produced and mastered by Mason Krüg. Mary\'s White Lie is influenced by artists like Eric\'s Trip, Alex G, Elliott Smith, Deadharrie, Julie, Total Wife, and countless others.',
-    genre: ['shoegaze', 'indie rock', 'folk'],
+    genre: ['shoegaze', 'indie rock', 'alternative'],
     press: [
       {
         // Verbatim apart from the leading ellipsis, which marks the omitted opening
