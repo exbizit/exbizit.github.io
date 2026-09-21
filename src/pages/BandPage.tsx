@@ -3,8 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import { getBandBySlug, bandPath } from '../data/bands'
 import { getShowsForBand } from '../data/shows'
 import VideoEmbed from '../components/VideoEmbed'
-import BandcampPlayer from '../components/BandcampPlayer'
-import SpotifyEmbed from '../components/SpotifyEmbed'
+import StickyBandcamp from '../components/StickyBandcamp'
 import SocialLinks from '../components/SocialLinks'
 import ReleaseStrip from '../components/ReleaseStrip'
 import { getReleases } from '../data/discography'
@@ -43,14 +42,6 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
 
   const shows = getShowsForBand(band.slug)
   const isTodo = (s: string) => s.startsWith('//')
-
-  const spotifyLink = band.socials.find(s => s.platform === 'spotify')
-  let spotifyArtistId: string | null = null
-  if (spotifyLink) {
-    try {
-      spotifyArtistId = new URL(spotifyLink.url).pathname.split('/').filter(Boolean).pop() ?? null
-    } catch { /* ignore malformed */ }
-  }
 
   // Dedicated heroImage when set, otherwise fall back to the first photo.
   const heroSrc = band.heroImage ?? band.photos[0]?.src
@@ -343,25 +334,6 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
             </section>
           )}
 
-          {(band.bandcamp || spotifyArtistId) && (
-            <section>
-              <p className="label mb-3">Music</p>
-              <div className="space-y-4">
-                {band.bandcamp && (
-                  <BandcampPlayer
-                    albumUrl={band.bandcamp.albumUrl}
-                    embedAlbumId={band.bandcamp.embedAlbumId}
-                    bandName={band.name}
-                    accentColor={band.accentColor}
-                  />
-                )}
-                {spotifyArtistId && (
-                  <SpotifyEmbed artistId={spotifyArtistId} artistName={band.name} />
-                )}
-              </div>
-            </section>
-          )}
-
           {band.featuredOn && band.featuredOn.length > 0 && (
             <section>
               <p className="label mb-3">Featured on</p>
@@ -495,6 +467,16 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
           </Link>
         </aside>
       </div>
+
+      {band.bandcamp?.embedAlbumId && (
+        <StickyBandcamp
+          key={band.slug}
+          embedAlbumId={band.bandcamp.embedAlbumId}
+          albumUrl={band.bandcamp.albumUrl}
+          bandName={band.name}
+          accentColor={band.accentColor}
+        />
+      )}
 
       <Lightbox
         photos={band.photos}
