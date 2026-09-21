@@ -24,14 +24,22 @@ interface PhotoFrameProps {
   className?: string
   /** Overrides MONOCHROME for this one image — the lightbox passes false */
   monochrome?: boolean
+  /** CSS object-position — which part of the photo to keep when it's cropped */
+  objectPosition?: string
   /** Renders behind content: out of the a11y tree, no pointer events */
   decorative?: boolean
 }
 
-const MASK: Record<Treatment, string | undefined> = {
-  dissolve: 'radial-gradient(ellipse 78% 78% at 50% 45%, #000 42%, transparent 100%)',
-  'edge-fade': 'linear-gradient(to bottom, #000 30%, transparent 100%)',
-  plain: undefined,
+/**
+ * The dissolve fades outward from an anchor point. By default that sits just
+ * above centre; a photo pinned to the bottom needs the anchor at the bottom
+ * too, or its pinned edge would fade away.
+ */
+function maskFor(t: Treatment, objectPosition?: string): string | undefined {
+  if (t === 'edge-fade') return 'linear-gradient(to bottom, #000 30%, transparent 100%)'
+  if (t === 'plain') return undefined
+  const y = /bottom/.test(objectPosition ?? '') ? '100%' : /top/.test(objectPosition ?? '') ? '0%' : '45%'
+  return `radial-gradient(ellipse 78% 78% at 50% ${y}, #000 42%, transparent 100%)`
 }
 
 export default function PhotoFrame({
@@ -42,8 +50,9 @@ export default function PhotoFrame({
   className = '',
   monochrome = MONOCHROME,
   decorative = false,
+  objectPosition,
 }: PhotoFrameProps) {
-  const mask = MASK[treatment]
+  const mask = maskFor(treatment, objectPosition)
 
   return (
     <div
@@ -58,6 +67,7 @@ export default function PhotoFrame({
         className="w-full h-full object-cover"
         style={{
           filter: monochrome ? 'grayscale(1) contrast(1.15)' : undefined,
+          objectPosition,
           maskImage: mask,
           WebkitMaskImage: mask,
         }}

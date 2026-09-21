@@ -52,6 +52,8 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
 
   // Dedicated heroImage when set, otherwise fall back to the first photo.
   const heroSrc = band.heroImage ?? band.photos[0]?.src
+  const asHeader = band.heroStyle === 'header' && Boolean(heroSrc)
+  const lineUnderLogo = Boolean(band.accentUnderLogo && band.logo)
 
   const f = band.fonts
 
@@ -71,10 +73,49 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
     >
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section
-        className="relative px-6 py-24 overflow-hidden"
-        style={{ borderBottom: '1px solid var(--iron)' }}
+        className={`relative overflow-hidden ${asHeader ? 'px-5 md:px-8 flex flex-col justify-end pt-24 pb-10' : 'px-6 py-24'}`}
+        style={{
+          borderBottom: '1px solid var(--iron)',
+          // A photo header needs room to be seen; the name sits at its foot.
+          minHeight: asHeader ? 'clamp(460px, 72vh, 760px)' : undefined,
+        }}
       >
-        {heroSrc && (
+        {heroSrc && asHeader && (
+          <div className="absolute inset-0" aria-hidden>
+            <img
+              src={heroSrc}
+              alt=""
+              className="w-full h-full object-cover"
+              style={{
+                filter: 'grayscale(1) contrast(1.1)',
+                opacity: 0.9,
+                objectPosition: band.heroPosition ?? 'center',
+              }}
+            />
+            {band.heroFadeLeft && (
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    'linear-gradient(to right, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.82) 30%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.05) 100%)',
+                }}
+              />
+            )}
+            {/* Dark fade along the bottom only, so the name stays legible
+                without dimming the whole photograph */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  // Covers the full text block at the foot (name, hairline,
+                  // tagline, links — ~400px), fading out above it.
+                  'linear-gradient(to top, #000 0%, rgba(0,0,0,0.88) 30%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.2) 68%, rgba(0,0,0,0) 82%)',
+              }}
+            />
+          </div>
+        )}
+
+        {heroSrc && !asHeader && (
           <div className="absolute inset-0">
             <PhotoFrame
               src={heroSrc}
@@ -82,51 +123,86 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
               treatment="dissolve"
               aspect="auto"
               className="w-full h-full opacity-45"
+              objectPosition={band.heroPosition}
               decorative
             />
           </div>
         )}
 
-        <div
-          className="absolute pointer-events-none"
-          style={{ right: '-140px', top: '50%', transform: 'translateY(-50%)' }}
-        >
-          <Sigil size={540} points={12} color={band.accentColor} opacity={0.4} />
-        </div>
+        {/* The sigil would sit over the crowd in a photo header, so it's
+            backdrop-only */}
+        {!asHeader && (
+          <div
+            className="absolute pointer-events-none"
+            style={{ right: '-140px', top: '50%', transform: 'translateY(-50%)' }}
+          >
+            <Sigil size={540} points={12} color={band.accentColor} opacity={0.4} />
+          </div>
+        )}
 
-        <div className="relative max-w-7xl mx-auto">
-          <div className="flex items-center gap-6 mb-6 flex-wrap">
+        <div className={asHeader ? 'relative' : 'relative max-w-7xl mx-auto'}>
+          <div className={`flex items-center gap-4 md:gap-5 flex-wrap ${lineUnderLogo ? 'mb-7' : 'mb-5'}`}>
             {band.logo && (
-              <img
-                src={band.logo}
-                alt=""
-                aria-hidden
-                className="shrink-0"
-                style={{
-                  height: 'clamp(56px, 9vw, 104px)',
-                  width: 'auto',
-                  filter: 'grayscale(1) contrast(1.15)',
-                  mixBlendMode: 'screen',
-                }}
-              />
+              // The logo gets its own column so an accent line can sit centred
+              // under it, and wrap WITH it on phones instead of landing on the
+              // wordmark when the row breaks.
+              <div className="shrink-0 flex flex-col items-center gap-4">
+                <img
+                  src={band.logo}
+                  alt=""
+                  aria-hidden
+                  // Rendered exactly as supplied. Logos are the band's identity:
+                  // greyscale would strip Hoster's toaster, and the old 'screen'
+                  // blend turned any dark-on-light artwork into a white block.
+                  style={{
+                    height: asHeader ? 'clamp(80px, 11vw, 168px)' : 'clamp(64px, 10vw, 120px)',
+                    width: 'auto',
+                  }}
+                />
+                {lineUnderLogo && (
+                  <div style={{ width: '96px', height: '2px', background: band.accentColor }} />
+                )}
+              </div>
             )}
             <h1
               className="display"
               style={{ fontSize: 'clamp(2.4rem, 9vw, 7.5rem)', color: 'var(--bone)' }}
             >
-              {band.name}
+              {band.wordmark ? (
+                // Hand-drawn name. The alt text keeps it a real heading for
+                // screen readers and search, so nothing is lost by using art.
+                <img
+                  src={band.wordmark}
+                  alt={band.name}
+                  style={{
+                    height: band.wordmarkHeight ?? 'clamp(88px, 14vw, 230px)',
+                    width: 'auto',
+                    maxWidth: '100%',
+                    objectFit: 'contain',
+                    objectPosition: 'left center',
+                    display: 'block',
+                    // Over a photo header, a soft shadow separates the strokes from
+                    // busy midtones behind them. Unneeded on a plain black hero.
+                    filter: asHeader ? 'drop-shadow(0 2px 14px rgba(0,0,0,0.9))' : undefined,
+                  }}
+                />
+              ) : (
+                band.name
+              )}
             </h1>
           </div>
 
-          {/* Single hairline of colour */}
-          <div
-            className="mb-8"
-            style={{ width: '96px', height: '2px', background: band.accentColor }}
-          />
+          {/* Single hairline of colour — under the name, unless it sits under the logo */}
+          {!lineUnderLogo && (
+            <div
+              className="mb-6"
+              style={{ width: '96px', height: '2px', background: band.accentColor }}
+            />
+          )}
 
           {band.tagline && (
             <p
-              className="mb-10"
+              className="mb-7"
               style={{
                 color: isTodo(band.tagline) ? 'var(--dust)' : 'var(--bone)',
                 fontStyle: isTodo(band.tagline) ? 'italic' : 'normal',
@@ -143,8 +219,38 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
       </section>
 
       {/* ── Body ─────────────────────────────────────────────────────────── */}
-      <div className="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 lg:grid-cols-3 gap-12">
-        <div className="lg:col-span-2 space-y-16">
+      <div className="max-w-screen-2xl mx-auto px-5 md:px-8 py-12 grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <div className="lg:col-span-2 space-y-12">
+
+          {band.latestRelease && (
+            <section>
+              <p className="label mb-4">Latest release</p>
+              <h2
+                className="display"
+                style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', color: 'var(--bone)' }}
+              >
+                {band.latestRelease.title}
+              </h2>
+              {(band.latestRelease.type || band.latestRelease.date) && (
+                <p className="label mt-3 mb-5" style={{ color: 'var(--ash)' }}>
+                  {[band.latestRelease.type, band.latestRelease.date].filter(Boolean).join(' · ')}
+                </p>
+              )}
+              {band.latestRelease.spotifyAlbumId && (
+                <iframe
+                  src={`https://open.spotify.com/embed/album/${band.latestRelease.spotifyAlbumId}?utm_source=generator&theme=0`}
+                  title={`${band.latestRelease.title} by ${band.name} on Spotify`}
+                  width="100%"
+                  height="352"
+                  loading="lazy"
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  // Spotify's player has rounded corners of its own; no outline
+                  // around it, and match the radius so nothing peeks at the edges.
+                  style={{ border: 0, borderRadius: '12px', display: 'block', maxWidth: '760px' }}
+                />
+              )}
+            </section>
+          )}
 
           {shows.length > 0 && (
             <section>
@@ -291,7 +397,7 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
         </div>
 
         {/* ── Sidebar ─────────────────────────────────────────────────────── */}
-        <aside className="space-y-10">
+        <aside className="space-y-8">
           <div style={{ borderTop: `2px solid ${band.accentColor}`, paddingTop: '1.25rem' }}>
             <p className="label mb-5">{band.isSoloBrett ? 'Project' : 'Members'}</p>
             <MembersList members={band.members} accentColor={band.accentColor} />
@@ -301,6 +407,31 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
             <div style={{ borderTop: '1px solid var(--iron)', paddingTop: '1.25rem' }}>
               <p className="label mb-5">Contributing artists</p>
               <MembersList members={band.contributors} accentColor={band.accentColor} />
+            </div>
+          )}
+
+          {band.visualArtists && band.visualArtists.length > 0 && (
+            <div style={{ borderTop: '1px solid var(--iron)', paddingTop: '1.25rem' }}>
+              <p className="label mb-5">{band.visualArtistsLabel ?? 'Visual artists'}</p>
+              <ul className="space-y-2">
+                {band.visualArtists.map(a => (
+                  <li key={a.handle} className="flex items-baseline gap-2 text-sm">
+                    <span style={{ color: band.accentColor }} aria-hidden>—</span>
+                    <a
+                      href={`https://instagram.com/${a.handle}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:underline"
+                      style={{ color: 'var(--bone)' }}
+                    >
+                      {a.name ?? `@${a.handle}`}
+                    </a>
+                    {a.name && (
+                      <span className="label" style={{ color: 'var(--dust)' }}>@{a.handle}</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
             </div>
           )}
 

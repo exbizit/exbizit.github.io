@@ -155,7 +155,7 @@ export default function Listening() {
             LISTENING
           </h1>
           <p className="label" style={{ color: 'var(--ash)' }}>
-            Songs Brett has on repeat
+            Music Brett has on repeat
             {listeningUpdated && (
               <>
                 <span style={{ color: 'var(--iron)' }}> · </span>

@@ -84,6 +84,24 @@
 .sigil-drift { animation: sigil-drift 140s linear infinite; transform-origin: center; }
 .sigil-drift-reverse { animation: sigil-drift 190s linear infinite reverse; transform-origin: center; }
 
+/* ── Nav colour states ────────────────────────────────────────────────────
+   Text names and masked wordmarks both paint with currentColor, so one rule
+   recolours either: grey at rest, white on hover, band accent when current. */
+.nav-item {
+  color: var(--ash);
+  border-bottom: 2px solid transparent;
+  transition: color 300ms ease, border-color 300ms ease;
+}
+.nav-item:hover { color: var(--bone); }
+.nav-item[aria-current='page'] {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+/* .label sets its own colour; let the nav state win */
+.nav-item.label { color: var(--ash); }
+.nav-item.label:hover { color: var(--bone); }
+.nav-item.label[aria-current='page'] { color: var(--accent); }
+
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: var(--void); }
 ::-webkit-scrollbar-thumb { background: var(--iron); }

@@ -64,6 +64,8 @@ export interface BandFonts {
    * makes the browser synthesise a fake bold and smear the letterforms.
    */
   displayWeight?: number
+  /** Font size for this band's name in the nav — faces differ a lot at small sizes */
+  navSize?: string
 }
 
 export interface Band {
@@ -81,10 +83,48 @@ export interface Band {
   fonts?: BandFonts
   /** Wordmark / logo shown beside the name on the EPK page */
   logo?: string
+  /**
+   * Hand-drawn name artwork (white on transparent). When set it replaces the
+   * typed band name in the hero; the name stays in the markup for screen
+   * readers and search.
+   */
+  wordmark?: string
+  /**
+   * Featured at the top of the band's page. Spotify album id (from the album's
+   * share link) renders Spotify's player with the full tracklist.
+   */
+  latestRelease?: {
+    title: string
+    type?: string          // 'Album', 'EP', 'Single'
+    date?: string          // as it should read on the page
+    spotifyAlbumId?: string
+  }
+  /** Centre the accent line under the logo rather than under the name */
+  accentUnderLogo?: boolean
+  /** CSS height for the wordmark in the hero. Wide artwork needs a smaller value. */
+  wordmarkHeight?: string
   /** Full-bleed dissolved backdrop behind the hero */
   heroImage?: string
+  /**
+   * 'backdrop' (default): faint, dissolved atmosphere behind the name.
+   * 'header': the photo IS the header — near full strength, a dark fade only
+   * along the bottom for legibility, no sigil over it. Suits real photographs;
+   * graphics and cover art usually read better as a backdrop.
+   */
+  heroStyle?: 'backdrop' | 'header'
+  /** CSS object-position for the hero image (either style) — which part of the frame to keep */
+  heroPosition?: string
+  /** Header mode: also darken from the left, for bright artwork behind the name */
+  heroFadeLeft?: boolean
   /** Press quotes — the most valuable thing on an EPK */
   press?: PressQuote[]
+  /**
+   * Visual artists and photographers behind the band's imagery. Instagram
+   * handles without the @; `name` only when we actually know it.
+   */
+  visualArtists?: { handle: string; name?: string }[]
+  /** Heading for that block — defaults to "Visual artists" */
+  visualArtistsLabel?: string
   /** Past members and guests who played on the records, credited separately from the lineup */
   contributors?: { name: string; role?: string }[]
   socials: SocialLink[]
@@ -110,9 +150,19 @@ export const BANDS: Band[] = [
       { name: 'Austin P' },
     ],
     isActive: true,
-    accentColor: '#C8FF00', // volt yellow
-    logo: '/photos/hoster/hosterLogo.png',
-    heroImage: '/photos/hoster/punkrockpizza-2.JPG',
+    accentColor: '#63909C', // toaster teal — sampled from the logo, lifted to 6:1 on black
+    logo: '/photos/hoster/logo.png',
+    heroImage: '/photos/hoster/house-show.jpg',
+    heroStyle: 'header',
+    visualArtistsLabel: 'Visual artists & photographers',
+    visualArtists: [
+      { handle: 'paolashung' },
+      { handle: 'photosbymaddog' },
+      { handle: 'headbannedband' },
+      { handle: 'theaustinpalmer' },
+      { handle: 'allycantdance' },
+    ],
+    wordmark: '/photos/hoster/wordmark.png',
 
     // Sturdy American grotesque — gig-poster weight without the novelty
     fonts: {
@@ -121,6 +171,7 @@ export const BANDS: Band[] = [
       googleSpec: 'family=Archivo+Black&family=Archivo:wght@300;400;500',
       displayTracking: '-0.035em',
       displayWeight: 400, // Archivo Black IS the black weight
+      navSize: '34px',     // wordmark height in the nav
     },
     socials: [
       { platform: 'bandcamp', url: 'https://hosterband.bandcamp.com/album/a-little-strange', label: 'A Little Strange' },
@@ -137,8 +188,18 @@ export const BANDS: Band[] = [
       embedAlbumId: '3390669088', // A Little Strange
     },
     photos: [
-      { src: '/photos/hoster/stardust-show.jpg',  caption: 'Live at Stardust' },
+      { src: '/photos/hoster/band-photo.jpg' },
+      { src: '/photos/hoster/house-show.jpg', caption: 'House show' },
+      { src: '/photos/hoster/performing.jpg' },
+      { src: '/photos/hoster/punk-rock-pizza.jpg', caption: 'Live at Punk Rock Pizza' },
+      { src: '/photos/hoster/punk-rock-pizza-show.jpg', caption: 'Live at Punk Rock Pizza' },
+      { src: '/photos/hoster/river-jams.jpg', caption: 'River jams' },
+      { src: '/photos/hoster/stardust-show.jpg', caption: 'Live at Stardust' },
       { src: '/photos/hoster/wprk-interview.jpg', caption: 'WPRK interview' },
+      { src: '/photos/hoster/a-little-strange-cover.jpg', caption: 'A Little Strange' },
+      { src: '/photos/hoster/gnocchi-cover.jpg', caption: 'Gnocchi — Live on WPRK Flower Hour' },
+      { src: '/photos/hoster/sticker.jpg', caption: 'Sticker' },
+      { src: '/photos/hoster/catpuppy.jpg', caption: 'Catpuppies' },
     ],
   },
   // ─────────────────────────────────────────────────────
@@ -149,9 +210,9 @@ export const BANDS: Band[] = [
     // Assembled from the START TRACK review below — rewrite in your own voice when you get a chance.
     description:
       "Mary's White Lie is an Orlando shoegaze project, born as a collaboration between solo " +
-      "artists Head Banned and Roger's Only Son. Debut EP Stable of Stone arrived August 2026 — " +
-      'three originals plus adjusted-speed bonus versions, moving between shoegaze, folk and indie rock.' +
-      'The EP is self-produced and mastered by Mason Krüg. Mary\'s White Lie is influenced by artists like Eric\'s Trip, Deadharrie, Julie, and Total Wife.',
+      "artists Head Banned and Roger's Only Son. Debut EP Stable of Stone arrived August 2026 and features " +
+      'three originals plus adjusted-speed "nightcore" bonus versions. ' +
+      'The EP is self-produced and mastered by Mason Krüg. Mary\'s White Lie is influenced by artists like Eric\'s Trip, Alex G, Elliott Smith, Deadharrie, Julie, Total Wife, and countless others.',
     genre: ['shoegaze', 'indie rock', 'folk'],
     press: [
       {
@@ -182,9 +243,23 @@ export const BANDS: Band[] = [
       googleSpec: 'family=Instrument+Serif:ital@0;1&family=Karla:wght@300;400;500',
       displayTracking: '-0.01em',
       displayWeight: 400, // Instrument Serif ships 400 only
+      navSize: '34px',     // thin smoke strokes go soft much below this
     },
-    logo: '/photos/maryswhitelie/logo.jpg',
-    heroImage: '/photos/maryswhitelie/smoke-text.jpg',
+    logo: '/photos/maryswhitelie/logo.png',
+    accentUnderLogo: true,
+    // Just the pen drawing, cropped out of the square composition's black margins
+    heroImage: '/photos/maryswhitelie/hero-drawing.jpg',
+    heroStyle: 'header',
+    heroPosition: 'center 22%',   // keep the hills, road and house
+    heroFadeLeft: true,
+    // smoky lettering from the top of smoke-text.jpeg; ~6.6:1, so shorter than Hoster's
+    wordmark: '/photos/maryswhitelie/wordmark.png',
+    wordmarkHeight: 'clamp(56px, 9vw, 150px)',
+    visualArtists: [
+      { handle: 'eastdocht', name: 'East' },
+      { handle: 'hklineart', name: 'Hannah Kline' },
+      { handle: 'photosbymaddog' },
+    ],
     socials: [
       { platform: 'bandcamp', url: 'https://maryswhitelie.bandcamp.com/album/stable-of-stone', label: 'Stable of Stone' },
       { platform: 'spotify', url: 'https://open.spotify.com/artist/7ATB6jS5IvZnNNonyOzy2o', label: 'Spotify' },
@@ -220,7 +295,7 @@ export const BANDS: Band[] = [
       "Head Banned starting writing and producing music in 2015; amounting to 7 full length albums, a live album, and a split EP with zeroindex. While Head Banned continues as a solo project, it played full band shows in Orlando from 2017-2021. Head Banned still plays solo shows and open mics in the area.",
     genre: ['indie folk', 'singer-songwriter', 'psychedelia', 'indie-electronic'],
     members: [
-      { name: 'Brett B', role: 'everything' },
+      { name: 'Brett B', role: 'songwriting & production' },
     ],
     contributors: [
       { name: 'Austin P' },
@@ -228,6 +303,13 @@ export const BANDS: Band[] = [
       { name: 'Freddy H' },
       { name: 'Benny Q' },
     ],
+    heroImage: '/photos/headbanned/phishing-cover.jpg',
+    latestRelease: {
+      title: 'Keep Phishing',
+      type: 'Album',
+      date: 'September 2025',
+      spotifyAlbumId: '3SM7BZN93605bQDOOydIWk',
+    },
     isActive: true,
     isSoloBrett: true,
     accentColor: '#8B00FF', // deep purple
@@ -238,6 +320,7 @@ export const BANDS: Band[] = [
       googleSpec: 'family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;500',
       displayTracking: '0.01em',
       displayWeight: 400, // Bebas Neue ships 400 only, caps only
+      navSize: '1.25rem',  // condensed caps read small
     },
     socials: [
       { platform: 'bandcamp', url: 'https://headbanned.bandcamp.com/album/litter-box', label: 'Litter Box' },
@@ -250,22 +333,25 @@ export const BANDS: Band[] = [
       albumUrl: 'https://headbanned.bandcamp.com/album/litter-box',
       embedAlbumId: '549311119', // Litter Box
     },
-    photos: [],
+    photos: [
+      { src: '/photos/headbanned/headbanned.jpg' },
+      { src: '/photos/headbanned/phishing-cover.jpg', caption: 'Keep Phishing' },
+    ],
   },
   // ─────────────────────────────────────────────────────
   {
     slug: 'zeroindex',
     name: 'zeroindex',
-    tagline: "sample music, synthesizers, drums n bass",
+    tagline: "samplers, synthesizers, dnb",
     description:
-      "What happens when you give Brett an SP404 sampler and an analog synthesizer.",
+      "Mashing together breakbeats, early 2000's pop, underground rap, and Rachel doing bubble noises.",
     genre: ['electronic', 'dnb', 'sample-based music'],
     members: [
       { name: 'Brett B', role: 'production, synth, sampler' },
     ],
     isActive: true,
     isSoloBrett: true,
-    accentColor: '#00C8FF', // electric cyan
+    accentColor: '#C8FF00', // volt lime (Hoster's old colour; cyan clashed with the toaster)
     // Monospace throughout. The name is a zero-indexed array joke; the page
     // should read like a terminal.
     fonts: {
@@ -274,6 +360,7 @@ export const BANDS: Band[] = [
       googleSpec: 'family=JetBrains+Mono:wght@300;400;700',
       displayTracking: '-0.04em',
       displayWeight: 700,
+      navSize: '0.95rem',  // mono runs wide
     },
     socials: [
       { platform: 'spotify', url: 'https://open.spotify.com/artist/1R5IL9qNESIJGhvlDKoYpR', label: 'Spotify' },
@@ -281,21 +368,30 @@ export const BANDS: Band[] = [
       { platform: 'instagram', url: 'https://instagram.com/zeroindex', label: '@zeroindex' },
     ],
     videos: [],
-    photos: [],
+    heroPosition: 'center bottom',   // photo's bottom edge pinned to the hero's
+    photos: [
+      { src: '/photos/zeroindex/mixing.jpg' },
+      { src: '/photos/zeroindex/grindset-cover.jpg', caption: 'Grindset' },
+    ],
   },
   // ─────────────────────────────────────────────────────
   {
     slug: 'rogersonlyson',
     name: "Roger's Only Son",
-    tagline: "Whispery, Intimate Singer-Songwriter.",
+    tagline: "Whispery, Intimate, Analog Singer-Songwriter",
     description:
-      "Solo project inspired by Elliott Smith and Guided By Voices -- recorded on tape.",
+      "Solo project inspired by Elliott Smith, Guided By Voices, and Roger himself. Recorded on tape.",
     genre: ['singer-songwriter', 'folk', 'indie rock'],
     members: [
-      { name: 'Dylon W', role: 'everything' },
+      { name: 'Dylon W', role: 'makin\' the music' },
     ],
     isActive: true,
     accentColor: '#FF8C00', // amber
+    // Circle-cropped from the ROS portrait (see scripts/build-photos.py)
+    logo: '/photos/rogersonlyson/logo.png',
+    heroImage: '/photos/rogersonlyson/punk-rock-pizza-1.jpg',
+    heroStyle: 'header',
+    heroPosition: 'center 30%',   // keep the head and the lit corridor
     // A single light text serif, set large. Literary and quiet — it matches an
     // album titled in lowercase with a b/w side convention.
     fonts: {
@@ -316,7 +412,14 @@ export const BANDS: Band[] = [
       albumUrl: 'https://rogersonlyson.bandcamp.com/album/lost-project-b-w-emitting-light',
       embedAlbumId: '2533368357', // lost project b/w emitting light
     },
-    photos: [],
+    photos: [
+      { src: '/photos/rogersonlyson/ros-1.jpg' },
+      { src: '/photos/rogersonlyson/ros-2.jpg' },
+      { src: '/photos/rogersonlyson/ros-3.jpg' },
+      { src: '/photos/rogersonlyson/punk-rock-pizza-1.jpg', caption: 'Live at Punk Rock Pizza' },
+      { src: '/photos/rogersonlyson/punk-rock-pizza-2.jpg', caption: 'Live at Punk Rock Pizza' },
+      { src: '/photos/rogersonlyson/taut-pupils-cover.jpg', caption: 'The Taut Pupils For Sore Eyes' },
+    ],
   },
 ]
 

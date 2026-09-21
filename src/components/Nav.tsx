@@ -1,8 +1,44 @@
 import { Link, useLocation } from 'react-router-dom'
-import { BANDS, bandPath } from '../data/bands'
+import { BANDS, bandPath, type Band } from '../data/bands'
+import { useNavFonts } from '../hooks/useNavFonts'
+
+/**
+ * A wordmark drawn as a colour mask rather than an image. The PNG's shape cuts
+ * out a block of `currentColor`, so the artwork recolours exactly like text:
+ * grey at rest, white on hover, the band's accent on its own page.
+ *
+ * The invisible <img> underneath only exists to give the box the artwork's
+ * true proportions, so no aspect ratios need hard-coding.
+ */
+function MaskedWordmark({ band }: { band: Band }) {
+  const h = band.fonts?.navSize ?? '26px'
+  const src = band.wordmark!
+  const mask = {
+    WebkitMaskImage: `url(${src})`,
+    maskImage: `url(${src})`,
+    WebkitMaskSize: 'contain',
+    maskSize: 'contain',
+    WebkitMaskRepeat: 'no-repeat',
+    maskRepeat: 'no-repeat',
+    WebkitMaskPosition: 'left center',
+    maskPosition: 'left center',
+  } as React.CSSProperties
+
+  return (
+    <span className="relative inline-block" style={{ height: h }}>
+      <img src={src} alt="" aria-hidden style={{ height: h, width: 'auto', opacity: 0, display: 'block' }} />
+      <span
+        aria-hidden
+        className="absolute inset-0 transition-colors duration-300"
+        style={{ backgroundColor: 'currentColor', ...mask }}
+      />
+    </span>
+  )
+}
 
 export default function Nav() {
   const { pathname } = useLocation()
+  useNavFonts()
 
   return (
     <nav
@@ -18,16 +54,30 @@ export default function Nav() {
               <Link
                 key={band.slug}
                 to={to}
-                className="label px-3 py-5 whitespace-nowrap transition-colors"
-                style={{
-                  color: active ? band.accentColor : 'var(--ash)',
-                  borderBottom: active ? `2px solid ${band.accentColor}` : '2px solid transparent',
-                }}
+                aria-current={active ? 'page' : undefined}
+                aria-label={band.wordmark ? band.name : undefined}
+                className="nav-item h-14 px-3 flex items-center whitespace-nowrap"
+                style={{ ['--accent' as string]: band.accentColor }}
               >
-                {band.name}
+                {band.wordmark ? (
+                  <MaskedWordmark band={band} />
+                ) : (
+                  <span
+                    style={{
+                      fontFamily: band.fonts?.display,
+                      fontWeight: band.fonts?.displayWeight ?? 700,
+                      fontSize: band.fonts?.navSize ?? '1rem',
+                      letterSpacing: '0.005em',
+                      lineHeight: 1,
+                    }}
+                  >
+                    {band.name}
+                  </span>
+                )}
               </Link>
             )
           })}
+
           {/* Utility pages, set apart from the band list */}
           <span
             className="mx-2 shrink-0"
@@ -42,11 +92,9 @@ export default function Nav() {
             <Link
               key={item.to}
               to={item.to}
-              className="label px-3 py-5 whitespace-nowrap transition-colors"
-              style={{
-                color: pathname === item.to ? 'var(--bone)' : 'var(--ash)',
-                borderBottom: pathname === item.to ? '2px solid var(--bone)' : '2px solid transparent',
-              }}
+              aria-current={pathname === item.to ? 'page' : undefined}
+              className="nav-item label h-14 px-3 flex items-center whitespace-nowrap"
+              style={{ ['--accent' as string]: 'var(--bone)' }}
             >
               {item.label}
             </Link>
