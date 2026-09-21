@@ -21,7 +21,7 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
   const band = slug ? getBandBySlug(slug) : undefined
   // Declared before the 404 return below — hook order must stay stable across renders
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
-  useDocumentTitle(band?.name)
+  useDocumentTitle(band?.name, false) // band name only
   useBandFonts(band?.fonts)
 
   if (!band) {
