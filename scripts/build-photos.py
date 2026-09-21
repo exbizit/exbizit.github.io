@@ -142,6 +142,25 @@ def circle(src, dst, center, radius, expect=None, size=400, gray=True, ring=0, r
     return out.size
 
 # (kind, original under photos/, output under public/photos/, options)
+def frame(src, dst, band, expect=None):
+    """The knotwork border from an album cover, without its lettering, for use
+    as a CSS border-image. The cover's top and bottom bands carry text, so they
+    are rebuilt from the (text-free) left and right bands turned 90 degrees;
+    the frame is drawn with 4-fold symmetry, so they meet the corners cleanly.
+    The centre is blanked; border-image never draws it anyway."""
+    im = _open(src).convert('L')
+    if expect and im.size != tuple(expect):
+        raise SystemExit(f"frame: {src} is {im.size}, expected {expect}; re-measure `band`")
+    W, H = im.size
+    out = im.copy()
+    top = im.crop((0, band, band, H - band)).rotate(-90, expand=True)
+    bot = im.crop((W - band, band, W, H - band)).rotate(-90, expand=True)
+    out.paste(top, (band, 0))
+    out.paste(bot, (band, H - band))
+    out.paste(0, (band, band, W - band, H - band))
+    out.save(dst, 'PNG', optimize=True)
+    return out.size
+
 MANIFEST = [
   # ── Hoster ───────────────────────────────────────────────────────────────
   (logo,     'hoster/hosterLogo.png',                  'hoster/logo.png', {}),
@@ -169,6 +188,8 @@ MANIFEST = [
   (photo,    'marys-white-lie/smoke-text.jpeg',        'maryswhitelie/hero-drawing.jpg', {'crop': crop_mwl_drawing}),
   (wordmark_light, 'marys-white-lie/smoke-text.jpeg',  'maryswhitelie/wordmark.png', {'box': MWL_LETTERING, 'fade_right': 150, 'min_blob': 60}),
   (photo,    'marys-white-lie/stable-of-stone-album-cover.jpeg', 'maryswhitelie/stable-of-stone-cover.jpg', {'edge': 1000}),
+  # Knotwork border (lettering removed) framing the Community board
+  (frame,    'marys-white-lie/stable-of-stone-album-cover.jpeg', 'maryswhitelie/stable-frame.png', {'band': 98, 'expect': (886, 886)}),
   # ── Head Banned ──────────────────────────────────────────────────────────
   (photo,    'head-banned/headbanned.JPG',             'headbanned/headbanned.jpg', {}),
   (photo,    'head-banned/PhishingAlbum.jpg',          'headbanned/phishing-cover.jpg', {'edge': 1000}),

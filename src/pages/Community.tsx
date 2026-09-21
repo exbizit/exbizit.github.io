@@ -196,7 +196,7 @@ export default function Community() {
 
   return (
     <div style={{ paddingTop: 'var(--nav-h, 56px)' }}>
-      <div className="max-w-2xl mx-auto px-5 py-10">
+      <div className="max-w-3xl mx-auto px-5 py-10">
         <h1 className="display" style={{ fontSize: 'clamp(2rem, 6vw, 3.5rem)', color: 'var(--bone)' }}>
           Community
         </h1>
@@ -258,13 +258,19 @@ export default function Community() {
             {/* The board: a scrolling window, oldest at the top, newest at the bottom */}
             <div
               ref={boardEl}
-              className="mb-6 overflow-y-auto overscroll-contain rounded-2xl p-2 sm:p-3"
+              className="mb-6 overflow-y-auto overscroll-contain p-2 sm:p-3"
               style={{
-                maxHeight: 'min(60vh, 560px)',
-                minHeight: 160,
-                // Rainbow rim made from the pickable colours, dotted paper inside
-                border: '2px solid transparent',
-                background: `radial-gradient(circle, #1a1a1a 1px, transparent 1.5px) 0 0 / 18px 18px, linear-gradient(#060606, #060606) padding-box, linear-gradient(120deg, ${COLORS.map(c => c.hex).join(', ')}) border-box`,
+                height: 'min(72vh, 760px)',
+                minHeight: 320,
+                // Knotwork border from the Stable of Stone cover (lettering removed;
+                // built by scripts/build-photos.py). 98px is the band's width in
+                // the source image; `round` repeats the sides without stretching.
+                borderStyle: 'solid',
+                borderWidth: 'clamp(30px, 6vw, 54px)',
+                borderImage: "url('/photos/maryswhitelie/stable-frame.png') 98 round",
+                background:
+                  'radial-gradient(circle, #1a1a1a 1px, transparent 1.5px) 0 0 / 18px 18px, #060606',
+                backgroundClip: 'padding-box',
               }}
               aria-label="Messages"
             >
