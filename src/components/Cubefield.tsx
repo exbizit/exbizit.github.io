@@ -56,6 +56,11 @@ function writeCharacter(slug: string | null) {
 const isTouchDevice =
   typeof window !== 'undefined' && (navigator.maxTouchPoints > 0 || 'ontouchstart' in window)
 
+// A CacheStorage entry, not the browser's implicit HTTP cache, so it's
+// something this component can actually delete on its way out rather than
+// leaving preview clips sitting on the visitor's disk indefinitely.
+const PREVIEW_CACHE = 'cubefield-previews-v1'
+
 export default function Cubefield({
   covers,
   characters,
@@ -66,6 +71,8 @@ export default function Cubefield({
   const containerRef = useRef<HTMLDivElement>(null)
   const audioRef = useRef<HTMLAudioElement>(null)
   const gameRef = useRef<CubefieldGame | null>(null)
+  const cacheRef = useRef<Cache | null>(null)
+  const objectUrlRef = useRef<string | null>(null)
   const [state, setState] = useState<CubefieldState>('idle')
   const [score, setScore] = useState(0)
   const [best, setBest] = useState(readBest)
@@ -112,30 +119,72 @@ export default function Cubefield({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // Quietly warm the HTTP cache for every preview clip, one at a time, in
+  // Quietly warm a dedicated cache for every preview clip, one at a time, in
   // the background. A run only lasts a few seconds, so this won't finish
   // before most first crashes — but it keeps working across "Play again"s,
   // so the longer a session runs, the more crashes hit an already-cached
-  // clip and start with no fetch at all, not just a warm connection.
+  // clip and play from disk instead of the network. Explicit CacheStorage
+  // (not just relying on the browser's own HTTP cache) so leaving the page
+  // can actually delete what got downloaded, rather than it lingering.
   useEffect(() => {
+    if (!('caches' in window)) return
     let cancelled = false
     const urls = [...new Set(covers.map(c => c.previewUrl).filter((u): u is string => Boolean(u)))]
-    ;(async () => {
+    caches.open(PREVIEW_CACHE).then(async cache => {
+      if (cancelled) return
+      cacheRef.current = cache
       for (const url of urls) {
         if (cancelled) return
+        if (await cache.match(url)) continue
         try {
-          await fetch(url, { mode: 'no-cors' })
+          const res = await fetch(url)
+          if (res.ok) await cache.put(url, res)
         } catch {
           /* best effort — a miss here just means that crash fetches live */
         }
         await new Promise(r => setTimeout(r, 120))
       }
-    })()
+    })
     return () => {
       cancelled = true
+      cacheRef.current = null
+      if (objectUrlRef.current) {
+        URL.revokeObjectURL(objectUrlRef.current)
+        objectUrlRef.current = null
+      }
+      // Leaving Cubefield: drop whatever this session downloaded rather than
+      // letting it sit on the visitor's disk.
+      caches.delete(PREVIEW_CACHE).catch(() => {})
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  /** Plays a preview from the cache if it's there, network otherwise — and
+   *  either way, makes sure it's cached for the next time it comes up. */
+  const playPreview = async (url: string, audio: HTMLAudioElement) => {
+    const cache = cacheRef.current
+    const hit = await cache?.match(url).catch(() => undefined)
+    if (hit) {
+      const blob = await hit.blob()
+      if (objectUrlRef.current) URL.revokeObjectURL(objectUrlRef.current)
+      const objectUrl = URL.createObjectURL(blob)
+      objectUrlRef.current = objectUrl
+      audio.src = objectUrl
+      audio.currentTime = 0
+      audio.play().catch(() => {})
+      return
+    }
+    audio.src = url
+    audio.currentTime = 0
+    audio.play().catch(() => {})
+    if (cache) {
+      fetch(url)
+        .then(res => {
+          if (res.ok) cache.put(url, res)
+        })
+        .catch(() => {})
+    }
+  }
 
   useEffect(() => {
     if (!containerRef.current || covers.length === 0) return
@@ -152,11 +201,7 @@ export default function Cubefield({
           return info.seconds
         })
         const audio = audioRef.current
-        if (audio && info.previewUrl) {
-          audio.src = info.previewUrl
-          audio.currentTime = 0
-          audio.play().catch(() => {})
-        }
+        if (audio && info.previewUrl) playPreview(info.previewUrl, audio)
       },
     })
     gameRef.current = game
@@ -183,6 +228,10 @@ export default function Cubefield({
     if (audio) {
       audio.pause()
       audio.removeAttribute('src')
+    }
+    if (objectUrlRef.current) {
+      URL.revokeObjectURL(objectUrlRef.current)
+      objectUrlRef.current = null
     }
     // Must fire from inside this tap — iOS only grants motion access when
     // requestPermission() runs synchronously off a user gesture, so this has
