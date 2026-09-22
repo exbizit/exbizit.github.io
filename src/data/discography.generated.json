@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-21T05:38:12.067Z",
+  "updated": "2026-09-22T02:49:46.915Z",
   "bands": {
     "hoster": [
       {
@@ -10,7 +10,8 @@
         "cover": "https://i.scdn.co/image/ab67616d00001e024ca0d051d8335544927a348d",
         "spotify": "https://open.spotify.com/album/7LhQpj6cIZZXKjRqYUQV7X",
         "appleMusic": "https://music.apple.com/us/album/gnocchi-live-on-wprk-flower-hour-single/6795084477",
-        "bandcamp": null
+        "bandcamp": null,
+        "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/5d/33/59/5d3359c0-eb23-e117-08a4-58eb0c238f8b/mzaf_3861676752551280652.plus.aac.p.m4a"
       },
       {
         "id": "5Y0fVqDOSgQYgegoPh79Gd",
@@ -20,7 +21,8 @@
         "cover": "https://i.scdn.co/image/ab67616d00001e0200bda62d17d1d5502d9af25c",
         "spotify": "https://open.spotify.com/album/5Y0fVqDOSgQYgegoPh79Gd",
         "appleMusic": "https://music.apple.com/us/album/a-little-strange-single/1822282849",
-        "bandcamp": "https://hosterband.bandcamp.com/album/a-little-strange"
+        "bandcamp": "https://hosterband.bandcamp.com/album/a-little-strange",
+        "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/22/61/a9/2261a9f1-d142-69ff-6a5e-e87067f44214/mzaf_4827549386718524770.plus.aac.p.m4a"
       },
       {
         "id": "2OHre9RrKe9qziVwjbgZIH",
@@ -30,7 +32,8 @@
         "cover": "https://i.scdn.co/image/ab67616d00001e027de271808debf3349abfe381",
         "spotify": "https://open.spotify.com/album/2OHre9RrKe9qziVwjbgZIH",
         "appleMusic": "https://music.apple.com/us/album/before-again-single/1772220066",
-        "bandcamp": null
+        "bandcamp": null,
+        "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/e8/94/8c/e8948cde-21ce-3195-b69a-c60b3061c5f1/mzaf_1265890107624280219.plus.aac.p.m4a"
       }
     ],
     "maryswhitelie": [
@@ -42,7 +45,8 @@
         "cover": "https://i.scdn.co/image/ab67616d00001e02429559c9301393bce86e7393",
         "spotify": "https://open.spotify.com/album/6aWVmCyO2q2AbcGYQpXS7z",
         "appleMusic": "https://music.apple.com/us/album/stable-of-stone-single/6797468977",
-        "bandcamp": "https://maryswhitelie.bandcamp.com/album/stable-of-stone"
+        "bandcamp": "https://maryswhitelie.bandcamp.com/album/stable-of-stone",
+        "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/db/50/e4/db50e4a9-8c2b-3870-7196-b77918cb44d7/mzaf_1672186960779590261.plus.aac.p.m4a"
       }
     ],
     "headbanned": [
@@ -54,7 +58,8 @@
         "cover": "https://i.scdn.co/image/ab67616d00001e02e5244aec05215c52007205b4",
         "spotify": "https://open.spotify.com/album/3SM7BZN93605bQDOOydIWk",
         "appleMusic": "https://music.apple.com/us/album/keep-phishing/1839252771",
-        "bandcamp": null
+        "bandcamp": null,
+        "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/35/91/33/359133e1-2658-35ac-033b-a7accdb7ae7c/mzaf_12512529269044402089.plus.aac.p.m4a"
       },
       {
         "id": "3xbcDPpfQnM9hRvJb2wk3U",
@@ -64,7 +69,8 @@
         "cover": "https://i.scdn.co/image/ab67616d00001e02ed3789342f2491a73c456272",
         "spotify": "https://open.spotify.com/album/3xbcDPpfQnM9hRvJb2wk3U",
         "appleMusic": "https://music.apple.com/us/album/try-single/1711445645",
-        "bandcamp": null
+        "bandcamp": null,
+        "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/dc/c6/61/dcc66193-e6d6-322a-9605-9299198a6d1d/mzaf_450586618360308012.plus.aac.p.m4a"
       },
       {
         "id": "407Xkkg1ZNrD6aE9HEbQRz",
@@ -74,7 +80,8 @@
         "cover": "https://i.scdn.co/image/ab67616d00001e024f17d217f928c106b4e55711",
         "spotify": "https://open.spotify.com/album/407Xkkg1ZNrD6aE9HEbQRz",
         "appleMusic": "https://music.apple.com/us/album/live-at-wills-pub/1603923116",
-        "bandcamp": null
+        "bandcamp": null,
+        "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/1f/e0/c4/1fe0c434-4c99-a23e-9496-3ad1fc050742/mzaf_16694755663477007498.plus.aac.p.m4a"
       },
       {
         "id": "1cqJkBZKBkHjHjfRB36V0Q",
@@ -84,7 +91,8 @@
         "cover": "https://i.scdn.co/image/ab67616d00001e028e388f9c480130ed5cfeda85",
         "spotify": "https://open.spotify.com/album/1cqJkBZKBkHjHjfRB36V0Q",
         "appleMusic": null,
-        "bandcamp": null
+        "bandcamp": null,
+        "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/2d/e7/bd/2de7bd09-e7b1-23c2-f10b-7785ce63a5d7/mzaf_15110024130375718999.plus.aac.p.m4a"
       },
       {
         "id": "1SYnpRtlnWnYF6GHZ0KAhB",
@@ -94,7 +102,8 @@
         "cover": "https://i.scdn.co/image/ab67616d00001e02be3f277f6dcb6add28af8d19",
         "spotify": "https://open.spotify.com/album/1SYnpRtlnWnYF6GHZ0KAhB",
         "appleMusic": "https://music.apple.com/us/album/demoniac/1525268632",
-        "bandcamp": "https://headbanned.bandcamp.com/album/demoniac"
+        "bandcamp": "https://headbanned.bandcamp.com/album/demoniac",
+        "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview124/v4/3e/ad/b1/3eadb10a-3d50-c60a-f80c-b2b21ca98bd5/mzaf_10892944014389131618.plus.aac.p.m4a"
       },
       {
         "id": "5MTUbKwFnCAK8tPoKP7ze0",
@@ -104,7 +113,8 @@
         "cover": "https://i.scdn.co/image/ab67616d00001e02eaeba26d17fa93d58155f320",
         "spotify": "https://open.spotify.com/album/5MTUbKwFnCAK8tPoKP7ze0",
         "appleMusic": "https://music.apple.com/us/album/liberatus-people-liberate-themselves/1453385809",
-        "bandcamp": null
+        "bandcamp": null,
+        "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview124/v4/7c/99/39/7c9939ae-cc28-dca2-00f7-f8700fcbfe75/mzaf_17908911854218393148.plus.aac.p.m4a"
       },
       {
         "id": "1uJIRHIvZjFNT5Iqd47SCX",
@@ -114,7 +124,8 @@
         "cover": "https://i.scdn.co/image/ab67616d00001e02d8e9fc336f58f9c3dad97034",
         "spotify": "https://open.spotify.com/album/1uJIRHIvZjFNT5Iqd47SCX",
         "appleMusic": "https://music.apple.com/us/album/cuddle-puddle-single/1452692411",
-        "bandcamp": null
+        "bandcamp": null,
+        "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/52/f9/4e/52f94e91-b887-f402-b9a8-e6931fa5b3c8/mzaf_6239286367102483160.plus.aac.p.m4a"
       },
       {
         "id": "7ljRvDyzRhBb5AOuL5XVQi",
@@ -124,7 +135,8 @@
         "cover": "https://i.scdn.co/image/ab67616d00001e0206d62dfcf575387f602ac278",
         "spotify": "https://open.spotify.com/album/7ljRvDyzRhBb5AOuL5XVQi",
         "appleMusic": "https://music.apple.com/us/album/litter-box/1356711362",
-        "bandcamp": "https://headbanned.bandcamp.com/album/litter-box"
+        "bandcamp": "https://headbanned.bandcamp.com/album/litter-box",
+        "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/b8/87/56/b88756dc-dac9-1815-43b5-8c9cf6c5180a/mzaf_3214407418186960716.plus.aac.p.m4a"
       },
       {
         "id": "33YMFyCs55QpMuuDLrynEL",
@@ -134,7 +146,8 @@
         "cover": "https://i.scdn.co/image/ab67616d00001e0284f3c2198a2b7078df23fdc5",
         "spotify": "https://open.spotify.com/album/33YMFyCs55QpMuuDLrynEL",
         "appleMusic": "https://music.apple.com/us/album/bum-u-4-a-bit-single/1363170581",
-        "bandcamp": "https://headbanned.bandcamp.com/album/bum-u-4-a-bit"
+        "bandcamp": "https://headbanned.bandcamp.com/album/bum-u-4-a-bit",
+        "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview114/v4/90/6e/47/906e472d-b173-6987-aafd-280d921e9521/mzaf_16151398389349017607.plus.aac.p.m4a"
       },
       {
         "id": "5pTErwk93Vdo5d8S66Jetk",
@@ -144,7 +157,8 @@
         "cover": "https://i.scdn.co/image/ab67616d00001e02b3c9f07502dc871b3fd8a818",
         "spotify": "https://open.spotify.com/album/5pTErwk93Vdo5d8S66Jetk",
         "appleMusic": "https://music.apple.com/us/album/lucid-screaming/1359326371",
-        "bandcamp": null
+        "bandcamp": null,
+        "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview114/v4/55/22/d1/5522d17f-0e04-f04d-3449-2436eaa840e5/mzaf_16434390056966113486.plus.aac.p.m4a"
       },
       {
         "id": "5CJfhhhQQppdBnMoMAgNRn",
@@ -154,7 +168,8 @@
         "cover": "https://i.scdn.co/image/ab67616d00001e027120bca565fdda4719e8f026",
         "spotify": "https://open.spotify.com/album/5CJfhhhQQppdBnMoMAgNRn",
         "appleMusic": "https://music.apple.com/us/album/inner-outrage/1361119548",
-        "bandcamp": "https://headbanned.bandcamp.com/album/inner-outrage"
+        "bandcamp": "https://headbanned.bandcamp.com/album/inner-outrage",
+        "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview114/v4/d5/71/35/d5713555-26f6-05c1-33b7-9aacaa0668ad/mzaf_2793269112968420366.plus.aac.p.m4a"
       },
       {
         "id": "5WGb7XttHvAvCk6KNVaZfA",
@@ -164,7 +179,8 @@
         "cover": "https://i.scdn.co/image/ab67616d00001e024c24953623e1bf9d363910ac",
         "spotify": "https://open.spotify.com/album/5WGb7XttHvAvCk6KNVaZfA",
         "appleMusic": "https://music.apple.com/us/album/anticipation-of-a-story/1357727470",
-        "bandcamp": "https://headbanned.bandcamp.com/album/anticipation-of-a-story"
+        "bandcamp": "https://headbanned.bandcamp.com/album/anticipation-of-a-story",
+        "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview124/v4/49/9a/6a/499a6a54-4158-94d7-29bb-d3c46f99ba19/mzaf_17938489529275089345.plus.aac.p.m4a"
       }
     ],
     "zeroindex": [
@@ -176,7 +192,8 @@
         "cover": "https://i.scdn.co/image/ab67616d00001e02e1f576bd16fb6cabbe0cb9ef",
         "spotify": "https://open.spotify.com/album/3refLta7tVoEwhMJCnYrFK",
         "appleMusic": "https://music.apple.com/us/album/grindset-single/1880643712",
-        "bandcamp": null
+        "bandcamp": null,
+        "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/52/ff/7a/52ff7aaf-0f29-be94-ebca-9fd847616125/mzaf_17972850970908421708.plus.aac.p.m4a"
       },
       {
         "id": "1tC1NN3RAc5BsjlSszjj8g",
@@ -186,7 +203,8 @@
         "cover": "https://i.scdn.co/image/ab67616d00001e024f27c851b3194ffb6a96f7ab",
         "spotify": "https://open.spotify.com/album/1tC1NN3RAc5BsjlSszjj8g",
         "appleMusic": "https://music.apple.com/us/album/rachels-only-m%C3%B6ving-single/1851436129",
-        "bandcamp": null
+        "bandcamp": null,
+        "previewUrl": null
       },
       {
         "id": "6WvL7SbOR4YQ7hMCw0Uq5Z",
@@ -196,7 +214,8 @@
         "cover": "https://i.scdn.co/image/ab67616d00001e0275086d63ba9bad2fa7b8fbc9",
         "spotify": "https://open.spotify.com/album/6WvL7SbOR4YQ7hMCw0Uq5Z",
         "appleMusic": "https://music.apple.com/us/album/all-the-sights-around-you/1719017573",
-        "bandcamp": null
+        "bandcamp": null,
+        "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/82/e0/65/82e065ab-44f0-ea6e-740b-4041873da663/mzaf_12584694900594229512.plus.aac.p.m4a"
       }
     ],
     "rogersonlyson": [
@@ -208,7 +227,8 @@
         "cover": "https://i.scdn.co/image/ab67616d00001e025f960f4fd7bf909d40c9ca96",
         "spotify": "https://open.spotify.com/album/07BQ5A74Fx586R7DwtHUzA",
         "appleMusic": "https://music.apple.com/us/album/lost-project-b-w-emitting-light-single/1758647539",
-        "bandcamp": "https://rogersonlyson.bandcamp.com/album/lost-project-b-w-emitting-light"
+        "bandcamp": "https://rogersonlyson.bandcamp.com/album/lost-project-b-w-emitting-light",
+        "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/42/8e/73/428e739a-8be3-f992-6628-728dfe141b39/mzaf_9161460130828657244.plus.aac.p.m4a"
       },
       {
         "id": "0VX3bCGOXm8eDkUrqX6hpk",
@@ -218,7 +238,8 @@
         "cover": "https://i.scdn.co/image/ab67616d00001e028f35b27316a8dd8d9067fd36",
         "spotify": "https://open.spotify.com/album/0VX3bCGOXm8eDkUrqX6hpk",
         "appleMusic": "https://music.apple.com/us/album/marie/1722642380",
-        "bandcamp": "https://rogersonlyson.bandcamp.com/album/marie"
+        "bandcamp": "https://rogersonlyson.bandcamp.com/album/marie",
+        "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/df/c6/c9/dfc6c907-cd7a-93f2-2adf-cd0882c6abc0/mzaf_18314464987974343121.plus.aac.p.m4a"
       }
     ]
   }

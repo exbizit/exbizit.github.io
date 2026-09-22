@@ -17,6 +17,8 @@ export interface Release {
   spotify: string | null
   appleMusic: string | null
   bandcamp: string | null
+  /** Best-effort 30s clip from iTunes search — see Listen.previewUrl for why it's often null. */
+  previewUrl?: string | null
 }
 
 type Links = Partial<Pick<Release, 'spotify' | 'appleMusic' | 'bandcamp'>>

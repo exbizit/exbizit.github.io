@@ -237,6 +237,23 @@
   100% { transform: scale(1); }
 }
 
+/* ── Cubefield switch ─────────────────────────────────────────────────────
+   A solid, unmissable pill (the site's one other filled button is the
+   primary submit action, e.g. "Post message") — this deserves the same
+   weight, since it's launching a whole other mode, not a settings tweak.
+   The little isometric cube tumbles on hover/focus instead of sitting still. */
+.cube-switch-btn {
+  transform-style: preserve-3d;
+  background: var(--bone);
+  color: #000;
+  box-shadow: 0 0 0 1px var(--bone), 0 4px 14px rgba(255,255,255,0.15);
+}
+.cube-switch-icon { transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1); transform-origin: 50% 55%; }
+.cube-switch-btn:hover .cube-switch-icon,
+.cube-switch-btn:focus-visible .cube-switch-icon {
+  transform: rotate(28deg) scale(1.15);
+}
+
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: var(--void); }
 ::-webkit-scrollbar-thumb { background: var(--iron); }

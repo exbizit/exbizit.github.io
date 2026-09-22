@@ -27,3 +27,13 @@ CREATE TABLE IF NOT EXISTS album_likes (
 );
 CREATE INDEX IF NOT EXISTS idx_album_likes_key ON album_likes (album_key);
 CREATE INDEX IF NOT EXISTS idx_album_likes_ip_time ON album_likes (ip_hash, created_at);
+CREATE TABLE IF NOT EXISTS cubefield_scores (
+  id         INTEGER PRIMARY KEY AUTOINCREMENT,
+  name       TEXT    NOT NULL,
+  seconds    REAL    NOT NULL,
+  created_at INTEGER NOT NULL,
+  ip_hash    TEXT    NOT NULL,
+  hidden     INTEGER NOT NULL DEFAULT 0
+);
+CREATE INDEX IF NOT EXISTS idx_cubefield_visible ON cubefield_scores (hidden, seconds DESC);
+CREATE INDEX IF NOT EXISTS idx_cubefield_ip_time ON cubefield_scores (ip_hash, created_at);

@@ -22,6 +22,12 @@ export interface Listen {
   note?: string
   /** Spotify supplies this; set it by hand for anything not on streaming */
   coverUrl?: string | null
+  /**
+   * A 30s clip, straight from Spotify's track object. Spotify stopped handing
+   * these out reliably to apps created after Nov 2024, so this is often null
+   * even when everything else on the track came through fine.
+   */
+  previewUrl?: string | null
   /** Optional: tie the pick to one of your projects (a slug from bands.ts) */
   forBand?: string
   url?: string | null

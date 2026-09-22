@@ -52,10 +52,12 @@ function bandsFromSource() {
   const blocks = body.split(/\n\s+slug: '/).slice(1)
   return blocks.map(b => {
     const slug = b.slice(0, b.indexOf("'"))
+    const name = b.match(/\n\s+name: (?:'((?:[^'\\]|\\.)*)'|"((?:[^"\\]|\\.)*)")/)
+    const bandName = name ? (name[1] ?? name[2]) : slug
     const spotify = b.match(/open\.spotify\.com\/artist\/([A-Za-z0-9]+)/)?.[1] ?? null
     const apple = b.match(/https:\/\/music\.apple\.com\/[^'"\s]+/)?.[0] ?? null
     const bandcampSub = b.match(/https:\/\/([a-z0-9-]+)\.bandcamp\.com/)?.[1] ?? null
-    return { slug, spotify, apple, bandcampSub }
+    return { slug, name: bandName, spotify, apple, bandcampSub }
   })
 }
 
@@ -111,6 +113,19 @@ async function appleReleases(appleUrl) {
   return map
 }
 
+/** Best-effort 30s preview clip: searches iTunes for a song matching this release. */
+async function itunesPreview(artist, title) {
+  try {
+    const term = encodeURIComponent(`${artist} ${title}`)
+    const res = await fetch(`https://itunes.apple.com/search?term=${term}&media=music&entity=song&limit=1`)
+    if (!res.ok) return null
+    const data = await res.json()
+    return data.results?.[0]?.previewUrl ?? null
+  } catch {
+    return null
+  }
+}
+
 const bandcampSlug = s =>
   s.toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
     .replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -163,14 +178,21 @@ async function main() {
         spotify: a.external_urls?.spotify ?? null,
         appleMusic: apple.get(key) ?? null,
         bandcamp: await bandcampUrl(band.bandcampSub, a.name),
+        // Best-effort 30s clip for Cubefield, from the same iTunes search
+        // fetch-listening.mjs uses. Most releases here are singles, where the
+        // release title doubles as the track title, so this usually lands.
+        previewUrl: await itunesPreview(band.name, a.name),
       })
+      await sleep(120) // stay polite to an undocumented endpoint
     }
     releases.sort((x, y) => (y.date ?? '').localeCompare(x.date ?? ''))
     result[band.slug] = releases
 
     console.log(`- ${band.slug}: ${releases.length} releases`)
     for (const r of releases) {
-      const got = ['spotify', r.appleMusic && 'apple', r.bandcamp && 'bandcamp'].filter(Boolean).join(', ')
+      const got = ['spotify', r.appleMusic && 'apple', r.bandcamp && 'bandcamp', r.previewUrl && 'preview']
+        .filter(Boolean)
+        .join(', ')
       console.log(`    ${r.date}  ${r.title}  [${got}]`)
     }
   }

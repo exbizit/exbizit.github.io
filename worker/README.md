@@ -44,6 +44,8 @@ It prints a URL like `https://hostersphere-board.<you>.workers.dev`. Put that in
 Visit `/community?admin`, click Delete on a post, and enter your ADMIN_TOKEN once
 per browser session. Deleted posts are hidden, not erased.
 
+`/listening?admin` does the same for the Cubefield leaderboard.
+
 Blocked words beyond the built-in English list: add them to `EXTRA_BLOCKED` in
 `src/filter.js`, then `npx wrangler deploy`.
 
@@ -63,6 +65,7 @@ needs it:
 npx wrangler d1 execute hostersphere-board --remote --file=migrations/0002_color_icon.sql
 npx wrangler d1 execute hostersphere-board --remote --file=migrations/0003_reactions.sql
 npx wrangler d1 execute hostersphere-board --remote --file=migrations/0004_album_likes.sql
+npx wrangler d1 execute hostersphere-board --remote --file=migrations/0005_cubefield_scores.sql
 npx wrangler deploy
 ```
 
