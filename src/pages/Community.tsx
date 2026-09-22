@@ -122,6 +122,10 @@ export default function Community() {
         widgetId.current = window.turnstile.render(widgetEl.current, {
           sitekey: TURNSTILE_SITE_KEY,
           theme: 'dark',
+          // No visible box for a normal visitor — verification runs silently
+          // and the widget only appears if Cloudflare decides this visitor
+          // actually needs an interactive challenge.
+          appearance: 'interaction-only',
           callback: (t: string) => setToken(t),
           'expired-callback': () => setToken(null),
           'error-callback': () => setToken(null),
