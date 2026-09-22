@@ -65,11 +65,12 @@ export const spotifyProfileUrl: string | null = payload.profileUrl
 /** Top artists for the same 4-week window. */
 export const TOP_ARTISTS: TopArtist[] = payload.artists ?? []
 
-const key = (l: Listen) => `${l.artist}|||${l.album}`.toLowerCase().replace(/\s+/g, ' ').trim()
+/** Stable id for an album, shared with the worker's `+1` counts. */
+export const albumKey = (l: Listen) => `${l.artist}|||${l.album}`.toLowerCase().replace(/\s+/g, ' ').trim()
 
 export const LISTENING: Listen[] = (() => {
-  const pinned = new Set(MANUAL_LISTENING.map(key))
-  return [...MANUAL_LISTENING, ...(payload.items ?? []).filter(i => !pinned.has(key(i)))]
+  const pinned = new Set(MANUAL_LISTENING.map(albumKey))
+  return [...MANUAL_LISTENING, ...(payload.items ?? []).filter(i => !pinned.has(albumKey(i)))]
 })()
 
 /** Manual override, then whatever Spotify gave us, then null for a text tile. */

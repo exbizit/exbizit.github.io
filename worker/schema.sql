@@ -19,3 +19,11 @@ CREATE TABLE IF NOT EXISTS reactions (
   PRIMARY KEY (post_id, kind, ip_hash)
 );
 CREATE INDEX IF NOT EXISTS idx_reactions_ip_time ON reactions (ip_hash, created_at);
+CREATE TABLE IF NOT EXISTS album_likes (
+  album_key  TEXT    NOT NULL,            -- lowercased "artist|||album"
+  ip_hash    TEXT    NOT NULL,
+  created_at INTEGER NOT NULL,
+  PRIMARY KEY (album_key, ip_hash)
+);
+CREATE INDEX IF NOT EXISTS idx_album_likes_key ON album_likes (album_key);
+CREATE INDEX IF NOT EXISTS idx_album_likes_ip_time ON album_likes (ip_hash, created_at);
