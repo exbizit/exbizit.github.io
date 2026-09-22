@@ -10,6 +10,7 @@ interface CrashInfo {
   artist: string
   album: string
   track?: string
+  coverUrl: string
   previewUrl?: string | null
 }
 
@@ -257,6 +258,13 @@ export default function Cubefield({
           >
             {crash ? (
               <>
+                <img
+                  src={crash.coverUrl}
+                  alt=""
+                  aria-hidden
+                  className="rounded-lg"
+                  style={{ width: 84, height: 84, objectFit: 'cover', border: '1px solid var(--iron)' }}
+                />
                 <p className="display" style={{ color: 'var(--bone)', fontSize: 'clamp(1.1rem, 3vw, 1.6rem)' }}>
                   Crashed into {crash.album}
                 </p>

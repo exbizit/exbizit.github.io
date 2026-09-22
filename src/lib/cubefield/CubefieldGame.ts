@@ -31,6 +31,7 @@ export interface CubefieldCallbacks {
     artist: string
     album: string
     track?: string
+    coverUrl: string
     previewUrl?: string | null
   }) => void
   onStateChange?: (state: CubefieldState) => void
@@ -503,6 +504,7 @@ export class CubefieldGame {
       artist: cover.artist,
       album: cover.album,
       track: cover.track,
+      coverUrl: cover.url,
       previewUrl: cover.previewUrl,
     })
   }
