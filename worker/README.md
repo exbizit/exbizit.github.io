@@ -62,6 +62,7 @@ needs it:
 ```bash
 npx wrangler d1 execute hostersphere-board --remote --file=migrations/0002_color_icon.sql
 npx wrangler d1 execute hostersphere-board --remote --file=migrations/0003_reactions.sql
+npx wrangler d1 execute hostersphere-board --remote --file=migrations/0004_album_likes.sql
 npx wrangler deploy
 ```
 

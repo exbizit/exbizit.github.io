@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import {
   LISTENING,
   TOP_ARTISTS,
+  albumKey,
   getCoverUrl,
   listeningUpdated,
   spotifyProfileUrl,
@@ -10,6 +11,10 @@ import {
 } from '../data/listening'
 import { getBandBySlug, bandPath } from '../data/bands'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
+import { BOARD_API } from '../data/board'
+
+/** count + whether this visitor has +1'd it, per album key */
+type LikeState = { count: number; mine: boolean }
 
 /**
  * Top-artist circles above the album grid. Hidden for now (albums only);
@@ -17,6 +22,17 @@ import { useDocumentTitle } from '../hooks/useDocumentTitle'
  * by `npm run listening`, so nothing else needs to change.
  */
 const SHOW_ARTISTS = false
+
+/** Directions the click-burst's sparks fly off in, computed once. */
+const SPARK_COUNT = 8
+const SPARK_RADIUS = 22
+const SPARKS = Array.from({ length: SPARK_COUNT }, (_, i) => {
+  const angle = (i / SPARK_COUNT) * Math.PI * 2
+  return { x: Math.cos(angle) * SPARK_RADIUS, y: Math.sin(angle) * SPARK_RADIUS }
+})
+
+/** How long the +1 takes to fly from the button up into the corner tally. */
+const FLIGHT_MS = 620
 
 /**
  * One album tile. The grid reads as a wall of art; detail arrives on hover.
@@ -109,9 +125,70 @@ function HoverPanel({
   )
 }
 
-function Cover({ listen }: { listen: Listen }) {
+function Cover({
+  listen,
+  like,
+  onLike,
+}: {
+  listen: Listen
+  like?: LikeState
+  onLike?: (key: string) => void
+}) {
   const art = getCoverUrl(listen)
   const band = listen.forBand ? getBandBySlug(listen.forBand) : undefined
+  const key = albumKey(listen)
+  const mine = like?.mine ?? false
+  const count = like?.count ?? 0
+
+  // The corner tally lags behind `count` while a +1 is still mid-flight, so the
+  // number only ticks up once the flying chip actually arrives.
+  const [displayCount, setDisplayCount] = useState(count)
+  const [flight, setFlight] = useState<{ dx: number; dy: number } | null>(null)
+  const [burstId, setBurstId] = useState<number | null>(null)
+  const [popKey, setPopKey] = useState(0)
+  const flyingRef = useRef(false)
+  const timerRef = useRef<number>()
+  const btnRef = useRef<HTMLButtonElement>(null)
+  const badgeRef = useRef<HTMLSpanElement>(null)
+  const countRef = useRef(count)
+  countRef.current = count
+
+  useEffect(() => {
+    if (!flyingRef.current) setDisplayCount(count)
+  }, [count])
+
+  useEffect(() => () => window.clearTimeout(timerRef.current), [])
+
+  const handleLike = (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    if (!onLike) return
+
+    window.clearTimeout(timerRef.current)
+    flyingRef.current = false
+    setFlight(null)
+    setBurstId(null)
+
+    if (!mine && btnRef.current && badgeRef.current) {
+      const from = btnRef.current.getBoundingClientRect()
+      const to = badgeRef.current.getBoundingClientRect()
+      flyingRef.current = true
+      setFlight({
+        dx: to.left + to.width / 2 - (from.left + from.width / 2),
+        dy: to.top + to.height / 2 - (from.top + from.height / 2),
+      })
+      setBurstId(Date.now())
+      timerRef.current = window.setTimeout(() => {
+        flyingRef.current = false
+        setDisplayCount(countRef.current)
+        setPopKey(k => k + 1)
+        setFlight(null)
+        setBurstId(null)
+      }, FLIGHT_MS)
+    }
+
+    onLike(key)
+  }
 
   const inner = (
     <>
@@ -137,6 +214,64 @@ function Cover({ listen }: { listen: Listen }) {
           className="absolute inset-0 hidden md:block opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
           style={{ background: 'rgba(0,0,0,0.45)' }}
         />
+
+        {onLike && (
+          // Stays mounted even at zero so there's always a real position to
+          // fly the +1 toward — just invisible until there's a count to show.
+          <span
+            ref={badgeRef}
+            aria-hidden={displayCount === 0}
+            className="plus1-star absolute top-0 right-0 z-10 flex items-center justify-center"
+            style={{ opacity: displayCount > 0 ? 1 : 0, pointerEvents: 'none' }}
+          >
+            {displayCount > 0 && (
+              <span
+                key={popKey}
+                className={popKey > 0 ? 'plus1-count-pop' : undefined}
+                style={{ fontSize: displayCount > 99 ? '0.5rem' : '0.6rem' }}
+              >
+                {displayCount}
+              </span>
+            )}
+          </span>
+        )}
+
+        {onLike && (
+          <button
+            ref={btnRef}
+            type="button"
+            onClick={handleLike}
+            aria-pressed={mine}
+            aria-label={mine ? `Remove your +1 from ${listen.album}` : `+1 ${listen.album}`}
+            title={mine ? 'Remove your +1' : '+1 this album'}
+            className={`plus1-btn${mine ? ' is-mine' : ''} absolute bottom-1 right-1 z-10 flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[0.65rem] font-semibold leading-none opacity-100 transition-all duration-200 hover:scale-110 active:scale-95 md:opacity-0 md:group-hover:opacity-100 md:group-focus-within:opacity-100`}
+          >
+            <span aria-hidden style={{ position: 'relative', zIndex: 1 }}>{mine ? '-1' : '+1'}</span>
+
+            {burstId && (
+              <span key={burstId} className="plus1-burst" aria-hidden>
+                <span className="plus1-burst-flash" />
+                {SPARKS.map((s, i) => (
+                  <span
+                    key={i}
+                    className="plus1-burst-spark"
+                    style={{ '--sx': `${s.x}px`, '--sy': `${s.y}px`, animationDelay: `${i * 8}ms` } as React.CSSProperties}
+                  />
+                ))}
+              </span>
+            )}
+          </button>
+        )}
+
+        {flight && (
+          <span
+            aria-hidden
+            className="plus1-fly absolute bottom-1 right-1"
+            style={{ '--dx': `${flight.dx}px`, '--dy': `${flight.dy}px` } as React.CSSProperties}
+          >
+            +1
+          </span>
+        )}
       </div>
 
       <HoverPanel
@@ -182,6 +317,59 @@ export default function Listening() {
   useDocumentTitle('Listening')
   const empty = LISTENING.length === 0 && TOP_ARTISTS.length === 0
 
+  const [likes, setLikes] = useState<Record<string, LikeState>>({})
+
+  // Most-voted first; ties (including every album still at zero) keep their
+  // original relative order, since Array#sort is stable.
+  const sortedListening = useMemo(
+    () => [...LISTENING].sort((a, b) => (likes[albumKey(b)]?.count ?? 0) - (likes[albumKey(a)]?.count ?? 0)),
+    [likes]
+  )
+
+  useEffect(() => {
+    if (!BOARD_API || LISTENING.length === 0) return
+    let cancelled = false
+    const keys = LISTENING.map(albumKey)
+    fetch(`${BOARD_API}/albums/likes`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ keys }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (!cancelled) setLikes(data.likes ?? {})
+      })
+      .catch(() => {})
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
+  // Toggle this visitor's +1. Updates at once, then settles on the server's
+  // count (or rolls back if the request fails).
+  const toggleLike = useCallback(async (key: string) => {
+    if (!BOARD_API) return
+    let before: LikeState | undefined
+    setLikes(prev => {
+      before = prev[key]
+      const had = before?.mine ?? false
+      const count = Math.max(0, (before?.count ?? 0) + (had ? -1 : 1))
+      return { ...prev, [key]: { count, mine: !had } }
+    })
+    try {
+      const res = await fetch(`${BOARD_API}/albums/like`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ key }),
+      })
+      if (!res.ok) throw new Error()
+      const data = await res.json()
+      setLikes(prev => ({ ...prev, [key]: { count: data.count, mine: data.mine } }))
+    } catch {
+      setLikes(prev => ({ ...prev, [key]: before ?? { count: 0, mine: false } }))
+    }
+  }, [])
+
   return (
     <div style={{ paddingTop: 'var(--nav-h, 56px)' }}>
       {/* Compact header. This is a utility page — the art carries it, not the
@@ -223,6 +411,39 @@ export default function Listening() {
             )}
           </p>
         </div>
+
+        {/* What the +1 button does: a little tag that pops open on hover, focus or tap */}
+        {BOARD_API && !empty && (
+          <div className="group relative mt-3 inline-block">
+            <button
+              type="button"
+              aria-describedby="plus1-explainer"
+              className="label px-2.5 py-1 rounded-full transition-transform duration-200 group-hover:-rotate-3 group-focus-within:-rotate-3"
+              style={{ border: '1px dashed var(--bone)', color: 'var(--bone)' }}
+            >
+              +1 an album ✦
+            </button>
+            <div
+              id="plus1-explainer"
+              role="tooltip"
+              className="absolute left-0 top-full mt-2 z-20 w-72 p-4 rounded-2xl -rotate-1 invisible opacity-0 translate-y-1 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-0"
+              style={{
+                background: '#0b0b0b',
+                border: '1px dashed var(--bone)',
+                boxShadow: '4px 4px 0 var(--iron)',
+              }}
+            >
+              <p className="mb-2" style={{ color: 'var(--bone)', fontWeight: 600 }}>
+                what's the +1? ✦
+              </p>
+              <p style={{ color: 'var(--ash)', fontSize: '0.9rem', lineHeight: 1.5 }}>
+                Click <span style={{ color: 'var(--bone)' }}>+1</span> on any cover to vouch for it.
+                Every visitor's clicks add up into one running count for that album — click again
+                to take your +1 back.
+              </p>
+            </div>
+          </div>
+        )}
       </div>
 
       <div className="max-w-7xl mx-auto px-4 pb-16">
@@ -275,10 +496,15 @@ export default function Listening() {
               </div>
             )}
 
-            {LISTENING.length > 0 && (
+            {sortedListening.length > 0 && (
               <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 md:gap-3">
-                {LISTENING.map((listen, i) => (
-                  <Cover key={`${listen.artist}-${listen.album}-${i}`} listen={listen} />
+                {sortedListening.map(listen => (
+                  <Cover
+                    key={`${albumKey(listen)}::${listen.track ?? ''}`}
+                    listen={listen}
+                    like={likes[albumKey(listen)]}
+                    onLike={BOARD_API ? toggleLike : undefined}
+                  />
                 ))}
               </div>
             )}

@@ -6,6 +6,9 @@
  *   POST   /posts/<id>/react    { kind }  toggle this visitor's reaction -> { reactions, mine }
  *   DELETE /posts/<id>          hide a post; needs  Authorization: Bearer <ADMIN_TOKEN>
  *
+ *   POST   /albums/likes        { keys: string[] }  -> { likes: { key: { count, mine } } }
+ *   POST   /albums/like         { key }  toggle this visitor's +1 -> { key, count, mine }
+ *
  * Every post passes, in order: Turnstile bot check, length limits, rate limits,
  * then the deterministic vulgarity/link filter (filter.js). Passing posts
  * appear immediately.
@@ -17,6 +20,9 @@ const MAX_NAME = 40
 const MAX_MESSAGE = 500
 const MIN_GAP_MS = 30_000          // one post per 30s per visitor
 const HOURLY_MAX = 5               // and at most 5 per hour
+const MAX_ALBUM_KEY = 200
+const MAX_ALBUM_KEYS_BATCH = 300
+const ALBUM_LIKES_HOURLY_MAX = 200 // per visitor
 
 // Optional flair. Only these ids are accepted; anything else is stored as null.
 // Keep in sync with COLORS / ICONS in src/data/board.ts on the site.
@@ -56,9 +62,16 @@ export default {
 
     const url = new URL(req.url)
     const parts = url.pathname.split('/').filter(Boolean)
-    if (parts[0] !== 'posts') return json({ error: 'Not found' }, 404)
 
     try {
+      if (parts[0] === 'albums') {
+        if (req.method === 'POST' && parts.length === 2 && parts[1] === 'likes')
+          return await albumLikes(req, env, json)
+        if (req.method === 'POST' && parts.length === 2 && parts[1] === 'like')
+          return await albumLike(req, env, json)
+        return json({ error: 'Not found' }, 404)
+      }
+      if (parts[0] !== 'posts') return json({ error: 'Not found' }, 404)
       if (req.method === 'GET' && parts.length === 1) return json(await list(req, env, url))
       if (req.method === 'POST' && parts.length === 3 && parts[2] === 'react')
         return await react(req, env, json, parts[1])
@@ -146,6 +159,71 @@ async function react(req, env, json, idRaw) {
 
   const counts = await reactionCounts(env, [id], ipHash)
   return json(counts.get(id) ?? { reactions: {}, mine: [] })
+}
+
+/** Counts (+ whether this visitor has liked) for a batch of album keys. */
+async function albumLikes(req, env, json) {
+  let body
+  try {
+    body = await req.json()
+  } catch {
+    return json({ error: 'Bad request' }, 400)
+  }
+  const keys = Array.isArray(body.keys)
+    ? [...new Set(body.keys.filter(k => typeof k === 'string' && k && k.length <= MAX_ALBUM_KEY))].slice(
+        0,
+        MAX_ALBUM_KEYS_BATCH
+      )
+    : []
+  if (keys.length === 0) return json({ likes: {} })
+
+  const ipHash = await visitorHash(req, env)
+  const marks = keys.map(() => '?').join(',')
+  const { results } = await env.DB.prepare(
+    `SELECT album_key, COUNT(*) AS n, SUM(ip_hash = ?) AS mine FROM album_likes WHERE album_key IN (${marks}) GROUP BY album_key`
+  )
+    .bind(ipHash, ...keys)
+    .all()
+
+  const likes = {}
+  for (const r of results) likes[r.album_key] = { count: r.n, mine: Boolean(r.mine) }
+  return json({ likes })
+}
+
+/** Toggle this visitor's +1 on one album. */
+async function albumLike(req, env, json) {
+  let body
+  try {
+    body = await req.json()
+  } catch {
+    return json({ error: 'Bad request' }, 400)
+  }
+  const key = typeof body.key === 'string' ? body.key : ''
+  if (!key || key.length > MAX_ALBUM_KEY) return json({ error: 'Bad request' }, 400)
+
+  const ipHash = await visitorHash(req, env)
+  const now = Date.now()
+  const existing = await env.DB.prepare('SELECT 1 AS x FROM album_likes WHERE album_key = ? AND ip_hash = ?')
+    .bind(key, ipHash)
+    .first()
+
+  if (existing) {
+    await env.DB.prepare('DELETE FROM album_likes WHERE album_key = ? AND ip_hash = ?').bind(key, ipHash).run()
+  } else {
+    const recent = await env.DB.prepare(
+      'SELECT COUNT(*) AS n FROM album_likes WHERE ip_hash = ? AND created_at > ?'
+    )
+      .bind(ipHash, now - 3_600_000)
+      .first()
+    if ((recent?.n ?? 0) >= ALBUM_LIKES_HOURLY_MAX)
+      return json({ error: 'Easy there! Too many +1s. Try again later.' }, 429)
+    await env.DB.prepare('INSERT OR IGNORE INTO album_likes (album_key, ip_hash, created_at) VALUES (?, ?, ?)')
+      .bind(key, ipHash, now)
+      .run()
+  }
+
+  const row = await env.DB.prepare('SELECT COUNT(*) AS n FROM album_likes WHERE album_key = ?').bind(key).first()
+  return json({ key, count: row?.n ?? 0, mine: !existing })
 }
 
 /** Salted hash of the visitor's IP: stable per visitor, never the raw address. */

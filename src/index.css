@@ -102,6 +102,141 @@
 .nav-item.label:hover { color: var(--bone); }
 .nav-item.label[aria-current='page'] { color: var(--accent); }
 
+/* ── Album +1 sparkle (Listening page) ───────────────────────────────────
+   A lens-flare glint on hover, a burst on click, and the vote itself flying
+   from the button up into the corner tally before the count ticks over. */
+/* No position rule here on purpose — the button is already `absolute` via
+   Tailwind, which is a positioning context on its own. Adding `position:
+   relative` in this stylesheet used to win the cascade (it loads after
+   Tailwind's utilities) and silently flip the button back to flow layout. */
+.plus1-btn {
+  background: linear-gradient(135deg, rgba(255,255,255,0.24), rgba(255,255,255,0.05));
+  border: 1px solid rgba(255,255,255,0.4);
+  color: var(--bone);
+  backdrop-filter: blur(6px) saturate(160%);
+  -webkit-backdrop-filter: blur(6px) saturate(160%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.4),
+    inset 0 -8px 10px -6px rgba(255,255,255,0.15),
+    0 2px 6px rgba(0,0,0,0.35);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+}
+.plus1-btn.is-mine {
+  background: var(--bone);
+  border-color: var(--bone);
+  color: #000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+  text-shadow: none;
+}
+
+/* The vote tally: a star, not a pill. Fixed box so the clip-path star stays
+   a star at any font size; a drop-shadow (not box-shadow, which a clipped
+   shape ignores) keeps it readable over busy album art. */
+.plus1-star {
+  width: 28px;
+  height: 28px;
+  background: var(--bone);
+  color: #000;
+  font-weight: 800;
+  line-height: 1;
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%,
+    50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%
+  );
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.6));
+}
+.plus1-star > span { padding-top: 2px; }
+.plus1-btn::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255,255,255,0.6), rgba(255,255,255,0) 70%);
+  opacity: 0;
+  transform: scale(0.4);
+  transition: opacity 250ms ease, transform 250ms ease;
+  pointer-events: none;
+}
+.plus1-btn::after {
+  content: '✦';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: #fff;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.4) rotate(-15deg);
+  transition: opacity 250ms ease, transform 250ms ease;
+  text-shadow: 0 0 6px rgba(255,255,255,0.9), 0 0 16px rgba(255,255,255,0.5);
+  pointer-events: none;
+}
+.plus1-btn:hover::before,
+.plus1-btn:focus-visible::before {
+  opacity: 1;
+  transform: scale(1);
+}
+.plus1-btn:hover::after,
+.plus1-btn:focus-visible::after {
+  opacity: 0.9;
+  transform: translate(-50%, -50%) scale(1) rotate(15deg);
+}
+
+.plus1-burst { position: absolute; inset: 0; pointer-events: none; }
+.plus1-burst-flash {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  margin: -15px 0 0 -15px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255,255,255,0.95), rgba(255,255,255,0) 70%);
+  animation: plus1-flash 480ms ease-out forwards;
+}
+.plus1-burst-spark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  margin: -2px 0 0 -2px;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 0 6px rgba(255,255,255,0.9);
+  animation: plus1-spark 520ms ease-out forwards;
+}
+.plus1-fly {
+  z-index: 20;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--bone);
+  text-shadow: 0 0 8px rgba(255,255,255,0.85);
+  animation: plus1-fly 620ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  pointer-events: none;
+}
+.plus1-count-pop { display: inline-block; animation: plus1-pop 360ms cubic-bezier(0.34, 1.56, 0.64, 1); }
+
+@keyframes plus1-flash {
+  0%   { opacity: 0; transform: scale(0.3); }
+  35%  { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(2); }
+}
+@keyframes plus1-spark {
+  0%   { opacity: 1; transform: translate(0, 0) scale(1); }
+  100% { opacity: 0; transform: translate(var(--sx), var(--sy)) scale(0.3); }
+}
+@keyframes plus1-fly {
+  0%   { opacity: 1; transform: translate(0, 0) scale(1); }
+  60%  { opacity: 1; }
+  100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(0.5); }
+}
+@keyframes plus1-pop {
+  0%   { transform: scale(1); }
+  45%  { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}
+
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: var(--void); }
 ::-webkit-scrollbar-thumb { background: var(--iron); }
