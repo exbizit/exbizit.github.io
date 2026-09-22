@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import {
   LISTENING,
   TOP_ARTISTS,
@@ -322,6 +322,13 @@ export default function Listening() {
 
   const [likes, setLikes] = useState<Record<string, LikeState>>({})
 
+  // Most-voted first; ties (including every album still at zero) keep their
+  // original relative order, since Array#sort is stable.
+  const sortedListening = useMemo(
+    () => [...LISTENING].sort((a, b) => (likes[albumKey(b)]?.count ?? 0) - (likes[albumKey(a)]?.count ?? 0)),
+    [likes]
+  )
+
   useEffect(() => {
     if (!BOARD_API || LISTENING.length === 0) return
     let cancelled = false
@@ -492,11 +499,11 @@ export default function Listening() {
               </div>
             )}
 
-            {LISTENING.length > 0 && (
+            {sortedListening.length > 0 && (
               <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 md:gap-3">
-                {LISTENING.map((listen, i) => (
+                {sortedListening.map(listen => (
                   <Cover
-                    key={`${listen.artist}-${listen.album}-${i}`}
+                    key={`${albumKey(listen)}::${listen.track ?? ''}`}
                     listen={listen}
                     like={likes[albumKey(listen)]}
                     onLike={BOARD_API ? toggleLike : undefined}
