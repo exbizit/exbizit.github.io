@@ -93,15 +93,11 @@ export default function Cubefield({
           writeBest(info.seconds)
           return info.seconds
         })
-        // A short gap so the crash sound (fired the instant you hit) isn't
-        // stepped on by the preview clip coming in on top of it.
         const audio = audioRef.current
         if (audio && info.previewUrl) {
-          window.setTimeout(() => {
-            audio.src = info.previewUrl as string
-            audio.currentTime = 0
-            audio.play().catch(() => {})
-          }, 280)
+          audio.src = info.previewUrl
+          audio.currentTime = 0
+          audio.play().catch(() => {})
         }
       },
     })
