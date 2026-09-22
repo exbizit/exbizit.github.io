@@ -197,15 +197,28 @@ async function albumLikes(req, env, json) {
   if (keys.length === 0) return json({ likes: {} })
 
   const ipHash = await visitorHash(req, env)
-  const marks = keys.map(() => '?').join(',')
-  const { results } = await env.DB.prepare(
-    `SELECT album_key, COUNT(*) AS n, SUM(ip_hash = ?) AS mine FROM album_likes WHERE album_key IN (${marks}) GROUP BY album_key`
-  )
-    .bind(ipHash, ...keys)
-    .all()
+  // D1 caps bound parameters at 100 per statement (this query binds ipHash +
+  // one per key), and the Listening page alone already sends ~150-180 keys
+  // in one batch -- split into chunks and run them in parallel, well under
+  // that ceiling.
+  const CHUNK = 90
+  const chunks = []
+  for (let i = 0; i < keys.length; i += CHUNK) chunks.push(keys.slice(i, i + CHUNK))
 
   const likes = {}
-  for (const r of results) likes[r.album_key] = { count: r.n, mine: Boolean(r.mine) }
+  const pages = await Promise.all(
+    chunks.map(chunk => {
+      const marks = chunk.map(() => '?').join(',')
+      return env.DB.prepare(
+        `SELECT album_key, COUNT(*) AS n, SUM(ip_hash = ?) AS mine FROM album_likes WHERE album_key IN (${marks}) GROUP BY album_key`
+      )
+        .bind(ipHash, ...chunk)
+        .all()
+    })
+  )
+  for (const { results } of pages) {
+    for (const r of results) likes[r.album_key] = { count: r.n, mine: Boolean(r.mine) }
+  }
   return json({ likes })
 }
 
