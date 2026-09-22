@@ -128,6 +128,24 @@
   box-shadow: 0 2px 6px rgba(0,0,0,0.35);
   text-shadow: none;
 }
+
+/* The vote tally: a star, not a pill. Fixed box so the clip-path star stays
+   a star at any font size; a drop-shadow (not box-shadow, which a clipped
+   shape ignores) keeps it readable over busy album art. */
+.plus1-star {
+  width: 28px;
+  height: 28px;
+  background: var(--bone);
+  color: #000;
+  font-weight: 800;
+  line-height: 1;
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%,
+    50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%
+  );
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.6));
+}
+.plus1-star > span { padding-top: 2px; }
 .plus1-btn::before {
   content: '';
   position: absolute;

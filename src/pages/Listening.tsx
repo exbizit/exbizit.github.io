@@ -221,19 +221,16 @@ function Cover({
           <span
             ref={badgeRef}
             aria-hidden={displayCount === 0}
-            className="absolute top-1 right-1 z-10 flex items-center rounded-full px-1.5 py-0.5 text-[0.65rem] font-semibold leading-none"
-            style={{
-              background: 'rgba(0,0,0,0.6)',
-              color: 'var(--bone)',
-              border: '1px solid rgba(232,230,225,0.4)',
-              backdropFilter: 'blur(2px)',
-              opacity: displayCount > 0 ? 1 : 0,
-              pointerEvents: 'none',
-            }}
+            className="plus1-star absolute top-0 right-0 z-10 flex items-center justify-center"
+            style={{ opacity: displayCount > 0 ? 1 : 0, pointerEvents: 'none' }}
           >
             {displayCount > 0 && (
-              <span key={popKey} className={popKey > 0 ? 'plus1-count-pop' : undefined}>
-                +{displayCount}
+              <span
+                key={popKey}
+                className={popKey > 0 ? 'plus1-count-pop' : undefined}
+                style={{ fontSize: displayCount > 99 ? '0.5rem' : '0.6rem' }}
+              >
+                {displayCount}
               </span>
             )}
           </span>
@@ -249,7 +246,7 @@ function Cover({
             title={mine ? 'Remove your +1' : '+1 this album'}
             className={`plus1-btn${mine ? ' is-mine' : ''} absolute bottom-1 right-1 z-10 flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[0.65rem] font-semibold leading-none opacity-100 transition-all duration-200 hover:scale-110 active:scale-95 md:opacity-0 md:group-hover:opacity-100 md:group-focus-within:opacity-100`}
           >
-            <span aria-hidden style={{ position: 'relative', zIndex: 1 }}>+1</span>
+            <span aria-hidden style={{ position: 'relative', zIndex: 1 }}>{mine ? '-1' : '+1'}</span>
 
             {burstId && (
               <span key={burstId} className="plus1-burst" aria-hidden>
