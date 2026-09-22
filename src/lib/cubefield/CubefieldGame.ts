@@ -117,6 +117,10 @@ export class CubefieldGame {
   private resizeObserver: ResizeObserver
 
   private ship: THREE.Group
+  private shipBody!: THREE.Mesh
+  private shipEdges!: THREE.LineSegments
+  private shipLogo!: THREE.Mesh
+  private shipLogoMaterial!: THREE.MeshBasicMaterial
   private ground: THREE.Group
   private cubes: Cube[] = []
   private materials = new Map<string, THREE.Material>()
@@ -204,14 +208,51 @@ export class CubefieldGame {
     geo.rotateX(Math.PI / 2)
     geo.rotateZ(Math.PI)
     const mat = new THREE.MeshBasicMaterial({ color: 0xffffff })
-    const body = new THREE.Mesh(geo, mat)
-    const edges = new THREE.LineSegments(
+    this.shipBody = new THREE.Mesh(geo, mat)
+    this.shipEdges = new THREE.LineSegments(
       new THREE.EdgesGeometry(geo),
       new THREE.LineBasicMaterial({ color: 0x000000 })
     )
-    group.add(body, edges)
+
+    // The logo "character": a flat, transparent-PNG card standing in for the
+    // default triangle. Pre-rotated 180° around Y so it reads right-way-round
+    // once the ship group's own runtime Math.PI flip (see tickPlaying) is
+    // applied — same reason the cone geometry above is pre-rotated.
+    this.shipLogoMaterial = new THREE.MeshBasicMaterial({
+      transparent: true,
+      alphaTest: 0.1,
+      side: THREE.DoubleSide,
+    })
+    this.shipLogo = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), this.shipLogoMaterial)
+    this.shipLogo.rotation.y = Math.PI
+    this.shipLogo.visible = false
+
+    group.add(this.shipBody, this.shipEdges, this.shipLogo)
     group.position.y = CUBE_SIZE / 2
     return group
+  }
+
+  /** Swaps the default triangle for a band logo, or back to the triangle on null. */
+  setPlayerLogo(url: string | null) {
+    if (!url) {
+      this.shipBody.visible = true
+      this.shipEdges.visible = true
+      this.shipLogo.visible = false
+      return
+    }
+    this.shipBody.visible = false
+    this.shipEdges.visible = false
+    this.shipLogo.visible = true
+    this.loader.load(url, texture => {
+      texture.colorSpace = THREE.SRGBColorSpace
+      this.shipLogoMaterial.map = texture
+      this.shipLogoMaterial.needsUpdate = true
+      const { width, height } = texture.image as { width: number; height: number }
+      const targetHeight = 1.15
+      const aspect = width && height ? width / height : 1
+      this.shipLogo.scale.set(targetHeight * aspect, targetHeight, 1)
+      this.shipLogo.position.y = targetHeight / 2 - CUBE_SIZE / 2 // sit on the ground, not centred on it
+    })
   }
 
   private materialFor(cover: CubefieldCover): THREE.Material {
@@ -346,6 +387,13 @@ export class CubefieldGame {
       mat.dispose()
     }
     this.fallbackMaterial.dispose()
+    this.shipBody.geometry.dispose()
+    ;(this.shipBody.material as THREE.Material).dispose()
+    this.shipEdges.geometry.dispose()
+    ;(this.shipEdges.material as THREE.Material).dispose()
+    this.shipLogo.geometry.dispose()
+    this.shipLogoMaterial.map?.dispose()
+    this.shipLogoMaterial.dispose()
     for (const child of this.ground.children) {
       const obj = child as THREE.Mesh | THREE.LineSegments
       obj.geometry.dispose()

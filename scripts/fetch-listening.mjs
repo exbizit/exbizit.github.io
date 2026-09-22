@@ -147,6 +147,19 @@ function mapTrack(t) {
   }
 }
 
+/** Best-effort 30s preview clip from Apple's public, unauthenticated search. */
+async function itunesPreview(artist, track) {
+  try {
+    const term = encodeURIComponent(`${artist} ${track}`)
+    const res = await fetch(`https://itunes.apple.com/search?term=${term}&media=music&entity=song&limit=1`)
+    if (!res.ok) return null
+    const data = await res.json()
+    return data.results?.[0]?.previewUrl ?? null
+  } catch {
+    return null
+  }
+}
+
 /** Spotify artist object -> our shape. */
 function mapArtist(a) {
   if (!a) return null
@@ -278,6 +291,22 @@ async function main() {
   const capped = unique.slice(0, MAX_ALBUMS)
   if (unique.length > MAX_ALBUMS) {
     console.log(`trimmed ${unique.length - MAX_ALBUMS} beyond MAX_ALBUMS (${MAX_ALBUMS})`)
+  }
+
+  // Spotify has stopped handing preview_url to most apps (see the note on
+  // Listen.previewUrl), so fall back to Apple's iTunes Search API for
+  // whatever it left null — no auth needed, and it still covers most of
+  // the same catalog with a 30s clip.
+  const needsPreview = capped.filter(t => !t.previewUrl && t.track)
+  if (needsPreview.length && !DRY) {
+    console.log(`\nlooking up ${needsPreview.length} preview clip(s) via iTunes (Spotify gave none)...`)
+    let found = 0
+    for (const t of needsPreview) {
+      t.previewUrl = await itunesPreview(t.artistNames?.[0] ?? t.artist, t.track)
+      if (t.previewUrl) found++
+      await new Promise(r => setTimeout(r, 120)) // stay polite to an undocumented endpoint
+    }
+    console.log(`  found ${found}/${needsPreview.length}`)
   }
 
   console.log(`\n${tracks.length} track(s) -> ${capped.length} album(s) on the page`)

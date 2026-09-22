@@ -9,7 +9,7 @@ import {
   spotifyProfileUrl,
   type Listen,
 } from '../data/listening'
-import { getBandBySlug, bandPath } from '../data/bands'
+import { getBandBySlug, bandPath, BANDS } from '../data/bands'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { BOARD_API } from '../data/board'
 
@@ -19,6 +19,8 @@ const Cubefield = lazy(() => import('../components/Cubefield'))
 
 /** count + whether this visitor has +1'd it, per album key */
 type LikeState = { count: number; mine: boolean }
+
+type CubefieldScore = { id: number; name: string; seconds: number; created_at: number }
 
 /**
  * Top-artist circles above the album grid. Hidden for now (albums only);
@@ -337,6 +339,52 @@ export default function Listening() {
   const [likes, setLikes] = useState<Record<string, LikeState>>({})
   const [view, setView] = useState<'grid' | 'cubefield'>('grid')
 
+  // Cubefield leaderboard: fetched fresh each time the popover opens, rather
+  // than kept in sync with Cubefield.tsx's own state, so a just-saved score
+  // always shows up without the two components needing to know about each other.
+  const [cfScores, setCfScores] = useState<CubefieldScore[] | null>(null)
+  const cfAdmin = typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('admin')
+
+  const loadCfScores = () => {
+    if (!BOARD_API) return
+    fetch(`${BOARD_API}/cubefield/scores`)
+      .then(res => res.json())
+      .then(data => setCfScores(data.scores ?? []))
+      .catch(() => {})
+  }
+
+  const removeCfScore = async (id: number) => {
+    if (!BOARD_API) return
+    let t = ''
+    try {
+      t = sessionStorage.getItem('board-admin') ?? ''
+    } catch {
+      /* storage blocked */
+    }
+    if (!t) {
+      t = window.prompt('Admin token') ?? ''
+      if (!t) return
+      try {
+        sessionStorage.setItem('board-admin', t)
+      } catch {
+        /* storage blocked */
+      }
+    }
+    const res = await fetch(`${BOARD_API}/cubefield/scores/${id}`, {
+      method: 'DELETE',
+      headers: { Authorization: `Bearer ${t}` },
+    })
+    if (res.ok) setCfScores(s => (s ? s.filter(x => x.id !== id) : s))
+    else {
+      try {
+        sessionStorage.removeItem('board-admin')
+      } catch {
+        /* storage blocked */
+      }
+      window.alert('Delete failed: wrong admin token?')
+    }
+  }
+
   // Most-voted first; ties (including every album still at zero) keep their
   // original relative order, since Array#sort is stable.
   const sortedListening = useMemo(
@@ -358,6 +406,13 @@ export default function Listening() {
         likeCount: likes[albumKey(l)]?.count ?? 0,
       })),
     [likes]
+  )
+
+  // Playable Cubefield characters: any band on the site with a logo.
+  const cubefieldCharacters = useMemo(
+    () =>
+      BANDS.filter(b => b.logo).map(b => ({ slug: b.slug, name: b.name, logo: b.logo as string })),
+    []
   )
 
   useEffect(() => {
@@ -498,14 +553,77 @@ export default function Listening() {
                   Play Cubefield
                 </button>
               ) : (
-                <button
-                  type="button"
-                  onClick={() => setView('grid')}
-                  className="label px-3 py-1.5 hover:text-white transition-colors"
-                  style={{ border: '1px solid var(--iron)', color: 'var(--ash)' }}
-                >
-                  ← Grid
-                </button>
+                <>
+                  <button
+                    type="button"
+                    onClick={() => setView('grid')}
+                    className="label px-3 py-1.5 hover:text-white transition-colors"
+                    style={{ border: '1px solid var(--iron)', color: 'var(--ash)' }}
+                  >
+                    ← Grid
+                  </button>
+
+                  {/* Leaderboard: refetched on hover/focus, so it's always current */}
+                  {BOARD_API && (
+                    <div className="group relative inline-block">
+                      <button
+                        type="button"
+                        onMouseEnter={loadCfScores}
+                        onFocus={loadCfScores}
+                        aria-describedby="cf-leaderboard"
+                        className="label px-3 py-1.5 hover:text-white transition-colors"
+                        style={{ border: '1px solid var(--iron)', color: 'var(--ash)' }}
+                      >
+                        Leaderboard
+                      </button>
+                      <div
+                        id="cf-leaderboard"
+                        role="tooltip"
+                        className="absolute left-0 top-full mt-2 z-20 w-64 p-4 rounded-2xl invisible opacity-0 translate-y-1 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-0"
+                        style={{ background: '#0b0b0b', border: '1px solid var(--iron)', boxShadow: '4px 4px 0 var(--iron)' }}
+                      >
+                        <p className="mb-2 label" style={{ color: 'var(--dust)' }}>
+                          top runs
+                        </p>
+                        {cfScores === null ? (
+                          <p style={{ color: 'var(--dust)', fontSize: '0.85rem' }}>loading…</p>
+                        ) : cfScores.length === 0 ? (
+                          <p style={{ color: 'var(--dust)', fontSize: '0.85rem' }}>
+                            no scores yet — be the first to crash
+                          </p>
+                        ) : (
+                          <ol className="space-y-1">
+                            {cfScores.map((s, i) => (
+                              <li
+                                key={s.id}
+                                className="flex items-baseline gap-2"
+                                style={{ color: i === 0 ? 'var(--bone)' : 'var(--ash)', fontSize: '0.85rem' }}
+                              >
+                                <span className="label" style={{ color: 'var(--dust)', width: '1.2rem' }}>
+                                  {i + 1}
+                                </span>
+                                <span className="truncate" style={{ maxWidth: '9rem' }}>
+                                  {s.name}
+                                </span>
+                                <span style={{ color: 'var(--dust)' }}>{s.seconds.toFixed(1)}s</span>
+                                {cfAdmin && (
+                                  <button
+                                    type="button"
+                                    onClick={() => removeCfScore(s.id)}
+                                    className="label ml-auto hover:text-white"
+                                    style={{ color: '#ff6b6b' }}
+                                  >
+                                    Delete
+                                  </button>
+                                )}
+                              </li>
+                            ))}
+                          </ol>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </>
               )}
             </>
           )}
@@ -528,7 +646,7 @@ export default function Listening() {
                 </p>
               }
             >
-              <Cubefield covers={cubefieldCovers} />
+              <Cubefield covers={cubefieldCovers} characters={cubefieldCharacters} />
             </Suspense>
             <p className="mt-3 label" style={{ color: 'var(--dust)' }}>
               cube mechanics adapted from{' '}
