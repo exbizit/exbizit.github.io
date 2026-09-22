@@ -79,6 +79,63 @@ export default function Cubefield({
   const [saveError, setSaveError] = useState<string | null>(null)
   const [saved, setSaved] = useState(false)
 
+  // Every preview clip comes off the same CDN host — warm up its DNS/TLS
+  // connection as soon as Cubefield mounts, so the only latency left at
+  // crash time is the actual clip download, not the handshake in front of it.
+  useEffect(() => {
+    const hosts = new Set(
+      covers
+        .map(c => c.previewUrl)
+        .filter((u): u is string => Boolean(u))
+        .map(u => {
+          try {
+            return new URL(u).origin
+          } catch {
+            return null
+          }
+        })
+        .filter((u): u is string => Boolean(u))
+    )
+    const links: HTMLLinkElement[] = []
+    for (const origin of hosts) {
+      const link = document.createElement('link')
+      link.rel = 'preconnect'
+      link.href = origin
+      link.crossOrigin = 'anonymous'
+      document.head.appendChild(link)
+      links.push(link)
+    }
+    return () => {
+      for (const link of links) link.remove()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  // Quietly warm the HTTP cache for every preview clip, one at a time, in
+  // the background. A run only lasts a few seconds, so this won't finish
+  // before most first crashes — but it keeps working across "Play again"s,
+  // so the longer a session runs, the more crashes hit an already-cached
+  // clip and start with no fetch at all, not just a warm connection.
+  useEffect(() => {
+    let cancelled = false
+    const urls = [...new Set(covers.map(c => c.previewUrl).filter((u): u is string => Boolean(u)))]
+    ;(async () => {
+      for (const url of urls) {
+        if (cancelled) return
+        try {
+          await fetch(url, { mode: 'no-cors' })
+        } catch {
+          /* best effort — a miss here just means that crash fetches live */
+        }
+        await new Promise(r => setTimeout(r, 120))
+      }
+    })()
+    return () => {
+      cancelled = true
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   useEffect(() => {
     if (!containerRef.current || covers.length === 0) return
     const game = new CubefieldGame(containerRef.current, covers, {
@@ -173,7 +230,7 @@ export default function Cubefield({
     >
       <div ref={containerRef} className="absolute inset-0" />
       {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-      <audio ref={audioRef} />
+      <audio ref={audioRef} preload="auto" />
 
       {state === 'playing' && (
         <div className="absolute top-2 left-2 label" style={{ color: 'var(--bone)' }}>

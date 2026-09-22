@@ -10,6 +10,7 @@ import {
   type Listen,
 } from '../data/listening'
 import { getBandBySlug, bandPath, BANDS } from '../data/bands'
+import { getReleases } from '../data/discography'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { BOARD_API } from '../data/board'
 
@@ -395,18 +396,29 @@ export default function Listening() {
   // Every album with real cover art becomes a cube; albums without one
   // (hand-pinned records with no Spotify art) can't texture a cube. Whatever
   // the album's +1 tally is right now becomes that cube's size for the run.
-  const cubefieldCovers = useMemo(
-    () =>
-      LISTENING.filter(l => getCoverUrl(l)).map(l => ({
-        url: getCoverUrl(l) as string,
-        artist: l.artist,
-        album: l.album,
-        track: l.track,
-        previewUrl: l.previewUrl,
-        likeCount: likes[albumKey(l)]?.count ?? 0,
-      })),
-    [likes]
-  )
+  const cubefieldCovers = useMemo(() => {
+    const fromListening = LISTENING.filter(l => getCoverUrl(l)).map(l => ({
+      url: getCoverUrl(l) as string,
+      artist: l.artist,
+      album: l.album,
+      track: l.track,
+      previewUrl: l.previewUrl,
+      likeCount: likes[albumKey(l)]?.count ?? 0,
+    }))
+    // The bands' own releases play too, whether or not they've ever shown up
+    // in the Spotify pull above — Cubefield shouldn't only be other artists.
+    const fromBands = BANDS.flatMap(b =>
+      getReleases(b.slug).map(r => ({
+        url: r.cover as string,
+        artist: b.name,
+        album: r.title,
+        track: r.title,
+        previewUrl: r.previewUrl,
+        likeCount: 0,
+      }))
+    )
+    return [...fromListening, ...fromBands]
+  }, [likes])
 
   // Playable Cubefield characters: any band on the site with a logo.
   const cubefieldCharacters = useMemo(
