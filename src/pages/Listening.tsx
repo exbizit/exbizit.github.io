@@ -247,13 +247,7 @@ function Cover({
             aria-pressed={mine}
             aria-label={mine ? `Remove your +1 from ${listen.album}` : `+1 ${listen.album}`}
             title={mine ? 'Remove your +1' : '+1 this album'}
-            className="plus1-btn absolute bottom-1 right-1 z-10 flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[0.65rem] font-semibold leading-none transition-transform duration-150 hover:scale-110 active:scale-95"
-            style={{
-              background: mine ? 'var(--bone)' : 'rgba(0,0,0,0.6)',
-              color: mine ? '#000' : 'var(--bone)',
-              border: `1px solid ${mine ? 'var(--bone)' : 'rgba(232,230,225,0.4)'}`,
-              backdropFilter: 'blur(2px)',
-            }}
+            className={`plus1-btn${mine ? ' is-mine' : ''} absolute bottom-1 right-1 z-10 flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[0.65rem] font-semibold leading-none opacity-100 transition-all duration-200 hover:scale-110 active:scale-95 md:opacity-0 md:group-hover:opacity-100 md:group-focus-within:opacity-100`}
           >
             <span aria-hidden style={{ position: 'relative', zIndex: 1 }}>+1</span>
 
