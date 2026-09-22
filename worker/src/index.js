@@ -9,9 +9,15 @@
  *   POST   /albums/likes        { keys: string[] }  -> { likes: { key: { count, mine } } }
  *   POST   /albums/like         { key }  toggle this visitor's +1 -> { key, count, mine }
  *
+ *   GET    /cubefield/scores        top 20 visible Cubefield runs
+ *   POST   /cubefield/scores        { name, seconds }  -> the new score
+ *   DELETE /cubefield/scores/<id>   hide a score; needs  Authorization: Bearer <ADMIN_TOKEN>
+ *
  * Every post passes, in order: Turnstile bot check, length limits, rate limits,
  * then the deterministic vulgarity/link filter (filter.js). Passing posts
- * appear immediately.
+ * appear immediately. Cubefield scores skip the Turnstile check (there's no
+ * widget on a post-crash screen) but still pass the name through the same
+ * filter and are rate-limited per visitor.
  */
 import { checkText } from './filter.js'
 
@@ -23,6 +29,10 @@ const HOURLY_MAX = 5               // and at most 5 per hour
 const MAX_ALBUM_KEY = 200
 const MAX_ALBUM_KEYS_BATCH = 300
 const ALBUM_LIKES_HOURLY_MAX = 200 // per visitor
+const CUBEFIELD_PAGE = 20
+const CUBEFIELD_MAX_SECONDS = 3600 // an hour; anything past this is bogus
+const CUBEFIELD_MIN_GAP_MS = 5_000 // one score per 5s per visitor
+const CUBEFIELD_HOURLY_MAX = 30    // and at most 30 an hour
 
 // Optional flair. Only these ids are accepted; anything else is stored as null.
 // Keep in sync with COLORS / ICONS in src/data/board.ts on the site.
@@ -69,6 +79,15 @@ export default {
           return await albumLikes(req, env, json)
         if (req.method === 'POST' && parts.length === 2 && parts[1] === 'like')
           return await albumLike(req, env, json)
+        return json({ error: 'Not found' }, 404)
+      }
+      if (parts[0] === 'cubefield') {
+        if (req.method === 'GET' && parts.length === 2 && parts[1] === 'scores')
+          return json(await cubefieldScores(env))
+        if (req.method === 'POST' && parts.length === 2 && parts[1] === 'scores')
+          return await cubefieldSubmit(req, env, json)
+        if (req.method === 'DELETE' && parts.length === 3 && parts[1] === 'scores')
+          return await cubefieldHide(req, env, json, parts[2])
         return json({ error: 'Not found' }, 404)
       }
       if (parts[0] !== 'posts') return json({ error: 'Not found' }, 404)
@@ -224,6 +243,62 @@ async function albumLike(req, env, json) {
 
   const row = await env.DB.prepare('SELECT COUNT(*) AS n FROM album_likes WHERE album_key = ?').bind(key).first()
   return json({ key, count: row?.n ?? 0, mine: !existing })
+}
+
+/** Top Cubefield runs, best first. */
+async function cubefieldScores(env) {
+  const { results } = await env.DB.prepare(
+    'SELECT id, name, seconds, created_at FROM cubefield_scores WHERE hidden = 0 ORDER BY seconds DESC, id ASC LIMIT ?'
+  )
+    .bind(CUBEFIELD_PAGE)
+    .all()
+  return { scores: results }
+}
+
+async function cubefieldSubmit(req, env, json) {
+  let body
+  try {
+    body = await req.json()
+  } catch {
+    return json({ error: 'Bad request' }, 400)
+  }
+  const name = String(body.name ?? '').replace(/\s+/g, ' ').trim()
+  const seconds = Number(body.seconds)
+
+  if (!name || name.length > MAX_NAME) return json({ error: `Add a name (up to ${MAX_NAME} characters).` }, 400)
+  if (!Number.isFinite(seconds) || seconds <= 0 || seconds > CUBEFIELD_MAX_SECONDS)
+    return json({ error: 'Bad request' }, 400)
+
+  const problem = checkText(name)
+  if (problem === 'vulgar')
+    return json({ error: 'That name has language the leaderboard doesn’t allow. Try another.' }, 400)
+  if (problem === 'link') return json({ error: 'Links aren’t allowed in a name.' }, 400)
+
+  const ipHash = await visitorHash(req, env)
+  const now = Date.now()
+  const recent = await env.DB.prepare(
+    'SELECT COUNT(*) AS n, MAX(created_at) AS last FROM cubefield_scores WHERE ip_hash = ? AND created_at > ?'
+  )
+    .bind(ipHash, now - 3_600_000)
+    .first()
+  if (recent?.last && now - recent.last < CUBEFIELD_MIN_GAP_MS)
+    return json({ error: 'Just posted a score. Wait a moment before posting another.' }, 429)
+  if ((recent?.n ?? 0) >= CUBEFIELD_HOURLY_MAX)
+    return json({ error: 'Posting limit reached. Try again in an hour.' }, 429)
+
+  const row = await env.DB.prepare(
+    'INSERT INTO cubefield_scores (name, seconds, created_at, ip_hash) VALUES (?, ?, ?, ?) RETURNING id, name, seconds, created_at'
+  )
+    .bind(name, seconds, now, ipHash)
+    .first()
+  return json({ score: row }, 201)
+}
+
+async function cubefieldHide(req, env, json, id) {
+  const auth = req.headers.get('Authorization') ?? ''
+  if (!env.ADMIN_TOKEN || auth !== `Bearer ${env.ADMIN_TOKEN}`) return json({ error: 'Unauthorized' }, 401)
+  await env.DB.prepare('UPDATE cubefield_scores SET hidden = 1 WHERE id = ?').bind(Number(id)).run()
+  return json({ ok: true })
 }
 
 /** Salted hash of the visitor's IP: stable per visitor, never the raw address. */

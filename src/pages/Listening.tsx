@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import {
   LISTENING,
   TOP_ARTISTS,
@@ -12,6 +12,10 @@ import {
 import { getBandBySlug, bandPath } from '../data/bands'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { BOARD_API } from '../data/board'
+
+// Three.js + the game engine are only pulled in once someone actually asks
+// for Cubefield mode, so the plain grid stays light.
+const Cubefield = lazy(() => import('../components/Cubefield'))
 
 /** count + whether this visitor has +1'd it, per album key */
 type LikeState = { count: number; mine: boolean }
@@ -33,6 +37,19 @@ const SPARKS = Array.from({ length: SPARK_COUNT }, (_, i) => {
 
 /** How long the +1 takes to fly from the button up into the corner tally. */
 const FLIGHT_MS = 620
+
+/** A tiny isometric cube, three shaded rhombi — the Cubefield switch's icon. */
+function IsoCubeIcon() {
+  // Sits on the switch button's solid bone fill, so it needs dark faces —
+  // the bone/ash/dust tones this borrows elsewhere would vanish into it.
+  return (
+    <svg width="15" height="16" viewBox="0 0 16 17" aria-hidden className="cube-switch-icon">
+      <polygon points="8,0 16,4.5 8,9 0,4.5" fill="#000" />
+      <polygon points="0,4.5 8,9 8,17 0,12.5" fill="#4a4a4a" />
+      <polygon points="16,4.5 8,9 8,17 16,12.5" fill="#7a7a7a" />
+    </svg>
+  )
+}
 
 /**
  * One album tile. The grid reads as a wall of art; detail arrives on hover.
@@ -318,11 +335,28 @@ export default function Listening() {
   const empty = LISTENING.length === 0 && TOP_ARTISTS.length === 0
 
   const [likes, setLikes] = useState<Record<string, LikeState>>({})
+  const [view, setView] = useState<'grid' | 'cubefield'>('grid')
 
   // Most-voted first; ties (including every album still at zero) keep their
   // original relative order, since Array#sort is stable.
   const sortedListening = useMemo(
     () => [...LISTENING].sort((a, b) => (likes[albumKey(b)]?.count ?? 0) - (likes[albumKey(a)]?.count ?? 0)),
+    [likes]
+  )
+
+  // Every album with real cover art becomes a cube; albums without one
+  // (hand-pinned records with no Spotify art) can't texture a cube. Whatever
+  // the album's +1 tally is right now becomes that cube's size for the run.
+  const cubefieldCovers = useMemo(
+    () =>
+      LISTENING.filter(l => getCoverUrl(l)).map(l => ({
+        url: getCoverUrl(l) as string,
+        artist: l.artist,
+        album: l.album,
+        track: l.track,
+        previewUrl: l.previewUrl,
+        likeCount: likes[albumKey(l)]?.count ?? 0,
+      })),
     [likes]
   )
 
@@ -412,47 +446,104 @@ export default function Listening() {
           </p>
         </div>
 
-        {/* What the +1 button does: a little tag that pops open on hover, focus or tap */}
-        {BOARD_API && !empty && (
-          <div className="group relative mt-3 inline-block">
-            <button
-              type="button"
-              aria-describedby="plus1-explainer"
-              className="label px-2.5 py-1 rounded-full transition-transform duration-200 group-hover:-rotate-3 group-focus-within:-rotate-3"
-              style={{ border: '1px dashed var(--bone)', color: 'var(--bone)' }}
-            >
-              +1 an album ✦
-            </button>
-            <div
-              id="plus1-explainer"
-              role="tooltip"
-              className="absolute left-0 top-full mt-2 z-20 w-72 p-4 rounded-2xl -rotate-1 invisible opacity-0 translate-y-1 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-0"
-              style={{
-                background: '#0b0b0b',
-                border: '1px dashed var(--bone)',
-                boxShadow: '4px 4px 0 var(--iron)',
-              }}
-            >
-              <p className="mb-2" style={{ color: 'var(--bone)', fontWeight: 600 }}>
-                what's the +1? ✦
-              </p>
-              <p style={{ color: 'var(--ash)', fontSize: '0.9rem', lineHeight: 1.5 }}>
-                Click <span style={{ color: 'var(--bone)' }}>+1</span> on any cover to vouch for it.
-                Every visitor's clicks add up into one running count for that album — click again
-                to take your +1 back.
-              </p>
+        <div className="mt-3 flex flex-wrap items-center gap-3">
+          {/* What the +1 button does: a little tag that pops open on hover, focus or tap */}
+          {BOARD_API && !empty && (
+            <div className="group relative inline-block">
+              <button
+                type="button"
+                aria-describedby="plus1-explainer"
+                className="label px-2.5 py-1 rounded-full transition-transform duration-200 group-hover:-rotate-3 group-focus-within:-rotate-3"
+                style={{ border: '1px dashed var(--bone)', color: 'var(--bone)' }}
+              >
+                +1 an album ✦
+              </button>
+              <div
+                id="plus1-explainer"
+                role="tooltip"
+                className="absolute left-0 top-full mt-2 z-20 w-72 p-4 rounded-2xl -rotate-1 invisible opacity-0 translate-y-1 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-0"
+                style={{
+                  background: '#0b0b0b',
+                  border: '1px dashed var(--bone)',
+                  boxShadow: '4px 4px 0 var(--iron)',
+                }}
+              >
+                <p className="mb-2" style={{ color: 'var(--bone)', fontWeight: 600 }}>
+                  what's the +1? ✦
+                </p>
+                <p style={{ color: 'var(--ash)', fontSize: '0.9rem', lineHeight: 1.5 }}>
+                  Click <span style={{ color: 'var(--bone)' }}>+1</span> on any cover to vouch for it.
+                  Every visitor's clicks add up into one running count for that album — click again
+                  to take your +1 back.
+                </p>
+                <p className="mt-2" style={{ color: 'var(--dust)', fontSize: '0.8rem', lineHeight: 1.5 }}>
+                  It also feeds Cubefield: a more-liked album spawns as a bigger cube there, for
+                  every player — so +1-ing something here changes the run for everyone, not just
+                  you.
+                </p>
+              </div>
             </div>
-          </div>
-        )}
+          )}
+
+          {/* Grid / Cubefield switch: one button, flips both ways */}
+          {!empty && cubefieldCovers.length > 0 && (
+            <>
+              {view === 'grid' ? (
+                <button
+                  type="button"
+                  onClick={() => setView('cubefield')}
+                  className="cube-switch-btn label inline-flex items-center gap-2 pl-2.5 pr-4 py-1.5 rounded-full transition-transform duration-150 hover:scale-105 active:scale-95"
+                >
+                  <IsoCubeIcon />
+                  Play Cubefield
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => setView('grid')}
+                  className="label px-3 py-1.5 hover:text-white transition-colors"
+                  style={{ border: '1px solid var(--iron)', color: 'var(--ash)' }}
+                >
+                  ← Grid
+                </button>
+              )}
+            </>
+          )}
+        </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 pb-16">
+      <div className={view === 'cubefield' && !empty ? 'w-full px-2 sm:px-4 pb-16' : 'max-w-7xl mx-auto px-4 pb-16'}>
         {empty ? (
           <p style={{ color: 'var(--dust)', lineHeight: 1.7 }}>
             Nothing here yet. Add your Spotify credentials to .env.local and run{' '}
             <span style={{ color: 'var(--ash)' }}>npm run listening</span>, or pin records by
             hand in src/data/listening.ts.
           </p>
+        ) : view === 'cubefield' ? (
+          <>
+            <Suspense
+              fallback={
+                <p className="label" style={{ color: 'var(--dust)' }}>
+                  Loading Cubefield…
+                </p>
+              }
+            >
+              <Cubefield covers={cubefieldCovers} />
+            </Suspense>
+            <p className="mt-3 label" style={{ color: 'var(--dust)' }}>
+              cube mechanics adapted from{' '}
+              <a
+                href="https://github.com/Christopher-Hayes/cubefield"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 hover:text-white"
+                style={{ color: 'var(--ash)' }}
+              >
+                Christopher Hayes' cubefield
+              </a>{' '}
+              (MIT licensed)
+            </p>
+          </>
         ) : (
           <>
             {/* Artists small and first — the album wall is the point */}

@@ -140,6 +140,9 @@ function mapTrack(t) {
     albumId: t.album.id ?? null,
     track: t.name,
     coverUrl: art ?? null,
+    // Spotify only hands these out reliably to apps created before its Nov
+    // 2024 API change, so this is frequently null — see Listen.previewUrl.
+    previewUrl: t.preview_url ?? null,
     url: t.external_urls?.spotify ?? null,
   }
 }
