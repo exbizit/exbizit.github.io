@@ -23,6 +23,17 @@ type LikeState = { count: number; mine: boolean }
  */
 const SHOW_ARTISTS = false
 
+/** Directions the click-burst's sparks fly off in, computed once. */
+const SPARK_COUNT = 8
+const SPARK_RADIUS = 22
+const SPARKS = Array.from({ length: SPARK_COUNT }, (_, i) => {
+  const angle = (i / SPARK_COUNT) * Math.PI * 2
+  return { x: Math.cos(angle) * SPARK_RADIUS, y: Math.sin(angle) * SPARK_RADIUS }
+})
+
+/** How long the +1 takes to fly from the button up into the corner tally. */
+const FLIGHT_MS = 620
+
 /**
  * One album tile. The grid reads as a wall of art; detail arrives on hover.
  *
@@ -129,6 +140,56 @@ function Cover({
   const mine = like?.mine ?? false
   const count = like?.count ?? 0
 
+  // The corner tally lags behind `count` while a +1 is still mid-flight, so the
+  // number only ticks up once the flying chip actually arrives.
+  const [displayCount, setDisplayCount] = useState(count)
+  const [flight, setFlight] = useState<{ dx: number; dy: number } | null>(null)
+  const [burstId, setBurstId] = useState<number | null>(null)
+  const [popKey, setPopKey] = useState(0)
+  const flyingRef = useRef(false)
+  const timerRef = useRef<number>()
+  const btnRef = useRef<HTMLButtonElement>(null)
+  const badgeRef = useRef<HTMLSpanElement>(null)
+  const countRef = useRef(count)
+  countRef.current = count
+
+  useEffect(() => {
+    if (!flyingRef.current) setDisplayCount(count)
+  }, [count])
+
+  useEffect(() => () => window.clearTimeout(timerRef.current), [])
+
+  const handleLike = (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    if (!onLike) return
+
+    window.clearTimeout(timerRef.current)
+    flyingRef.current = false
+    setFlight(null)
+    setBurstId(null)
+
+    if (!mine && btnRef.current && badgeRef.current) {
+      const from = btnRef.current.getBoundingClientRect()
+      const to = badgeRef.current.getBoundingClientRect()
+      flyingRef.current = true
+      setFlight({
+        dx: to.left + to.width / 2 - (from.left + from.width / 2),
+        dy: to.top + to.height / 2 - (from.top + from.height / 2),
+      })
+      setBurstId(Date.now())
+      timerRef.current = window.setTimeout(() => {
+        flyingRef.current = false
+        setDisplayCount(countRef.current)
+        setPopKey(k => k + 1)
+        setFlight(null)
+        setBurstId(null)
+      }, FLIGHT_MS)
+    }
+
+    onLike(key)
+  }
+
   const inner = (
     <>
       <div
@@ -155,17 +216,38 @@ function Cover({
         />
 
         {onLike && (
-          <button
-            type="button"
-            onClick={e => {
-              e.preventDefault()
-              e.stopPropagation()
-              onLike(key)
+          // Stays mounted even at zero so there's always a real position to
+          // fly the +1 toward — just invisible until there's a count to show.
+          <span
+            ref={badgeRef}
+            aria-hidden={displayCount === 0}
+            className="absolute top-1 right-1 z-10 flex items-center rounded-full px-1.5 py-0.5 text-[0.65rem] font-semibold leading-none"
+            style={{
+              background: 'rgba(0,0,0,0.6)',
+              color: 'var(--bone)',
+              border: '1px solid rgba(232,230,225,0.4)',
+              backdropFilter: 'blur(2px)',
+              opacity: displayCount > 0 ? 1 : 0,
+              pointerEvents: 'none',
             }}
+          >
+            {displayCount > 0 && (
+              <span key={popKey} className={popKey > 0 ? 'plus1-count-pop' : undefined}>
+                +{displayCount}
+              </span>
+            )}
+          </span>
+        )}
+
+        {onLike && (
+          <button
+            ref={btnRef}
+            type="button"
+            onClick={handleLike}
             aria-pressed={mine}
             aria-label={mine ? `Remove your +1 from ${listen.album}` : `+1 ${listen.album}`}
             title={mine ? 'Remove your +1' : '+1 this album'}
-            className="absolute bottom-1 right-1 z-10 flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[0.65rem] font-semibold leading-none transition-transform duration-150 hover:scale-110 active:scale-95"
+            className="plus1-btn absolute bottom-1 right-1 z-10 flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[0.65rem] font-semibold leading-none transition-transform duration-150 hover:scale-110 active:scale-95"
             style={{
               background: mine ? 'var(--bone)' : 'rgba(0,0,0,0.6)',
               color: mine ? '#000' : 'var(--bone)',
@@ -173,9 +255,31 @@ function Cover({
               backdropFilter: 'blur(2px)',
             }}
           >
-            <span aria-hidden>+1</span>
-            {count > 0 && <span>{count}</span>}
+            <span aria-hidden style={{ position: 'relative', zIndex: 1 }}>+1</span>
+
+            {burstId && (
+              <span key={burstId} className="plus1-burst" aria-hidden>
+                <span className="plus1-burst-flash" />
+                {SPARKS.map((s, i) => (
+                  <span
+                    key={i}
+                    className="plus1-burst-spark"
+                    style={{ '--sx': `${s.x}px`, '--sy': `${s.y}px`, animationDelay: `${i * 8}ms` } as React.CSSProperties}
+                  />
+                ))}
+              </span>
+            )}
           </button>
+        )}
+
+        {flight && (
+          <span
+            aria-hidden
+            className="plus1-fly absolute bottom-1 right-1"
+            style={{ '--dx': `${flight.dx}px`, '--dy': `${flight.dy}px` } as React.CSSProperties}
+          >
+            +1
+          </span>
         )}
       </div>
 
