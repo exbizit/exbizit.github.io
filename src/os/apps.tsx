@@ -76,7 +76,7 @@ export const UTIL_APPS: AppDef[] = [
     </SysFile>
   ), 900),
   util('contact', '/contact', 'BOOKING.EML', 'Booking', 'contact', () => (
-    <SysFile no={4} file="BOOKING.EML" meta="BOOKING / PRESS">
+    <SysFile no={4} file="BOOKING.EML" meta="BOOKING / PRESS" className="sf-booking">
       <Contact />
     </SysFile>
   ), 900),

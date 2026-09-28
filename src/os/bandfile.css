@@ -420,3 +420,9 @@
 /* Listening: covers stay full colour and flip to their negative on hover */
 .sysfile img.cover-art { transition: filter 160ms steps(2, end); }
 .sysfile .group:hover img.cover-art { filter: invert(1); transform: none; }
+
+/* Booking: the form is the point, so it sits right under a compact heading */
+.sf-booking > div > section { padding-top: 18px !important; padding-bottom: 14px !important; }
+.sf-booking > div > section .label { margin-bottom: 8px !important; }
+.sf-booking h1.display { font-size: clamp(44px, 9cqw, 110px) !important; }
+.sf-booking > div > div { padding-top: 18px !important; }
