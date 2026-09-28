@@ -13,6 +13,8 @@
  *   POST   /cubefield/scores        { name, seconds }  -> the new score
  *   DELETE /cubefield/scores/<id>   hide a score; needs  Authorization: Bearer <ADMIN_TOKEN>
  *
+ *   GET    /bandcamp/stream?album=<url>&track=<id>   full-length track, relayed with CORS
+ *
  * Every post passes, in order: Turnstile bot check, length limits, rate limits,
  * then the deterministic vulgarity/link filter (filter.js). Passing posts
  * appear immediately. Cubefield scores skip the Turnstile check (there's no
@@ -74,6 +76,8 @@ export default {
     const parts = url.pathname.split('/').filter(Boolean)
 
     try {
+      if (parts[0] === 'bandcamp' && parts[1] === 'stream' && (req.method === 'GET' || req.method === 'HEAD'))
+        return await bandcampStream(req, env, url, cors)
       if (parts[0] === 'albums') {
         if (req.method === 'POST' && parts.length === 2 && parts[1] === 'likes')
           return await albumLikes(req, env, json)
@@ -102,6 +106,75 @@ export default {
       return json({ error: 'Something went wrong. Try again later.' }, 500)
     }
   },
+}
+
+/**
+ * GET /bandcamp/stream?album=<release url>&track=<track id>
+ *
+ * Relays one full-length track from Bandcamp's CDN to the HosterAmp player.
+ * Bandcamp's stream links expire after about a day and carry no CORS headers
+ * (without which Webamp's EQ and visualiser go silent), so this looks up a
+ * fresh link from the release page and passes the audio through with CORS
+ * added, forwarding Range so seeking works. Only the bands' own Bandcamp
+ * sites (BANDCAMP_HOSTS) are allowed, so it can't be used as an open proxy.
+ */
+async function bandcampStream(req, env, url, cors) {
+  const fail = (msg, status) => new Response(msg, { status, headers: cors })
+  let album
+  try {
+    album = new URL(url.searchParams.get('album') ?? '')
+  } catch {
+    return fail('Bad album', 400)
+  }
+  const hosts = (env.BANDCAMP_HOSTS ?? '').split(',').map(s => s.trim())
+  const trackId = url.searchParams.get('track') ?? ''
+  if (album.protocol !== 'https:' || !hosts.includes(album.host) || !/^\/(album|track)\/[a-z0-9-]+$/.test(album.pathname))
+    return fail('Album not allowed', 403)
+  if (!/^\d+$/.test(trackId)) return fail('Bad track', 400)
+  album.search = ''
+
+  const range = req.headers.get('Range')
+  for (let attempt = 0; attempt < 2; attempt++) {
+    const streams = await bandcampStreams(album.href, attempt > 0)
+    const src = streams[trackId]
+    if (!src) return fail('Track not found', 404)
+    const upstream = await fetch(src, { method: req.method, headers: range ? { Range: range } : {} })
+    // An expired link: look the release up again, once
+    if ((upstream.status === 403 || upstream.status === 410) && attempt === 0) continue
+    if (!upstream.ok) return fail('Upstream error', 502)
+    const headers = new Headers(cors)
+    for (const h of ['Content-Type', 'Content-Length', 'Content-Range', 'Accept-Ranges'])
+      if (upstream.headers.get(h)) headers.set(h, upstream.headers.get(h))
+    headers.set('Access-Control-Expose-Headers', 'Content-Length, Content-Range, Accept-Ranges')
+    headers.set('Cache-Control', 'no-store')
+    return new Response(upstream.body, { status: upstream.status, headers })
+  }
+  return fail('Upstream error', 502)
+}
+
+/** { trackId: mp3 url } for a release, cached at the edge for an hour (links last ~24h). */
+async function bandcampStreams(albumUrl, fresh) {
+  const cache = caches.default
+  const key = new Request(`https://bandcamp-streams.internal/?u=${encodeURIComponent(albumUrl)}`)
+  if (!fresh) {
+    const hit = await cache.match(key)
+    if (hit) return hit.json()
+  }
+  // A full browser user-agent gets a page variant without the embedded track data
+  const page = await fetch(albumUrl, { headers: { 'User-Agent': 'Mozilla/5.0' } })
+  if (!page.ok) return {}
+  const m = (await page.text()).match(/data-tralbum="([^"]+)"/)
+  if (!m) return {}
+  const data = JSON.parse(
+    m[1].replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&')
+  )
+  const streams = {}
+  for (const t of data.trackinfo ?? []) {
+    const src = t.file?.['mp3-128']
+    if (src) streams[String(t.track_id ?? t.id)] = src
+  }
+  await cache.put(key, new Response(JSON.stringify(streams), { headers: { 'Cache-Control': 'max-age=3600' } }))
+  return streams
 }
 
 async function list(req, env, url) {
