@@ -111,7 +111,7 @@ export default function Nav() {
 
         {/* Utility pages. When there isn't room beside the bands, this whole
             group wraps onto its own row rather than hiding off-screen. */}
-        <div ref={utilRef} className={`flex items-center ${wrapped ? 'pb-1.5' : ''}`}>
+        <div ref={utilRef} className={`flex flex-wrap items-center gap-y-1.5 ${wrapped ? 'pb-1.5' : ''}`}>
           <span
             // invisible rather than removed when wrapped: keeping its width stops the
             // row from flip-flopping between wrapped and not at the boundary
