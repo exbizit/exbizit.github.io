@@ -45,13 +45,6 @@ function Flyer({ show }: { show: PastShow }) {
           <TypeFlyer show={show} stamp={stamp} />
         )}
 
-        <span
-          className="absolute top-2 left-2 px-1.5 py-0.5 tabular-nums"
-          style={{ background: '#000', color: accent, fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.12em' }}
-        >
-          {stamp}
-        </span>
-
         {/* Tap target for touch screens and keyboards; hover does the same with a mouse */}
         <button
           type="button"
