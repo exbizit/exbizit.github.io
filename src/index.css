@@ -294,10 +294,10 @@
   gap: 7px;
   height: 26px;
   padding: 0 10px 0 7px;
-  font-family: 'Silkscreen', 'Chakra Petch', monospace;
+  font-family: 'Michroma', 'Chakra Petch', sans-serif;
   font-size: 10px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  text-transform: lowercase;
   white-space: nowrap;
   color: #0a0d24;
   background: linear-gradient(to bottom, #f6f8ff 0%, #c7cdea 42%, #8a93c6 52%, #b8c0e6 78%, #e6eaff 100%);

@@ -9,7 +9,7 @@
   --bf-dim: #7d86b8;
   --bf-rule: rgba(170, 180, 255, 0.22);
   --bf-mono: 'Space Mono', 'VT323', monospace;
-  --bf-ui: 'Silkscreen', 'Space Mono', monospace;
+  --bf-ui: 'Michroma', 'Chakra Petch', sans-serif;
   container-type: inline-size;
   min-height: 100%;
   /* Oversized type is cropped at the window edge, never scrolled to */
@@ -38,11 +38,12 @@
   padding: 7px 14px;
   font-family: var(--bf-ui);
   font-size: 10px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.02em;
   white-space: nowrap;
   overflow: hidden;
   background: #000;
   border-bottom: 1px solid var(--bf-rule);
+  text-transform: lowercase;
 }
 .bf-strip { position: sticky; top: 0; z-index: 5; }
 .bf-foot { border-top: 1px solid var(--bf-rule); border-bottom: 0; color: var(--bf-dim); }
@@ -184,7 +185,7 @@
   color: transparent;
   -webkit-text-stroke: 1px var(--bf-accent);
 }
-.bf-sec-title { margin: 0; font-family: var(--bf-ui); font-size: 12px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; }
+.bf-sec-title { margin: 0; font-family: var(--bf-ui); font-size: 12px; font-weight: 400; letter-spacing: 0.02em; text-transform: lowercase; white-space: nowrap; }
 .bf-sec-rule { flex: 1; height: 1px; margin-bottom: 4px; background: repeating-linear-gradient(90deg, var(--bf-dim) 0 2px, transparent 2px 5px); }
 .bf-sec-meta { font-size: 10px; color: var(--bf-dim); white-space: nowrap; }
 
@@ -216,11 +217,11 @@
   letter-spacing: -0.05em;
 }
 .bf-show-info p { margin: 0 0 2px; }
-.bf-show-when { font-family: var(--bf-ui); font-size: 11px; letter-spacing: 0.08em; }
+.bf-show-when { font-family: var(--bf-ui); font-size: 11px; letter-spacing: 0.02em; text-transform: lowercase; }
 .bf-show-venue { font-family: 'Chakra Petch', sans-serif; font-weight: 700; font-size: 22px; line-height: 1.1; margin-top: 6px !important; }
-.bf-show-tix { display: inline-block; margin-top: 10px; padding: 5px 12px; font-family: var(--bf-ui); font-size: 11px; background: var(--bf-accent); color: #000 !important; text-decoration: none; }
+.bf-show-tix { display: inline-block; margin-top: 10px; padding: 5px 12px; font-family: var(--bf-ui); font-size: 11px; background: var(--bf-accent); color: #000 !important; text-decoration: none; text-transform: lowercase; }
 .bf-show-tix:hover { background: #fff; }
-.bf-show-off { font-family: var(--bf-ui); font-size: 11px; color: var(--bf-accent); margin-top: 8px !important; }
+.bf-show-off { font-family: var(--bf-ui); font-size: 11px; color: var(--bf-accent); margin-top: 8px !important; text-transform: lowercase; }
 .bf-show-poster { display: block; width: 72px; margin-top: 10px; border: 1px solid var(--bf-rule); }
 .bf-show-poster img { display: block; width: 100%; }
 
@@ -327,7 +328,7 @@
 }
 .bf-book:hover,
 .bf-book:focus-visible { background: var(--bf-accent); color: #000; outline: none; }
-.bf-book-k { grid-column: 1 / -1; font-family: var(--bf-ui); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+.bf-book-k { grid-column: 1 / -1; font-family: var(--bf-ui); font-size: 11px; letter-spacing: 0.02em; text-transform: lowercase; }
 .bf-book-name { font-family: var(--bf-display); font-weight: var(--bf-display-weight); font-size: 30px; line-height: 0.95; overflow-wrap: anywhere; }
 .bf-book-arrow { font-family: 'Chakra Petch', sans-serif; font-size: 34px; line-height: 0.8; }
 
@@ -345,8 +346,9 @@
 .sysfile .label {
   font-family: var(--bf-ui);
   font-size: 10px;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.02em;
   color: var(--bf-dim);
+  text-transform: lowercase;
 }
 .sysfile p.label::before { content: '// '; color: var(--bf-accent); }
 /* Page headings: huge, outlined, cropped by the window edge */
@@ -375,7 +377,7 @@
 
 /* Shows */
 .sf-hero { padding: 22px 20px 0; border-bottom: 1px solid var(--bf-rule); overflow: hidden; }
-.sf-kicker { margin: 0 0 8px; font-family: var(--bf-ui); font-size: 11px; letter-spacing: 0.14em; color: var(--bf-accent); }
+.sf-kicker { margin: 0 0 8px; font-family: var(--bf-ui); font-size: 11px; letter-spacing: 0.02em; color: var(--bf-accent); text-transform: lowercase; }
 .sf-title {
   margin: 0 0 -0.12em;
   font-family: 'Chakra Petch', sans-serif;
@@ -386,7 +388,7 @@
   color: transparent;
   -webkit-text-stroke: 1.5px var(--bf-ink);
 }
-.sf-empty { margin: 0; font-family: var(--bf-ui); font-size: 12px; color: var(--bf-dim); padding: 18px 0; border-top: 1px dashed var(--bf-rule); border-bottom: 1px dashed var(--bf-rule); }
+.sf-empty { margin: 0; font-family: var(--bf-ui); font-size: 12px; color: var(--bf-dim); padding: 18px 0; border-top: 1px dashed var(--bf-rule); border-bottom: 1px dashed var(--bf-rule); text-transform: lowercase; }
 .sf-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--bf-rule); }
 .sf-row {
   display: grid;
@@ -400,15 +402,15 @@
 .sf-row.is-off { opacity: 0.55; }
 .sf-date { display: flex; align-items: flex-start; gap: 8px; grid-row: span 3; }
 .sf-day { font-family: 'Chakra Petch', sans-serif; font-weight: 700; font-size: 64px; line-height: 0.8; letter-spacing: -0.05em; }
-.sf-mon { font-family: var(--bf-ui); font-size: 10px; line-height: 1.5; color: var(--bf-dim); }
+.sf-mon { font-family: var(--bf-ui); font-size: 10px; line-height: 1.5; color: var(--bf-dim); text-transform: lowercase; }
 .sf-bands { margin: 0; font-family: 'Chakra Petch', sans-serif; font-weight: 700; font-size: 20px; line-height: 1.1; }
 .sf-bands a { text-decoration: none; }
 .sf-bands a:hover { text-decoration: underline; }
 .sf-bill p,
 .sf-where p { margin: 0 0 2px; }
-.sf-venue { font-family: var(--bf-ui); font-size: 12px; text-transform: uppercase; }
+.sf-venue { font-family: var(--bf-ui); font-size: 12px; text-transform: lowercase; }
 .sf-act { display: flex; align-items: center; gap: 10px; }
-.sf-status { font-family: var(--bf-ui); font-size: 10px; padding: 2px 6px; border: 1px solid var(--row-accent); color: var(--row-accent); }
+.sf-status { font-family: var(--bf-ui); font-size: 10px; padding: 2px 6px; border: 1px solid var(--row-accent); color: var(--row-accent); text-transform: lowercase; }
 @container (min-width: 760px) {
   .sf-row { grid-template-columns: 130px minmax(0, 1.4fr) minmax(0, 1fr) auto; align-items: center; }
   .sf-date { grid-row: auto; }
