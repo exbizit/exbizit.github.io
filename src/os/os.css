@@ -81,9 +81,13 @@ html.os-mode body { height: 100%; overflow: hidden; }
   top: 18px;
   right: 22px;
   margin: 0;
-  font-family: var(--os-lcd-font);
-  font-size: 19px;
-  line-height: 1.1;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 3px 18px;
+  font-family: var(--os-ui);
+  font-size: 10px;
+  line-height: 1.5;
+  text-transform: lowercase;
   color: var(--os-lcd);
   text-shadow: 0 0 8px rgba(122, 138, 255, 0.7);
   padding: 10px 14px 12px;
@@ -91,6 +95,12 @@ html.os-mode body { height: 100%; overflow: hidden; }
   border: 1px solid rgba(170, 180, 255, 0.35);
   box-shadow: 6px 6px 0 rgba(74, 88, 255, 0.35);
 }
+.os-wall-readout dt { color: #6d77b8; text-shadow: none; }
+.os-wall-readout dd { margin: 0; font-variant-numeric: tabular-nums; }
+/* Michroma's degree sign sits on the baseline like an o */
+.os-deg { font-family: 'Chakra Petch', sans-serif; }
+.os-wall-readout dt:first-of-type,
+.os-wall-readout dt:first-of-type + dd { padding-bottom: 5px; margin-bottom: 3px; border-bottom: 1px solid rgba(170, 180, 255, 0.3); color: var(--os-lcd); }
 .os-wall-vert {
   position: absolute;
   right: 6px;
@@ -575,7 +585,7 @@ body.os-dragging .os-win-body { pointer-events: none; }
     gap: 6px 0;
   }
   .os-icon { width: 25%; }
-  .os-wall-readout { top: auto; bottom: 14px; right: 12px; font-size: 15px; }
+  .os-wall-readout { top: auto; bottom: 14px; right: 12px; font-size: 9px; }
   .os-win { padding: 2px; box-shadow: none; }
   .os-statusbar { display: none; }
   .os-lcd { width: clamp(90px, 30vw, 200px); }

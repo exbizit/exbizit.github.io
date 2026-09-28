@@ -34,15 +34,24 @@ function Wallpaper() {
       <WallImage src={wall.src} mode={wall.mode} effect={wall.effect} />
       <div className="os-wall-shade" />
       <div className="os-wall-scan" />
-      <pre className="os-wall-readout">
-        {`HOSTERSPHERE OS  v${__APP_VERSION__}
-NODE ····· ORLANDO, FL
-LAT/LON ·· 28.5383°N 81.3792°W
-BANDS ···· ${String(BANDS.length).padStart(2, '0')} ONLINE
-SHOWS ···· ${String(upcoming).padStart(2, '0')} UPCOMING
-UPTIME ··· `}
-        <Uptime />
-      </pre>
+      <dl className="os-wall-readout">
+        <dt>hostersphere os</dt>
+        <dd>v{__APP_VERSION__}</dd>
+        <dt>node</dt>
+        <dd>orlando, fl</dd>
+        <dt>lat/lon</dt>
+        <dd>
+          28.5383<span className="os-deg">°</span>n 81.3792<span className="os-deg">°</span>w
+        </dd>
+        <dt>bands</dt>
+        <dd>{String(BANDS.length).padStart(2, '0')} online</dd>
+        <dt>shows</dt>
+        <dd>{String(upcoming).padStart(2, '0')} upcoming</dd>
+        <dt>uptime</dt>
+        <dd>
+          <Uptime />
+        </dd>
+      </dl>
       <div className="os-wall-marks">
         <span />
         <span />
