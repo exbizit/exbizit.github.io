@@ -32,10 +32,20 @@ const BANDCAMP = (generated as { bands: Record<string, BandcampRelease[]> }).ban
 // Overridable so the relay can be tested against `wrangler dev`
 const STREAM_API: string = import.meta.env.VITE_AMP_API || BOARD_API
 
+/** Releases kept off HosterAmp entirely, by title */
+const HIDDEN = [/live at will'?s pub/i]
+const hidden = (title: string) => HIDDEN.some(re => re.test(title))
+
 const norm = (s: string) => s.toLowerCase().replace(/\(.*?\)/g, '').replace(/[^a-z0-9]/g, '')
+/** Same release under two titles, e.g. "LIBERATUS" / "Liberatus: People Liberate Themselves" */
+const sameRelease = (a: string, b: string) => {
+  const x = norm(a)
+  const y = norm(b)
+  return x === y || (Math.min(x.length, y.length) >= 5 && (x.startsWith(y) || y.startsWith(x)))
+}
 
 export function bandTracks(band: Band): AmpTrack[] {
-  const bc = BANDCAMP[band.slug] ?? []
+  const bc = (BANDCAMP[band.slug] ?? []).filter(r => !hidden(r.title))
   const full: AmpTrack[] = bc.flatMap(r =>
     r.tracks.map(t => ({
       url: `${STREAM_API}/bandcamp/stream?track=${t.id}`,
@@ -44,9 +54,14 @@ export function bandTracks(band: Band): AmpTrack[] {
       band: band.slug,
     }))
   )
-  const onBandcamp = new Set(bc.map(r => norm(r.title)))
   const previews: AmpTrack[] = getReleases(band.slug)
-    .filter(r => r.previewUrl && !(r.bandcamp && bc.some(b => b.url === r.bandcamp)) && !onBandcamp.has(norm(r.title)))
+    .filter(
+      r =>
+        r.previewUrl &&
+        !hidden(r.title) &&
+        !(r.bandcamp && bc.some(b => b.url === r.bandcamp)) &&
+        !bc.some(b => sameRelease(b.title, r.title))
+    )
     .map(r => ({
       url: r.previewUrl as string,
       duration: 30,

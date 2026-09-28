@@ -20,6 +20,16 @@ export { useAmp } from './ampContext'
 
 const SKIN = '/skins/hosteramp.wsz'
 
+/** A fresh random order each time the player opens (Fisher–Yates) */
+function shuffled<T>(items: T[]): T[] {
+  const out = [...items]
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[out[i], out[j]] = [out[j], out[i]]
+  }
+  return out
+}
+
 function layout() {
   const { W, H } = desktopSize()
   const mobile = W < 768
@@ -48,7 +58,7 @@ export function AmpProvider({ children }: { children: ReactNode }) {
       const { default: Webamp } = await import('webamp')
       const wa = new Webamp({
         initialSkin: { url: SKIN },
-        initialTracks: allTracks(firstSlug),
+        initialTracks: shuffled(allTracks(firstSlug)),
         windowLayout: layout(),
         enableHotkeys: false,
       })
@@ -64,6 +74,8 @@ export function AmpProvider({ children }: { children: ReactNode }) {
           playlist: { x: l.playlist.position.left, y: l.playlist.position.top },
         },
       } as never)
+      // Shuffle stays on for whatever gets loaded next; the SHUFFLE button turns it off
+      if (!wa.isShuffleEnabled()) wa.toggleShuffle()
       focus.current = registerPlayer(() => wa.pause())
       wa.onTrackDidChange(t =>
         setNowPlaying(t ? [t.metaData.artist, t.metaData.title].filter(Boolean).join(' — ') : null)
