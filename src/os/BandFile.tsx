@@ -51,10 +51,10 @@ function Table({ rows, accent }: { rows: { key: string; cells: ReactNode[] }[]; 
   return (
     <table className="bf-table">
       <tbody>
-        {rows.map((r, i) => (
+        {rows.map(r => (
           <tr key={r.key}>
-            <td className="bf-table-n" style={{ color: accent }}>
-              {pad(i + 1)}
+            <td className="bf-table-mark" style={{ color: accent }} aria-hidden>
+              ■
             </td>
             {r.cells.map((c, j) => (
               <td key={j}>{c}</td>
