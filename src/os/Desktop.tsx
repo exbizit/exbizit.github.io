@@ -128,6 +128,7 @@ function DesktopIcon({ to, label, icon, onClick }: { to?: string; label: string;
 }
 
 export default function Desktop() {
+  const { setLayout } = useLayout()
   const os = useOS()
   const amp = useAmp()
   const navigate = useNavigate()
@@ -156,6 +157,7 @@ export default function Desktop() {
         ))}
         <DesktopIcon label="HosterAmp" icon={ICONS.amp()} onClick={amp.show} />
         <DesktopIcon label="Cubefield" icon={ICONS.cubefield()} onClick={() => navigate('/listening?cubefield')} />
+        <DesktopIcon label="Primary layout" icon={ICONS.layout()} onClick={() => setLayout('primary')} />
       </nav>
 
       <div className="os-windows">

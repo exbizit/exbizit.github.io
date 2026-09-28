@@ -5,9 +5,9 @@
    ══════════════════════════════════════════════════════════════════════════ */
 
 .bf {
-  --bf-ink: #eef0ff;
-  --bf-dim: #7d86b8;
-  --bf-rule: rgba(170, 180, 255, 0.22);
+  --bf-ink: hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 97%);
+  --bf-dim: hsl(var(--sys-h) calc(var(--sys-sat) * 29%) 61%);
+  --bf-rule: hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 83% / 0.22);
   --bf-mono: 'Space Mono', 'VT323', monospace;
   --bf-ui: 'Michroma', 'Chakra Petch', sans-serif;
   container-type: inline-size;
@@ -20,8 +20,8 @@
   line-height: 1.5;
   background-color: #000;
   background-image:
-    linear-gradient(rgba(170, 180, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(170, 180, 255, 0.05) 1px, transparent 1px);
+    linear-gradient(hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 83% / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 83% / 0.05) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 .bf a { color: inherit; }
@@ -190,7 +190,7 @@
 .bf-sec-meta { font-size: 10px; color: var(--bf-dim); white-space: nowrap; }
 
 /* ── Transmit ──────────────────────────────────────────────────────────── */
-.bf .amp-cta { box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #5d6699, 5px 5px 0 var(--bf-accent); }
+.bf .amp-cta { box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 hsl(var(--sys-h) calc(var(--sys-sat) * 24%) 48%), 5px 5px 0 var(--bf-accent); }
 .bf .amp-credit { color: var(--bf-dim); font-family: var(--bf-mono); font-size: 10px; }
 .bf-icons { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 0; padding: 0; }
 .bf-icons a {
@@ -336,10 +336,10 @@
 /* The pages paint with these variables, so redefining them here re-themes
    everything inside to the desktop's palette without touching the pages. */
 .sysfile {
-  --bone: #eef0ff;
-  --ash: #9aa3d6;
-  --dust: #5d6699;
-  --iron: rgba(170, 180, 255, 0.22);
+  --bone: hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 97%);
+  --ash: hsl(var(--sys-h) calc(var(--sys-sat) * 42%) 72%);
+  --dust: hsl(var(--sys-h) calc(var(--sys-sat) * 24%) 48%);
+  --iron: hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 83% / 0.22);
   --void: #000;
 }
 .sysfile > :not(.bf-strip):not(.bf-cell):not(.sf-hero) { background: transparent; }

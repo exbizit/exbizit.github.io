@@ -10,25 +10,25 @@ export function IconDefs() {
       <defs>
         <linearGradient id="os-chrome" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#ffffff" />
-          <stop offset="0.45" stopColor="#b9c1e6" />
-          <stop offset="0.55" stopColor="#6d77b8" />
-          <stop offset="1" stopColor="#dfe4ff" />
+          <stop offset="0.45" style={{ stopColor: 'hsl(var(--sys-h) calc(var(--sys-sat) * 47%) 81%)' }}/>
+          <stop offset="0.55" style={{ stopColor: 'hsl(var(--sys-h) calc(var(--sys-sat) * 35%) 57%)' }}/>
+          <stop offset="1" style={{ stopColor: 'hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 94%)' }}/>
         </linearGradient>
         <linearGradient id="os-chrome-dk" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#3a4290" />
-          <stop offset="1" stopColor="#0a0d24" />
+          <stop offset="0" style={{ stopColor: 'hsl(var(--sys-h) calc(var(--sys-sat) * 43%) 40%)' }}/>
+          <stop offset="1" style={{ stopColor: 'hsl(var(--sys-h) calc(var(--sys-sat) * 57%) 9%)' }}/>
         </linearGradient>
         <linearGradient id="os-peri" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#c9d0ff" />
-          <stop offset="1" stopColor="#4a58ff" />
+          <stop offset="0" style={{ stopColor: 'hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 89%)' }}/>
+          <stop offset="1" style={{ stopColor: 'hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 65%)' }}/>
         </linearGradient>
         <radialGradient id="os-disc" cx="0.5" cy="0.5" r="0.5">
-          <stop offset="0.18" stopColor="#0b0e22" />
-          <stop offset="0.2" stopColor="#e8ecff" />
-          <stop offset="0.45" stopColor="#9fb0ff" />
+          <stop offset="0.18" style={{ stopColor: 'hsl(var(--sys-h) calc(var(--sys-sat) * 51%) 9%)' }}/>
+          <stop offset="0.2" style={{ stopColor: 'hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 95%)' }}/>
+          <stop offset="0.45" style={{ stopColor: 'hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 81%)' }}/>
           <stop offset="0.62" stopColor="#ffc2f4" />
           <stop offset="0.8" stopColor="#a8fff0" />
-          <stop offset="1" stopColor="#dfe4ff" />
+          <stop offset="1" style={{ stopColor: 'hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 94%)' }}/>
         </radialGradient>
       </defs>
     </svg>
@@ -45,9 +45,9 @@ export const ICONS = {
   listening: () =>
     frame(
       <>
-        <circle cx="24" cy="24" r="21" fill="url(#os-disc)" stroke="#0a0d24" strokeWidth="1.5" />
+        <circle cx="24" cy="24" r="21" fill="url(#os-disc)" strokeWidth="1.5" style={{ stroke: 'hsl(var(--sys-h) calc(var(--sys-sat) * 57%) 9%)' }}/>
         <path d="M24 5 A19 19 0 0 1 41 16" stroke="#fff" strokeWidth="2" fill="none" opacity="0.8" />
-        <circle cx="24" cy="24" r="4.5" fill="#05060d" stroke="#c9d0ff" strokeWidth="1.2" />
+        <circle cx="24" cy="24" r="4.5" strokeWidth="1.2" style={{ fill: 'hsl(var(--sys-h) calc(var(--sys-sat) * 44%) 4%)', stroke: 'hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 89%)' }}/>
       </>
     ),
   shows: () =>
@@ -56,14 +56,13 @@ export const ICONS = {
         <path
           d="M5 13 h38 v7 a4 4 0 0 0 0 8 v7 h-38 v-7 a4 4 0 0 0 0 -8 z"
           fill="url(#os-chrome)"
-          stroke="#0a0d24"
-          strokeWidth="1.5"
-        />
+         
+          strokeWidth="1.5" style={{ stroke: 'hsl(var(--sys-h) calc(var(--sys-sat) * 57%) 9%)' }}/>
         <line x1="31" y1="15" x2="31" y2="33" stroke="#0a0d24" strokeWidth="1.2" strokeDasharray="2 2" />
-        <rect x="9" y="18" width="18" height="3" fill="#1b2150" />
-        <rect x="9" y="24" width="13" height="2" fill="#4a58ff" />
-        <rect x="9" y="28" width="16" height="2" fill="#4a58ff" />
-        <text x="37" y="27" fontSize="7" fontFamily="monospace" fill="#0a0d24" textAnchor="middle" fontWeight="700">
+        <rect x="9" y="18" width="18" height="3" style={{ fill: 'hsl(var(--sys-h) calc(var(--sys-sat) * 50%) 21%)' }}/>
+        <rect x="9" y="24" width="13" height="2" style={{ fill: 'hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 65%)' }}/>
+        <rect x="9" y="28" width="16" height="2" style={{ fill: 'hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 65%)' }}/>
+        <text x="37" y="27" fontSize="7" fontFamily="monospace" textAnchor="middle" fontWeight="700" style={{ fill: 'hsl(var(--sys-h) calc(var(--sys-sat) * 57%) 9%)' }}>
           ADMIT
         </text>
       </>
@@ -71,25 +70,25 @@ export const ICONS = {
   community: () =>
     frame(
       <>
-        <rect x="4" y="6" width="40" height="30" rx="3" fill="url(#os-chrome)" stroke="#0a0d24" strokeWidth="1.5" />
-        <rect x="8" y="10" width="32" height="21" fill="#05060d" />
-        <text x="10" y="17" fontSize="5" fontFamily="monospace" fill="#8fa0ff">
+        <rect x="4" y="6" width="40" height="30" rx="3" fill="url(#os-chrome)" strokeWidth="1.5" style={{ stroke: 'hsl(var(--sys-h) calc(var(--sys-sat) * 57%) 9%)' }}/>
+        <rect x="8" y="10" width="32" height="21" style={{ fill: 'hsl(var(--sys-h) calc(var(--sys-sat) * 44%) 4%)' }}/>
+        <text x="10" y="17" fontSize="5" fontFamily="monospace" style={{ fill: 'hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 78%)' }}>
           &gt; BBS
         </text>
-        <text x="10" y="24" fontSize="5" fontFamily="monospace" fill="#8fa0ff">
+        <text x="10" y="24" fontSize="5" fontFamily="monospace" style={{ fill: 'hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 78%)' }}>
           &gt; hi :)
         </text>
-        <rect x="10" y="26.5" width="4" height="2" fill="#c9d0ff" />
-        <path d="M16 36 h16 l3 6 h-22 z" fill="url(#os-chrome)" stroke="#0a0d24" strokeWidth="1.5" />
+        <rect x="10" y="26.5" width="4" height="2" style={{ fill: 'hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 89%)' }}/>
+        <path d="M16 36 h16 l3 6 h-22 z" fill="url(#os-chrome)" strokeWidth="1.5" style={{ stroke: 'hsl(var(--sys-h) calc(var(--sys-sat) * 57%) 9%)' }}/>
       </>
     ),
   contact: () =>
     frame(
       <>
-        <rect x="4" y="11" width="40" height="27" fill="url(#os-chrome)" stroke="#0a0d24" strokeWidth="1.5" />
-        <path d="M4 11 l20 16 l20 -16" fill="none" stroke="#0a0d24" strokeWidth="1.5" />
-        <path d="M4 38 l15 -13 M44 38 l-15 -13" stroke="#0a0d24" strokeWidth="1" opacity="0.6" />
-        <circle cx="38" cy="12" r="6" fill="#4a58ff" stroke="#0a0d24" strokeWidth="1.2" />
+        <rect x="4" y="11" width="40" height="27" fill="url(#os-chrome)" strokeWidth="1.5" style={{ stroke: 'hsl(var(--sys-h) calc(var(--sys-sat) * 57%) 9%)' }}/>
+        <path d="M4 11 l20 16 l20 -16" fill="none" strokeWidth="1.5" style={{ stroke: 'hsl(var(--sys-h) calc(var(--sys-sat) * 57%) 9%)' }}/>
+        <path d="M4 38 l15 -13 M44 38 l-15 -13" strokeWidth="1" opacity="0.6" style={{ stroke: 'hsl(var(--sys-h) calc(var(--sys-sat) * 57%) 9%)' }}/>
+        <circle cx="38" cy="12" r="6" strokeWidth="1.2" style={{ fill: 'hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 65%)', stroke: 'hsl(var(--sys-h) calc(var(--sys-sat) * 57%) 9%)' }}/>
         <text x="38" y="15" fontSize="8" fontFamily="monospace" fill="#fff" textAnchor="middle" fontWeight="700">
           $
         </text>
@@ -98,43 +97,55 @@ export const ICONS = {
   amp: () =>
     frame(
       <>
-        <circle cx="24" cy="24" r="21" fill="url(#os-chrome-dk)" stroke="#c9d0ff" strokeWidth="2" />
-        <circle cx="24" cy="24" r="17" fill="none" stroke="#4a58ff" strokeWidth="1" opacity="0.7" />
+        <circle cx="24" cy="24" r="21" fill="url(#os-chrome-dk)" strokeWidth="2" style={{ stroke: 'hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 89%)' }}/>
+        <circle cx="24" cy="24" r="17" fill="none" strokeWidth="1" opacity="0.7" style={{ stroke: 'hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 65%)' }}/>
         <path d="M27 7 L14 27 h9 l-3 14 L34 20 h-9 z" fill="url(#os-peri)" stroke="#fff" strokeWidth="1.2" />
       </>
     ),
   cubefield: () =>
     frame(
       <>
-        <path d="M24 5 L42 15 L24 25 L6 15 Z" fill="#e8ecff" stroke="#0a0d24" strokeWidth="1.5" />
-        <path d="M6 15 L24 25 L24 44 L6 34 Z" fill="#8fa0ff" stroke="#0a0d24" strokeWidth="1.5" />
-        <path d="M42 15 L24 25 L24 44 L42 34 Z" fill="#3a44b8" stroke="#0a0d24" strokeWidth="1.5" />
+        <path d="M24 5 L42 15 L24 25 L6 15 Z" strokeWidth="1.5" style={{ fill: 'hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 95%)', stroke: 'hsl(var(--sys-h) calc(var(--sys-sat) * 57%) 9%)' }}/>
+        <path d="M6 15 L24 25 L24 44 L6 34 Z" strokeWidth="1.5" style={{ fill: 'hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 78%)', stroke: 'hsl(var(--sys-h) calc(var(--sys-sat) * 57%) 9%)' }}/>
+        <path d="M42 15 L24 25 L24 44 L42 34 Z" strokeWidth="1.5" style={{ fill: 'hsl(var(--sys-h) calc(var(--sys-sat) * 52%) 47%)', stroke: 'hsl(var(--sys-h) calc(var(--sys-sat) * 57%) 9%)' }}/>
       </>
     ),
   display: () =>
     frame(
       <>
-        <rect x="4" y="5" width="40" height="30" fill="url(#os-chrome)" stroke="#0a0d24" strokeWidth="1.5" />
-        <rect x="8" y="9" width="32" height="22" fill="#9fb0ff" />
+        <rect x="4" y="5" width="40" height="30" fill="url(#os-chrome)" strokeWidth="1.5" style={{ stroke: 'hsl(var(--sys-h) calc(var(--sys-sat) * 57%) 9%)' }}/>
+        <rect x="8" y="9" width="32" height="22" style={{ fill: 'hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 81%)' }}/>
         <circle cx="33" cy="15" r="3" fill="#fff" />
-        <path d="M8 31 L18 19 L25 26 L30 21 L40 31 Z" fill="#2b35a8" />
-        <path d="M18 35 h12 l2 5 h-16 z" fill="url(#os-chrome)" stroke="#0a0d24" strokeWidth="1.5" />
-        <rect x="12" y="40" width="24" height="3" fill="url(#os-chrome)" stroke="#0a0d24" strokeWidth="1" />
+        <path d="M8 31 L18 19 L25 26 L30 21 L40 31 Z" style={{ fill: 'hsl(var(--sys-h) calc(var(--sys-sat) * 59%) 41%)' }}/>
+        <path d="M18 35 h12 l2 5 h-16 z" fill="url(#os-chrome)" strokeWidth="1.5" style={{ stroke: 'hsl(var(--sys-h) calc(var(--sys-sat) * 57%) 9%)' }}/>
+        <rect x="12" y="40" width="24" height="3" fill="url(#os-chrome)" strokeWidth="1" style={{ stroke: 'hsl(var(--sys-h) calc(var(--sys-sat) * 57%) 9%)' }}/>
+      </>
+    ),
+  layout: () =>
+    frame(
+      <>
+        <rect x="4" y="6" width="40" height="34" fill="#000" stroke="#fff" strokeWidth="1.5" />
+        <rect x="4" y="6" width="40" height="7" fill="#fff" />
+        <rect x="8" y="17" width="20" height="6" fill="#fff" />
+        <rect x="8" y="26" width="32" height="2" fill="#8c8c8c" />
+        <rect x="8" y="31" width="26" height="2" fill="#8c8c8c" />
+        <path d="M30 44 L44 44 L44 30" fill="none" style={{ stroke: 'hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 65%)' }} strokeWidth="3" />
+        <path d="M44 44 L34 34" style={{ stroke: 'hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 65%)' }} strokeWidth="3" />
       </>
     ),
   folder: () =>
     frame(
       <>
-        <path d="M4 12 h14 l4 4 h22 v24 h-40 z" fill="url(#os-chrome)" stroke="#0a0d24" strokeWidth="1.5" />
-        <rect x="4" y="19" width="40" height="3" fill="#4a58ff" opacity="0.6" />
+        <path d="M4 12 h14 l4 4 h22 v24 h-40 z" fill="url(#os-chrome)" strokeWidth="1.5" style={{ stroke: 'hsl(var(--sys-h) calc(var(--sys-sat) * 57%) 9%)' }}/>
+        <rect x="4" y="19" width="40" height="3" opacity="0.6" style={{ fill: 'hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 65%)' }}/>
       </>
     ),
   error: () =>
     frame(
       <>
-        <path d="M24 4 L45 42 H3 Z" fill="url(#os-chrome)" stroke="#0a0d24" strokeWidth="1.5" />
-        <rect x="22" y="16" width="4" height="14" fill="#0a0d24" />
-        <rect x="22" y="33" width="4" height="4" fill="#0a0d24" />
+        <path d="M24 4 L45 42 H3 Z" fill="url(#os-chrome)" strokeWidth="1.5" style={{ stroke: 'hsl(var(--sys-h) calc(var(--sys-sat) * 57%) 9%)' }}/>
+        <rect x="22" y="16" width="4" height="14" style={{ fill: 'hsl(var(--sys-h) calc(var(--sys-sat) * 57%) 9%)' }}/>
+        <rect x="22" y="33" width="4" height="4" style={{ fill: 'hsl(var(--sys-h) calc(var(--sys-sat) * 57%) 9%)' }}/>
       </>
     ),
 }

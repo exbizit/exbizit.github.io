@@ -10,7 +10,7 @@ import './bandfile.css'
 
 export default function SysFile({ no, file, meta, className = '', children }: { no: number; file: string; meta?: string; className?: string; children: ReactNode }) {
   return (
-    <article className={`bf sysfile ${className}`} style={{ ['--bf-accent' as string]: '#8fa0ff' }}>
+    <article className={`bf sysfile ${className}`} style={{ ['--bf-accent' as string]: 'hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 78%)' }}>
       <div className="bf-strip">
         <span className="bf-strip-tag">SYS {pad(no)}</span>
         <span>{file}</span>

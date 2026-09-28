@@ -88,7 +88,7 @@ export default function OSWindow({ win }: { win: Win }) {
         height: rect.h,
         zIndex: win.z,
         display: win.min || (os.isMobile && !focused) ? 'none' : undefined,
-        ['--win-accent' as string]: app.accent ?? '#8fa0ff',
+        ['--win-accent' as string]: app.accent ?? 'hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 78%)',
       }}
       onPointerDownCapture={() => {
         if (!focused) os.focus(win.id)

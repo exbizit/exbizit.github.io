@@ -1,5 +1,5 @@
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
-import { WALL_PHOTOS, WallImage, useWallpaper, type WallEffect, type WallMode } from './wallpaper'
+import { SYSTEM_COLORS, WALL_PHOTOS, WallImage, useWallpaper, type WallEffect, type WallMode } from './wallpaper'
 
 const MODES: { id: WallMode; label: string }[] = [
   { id: 'fill', label: 'Fill' },
@@ -34,6 +34,26 @@ function Segmented<T extends string>({ label, options, value, onChange }: { labe
   )
 }
 
+/** #rrggbb -> [hue, sat flag] for the custom colour picker */
+function hueOf(hex: string): [number, number] {
+  const [r, g, b] = [1, 3, 5].map(i => parseInt(hex.slice(i, i + 2), 16) / 255)
+  const max = Math.max(r, g, b)
+  const min = Math.min(r, g, b)
+  const d = max - min
+  if (d < 0.08) return [0, 0]
+  const h = max === r ? ((g - b) / d) % 6 : max === g ? (b - r) / d + 2 : (r - g) / d + 4
+  return [Math.round(h * 60 + 360) % 360, 1]
+}
+
+function hexOf(hue: number, sat: number) {
+  const s = sat ? 1 : 0
+  const l = 0.65
+  const k = (n: number) => (n + hue / 30) % 12
+  const a = s * Math.min(l, 1 - l)
+  const f = (n: number) => Math.round(255 * (l - a * Math.max(-1, Math.min(k(n) - 3, 9 - k(n), 1))))
+  return '#' + [f(0), f(8), f(4)].map(v => v.toString(16).padStart(2, '0')).join('')
+}
+
 /** "Display Properties": pick the desktop wallpaper from any photo on the site. */
 export default function DisplayProperties() {
   useDocumentTitle('Wallpaper')
@@ -62,6 +82,36 @@ export default function DisplayProperties() {
           </p>
           <Segmented label="Position" options={MODES} value={wall.mode} onChange={wall.setMode} />
           <Segmented label="Effect" options={EFFECTS} value={wall.effect} onChange={wall.setEffect} />
+          <fieldset className="cpl-field">
+            <legend className="cpl-legend">System color</legend>
+            <div className="cpl-swatches" role="radiogroup" aria-label="System color">
+              {SYSTEM_COLORS.map(c => {
+                const on = wall.sat === c.sat && (c.sat === 0 || wall.hue === c.hue)
+                return (
+                  <button
+                    key={c.name}
+                    type="button"
+                    role="radio"
+                    aria-checked={on}
+                    aria-label={c.name}
+                    title={c.name}
+                    className={`cpl-swatch${on ? ' is-on' : ''}`}
+                    style={{ background: `hsl(${c.hue} ${c.sat * 100}% 65%)` }}
+                    onClick={() => wall.setSystemColor(c.hue, c.sat)}
+                  />
+                )
+              })}
+              <label className="cpl-swatch cpl-swatch-custom" title="Custom color">
+                <input
+                  type="color"
+                  aria-label="Custom system color"
+                  value={hexOf(wall.hue, wall.sat)}
+                  onChange={e => wall.setSystemColor(...hueOf(e.target.value))}
+                />
+                <span aria-hidden>+</span>
+              </label>
+            </div>
+          </fieldset>
           <div className="cpl-row">
             <button type="button" className="cpl-btn cpl-btn-wide" onClick={wall.shuffleNow}>
               ⟳ Random

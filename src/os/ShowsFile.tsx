@@ -45,7 +45,7 @@ export default function ShowsFile() {
 function ShowRow({ show }: { show: Show }) {
   const { day, month, weekday, time } = formatShowDate(show.date)
   const roster = show.lineup.map(getBandBySlug).filter((b): b is NonNullable<typeof b> => Boolean(b))
-  const accent = roster[0]?.accentColor ?? '#8fa0ff'
+  const accent = roster[0]?.accentColor ?? 'hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 78%)'
   const off = show.status === 'soldout' || show.status === 'cancelled'
   return (
     <li className={`sf-row${off ? ' is-off' : ''}`} style={{ ['--row-accent' as string]: accent }}>

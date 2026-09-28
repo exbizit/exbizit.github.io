@@ -3,7 +3,7 @@
  * unless the visitor turns shuffle off in Display Properties, in which case
  * their pick is remembered (localStorage, this browser only).
  */
-import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from 'react'
+import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
 import { BANDS } from '../data/bands'
 import { getReleases } from '../data/discography'
 
@@ -22,7 +22,25 @@ interface WallState {
   mode: WallMode
   effect: WallEffect
   shuffle: boolean
+  /** System colour: the hue the desktop's chrome is tinted, and 0 for plain steel */
+  hue: number
+  sat: number
 }
+
+export const DEFAULT_HUE = 232
+
+/** Preset system colours for Display Properties */
+export const SYSTEM_COLORS: { name: string; hue: number; sat: number }[] = [
+  { name: 'Periwinkle', hue: DEFAULT_HUE, sat: 1 },
+  { name: 'Ice', hue: 195, sat: 1 },
+  { name: 'Mint', hue: 155, sat: 1 },
+  { name: 'Acid', hue: 80, sat: 1 },
+  { name: 'Amber', hue: 38, sat: 1 },
+  { name: 'Coral', hue: 8, sat: 1 },
+  { name: 'Bubblegum', hue: 322, sat: 1 },
+  { name: 'Violet', hue: 268, sat: 1 },
+  { name: 'Steel', hue: DEFAULT_HUE, sat: 0 },
+]
 
 const KEY = 'os-wallpaper'
 
@@ -73,6 +91,8 @@ function load(): WallState {
     mode: keep && saved.mode ? saved.mode : defaultMode(src),
     effect: saved.effect ?? 'none',
     shuffle,
+    hue: typeof saved.hue === 'number' ? saved.hue : DEFAULT_HUE,
+    sat: saved.sat === 0 ? 0 : 1,
   }
 }
 
@@ -90,6 +110,7 @@ interface Wall extends WallState {
   setMode: (m: WallMode) => void
   setEffect: (e: WallEffect) => void
   setShuffle: (on: boolean) => void
+  setSystemColor: (hue: number, sat: number) => void
 }
 
 const WallCtx = createContext<Wall | null>(null)
@@ -120,9 +141,22 @@ export function WallpaperProvider({ children }: { children: ReactNode }) {
       setMode: mode => update({ mode }),
       setEffect: effect => update({ effect }),
       setShuffle: shuffle => update({ shuffle }),
+      setSystemColor: (hue, sat) => update({ hue: Math.round(((hue % 360) + 360) % 360), sat }),
     }),
     [state, update]
   )
+
+  // The chrome's colours are all hsl(var(--sys-h) ...), set on <html> so the
+  // player, menus and overlays outside the desktop element pick it up too
+  useEffect(() => {
+    const root = document.documentElement.style
+    root.setProperty('--sys-h', String(state.hue))
+    root.setProperty('--sys-sat', String(state.sat))
+    return () => {
+      root.removeProperty('--sys-h')
+      root.removeProperty('--sys-sat')
+    }
+  }, [state.hue, state.sat])
   return <WallCtx.Provider value={value}>{children}</WallCtx.Provider>
 }
 
