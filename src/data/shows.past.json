@@ -1,0 +1,22 @@
+{
+  "_readme": "Shows that have happened, newest first. Written by `npm run archive-shows` (the 'Archive past shows' GitHub Action runs it every 2 days) and never overwritten after that, so edit freely: add `links` like [{ \"label\": \"Full set on YouTube\", \"url\": \"https://...\" }] for videos, photos or write-ups, or swap `poster` for a better flyer.",
+  "shows": [
+    {
+      "id": "framework-2026-09-26",
+      "date": "2026-09-26T20:00",
+      "venue": "Framework",
+      "city": "Orlando, FL",
+      "lineup": [
+        "maryswhitelie"
+      ],
+      "alsoPlaying": [
+        "Sally Wants",
+        "velora",
+        "Eyelash"
+      ],
+      "note": "All ages · 1201 N Mills Ave",
+      "poster": "/photos/shows/framework-2026-09-26.jpg",
+      "links": []
+    }
+  ]
+}

@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "deploy": "npm run build && gh-pages -d dist",
     "shows": "node scripts/fetch-shows.mjs",
+    "archive-shows": "node scripts/archive-shows.mjs",
     "listening": "node scripts/fetch-listening.mjs",
     "discography": "node scripts/fetch-discography.mjs",
     "spotify-auth": "node scripts/spotify-auth.mjs",

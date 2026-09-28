@@ -15,8 +15,8 @@
  *   npm run shows           # fetch and write
  *   npm run shows -- --dry  # print what it WOULD write, touch nothing
  *
- * Generated rows carry source:'ticketweb'. Hand-written rows in shows.ts keep
- * source:'manual' and are never touched by this script.
+ * Generated rows carry source:'ticketweb'. Hand-written rows in shows.manual.json
+ * keep source:'manual' and are never touched by this script.
  */
 
 import { readFileSync, writeFileSync } from 'node:fs'
