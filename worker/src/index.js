@@ -60,7 +60,9 @@ export default {
     const origin = req.headers.get('Origin') ?? ''
     const allowed = (env.ALLOWED_ORIGINS ?? '').split(',').map(s => s.trim())
     const cors = {
-      'Access-Control-Allow-Origin': allowed.includes(origin) ? origin : allowed[0] ?? '*',
+      // Any localhost port too, for local development
+      'Access-Control-Allow-Origin':
+        allowed.includes(origin) || /^http:\/\/localhost:\d+$/.test(origin) ? origin : allowed[0] ?? '*',
       'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type, Authorization',
       Vary: 'Origin',

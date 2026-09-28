@@ -116,9 +116,23 @@ export function AmpProvider({ children }: { children: ReactNode }) {
       // Shuffle stays on for whatever gets loaded next; the SHUFFLE button turns it off
       if (!wa.isShuffleEnabled()) wa.toggleShuffle()
       focus.current = registerPlayer(() => wa.pause())
-      wa.onTrackDidChange(t =>
+      // When a track can't load, Webamp moves straight on to the next; if every
+      // track is failing (stream links expired, network down) that becomes a
+      // runaway skip through the whole list. Five changes inside four seconds
+      // is failure, not someone pressing Next, so stop and say so.
+      const changes: number[] = []
+      wa.onTrackDidChange(t => {
+        const now = Date.now()
+        changes.push(now)
+        while (changes.length && now - changes[0] > 4000) changes.shift()
+        if (changes.length >= 5) {
+          changes.length = 0
+          wa.pause()
+          setNowPlaying('tracks unavailable right now, try again later')
+          return
+        }
         setNowPlaying(t ? [t.metaData.artist, t.metaData.title].filter(Boolean).join(' — ') : null)
-      )
+      })
       let was = false
       wa.store.subscribe(() => {
         placeDeck()
@@ -214,6 +228,10 @@ function AmpDeck({ at, list, onPick }: { at: { left: number; top: number }; list
   const count = band ? bandTracks(band).length : allTracks().length
   return (
     <div className="amp-deck" style={{ left: at.left, top: at.top, height: DECK_H }} role="toolbar" aria-label="HosterAmp playlists">
+      {/* Shown while the pointer is anywhere on the player */}
+      <a className="amp-deck-credit" href="https://github.com/captbaritone/webamp" target="_blank" rel="noopener noreferrer">
+        runs on webamp by jordan eldredge ↗
+      </a>
       <p className="amp-deck-lcd" aria-live="polite">
         {(band?.name ?? 'All bands').toUpperCase()} · {count}
       </p>

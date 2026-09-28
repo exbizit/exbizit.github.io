@@ -124,13 +124,6 @@ export default function Taskbar() {
                 <span className="os-startmenu-icon" aria-hidden>⇤</span>
                 Primary layout
               </button>
-              <p className="os-startmenu-credit">
-                HosterAmp runs on{' '}
-                <a href="https://github.com/captbaritone/webamp" target="_blank" rel="noopener noreferrer">
-                  Webamp
-                </a>{' '}
-                by Jordan Eldredge
-              </p>
             </div>
           </div>
         )}

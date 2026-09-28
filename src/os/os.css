@@ -750,20 +750,6 @@ body.os-dragging .os-win-body { pointer-events: none; }
   background: var(--os-lcd-bg);
 }
 
-/* Webamp credit */
-.amp-credit { margin-top: 7px; font-size: 11px; color: var(--ash); }
-.amp-credit a,
-.os-startmenu-credit a { text-decoration: underline; text-underline-offset: 2px; }
-.amp-credit a:hover { color: var(--bone); }
-.os-startmenu-credit {
-  margin: 6px 6px 4px;
-  font-family: 'Chakra Petch', sans-serif;
-  font-size: 10px;
-  line-height: 1.35;
-  color: hsl(var(--sys-h) calc(var(--sys-sat) * 32%) 43%);
-}
-.os-startmenu-credit a:hover { color: var(--os-peri); }
-
 /* ── HosterAmp playlist deck ───────────────────────────────────────────── */
 .amp-deck {
   position: absolute;
@@ -847,3 +833,25 @@ body.os-dragging .os-win-body { pointer-events: none; }
   text-shadow: 0 0 3px #000;
 }
 .cpl-swatch-custom input { position: absolute; inset: 0; opacity: 0; width: 100%; height: 100%; cursor: pointer; }
+
+/* Webamp credit: only while hovering the player */
+.amp-deck-credit {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 3px);
+  padding: 3px 7px;
+  font-family: var(--os-ui);
+  font-size: 8.5px;
+  text-transform: lowercase;
+  white-space: nowrap;
+  color: var(--os-lcd);
+  background: var(--os-lcd-bg);
+  border: 1px solid var(--os-ink);
+  text-decoration: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 150ms ease;
+}
+.os-amp-layer:hover .amp-deck-credit,
+.amp-deck-credit:focus-visible { opacity: 1; pointer-events: auto; }
+.amp-deck-credit:hover { color: #fff; text-decoration: underline; }

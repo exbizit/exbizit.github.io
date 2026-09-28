@@ -191,7 +191,6 @@
 
 /* ── Transmit ──────────────────────────────────────────────────────────── */
 .bf .amp-cta { box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 hsl(var(--sys-h) calc(var(--sys-sat) * 24%) 48%), 5px 5px 0 var(--bf-accent); }
-.bf .amp-credit { color: var(--bf-dim); font-family: var(--bf-mono); font-size: 10px; }
 .bf-icons { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 0; padding: 0; }
 .bf-icons a {
   display: grid;
