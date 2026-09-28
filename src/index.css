@@ -285,6 +285,36 @@
   .group:hover .past-flyer-details:not(.is-open) { opacity: 0; }
 }
 
+/* ── "Alternate layout" (nav) ────────────────────────────────────────────
+   A little piece of the desktop layout's chrome, so it reads as a door into
+   something different rather than another page link. */
+.alt-layout-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 26px;
+  padding: 0 10px 0 7px;
+  font-family: 'Silkscreen', 'Chakra Petch', monospace;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #0a0d24;
+  background: linear-gradient(to bottom, #f6f8ff 0%, #c7cdea 42%, #8a93c6 52%, #b8c0e6 78%, #e6eaff 100%);
+  border: 1px solid #0a0d24;
+  box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #5d6699, 3px 3px 0 #4a58ff;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+.alt-layout-btn:hover { transform: translate(-1px, -1px); box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #5d6699, 4px 4px 0 #4a58ff; }
+.alt-layout-btn:active { transform: translate(2px, 2px); box-shadow: inset 1px 1px 0 #5d6699, inset -1px -1px 0 #fff, 1px 1px 0 #4a58ff; }
+.alt-layout-btn-screen {
+  width: 13px;
+  height: 10px;
+  background: #03040b;
+  border: 1px solid #0a0d24;
+  box-shadow: inset 0 0 0 1px #4a58ff;
+}
+
 /* Sideways-scrolling rows without a visible (grey) scrollbar */
 .no-scrollbar { scrollbar-width: none; }
 .no-scrollbar::-webkit-scrollbar { display: none; }

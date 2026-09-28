@@ -8,33 +8,17 @@
  * player. Minimising it tucks it into the taskbar tray without stopping the
  * music; closing it stops.
  */
-import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import type WebampType from 'webamp'
 import { allTracks, bandTracks } from '../data/amp'
 import { getBandBySlug } from '../data/bands'
 import { registerPlayer } from '../lib/audioFocus'
 import { desktopSize } from './WindowManager'
+import { AmpCtx, type Amp, type AmpStatus as Status } from './ampContext'
+
+export { useAmp } from './ampContext'
 
 const SKIN = '/skins/hosteramp.wsz'
-
-type Status = 'off' | 'loading' | 'open' | 'hidden'
-
-interface Amp {
-  status: Status
-  playing: boolean
-  nowPlaying: string | null
-  /** Open, or bring back from the tray */
-  show: () => void
-  hide: () => void
-  playBand: (slug: string) => void
-}
-
-const AmpCtx = createContext<Amp | null>(null)
-export function useAmp() {
-  const ctx = useContext(AmpCtx)
-  if (!ctx) throw new Error('useAmp outside AmpProvider')
-  return ctx
-}
 
 function layout() {
   const { W, H } = desktopSize()
@@ -106,7 +90,14 @@ export function AmpProvider({ children }: { children: ReactNode }) {
     return booting.current
   }, [])
 
-  useEffect(() => () => focus.current?.dispose(), [])
+  // Leaving the desktop layout: stop the music and tear Webamp down
+  useEffect(
+    () => () => {
+      focus.current?.dispose()
+      amp.current?.dispose()
+    },
+    []
+  )
 
   const value = useMemo<Amp>(
     () => ({

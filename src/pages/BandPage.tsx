@@ -4,6 +4,7 @@ import { getBandBySlug, bandPath } from '../data/bands'
 import { getShowsForBand } from '../data/shows'
 import VideoEmbed from '../components/VideoEmbed'
 import AudioFrame from '../components/AudioFrame'
+import { usePageBand } from '../components/MusicContext'
 import SocialLinks from '../components/SocialLinks'
 import ReleaseStrip from '../components/ReleaseStrip'
 import { getReleases } from '../data/discography'
@@ -25,6 +26,7 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
   useDocumentTitle(band?.name, false) // band name only
   useBandFonts(band?.fonts)
+  usePageBand(band?.slug) // the site-wide music player offers this band
 
   if (!band) {
     return (
@@ -208,9 +210,7 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
             </p>
           )}
 
-          <div className="mb-4">
-            <PlayInAmp slug={band.slug} />
-          </div>
+          <PlayInAmp slug={band.slug} />
           <SocialLinks socials={band.socials} accentColor={band.accentColor} />
           {/* Next show, then the release covers, in one row under the links */}
           <div className="mt-3 flex flex-wrap items-start gap-3">

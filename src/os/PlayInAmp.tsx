@@ -1,18 +1,19 @@
 import { bandTracks } from '../data/amp'
 import { getBandBySlug } from '../data/bands'
-import { useAmp } from './HosterAmp'
+import { useAmpIfPresent } from './ampContext'
 import { ICONS } from './icons'
 
-/** Loads a band's catalogue into HosterAmp and starts it. */
+/** Loads a band's catalogue into HosterAmp and starts it. Desktop layout only. */
 export default function PlayInAmp({ slug }: { slug: string }) {
-  const amp = useAmp()
+  const amp = useAmpIfPresent()
   const band = getBandBySlug(slug)
-  if (!band) return null
+  if (!amp || !band) return null
   const tracks = bandTracks(band)
   if (tracks.length === 0) return null
   const full = tracks.filter(t => !t.metaData.title.endsWith('(preview)')).length
 
   return (
+    <div className="mb-4">
     <button type="button" className="amp-cta" onClick={() => amp.playBand(slug)}>
       <span className="amp-cta-icon" aria-hidden>
         {ICONS.amp()}
@@ -25,5 +26,6 @@ export default function PlayInAmp({ slug }: { slug: string }) {
         </span>
       </span>
     </button>
+    </div>
   )
 }

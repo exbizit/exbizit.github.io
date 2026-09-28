@@ -9,6 +9,7 @@ import OSWindow from './OSWindow'
 import Taskbar from './Taskbar'
 import { useOS } from './WindowManager'
 import { WallImage, useWallpaper } from './wallpaper'
+import { useLayout } from '../layout'
 import './os.css'
 
 const BOOTED_AT = Date.now()
@@ -57,6 +58,7 @@ UPTIME ··· `}
 function DesktopMenu({ at, onClose }: { at: { x: number; y: number }; onClose: () => void }) {
   const os = useOS()
   const wall = useWallpaper()
+  const { setLayout } = useLayout()
   const ref = useRef<HTMLDivElement>(null)
   useEffect(() => {
     const off = (e: PointerEvent) => !ref.current?.contains(e.target as Node) && onClose()
@@ -93,6 +95,7 @@ function DesktopMenu({ at, onClose }: { at: { x: number; y: number }; onClose: (
       {item('Change wallpaper…', () => os.open('display'))}
       <hr className="os-startmenu-rule" />
       {item('Show desktop', os.showDesktop)}
+      {item('Primary layout', () => setLayout('primary'))}
     </div>
   )
 }

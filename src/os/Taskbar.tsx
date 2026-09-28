@@ -6,6 +6,7 @@ import { BAND_APPS, UTIL_APPS, getApp } from './apps'
 import { ICONS } from './icons'
 import { useAmp } from './HosterAmp'
 import { useOS } from './WindowManager'
+import { useLayout } from '../layout'
 
 function useClock() {
   const [now, setNow] = useState(() => new Date())
@@ -27,6 +28,7 @@ function nextShowLine() {
 export default function Taskbar() {
   const os = useOS()
   const amp = useAmp()
+  const { setLayout } = useLayout()
   const clock = useClock()
   const [menu, setMenu] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
@@ -110,6 +112,18 @@ export default function Taskbar() {
                 <span className="os-startmenu-icon">{ICONS.folder()}</span>
                 Show desktop
               </button>
+              <button
+                role="menuitem"
+                type="button"
+                className="os-startmenu-item"
+                onClick={() => {
+                  setMenu(false)
+                  setLayout('primary')
+                }}
+              >
+                <span className="os-startmenu-icon" aria-hidden>⇤</span>
+                Primary layout
+              </button>
             </div>
           </div>
         )}
@@ -137,6 +151,17 @@ export default function Taskbar() {
           )
         })}
       </div>
+
+      <button
+        type="button"
+        className="os-task os-exit"
+        onClick={() => setLayout('primary')}
+        title="Back to the primary layout"
+        aria-label="Primary layout"
+      >
+        <span className="os-exit-arrow" aria-hidden>⇤</span>
+        <span className="os-task-label">Primary layout</span>
+      </button>
 
       <div className="os-tray">
         <button

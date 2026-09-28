@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { BANDS, bandPath, type Band } from '../data/bands'
 import { useNavFonts } from '../hooks/useNavFonts'
+import { useLayout } from '../layout'
 
 /**
  * A wordmark drawn as a colour mask rather than an image. The PNG's shape cuts
@@ -41,6 +42,7 @@ function MaskedWordmark({ band }: { band: Band }) {
 
 export default function Nav() {
   const { pathname } = useLocation()
+  const { setLayout } = useLayout()
   useNavFonts()
 
   // The utility links wrap to a second row on narrow windows, so the nav's
@@ -133,6 +135,15 @@ export default function Nav() {
               {item.label}
             </Link>
           ))}
+          <button
+            type="button"
+            onClick={() => setLayout('os')}
+            className="alt-layout-btn ml-2 shrink-0"
+            title="Browse the site as a desktop"
+          >
+            <span className="alt-layout-btn-screen" aria-hidden />
+            Alternate layout
+          </button>
         </div>
       </div>
     </nav>
