@@ -39,7 +39,7 @@ export function BrandIcon({ slug, size = 14 }: { slug: string; size?: number }) 
   )
 }
 
-const PLATFORM_LABELS: Record<string, string> = {
+export const PLATFORM_LABELS: Record<string, string> = {
   bandcamp:   'Bandcamp',
   spotify:    'Spotify',
   applemusic: 'Apple Music',

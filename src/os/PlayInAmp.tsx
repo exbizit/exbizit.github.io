@@ -26,6 +26,13 @@ export default function PlayInAmp({ slug }: { slug: string }) {
         </span>
       </span>
     </button>
+    <p className="amp-credit">
+      HosterAmp runs on{' '}
+      <a href="https://github.com/captbaritone/webamp" target="_blank" rel="noopener noreferrer">
+        Webamp
+      </a>{' '}
+      by Jordan Eldredge
+    </p>
     </div>
   )
 }

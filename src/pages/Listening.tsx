@@ -221,7 +221,7 @@ function Cover({
             src={art}
             alt={`${listen.album} by ${listen.artist}`}
             loading="lazy"
-            className="w-full h-full object-cover transition-transform duration-500 md:group-hover:scale-105"
+            className="cover-art w-full h-full object-cover transition-transform duration-500 md:group-hover:scale-105"
           />
         ) : (
           <div className="absolute inset-0 flex flex-col justify-end p-2">

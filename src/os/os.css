@@ -724,3 +724,17 @@ body.os-dragging .os-win-body { pointer-events: none; }
   color: var(--os-lcd);
   background: var(--os-lcd-bg);
 }
+
+/* Webamp credit */
+.amp-credit { margin-top: 7px; font-size: 11px; color: var(--ash); }
+.amp-credit a,
+.os-startmenu-credit a { text-decoration: underline; text-underline-offset: 2px; }
+.amp-credit a:hover { color: var(--bone); }
+.os-startmenu-credit {
+  margin: 6px 6px 4px;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 10px;
+  line-height: 1.35;
+  color: #4a5290;
+}
+.os-startmenu-credit a:hover { color: var(--os-peri); }

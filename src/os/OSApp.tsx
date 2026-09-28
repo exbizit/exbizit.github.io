@@ -16,6 +16,17 @@ export default function OSApp() {
     return () => document.documentElement.classList.remove('os-mode')
   }, [])
 
+  // The desktop's data face; the primary layout never needs it
+  useEffect(() => {
+    const id = 'os-fonts'
+    if (document.getElementById(id)) return
+    const link = document.createElement('link')
+    link.id = id
+    link.rel = 'stylesheet'
+    link.href = 'https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap'
+    document.head.appendChild(link)
+  }, [])
+
   return (
     <WindowManager>
       <AmpProvider>

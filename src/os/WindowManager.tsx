@@ -97,6 +97,15 @@ export function WindowManager({ children }: { children: ReactNode }) {
   const [windows, setWindows] = useState<Win[]>([])
   const zTop = useRef(10)
 
+  // Windows size themselves from the viewport when they render, so re-render
+  // them when it changes (maximised windows, phones, the off-screen clamp)
+  const [viewport, setViewport] = useState(() => `${window.innerWidth}x${window.innerHeight}`)
+  useEffect(() => {
+    const on = () => setViewport(`${window.innerWidth}x${window.innerHeight}`)
+    window.addEventListener('resize', on)
+    return () => window.removeEventListener('resize', on)
+  }, [])
+
   const bare = Boolean((location.state as { bare?: boolean } | null)?.bare)
   const routeId = bare ? null : appIdForPath(location.pathname)
   const routeWin = windows.find(w => w.id === routeId)
@@ -170,7 +179,8 @@ export function WindowManager({ children }: { children: ReactNode }) {
         navigate('/', { state: { bare: true } })
       },
     }),
-    [windows, focusedId, isMobile, navigate, goTo]
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [windows, focusedId, isMobile, navigate, goTo, viewport]
   )
 
   return <OSCtx.Provider value={os}>{children}</OSCtx.Provider>
