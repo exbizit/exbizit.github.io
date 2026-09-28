@@ -37,3 +37,10 @@ CREATE TABLE IF NOT EXISTS cubefield_scores (
 );
 CREATE INDEX IF NOT EXISTS idx_cubefield_visible ON cubefield_scores (hidden, seconds DESC);
 CREATE INDEX IF NOT EXISTS idx_cubefield_ip_time ON cubefield_scores (ip_hash, created_at);
+
+CREATE TABLE IF NOT EXISTS bandcamp_streams (
+  track_id   TEXT PRIMARY KEY,
+  url        TEXT NOT NULL,
+  expires    INTEGER NOT NULL,
+  updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);

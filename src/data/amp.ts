@@ -3,8 +3,8 @@
  *
  * Full-length tracks come from each band's Bandcamp (bandcamp.generated.json,
  * written by `npm run bandcamp`), streamed through the Worker's
- * /bandcamp/stream relay, which fetches a fresh link on play and adds the CORS
- * headers Webamp needs. Releases that aren't on Bandcamp fall back to their 30s
+ * /bandcamp/stream relay, which adds the CORS headers Webamp needs. The
+ * "Refresh Bandcamp streams" Action keeps the Worker's stream links fresh. Releases that aren't on Bandcamp fall back to their 30s
  * preview clip.
  */
 import generated from './bandcamp.generated.json'
@@ -38,7 +38,7 @@ export function bandTracks(band: Band): AmpTrack[] {
   const bc = BANDCAMP[band.slug] ?? []
   const full: AmpTrack[] = bc.flatMap(r =>
     r.tracks.map(t => ({
-      url: `${STREAM_API}/bandcamp/stream?album=${encodeURIComponent(r.url)}&track=${t.id}`,
+      url: `${STREAM_API}/bandcamp/stream?track=${t.id}`,
       duration: t.duration,
       metaData: { artist: band.name, title: t.title, album: r.title, albumArtUrl: r.art ?? undefined },
       band: band.slug,

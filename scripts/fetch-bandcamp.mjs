@@ -4,8 +4,8 @@
  * each release's title, art and tracklist (titles, durations, track ids).
  *
  * The HosterAmp player (Webamp) builds its playlist from this file. It stores
- * no audio URLs: Bandcamp's stream links expire after about a day, so the
- * Worker (worker/src/index.js, /bandcamp/stream) looks up a fresh one on play.
+ * no audio URLs: Bandcamp's stream links expire after about a day, so
+ * scripts/sync-bandcamp-streams.mjs pushes fresh ones to the Worker every 6h.
  *
  * Usage:  npm run bandcamp           # fetch and write
  *         npm run bandcamp -- --dry  # print, write nothing

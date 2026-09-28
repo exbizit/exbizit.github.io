@@ -13,9 +13,9 @@ database_id = "ade10bbf-43ab-48cc-995b-33fe97fb3bc7"
 [vars]
 # Sites allowed to call this API from a browser
 ALLOWED_ORIGINS = "https://hoster.band,https://www.hoster.band,https://exbizit.github.io,http://localhost:5173"
-# The only Bandcamp sites /bandcamp/stream will relay (the bands' own)
-BANDCAMP_HOSTS = "hosterband.bandcamp.com,maryswhitelie.bandcamp.com,headbanned.bandcamp.com,rogersonlyson.bandcamp.com"
 
 # Secrets (never in this file; set with `npx wrangler secret put <NAME>`):
 #   TURNSTILE_SECRET  Turnstile widget secret key
 #   ADMIN_TOKEN       any long random string; lets you delete posts
+#   BANDCAMP_SYNC_TOKEN  any long random string; the same value goes in the GitHub
+#                     repo secret of that name, for the "Refresh Bandcamp streams" Action

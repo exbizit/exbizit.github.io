@@ -66,6 +66,7 @@ npx wrangler d1 execute hostersphere-board --remote --file=migrations/0002_color
 npx wrangler d1 execute hostersphere-board --remote --file=migrations/0003_reactions.sql
 npx wrangler d1 execute hostersphere-board --remote --file=migrations/0004_album_likes.sql
 npx wrangler d1 execute hostersphere-board --remote --file=migrations/0005_cubefield_scores.sql
+npx wrangler d1 execute hostersphere-board --remote --file=migrations/0006_bandcamp_streams.sql
 npx wrangler deploy
 ```
 
