@@ -1,4 +1,5 @@
 import ShowList from '../components/ShowList'
+import PastShowWall from '../components/PastShowWall'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { getUpcomingShows, getPastShows } from '../data/shows'
 
@@ -29,13 +30,16 @@ export default function Shows() {
           <ShowList shows={upcoming} />
         </section>
 
-        {past.length > 0 && (
-          <section>
-            <p className="label mb-4">Past</p>
-            <ShowList shows={past} />
-          </section>
-        )}
       </div>
+
+      {past.length > 0 && (
+        <section className="max-w-6xl mx-auto px-4 pb-20">
+          <p className="label mb-4">
+            Past ({past.length})
+          </p>
+          <PastShowWall shows={past} />
+        </section>
+      )}
     </div>
   )
 }

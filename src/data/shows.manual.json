@@ -1,0 +1,4 @@
+{
+  "_readme": "Hand-written upcoming shows. Add one object per show to `shows` (see the Show type in shows.ts for every field). A show on several bands' bills goes in ONCE with every band slug in `lineup`. Once a show's date has passed, the 'Archive past shows' GitHub Action moves it out of here into shows.past.json (every 2 days), so this file only ever holds what's coming up.",
+  "shows": []
+}

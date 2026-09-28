@@ -270,6 +270,21 @@
   .sigil-stroke { stroke-dashoffset: 0; }
 }
 
+/* ── Past show flyers (Shows page) ───────────────────────────────────────
+   Details sit over the flyer, shown on hover, on keyboard focus, or when
+   tapped open. Hidden ones take no clicks, so the tap target underneath
+   still gets them. */
+.past-flyer-details { opacity: 0; pointer-events: none; }
+.group:hover .past-flyer-details,
+.group:focus-within .past-flyer-details,
+.past-flyer-details.is-open { opacity: 1; }
+.group:hover .past-flyer-details a,
+.group:focus-within .past-flyer-details a,
+.past-flyer-details.is-open a { pointer-events: auto; }
+@media (hover: none) {
+  .group:hover .past-flyer-details:not(.is-open) { opacity: 0; }
+}
+
 /* Sideways-scrolling rows without a visible (grey) scrollbar */
 .no-scrollbar { scrollbar-width: none; }
 .no-scrollbar::-webkit-scrollbar { display: none; }
