@@ -7,9 +7,9 @@ on:
   push:
     branches: [main]
   # Commits pushed by an Action's GITHUB_TOKEN don't trigger `push` workflows,
-  # so redeploy explicitly after the weekly listening refresh.
+  # so redeploy explicitly after the weekly listening refresh and the show archiver.
   workflow_run:
-    workflows: ['Refresh listening data']
+    workflows: ['Refresh listening data', 'Archive past shows']
     types: [completed]
   workflow_dispatch:      # "Run workflow" button in the Actions tab
 

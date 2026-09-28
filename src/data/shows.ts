@@ -7,6 +7,8 @@
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 import generated from './shows.generated.json'
+import manual from './shows.manual.json'
+import archived from './shows.past.json'
 
 export type ShowStatus = 'onsale' | 'soldout' | 'free' | 'cancelled'
 
@@ -29,40 +31,30 @@ export interface Show {
   source?: 'manual' | 'ticketweb'
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Add shows here. Example shape (uncomment and edit):
-//
-// {
-//   id: 'will-2026-10-15',
-//   date: '2026-10-15T20:00',
-//   venue: "Will's Pub",
-//   city: 'Orlando, FL',
-//   lineup: ['hoster', 'maryswhitelie'],   // appears on BOTH bands' EPK pages
-//   alsoPlaying: ['Some Other Band'],
-//   ticketUrl: 'https://www.ticketweb.com/event/...',
-//   status: 'onsale',
-//   source: 'manual',
-// },
-// ─────────────────────────────────────────────────────────────────────────────
+/** A link shown on a past show's flyer: a video of the set, photos, a write-up. */
+export interface ShowLink {
+  label: string
+  url: string
+}
 
-/** Hand-written dates. These are never touched by the Bandsintown importer. */
-export const MANUAL_SHOWS: Show[] = [
-  {
-    id: 'framework-2026-09-26',
-    date: '2026-09-26T20:00',
-    venue: 'Framework',
-    city: 'Orlando, FL',
-    lineup: ['maryswhitelie'],
-    alsoPlaying: ['Sally Wants', 'velora', 'Eyelash'],
-    ticketUrl:
-      'https://www.ticketweb.com/event/sally-wants-with-velora-eyelash-framework-tickets/14328064',
-    status: 'onsale',
-    note: 'All ages · 1201 N Mills Ave',
-    // Poster from the TicketWeb event page (full-size '_Original' variant)
-    poster: 'https://i.ticketweb.com/i/00/13/04/43/54_Original.jpg',
-    source: 'manual',
-  },
-]
+/** A show that has happened, as kept in shows.past.json. */
+export interface PastShow extends Show {
+  links?: ShowLink[]
+}
+
+/**
+ * Hand-written dates live in shows.manual.json (JSON, not here, so the
+ * archiving Action can move them out once they've passed). The Bandsintown
+ * importer never touches them.
+ */
+export const MANUAL_SHOWS: Show[] = (manual as { shows: Show[] }).shows
+
+/**
+ * Shows that have happened: shows.past.json, filled in every 2 days by the
+ * 'Archive past shows' Action (scripts/archive-shows.mjs), which also saves
+ * each flyer into public/photos/shows/.
+ */
+const ARCHIVED_SHOWS: PastShow[] = (archived as { shows: PastShow[] }).shows
 
 /**
  * Imported from Bandsintown by `npm run shows`. Do not hand-edit — it gets
@@ -96,9 +88,18 @@ export function getUpcomingShows(): Show[] {
   return SHOWS.filter(s => +new Date(s.date) >= cutoff && s.status !== 'cancelled').sort(byDateAsc)
 }
 
-export function getPastShows(): Show[] {
+/**
+ * Newest first. The archive, plus anything that has passed since the Action
+ * last ran (it runs every 2 days), so a show moves over the morning after.
+ * Cancelled shows didn't happen, so they're left out.
+ */
+export function getPastShows(): PastShow[] {
   const cutoff = todayStart()
-  return SHOWS.filter(s => +new Date(s.date) < cutoff).sort((a, b) => byDateAsc(b, a))
+  const archivedIds = new Set(ARCHIVED_SHOWS.map(s => s.id))
+  const recent = SHOWS.filter(s => +new Date(s.date) < cutoff && !archivedIds.has(s.id))
+  return [...recent, ...ARCHIVED_SHOWS]
+    .filter(s => s.status !== 'cancelled')
+    .sort((a, b) => byDateAsc(b, a))
 }
 
 /** Upcoming shows this band is on the bill for. */

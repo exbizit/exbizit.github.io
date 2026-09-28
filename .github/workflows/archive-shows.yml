@@ -1,0 +1,39 @@
+name: Archive past shows
+
+# Every 2 days: moves shows whose date has passed out of the upcoming lists and
+# into src/data/shows.past.json (with their flyers saved into the repo), then
+# the deploy workflow republishes the site. See scripts/archive-shows.mjs.
+
+on:
+  schedule:
+    # 10:17 UTC (~6am in Orlando) on odd days of the month
+    - cron: '17 10 */2 * *'
+  workflow_dispatch:      # lets you run it by hand from the Actions tab
+
+permissions:
+  contents: write         # needed to commit the archive back
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # No dependencies needed: the script only uses Node built-ins
+      - run: npm run archive-shows
+
+      - name: Commit if anything moved
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/shows.manual.json src/data/shows.generated.json src/data/shows.past.json public/photos/shows
+          if git diff --staged --quiet; then
+            echo "No shows to archive."
+          else
+            git commit -m "chore: archive past shows"
+            git push
+          fi
