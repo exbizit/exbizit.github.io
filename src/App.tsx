@@ -40,7 +40,7 @@ function BootScreen() {
   return (
     <div className="fixed inset-0 flex items-center justify-center" style={{ background: '#03040b' }}>
       <p style={{ fontFamily: "'VT323', monospace", fontSize: 22, color: '#9aa8ff', textShadow: '0 0 8px rgba(122,138,255,0.8)' }}>
-        HOSTERSPHERE OS · BOOTING…
+        local hoster os · booting…
       </p>
     </div>
   )

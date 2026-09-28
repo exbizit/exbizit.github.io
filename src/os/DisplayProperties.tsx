@@ -50,7 +50,7 @@ export default function DisplayProperties() {
           </div>
           <div className="cpl-monitor-chin">
             <span className="cpl-monitor-led" />
-            <span className="cpl-monitor-badge">HSPH-2K</span>
+            <span className="cpl-monitor-badge">LH-2K</span>
           </div>
           <div className="cpl-monitor-foot" />
         </div>

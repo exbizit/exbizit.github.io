@@ -35,7 +35,7 @@ function Wallpaper() {
       <div className="os-wall-shade" />
       <div className="os-wall-scan" />
       <dl className="os-wall-readout">
-        <dt>hostersphere os</dt>
+        <dt>local hoster os</dt>
         <dd>v{__APP_VERSION__}</dd>
         <dt>node</dt>
         <dd>orlando, fl</dd>

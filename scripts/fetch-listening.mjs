@@ -251,7 +251,7 @@ async function main() {
   artists = artists.filter(a => !own.has(norm(a.name))).slice(0, ARTIST_LIMIT)
 
   if (excluded.length) {
-    console.log(`\nexcluded ${excluded.length} (Hostersphere artists):`)
+    console.log(`\nexcluded ${excluded.length} (local hoster artists):`)
     for (const e of excluded) console.log(`  ${e}`)
     console.log()
   }

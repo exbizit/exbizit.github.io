@@ -47,7 +47,7 @@ export default function Taskbar() {
     }
   }, [menu])
 
-  const lcd = amp.nowPlaying && amp.status !== 'off' ? `${amp.playing ? '▶' : '❚❚'} ${amp.nowPlaying}` : nextShowLine() ?? 'THE HOSTERSPHERE · ORLANDO FL'
+  const lcd = amp.nowPlaying && amp.status !== 'off' ? `${amp.playing ? '▶' : '❚❚'} ${amp.nowPlaying}` : nextShowLine() ?? 'LOCAL HOSTER · ORLANDO FL'
 
   const launch = (id: string) => {
     setMenu(false)
@@ -65,12 +65,12 @@ export default function Taskbar() {
           onClick={() => setMenu(m => !m)}
         >
           <Sigil size={20} points={8} color="currentColor" drift={false} />
-          <span>HSPH</span>
+          <span>local hoster</span>
         </button>
         {menu && (
           <div className="os-startmenu" role="menu">
             <div className="os-startmenu-rail" aria-hidden>
-              <span>HOSTERSPHERE OS</span>
+              <span>local hoster os</span>
             </div>
             <div className="os-startmenu-items">
               <p className="os-startmenu-head">BANDS</p>

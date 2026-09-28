@@ -127,7 +127,7 @@ export default function OSWindow({ win }: { win: Win }) {
       </div>
 
       <footer className="os-statusbar" aria-hidden>
-        <span>C:\HOSTERSPHERE\{crumbs}</span>
+        <span>C:\LOCALHOSTER\{crumbs}</span>
         <span className="os-statusbar-fill" />
         <span>{focused ? 'ACTIVE' : 'IDLE'}</span>
         <span>{Math.round(rect.w)}×{Math.round(rect.h)}</span>
