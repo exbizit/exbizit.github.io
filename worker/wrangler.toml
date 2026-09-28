@@ -17,3 +17,5 @@ ALLOWED_ORIGINS = "https://hoster.band,https://www.hoster.band,https://exbizit.g
 # Secrets (never in this file; set with `npx wrangler secret put <NAME>`):
 #   TURNSTILE_SECRET  Turnstile widget secret key
 #   ADMIN_TOKEN       any long random string; lets you delete posts
+#   BANDCAMP_SYNC_TOKEN  any long random string; the same value goes in the GitHub
+#                     repo secret of that name, for the "Refresh Bandcamp streams" Action

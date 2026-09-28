@@ -8,7 +8,7 @@ import { BrandIcon } from './SocialLinks'
  * the cover itself. Keeping the menu inside the tile means it can never be
  * clipped by the row's horizontal scroll or run off the page.
  */
-const PLATFORMS: { key: 'bandcamp' | 'appleMusic' | 'spotify'; icon: string; label: string }[] = [
+export const PLATFORMS: { key: 'bandcamp' | 'appleMusic' | 'spotify'; icon: string; label: string }[] = [
   { key: 'bandcamp', icon: 'bandcamp', label: 'Bandcamp' },
   { key: 'appleMusic', icon: 'applemusic', label: 'Apple Music' },
   { key: 'spotify', icon: 'spotify', label: 'Spotify' },

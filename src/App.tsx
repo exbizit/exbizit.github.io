@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Nav from './components/Nav'
 import MusicPlayer from './components/MusicPlayer'
@@ -8,10 +9,46 @@ import Listening from './pages/Listening'
 import Contact from './pages/Contact'
 import Community from './pages/Community'
 import { ROOT_BAND_SLUG } from './data/bands'
+import { LayoutProvider, useLayout } from './layout'
+
+// The alternate desktop layout, fetched only when someone switches to it
+const OSApp = lazy(() => import('./os/OSApp'))
 
 export default function App() {
   return (
     <BrowserRouter>
+      <LayoutProvider>
+        <Layouts />
+      </LayoutProvider>
+    </BrowserRouter>
+  )
+}
+
+function Layouts() {
+  const { layout } = useLayout()
+  if (layout === 'os') {
+    return (
+      <Suspense fallback={<BootScreen />}>
+        <OSApp />
+      </Suspense>
+    )
+  }
+  return <PrimaryLayout />
+}
+
+function BootScreen() {
+  return (
+    <div className="fixed inset-0 flex items-center justify-center" style={{ background: '#03040b' }}>
+      <p style={{ fontFamily: "'VT323', monospace", fontSize: 22, color: '#9aa8ff', textShadow: '0 0 8px rgba(122,138,255,0.8)' }}>
+        local hoster os · booting…
+      </p>
+    </div>
+  )
+}
+
+/** The site's main design: nav across the top, one page at a time. */
+function PrimaryLayout() {
+  return (
       <MusicProvider>
       <Nav />
       <main>
@@ -27,6 +64,9 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/community" element={<Community />} />
 
+          {/* The desktop layout's wallpaper picker has no page here */}
+          <Route path="/wallpaper" element={<Navigate to="/" replace />} />
+
           {/* One canonical URL per band: /hoster folds into / */}
           <Route path={`/${ROOT_BAND_SLUG}`} element={<Navigate to="/" replace />} />
 
@@ -38,6 +78,5 @@ export default function App() {
       {/* Outside the routes, so music keeps playing across pages */}
       <MusicPlayer />
       </MusicProvider>
-    </BrowserRouter>
   )
 }

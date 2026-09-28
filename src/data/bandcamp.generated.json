@@ -1,0 +1,754 @@
+{
+  "updated": "2026-09-28T04:39:12.494Z",
+  "bands": {
+    "hoster": [
+      {
+        "url": "https://hosterband.bandcamp.com/album/a-little-strange",
+        "title": "A Little Strange",
+        "artist": "Hoster",
+        "date": "2025-07-03",
+        "art": "https://f4.bcbits.com/img/a389589098_10.jpg",
+        "tracks": [
+          {
+            "id": 935278336,
+            "num": 1,
+            "title": "A Little Strange",
+            "duration": 233
+          },
+          {
+            "id": 447368089,
+            "num": 2,
+            "title": "Meaning",
+            "duration": 172
+          },
+          {
+            "id": 1412575989,
+            "num": 3,
+            "title": "Cat Puppy",
+            "duration": 298
+          }
+        ]
+      }
+    ],
+    "maryswhitelie": [
+      {
+        "url": "https://maryswhitelie.bandcamp.com/album/stable-of-stone",
+        "title": "Stable of Stone",
+        "artist": "Mary's White Lie",
+        "date": "2026-08-20",
+        "art": "https://f4.bcbits.com/img/a1114110645_10.jpg",
+        "tracks": [
+          {
+            "id": 4122477844,
+            "num": 1,
+            "title": "Horsey",
+            "duration": 235
+          },
+          {
+            "id": 1867571144,
+            "num": 2,
+            "title": "Nevermind (Used To It)",
+            "duration": 182
+          },
+          {
+            "id": 2565632024,
+            "num": 3,
+            "title": "Hello, Hello",
+            "duration": 149
+          },
+          {
+            "id": 3206331413,
+            "num": 4,
+            "title": "Horsey (88.2kHZ Version)",
+            "duration": 126
+          },
+          {
+            "id": 1349098349,
+            "num": 5,
+            "title": "Nevermind (Used to It) (96kHZ Version)",
+            "duration": 90
+          },
+          {
+            "id": 637103212,
+            "num": 6,
+            "title": "Hello, Hello (96kHZ Version)",
+            "duration": 74
+          }
+        ]
+      }
+    ],
+    "headbanned": [
+      {
+        "url": "https://headbanned.bandcamp.com/album/live-at-wills-pub",
+        "title": "Live at Will's Pub",
+        "artist": "HEAD BANNED",
+        "date": "2022-01-14",
+        "art": "https://f4.bcbits.com/img/a1987698426_10.jpg",
+        "tracks": [
+          {
+            "id": 3475089521,
+            "num": 1,
+            "title": "Intro - Live at Will's Pub, Orlando, 2021",
+            "duration": 33
+          },
+          {
+            "id": 4149070291,
+            "num": 2,
+            "title": "Crawl - Live at Will's Pub, Orlando, 2021",
+            "duration": 173
+          },
+          {
+            "id": 3622201703,
+            "num": 3,
+            "title": "Chrysalis - Live at Will's Pub, Orlando, 2021",
+            "duration": 193
+          },
+          {
+            "id": 3715436201,
+            "num": 4,
+            "title": "Meaning - Live at Will's Pub, Orlando, 2021",
+            "duration": 113
+          },
+          {
+            "id": 1228294219,
+            "num": 5,
+            "title": "Sniff and Sneeze - Live at Will's Pub, Orlando, 2021",
+            "duration": 205
+          },
+          {
+            "id": 1804295768,
+            "num": 6,
+            "title": "Bum U 4 a Bit - Live at Will's Pub, Orlando, 2021",
+            "duration": 168
+          },
+          {
+            "id": 2601858856,
+            "num": 7,
+            "title": "Walk With Me - Live at Will's Pub, Orlando, 2021",
+            "duration": 209
+          },
+          {
+            "id": 103677330,
+            "num": 8,
+            "title": "Shoutout Banter - Live at Will's Pub, Orlando, 2021",
+            "duration": 35
+          },
+          {
+            "id": 3080771811,
+            "num": 9,
+            "title": "Scissors / Sunshine - Live at Will's Pub, Orlando, 2021",
+            "duration": 164
+          },
+          {
+            "id": 3012377530,
+            "num": 10,
+            "title": "Merch Table Banter - Live at Will's Pub, Orlando, 2021",
+            "duration": 49
+          },
+          {
+            "id": 3165209200,
+            "num": 11,
+            "title": "Come Home to You - Live at Will's Pub, Orlando, 2021",
+            "duration": 148
+          },
+          {
+            "id": 3968145285,
+            "num": 12,
+            "title": "Unbroken - Live at Will's Pub, Orlando, 2021",
+            "duration": 172
+          },
+          {
+            "id": 2956666289,
+            "num": 13,
+            "title": "People Liberate Themselves - Live at Will's Pub, Orlando, 2021",
+            "duration": 307
+          },
+          {
+            "id": 983251382,
+            "num": 14,
+            "title": "Cuddle Puddle - Live at Will's Pub, Orlando, 2021",
+            "duration": 271
+          },
+          {
+            "id": 4048471368,
+            "num": 15,
+            "title": "Gotta Get That Feeling - Live at Will's Pub, Orlando, 2021",
+            "duration": 170
+          }
+        ]
+      },
+      {
+        "url": "https://headbanned.bandcamp.com/album/demoniac",
+        "title": "Demoniac",
+        "artist": "HEAD BANNED",
+        "date": "2020-08-07",
+        "art": "https://f4.bcbits.com/img/a1470429523_10.jpg",
+        "tracks": [
+          {
+            "id": 2986878305,
+            "num": 1,
+            "title": "Crawl",
+            "duration": 206
+          },
+          {
+            "id": 3132338743,
+            "num": 2,
+            "title": "Gotta Get That Feeling",
+            "duration": 134
+          },
+          {
+            "id": 114830639,
+            "num": 3,
+            "title": "Knot",
+            "duration": 180
+          },
+          {
+            "id": 1142123272,
+            "num": 4,
+            "title": "Leant",
+            "duration": 166
+          },
+          {
+            "id": 615941184,
+            "num": 5,
+            "title": "Change",
+            "duration": 245
+          },
+          {
+            "id": 1953706154,
+            "num": 6,
+            "title": "Talking Clear",
+            "duration": 184
+          },
+          {
+            "id": 2233849790,
+            "num": 7,
+            "title": "Float",
+            "duration": 131
+          },
+          {
+            "id": 455380844,
+            "num": 8,
+            "title": "Garbage Can",
+            "duration": 217
+          },
+          {
+            "id": 3852023329,
+            "num": 9,
+            "title": "Meaning",
+            "duration": 100
+          },
+          {
+            "id": 2794841069,
+            "num": 10,
+            "title": "Unbroken",
+            "duration": 216
+          }
+        ]
+      },
+      {
+        "url": "https://headbanned.bandcamp.com/album/liberatus",
+        "title": "LIBERATUS",
+        "artist": "HEAD BANNED",
+        "date": "2019-02-22",
+        "art": "https://f4.bcbits.com/img/a2900295445_10.jpg",
+        "tracks": [
+          {
+            "id": 3267751561,
+            "num": 1,
+            "title": "Nine Lives",
+            "duration": 128
+          },
+          {
+            "id": 3024170446,
+            "num": 2,
+            "title": "Changeless",
+            "duration": 56
+          },
+          {
+            "id": 1939620823,
+            "num": 3,
+            "title": "Broke B",
+            "duration": 209
+          },
+          {
+            "id": 584959753,
+            "num": 4,
+            "title": "Fizz",
+            "duration": 95
+          },
+          {
+            "id": 1341358610,
+            "num": 5,
+            "title": "Cuddle Puddle",
+            "duration": 225
+          },
+          {
+            "id": 1901972772,
+            "num": 6,
+            "title": "Scissors / Sunshine / Honey",
+            "duration": 199
+          },
+          {
+            "id": 1887019265,
+            "num": 7,
+            "title": "Loose Leaf Baby",
+            "duration": 197
+          },
+          {
+            "id": 4260276568,
+            "num": 8,
+            "title": "Supermarket Hitman",
+            "duration": 259
+          },
+          {
+            "id": 1553209786,
+            "num": 9,
+            "title": "People Liberate Themselves",
+            "duration": 378
+          }
+        ]
+      },
+      {
+        "url": "https://headbanned.bandcamp.com/track/cuddle-puddle-single",
+        "title": "Cuddle Puddle (Single)",
+        "artist": "HEAD BANNED",
+        "date": "2019-02-08",
+        "art": "https://f4.bcbits.com/img/a3475418695_10.jpg",
+        "tracks": [
+          {
+            "id": 2561080409,
+            "num": 1,
+            "title": "Cuddle Puddle (Single)",
+            "duration": 225
+          }
+        ]
+      },
+      {
+        "url": "https://headbanned.bandcamp.com/album/litter-box",
+        "title": "Litter Box",
+        "artist": "Head Banned",
+        "date": "2018-01-05",
+        "art": "https://f4.bcbits.com/img/a2588901532_10.jpg",
+        "tracks": [
+          {
+            "id": 3811829625,
+            "num": 1,
+            "title": "Chrysalis",
+            "duration": 129
+          },
+          {
+            "id": 3027161157,
+            "num": 2,
+            "title": "Sniff and Sneeze",
+            "duration": 217
+          },
+          {
+            "id": 801054034,
+            "num": 3,
+            "title": "Bum U 4 A Bit",
+            "duration": 174
+          },
+          {
+            "id": 3598764502,
+            "num": 4,
+            "title": "Bartender",
+            "duration": 102
+          },
+          {
+            "id": 388578552,
+            "num": 5,
+            "title": "Short-Term Pain",
+            "duration": 182
+          },
+          {
+            "id": 545797290,
+            "num": 6,
+            "title": "Got Gold",
+            "duration": 162
+          },
+          {
+            "id": 435260316,
+            "num": 7,
+            "title": "Walk With Me",
+            "duration": 204
+          },
+          {
+            "id": 2862854548,
+            "num": 8,
+            "title": "Orange Peel",
+            "duration": 91
+          },
+          {
+            "id": 1246779687,
+            "num": 9,
+            "title": "Litter Box",
+            "duration": 198
+          },
+          {
+            "id": 3878411818,
+            "num": 10,
+            "title": "I Know That You're Not",
+            "duration": 175
+          },
+          {
+            "id": 296482787,
+            "num": 11,
+            "title": "Boy Playing Cards",
+            "duration": 173
+          },
+          {
+            "id": 3825662939,
+            "num": 12,
+            "title": "Bleed Through My Teeth",
+            "duration": 163
+          }
+        ]
+      },
+      {
+        "url": "https://headbanned.bandcamp.com/album/bum-u-4-a-bit",
+        "title": "Bum U 4 A Bit",
+        "artist": "HEAD BANNED",
+        "date": "2017-10-12",
+        "art": "https://f4.bcbits.com/img/a2520565307_10.jpg",
+        "tracks": [
+          {
+            "id": 712198074,
+            "num": 1,
+            "title": "Bum U 4 A Bit",
+            "duration": 179
+          },
+          {
+            "id": 3382333512,
+            "num": 2,
+            "title": "Bartender",
+            "duration": 102
+          }
+        ]
+      },
+      {
+        "url": "https://headbanned.bandcamp.com/album/lucid-screaming-2",
+        "title": "LUCID SCREAMING",
+        "artist": "HEAD BANNED",
+        "date": "2017-05-09",
+        "art": "https://f4.bcbits.com/img/a3576606703_10.jpg",
+        "tracks": [
+          {
+            "id": 3533979434,
+            "num": 1,
+            "title": "How can you feel",
+            "duration": 104
+          },
+          {
+            "id": 2871024401,
+            "num": 2,
+            "title": "broken friends,",
+            "duration": 120
+          },
+          {
+            "id": 3794674803,
+            "num": 3,
+            "title": "when you're looking out",
+            "duration": 80
+          },
+          {
+            "id": 2794805430,
+            "num": 4,
+            "title": "four lights?",
+            "duration": 122
+          },
+          {
+            "id": 1395087557,
+            "num": 5,
+            "title": "Running reds,",
+            "duration": 162
+          },
+          {
+            "id": 1741823578,
+            "num": 6,
+            "title": "stop! And GO",
+            "duration": 112
+          },
+          {
+            "id": 3067389712,
+            "num": 7,
+            "title": "onto the edge,",
+            "duration": 138
+          },
+          {
+            "id": 1154805497,
+            "num": 8,
+            "title": "into your night,",
+            "duration": 256
+          },
+          {
+            "id": 145940515,
+            "num": 9,
+            "title": "off the ledge,",
+            "duration": 66
+          },
+          {
+            "id": 1981927531,
+            "num": 10,
+            "title": "TO OUR DE-LIGHTS!",
+            "duration": 248
+          }
+        ]
+      },
+      {
+        "url": "https://headbanned.bandcamp.com/album/inner-outrage",
+        "title": "Inner Outrage",
+        "artist": "HEAD BANNED",
+        "date": "2016-08-02",
+        "art": "https://f4.bcbits.com/img/a1407775405_10.jpg",
+        "tracks": [
+          {
+            "id": 1586894325,
+            "num": 1,
+            "title": "layover",
+            "duration": 161
+          },
+          {
+            "id": 3488748028,
+            "num": 2,
+            "title": "no1",
+            "duration": 121
+          },
+          {
+            "id": 4232491598,
+            "num": 3,
+            "title": "eyeballz",
+            "duration": 216
+          },
+          {
+            "id": 76845424,
+            "num": 4,
+            "title": "talking in their sleep",
+            "duration": 165
+          },
+          {
+            "id": 3597911323,
+            "num": 5,
+            "title": "surrounded by sound",
+            "duration": 195
+          },
+          {
+            "id": 1569112049,
+            "num": 6,
+            "title": "WHY DO I CARE",
+            "duration": 162
+          },
+          {
+            "id": 3474872440,
+            "num": 7,
+            "title": "ROOM 109",
+            "duration": 99
+          },
+          {
+            "id": 3099238790,
+            "num": 8,
+            "title": "MONESCARY",
+            "duration": 277
+          },
+          {
+            "id": 1797075298,
+            "num": 9,
+            "title": "DREAMING AT 4",
+            "duration": 66
+          },
+          {
+            "id": 895859480,
+            "num": 10,
+            "title": "CAGED",
+            "duration": 292
+          },
+          {
+            "id": 3557307024,
+            "num": 11,
+            "title": "everything is MOVING",
+            "duration": 179
+          },
+          {
+            "id": 3054365063,
+            "num": 12,
+            "title": "losing my air",
+            "duration": 87
+          },
+          {
+            "id": 3311531428,
+            "num": 13,
+            "title": "charcoal pond",
+            "duration": 292
+          }
+        ]
+      },
+      {
+        "url": "https://headbanned.bandcamp.com/album/anticipation-of-a-story",
+        "title": "Anticipation of a Story",
+        "artist": "HEAD BANNED",
+        "date": "2015-08-18",
+        "art": "https://f4.bcbits.com/img/a352204547_10.jpg",
+        "tracks": [
+          {
+            "id": 1057664707,
+            "num": 1,
+            "title": "Bridges",
+            "duration": 214
+          },
+          {
+            "id": 3515734733,
+            "num": 2,
+            "title": "Closer",
+            "duration": 101
+          },
+          {
+            "id": 160743691,
+            "num": 3,
+            "title": "(in)decision",
+            "duration": 234
+          },
+          {
+            "id": 1575018600,
+            "num": 4,
+            "title": "Flying Away",
+            "duration": 227
+          },
+          {
+            "id": 1289392132,
+            "num": 5,
+            "title": "Starting to Storm",
+            "duration": 111
+          },
+          {
+            "id": 2023031674,
+            "num": 6,
+            "title": "Sun",
+            "duration": 191
+          },
+          {
+            "id": 3592207605,
+            "num": 7,
+            "title": "Here and Now",
+            "duration": 118
+          },
+          {
+            "id": 1630280899,
+            "num": 8,
+            "title": "The Cabin",
+            "duration": 165
+          },
+          {
+            "id": 3395068190,
+            "num": 9,
+            "title": "The Oasis of my Tongue",
+            "duration": 115
+          },
+          {
+            "id": 2296077247,
+            "num": 10,
+            "title": "I Won't Snow",
+            "duration": 156
+          },
+          {
+            "id": 2808880655,
+            "num": 11,
+            "title": "Reprise",
+            "duration": 50
+          },
+          {
+            "id": 565917837,
+            "num": 12,
+            "title": "I Would",
+            "duration": 199
+          },
+          {
+            "id": 2597378945,
+            "num": 13,
+            "title": "Die/Sigh",
+            "duration": 231
+          }
+        ]
+      }
+    ],
+    "rogersonlyson": [
+      {
+        "url": "https://rogersonlyson.bandcamp.com/album/lost-project-b-w-emitting-light",
+        "title": "lost project b/w emitting light",
+        "artist": "Roger's Only Son",
+        "date": "2024-08-02",
+        "art": "https://f4.bcbits.com/img/a643936519_10.jpg",
+        "tracks": [
+          {
+            "id": 1750089403,
+            "num": 1,
+            "title": "lost project",
+            "duration": 142
+          },
+          {
+            "id": 604816753,
+            "num": 2,
+            "title": "emitting light",
+            "duration": 164
+          }
+        ]
+      },
+      {
+        "url": "https://rogersonlyson.bandcamp.com/album/marie",
+        "title": "Marie",
+        "artist": "Roger's Only Son",
+        "date": "2024-01-01",
+        "art": "https://f4.bcbits.com/img/a3485180808_10.jpg",
+        "tracks": [
+          {
+            "id": 77463379,
+            "num": 1,
+            "title": "All She Wrote",
+            "duration": 268
+          },
+          {
+            "id": 2139405923,
+            "num": 2,
+            "title": "Always in a Rush",
+            "duration": 182
+          },
+          {
+            "id": 3043239782,
+            "num": 3,
+            "title": "Forbidden Song",
+            "duration": 349
+          },
+          {
+            "id": 2633319160,
+            "num": 4,
+            "title": "Johnny's Song",
+            "duration": 150
+          },
+          {
+            "id": 1426873140,
+            "num": 5,
+            "title": "Not Who I Said I Was",
+            "duration": 118
+          },
+          {
+            "id": 3439411068,
+            "num": 6,
+            "title": "Stir Crazy",
+            "duration": 254
+          },
+          {
+            "id": 661847225,
+            "num": 7,
+            "title": "The Bends",
+            "duration": 130
+          },
+          {
+            "id": 4201488076,
+            "num": 8,
+            "title": "She Won't Ever Look at Me",
+            "duration": 168
+          }
+        ]
+      }
+    ]
+  }
+}

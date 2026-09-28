@@ -1,0 +1,429 @@
+/* ══════════════════════════════════════════════════════════════════════════
+   BAND FILE: a band's EPK inside a desktop window.
+   One grid, rules exposed; mono for facts, the band's own face for its name,
+   its accent colour as the only colour the layout adds.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.bf {
+  --bf-ink: hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 97%);
+  --bf-dim: hsl(var(--sys-h) calc(var(--sys-sat) * 29%) 61%);
+  --bf-rule: hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 83% / 0.22);
+  --bf-mono: 'Space Mono', 'VT323', monospace;
+  --bf-ui: 'Michroma', 'Chakra Petch', sans-serif;
+  container-type: inline-size;
+  min-height: 100%;
+  /* Oversized type is cropped at the window edge, never scrolled to */
+  overflow-x: clip;
+  color: var(--bf-ink);
+  font-family: var(--bf-mono);
+  font-size: 13px;
+  line-height: 1.5;
+  background-color: #000;
+  background-image:
+    linear-gradient(hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 83% / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 83% / 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.bf a { color: inherit; }
+.bf-dim { color: var(--bf-dim); }
+.bf-link { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--bf-accent); }
+.bf-link:hover { color: var(--bf-accent); }
+
+/* ── Header / footer strips ────────────────────────────────────────────── */
+.bf-strip,
+.bf-foot {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 7px 14px;
+  font-family: var(--bf-ui);
+  font-size: 10px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  background: #000;
+  border-bottom: 1px solid var(--bf-rule);
+  text-transform: lowercase;
+}
+.bf-strip { position: sticky; top: 0; z-index: 5; }
+.bf-foot { border-top: 1px solid var(--bf-rule); border-bottom: 0; color: var(--bf-dim); }
+.bf-strip-tag { padding: 2px 6px; background: var(--bf-accent); color: #000; }
+.bf-strip-fill {
+  flex: 1;
+  min-width: 24px;
+  height: 9px;
+  opacity: 0.55;
+  background: repeating-linear-gradient(90deg, var(--bf-ink) 0 1px, transparent 1px 3px, var(--bf-ink) 3px 5px, transparent 5px 6px, var(--bf-ink) 6px 7px, transparent 7px 11px);
+}
+.bf-status { display: inline-flex; align-items: center; gap: 6px; color: var(--bf-dim); }
+.bf-status::before { content: ''; width: 7px; height: 7px; border: 1px solid currentColor; }
+.bf-status.is-on { color: var(--bf-ink); }
+.bf-status.is-on::before { background: var(--bf-accent); border-color: var(--bf-accent); box-shadow: 0 0 6px var(--bf-accent); animation: os-blink 1.6s steps(2) infinite; }
+
+/* ── Identity ──────────────────────────────────────────────────────────── */
+.bf-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  border-bottom: 1px solid var(--bf-rule);
+  overflow: hidden;
+}
+.bf-id {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 14px;
+  padding: 36px 22px 24px;
+  min-width: 0;
+}
+.bf-logo { align-self: flex-start; height: clamp(56px, 11cqw, 116px); width: auto; }
+.bf-name {
+  margin: 0;
+  font-family: var(--bf-display);
+  font-weight: var(--bf-display-weight);
+  letter-spacing: var(--bf-display-tracking);
+  font-size: clamp(46px, 12cqw, 148px);
+  line-height: 0.84;
+  overflow-wrap: anywhere;
+}
+.bf-wordmark { display: block; height: clamp(72px, 17cqw, 210px); width: auto; max-width: 100%; object-fit: contain; object-position: left center; }
+.bf-accent-bar {
+  height: 7px;
+  background: repeating-linear-gradient(90deg, var(--bf-accent) 0 26px, transparent 26px 31px);
+}
+.bf-tagline {
+  margin: 0;
+  max-width: 24ch;
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 600;
+  font-size: clamp(18px, 2.8cqw, 28px);
+  line-height: 1.08;
+  text-transform: uppercase;
+}
+.bf-tagline.is-todo,
+.bf-about.is-todo { color: var(--bf-dim); font-style: italic; }
+
+.bf-hero-img {
+  position: relative;
+  margin: 0;
+  min-height: 260px;
+  border-top: 1px solid var(--bf-rule);
+  background: #000;
+  overflow: hidden;
+}
+.bf-hero-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.4) brightness(0.95);
+}
+/* Duotone in the band's colour, then a halftone screen over it */
+.bf-hero-img::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--bf-accent);
+  mix-blend-mode: multiply;
+  opacity: 0.55;
+}
+.bf-hero-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(rgba(0, 0, 0, 0.6) 0.9px, transparent 1.5px) 0 0 / 4px 4px;
+}
+.bf-hero-img figcaption {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 3px 8px;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  background: #000;
+  color: var(--bf-dim);
+}
+.bf-vert { display: none; }
+
+@container (min-width: 720px) {
+  .bf-hero { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr) 64px; min-height: 380px; }
+  .bf-hero-img { border-top: 0; border-left: 1px solid var(--bf-rule); }
+  .bf-vert {
+    display: block;
+    margin: 0;
+    border-left: 1px solid var(--bf-rule);
+    writing-mode: vertical-rl;
+    font-family: var(--bf-display);
+    font-weight: var(--bf-display-weight);
+    font-size: 58px;
+    line-height: 64px;
+    white-space: nowrap;
+    overflow: hidden;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--bf-accent);
+    text-transform: uppercase;
+  }
+}
+
+/* ── Cells ─────────────────────────────────────────────────────────────── */
+.bf-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1px; background: var(--bf-rule); border-bottom: 1px solid var(--bf-rule); }
+@container (min-width: 720px) { .bf-grid-2 { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); } }
+.bf-grid-2 > :only-child { grid-column: 1 / -1; }
+.bf-cell { padding: 18px 20px 24px; background: #000; min-width: 0; }
+.bf-full { border-bottom: 1px solid var(--bf-rule); }
+
+.bf-sec-head { display: flex; align-items: flex-end; gap: 10px; margin-bottom: 16px; }
+.bf-sec-n {
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 0.78;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--bf-accent);
+}
+.bf-sec-title { margin: 0; font-family: var(--bf-ui); font-size: 12px; font-weight: 400; letter-spacing: 0.02em; text-transform: lowercase; white-space: nowrap; }
+.bf-sec-rule { flex: 1; height: 1px; margin-bottom: 4px; background: repeating-linear-gradient(90deg, var(--bf-dim) 0 2px, transparent 2px 5px); }
+.bf-sec-meta { font-size: 10px; color: var(--bf-dim); white-space: nowrap; }
+
+/* ── Transmit ──────────────────────────────────────────────────────────── */
+.bf .amp-cta { box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 hsl(var(--sys-h) calc(var(--sys-sat) * 24%) 48%), 5px 5px 0 var(--bf-accent); }
+.bf-icons { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 0; padding: 0; }
+.bf-icons a {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--bf-rule);
+  color: var(--bf-ink);
+  transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
+}
+.bf-icons a:hover,
+.bf-icons a:focus-visible { background: var(--bf-accent); border-color: var(--bf-accent); color: #000; outline: none; }
+
+/* ── Next show ─────────────────────────────────────────────────────────── */
+.bf-show { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 18px; align-items: start; }
+.bf-show-day {
+  margin: 0;
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 700;
+  font-size: clamp(72px, 12cqw, 124px);
+  line-height: 0.78;
+  color: var(--bf-accent);
+  letter-spacing: -0.05em;
+}
+.bf-show-info p { margin: 0 0 2px; }
+.bf-show-when { font-family: var(--bf-ui); font-size: 11px; letter-spacing: 0.02em; text-transform: lowercase; }
+.bf-show-venue { font-family: 'Chakra Petch', sans-serif; font-weight: 700; font-size: 22px; line-height: 1.1; margin-top: 6px !important; }
+.bf-show-tix { display: inline-block; margin-top: 10px; padding: 5px 12px; font-family: var(--bf-ui); font-size: 11px; background: var(--bf-accent); color: #000 !important; text-decoration: none; text-transform: lowercase; }
+.bf-show-tix:hover { background: #fff; }
+.bf-show-off { font-family: var(--bf-ui); font-size: 11px; color: var(--bf-accent); margin-top: 8px !important; text-transform: lowercase; }
+.bf-show-poster { display: block; width: 72px; margin-top: 10px; border: 1px solid var(--bf-rule); }
+.bf-show-poster img { display: block; width: 100%; }
+
+/* ── Discography ───────────────────────────────────────────────────────── */
+.bf-disco {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
+  gap: 1px;
+  padding: 1px;
+}
+.bf-disco-item { padding: 8px 8px 10px; background: #000; min-width: 0; outline: 1px solid var(--bf-rule); }
+.bf-disco-cover { position: relative; aspect-ratio: 1; overflow: hidden; }
+.bf-disco-cover img { width: 100%; height: 100%; object-fit: cover; display: block; transition: filter 160ms steps(2, end); }
+.bf-disco-item:hover .bf-disco-cover img,
+.bf-disco-item:focus-within .bf-disco-cover img { filter: invert(1); }
+.bf-disco-n { position: absolute; top: 0; left: 0; padding: 1px 5px; font-size: 10px; background: #000; color: var(--bf-accent); }
+.bf-disco-title { margin: 8px 0 0; font-family: 'Chakra Petch', sans-serif; font-weight: 600; font-size: 13px; line-height: 1.15; }
+.bf-disco-meta { margin: 2px 0 0; font-size: 10px; color: var(--bf-dim); }
+.bf-disco-links { display: flex; gap: 8px; margin-top: 6px; }
+.bf-disco-links a { color: var(--bf-dim); }
+.bf-disco-links a:hover { color: var(--bf-accent); }
+
+/* ── Body ──────────────────────────────────────────────────────────────── */
+.bf-body { display: grid; grid-template-columns: minmax(0, 1fr); }
+.bf-main > .bf-cell,
+.bf-side > .bf-cell { border-bottom: 1px solid var(--bf-rule); }
+@container (min-width: 900px) {
+  .bf-body { grid-template-columns: minmax(0, 1fr) minmax(260px, 30%); }
+  .bf-side { border-left: 1px solid var(--bf-rule); }
+}
+
+.bf-big {
+  margin: 0 0 14px;
+  font-family: var(--bf-display);
+  font-weight: var(--bf-display-weight);
+  letter-spacing: var(--bf-display-tracking);
+  font-size: clamp(30px, 6cqw, 68px);
+  line-height: 0.9;
+}
+
+.bf-press { display: grid; gap: 22px; }
+.bf-press blockquote { position: relative; margin: 0; padding-left: 44px; }
+.bf-press blockquote::before {
+  content: '“';
+  position: absolute;
+  left: 0;
+  top: -12px;
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 700;
+  font-size: 72px;
+  line-height: 1;
+  color: var(--bf-accent);
+}
+.bf-press p { margin: 0; font-family: 'Chakra Petch', sans-serif; font-weight: 300; font-size: clamp(17px, 2.4cqw, 24px); line-height: 1.4; max-width: 52ch; }
+.bf-press footer { margin-top: 10px; font-size: 11px; color: var(--bf-dim); text-transform: uppercase; }
+.bf-press footer a:hover { color: var(--bf-accent); }
+
+.bf-about { margin: 0; font-family: 'Chakra Petch', sans-serif; font-weight: 300; font-size: 17px; line-height: 1.6; max-width: 70ch; }
+@container (min-width: 1100px) { .bf-about { column-count: 2; column-gap: 36px; column-rule: 1px solid var(--bf-rule); max-width: none; } }
+
+.bf-videos { display: grid; gap: 18px; }
+.bf-videos figure,
+.bf-photos figure { margin: 0; }
+.bf-videos figcaption { margin-top: 8px; font-size: 11px; color: var(--bf-dim); text-transform: uppercase; }
+.bf-stack { display: grid; gap: 10px; }
+
+.bf-photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1px;
+  padding: 1px;
+}
+.bf-photos figure { background: #000; outline: 1px solid var(--bf-rule); }
+.bf-photos button { position: relative; display: block; width: 100%; aspect-ratio: 4 / 5; padding: 0; overflow: hidden; cursor: zoom-in; background: none; }
+.bf-photos img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(1) contrast(1.3); transition: filter 200ms ease, transform 400ms ease; }
+.bf-photos button:hover img,
+.bf-photos button:focus-visible img { filter: none; transform: scale(1.04); }
+.bf-photos button:focus-visible { outline: 2px solid var(--bf-accent); outline-offset: -2px; }
+.bf-photo-n { position: absolute; left: 0; bottom: 0; padding: 1px 6px; font-size: 10px; background: #000; color: var(--bf-accent); }
+.bf-photos figcaption { padding: 6px 8px; font-size: 10px; text-transform: uppercase; }
+
+/* ── Tables ────────────────────────────────────────────────────────────── */
+.bf-table { width: 100%; border-collapse: collapse; }
+.bf-table td { padding: 7px 6px; border-top: 1px solid var(--bf-rule); vertical-align: baseline; }
+.bf-table tr:last-child td { border-bottom: 1px solid var(--bf-rule); }
+.bf-table-mark { width: 22px; font-size: 8px; }
+.bf-table td:nth-child(2) { font-family: 'Chakra Petch', sans-serif; font-weight: 600; font-size: 14px; }
+.bf-table td:nth-child(3) { font-size: 11px; text-align: right; }
+
+/* ── Booking ───────────────────────────────────────────────────────────── */
+.bf-book {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 4px 12px;
+  margin: 20px;
+  padding: 16px 18px;
+  border: 2px solid var(--bf-accent);
+  text-decoration: none;
+  transition: background 150ms ease, color 150ms ease;
+}
+.bf-book:hover,
+.bf-book:focus-visible { background: var(--bf-accent); color: #000; outline: none; }
+.bf-book-k { grid-column: 1 / -1; font-family: var(--bf-ui); font-size: 11px; letter-spacing: 0.02em; text-transform: lowercase; }
+.bf-book-name { font-family: var(--bf-display); font-weight: var(--bf-display-weight); font-size: 30px; line-height: 0.95; overflow-wrap: anywhere; }
+.bf-book-arrow { font-family: 'Chakra Petch', sans-serif; font-size: 34px; line-height: 0.8; }
+
+/* ══ SYSTEM FILES: Shows / Listening / Community / Booking ════════════════ */
+/* The pages paint with these variables, so redefining them here re-themes
+   everything inside to the desktop's palette without touching the pages. */
+.sysfile {
+  --bone: hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 97%);
+  --ash: hsl(var(--sys-h) calc(var(--sys-sat) * 42%) 72%);
+  --dust: hsl(var(--sys-h) calc(var(--sys-sat) * 24%) 48%);
+  --iron: hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 83% / 0.22);
+  --void: #000;
+}
+.sysfile > :not(.bf-strip):not(.bf-cell):not(.sf-hero) { background: transparent; }
+.sysfile .label {
+  font-family: var(--bf-ui);
+  font-size: 10px;
+  letter-spacing: 0.02em;
+  color: var(--bf-dim);
+  text-transform: lowercase;
+}
+.sysfile p.label::before { content: '// '; color: var(--bf-accent); }
+/* Page headings: huge, outlined, cropped by the window edge */
+.sysfile h1.display {
+  font-family: 'Chakra Petch', sans-serif !important;
+  font-weight: 700;
+  font-size: clamp(64px, 16cqw, 210px) !important;
+  line-height: 0.8 !important;
+  letter-spacing: -0.05em !important;
+  text-transform: uppercase;
+  color: transparent !important;
+  -webkit-text-stroke: 1.5px var(--bone);
+  white-space: nowrap;
+}
+.sysfile section { border-color: var(--iron) !important; }
+.sysfile input,
+.sysfile textarea,
+.sysfile select {
+  font-family: var(--bf-mono) !important;
+  border-radius: 0 !important;
+}
+.sysfile button:not(.os-ctl):not(.plus1-btn):not(.amp-cta),
+.sysfile a.label { border-radius: 0 !important; }
+.sysfile p,
+.sysfile li { font-family: inherit; }
+
+/* Shows */
+.sf-hero { padding: 22px 20px 0; border-bottom: 1px solid var(--bf-rule); overflow: hidden; }
+.sf-kicker { margin: 0 0 8px; font-family: var(--bf-ui); font-size: 11px; letter-spacing: 0.02em; color: var(--bf-accent); text-transform: lowercase; }
+.sf-title {
+  margin: 0 0 -0.12em;
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 700;
+  font-size: clamp(72px, 19cqw, 240px);
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--bf-ink);
+}
+.sf-empty { margin: 0; font-family: var(--bf-ui); font-size: 12px; color: var(--bf-dim); padding: 18px 0; border-top: 1px dashed var(--bf-rule); border-bottom: 1px dashed var(--bf-rule); text-transform: lowercase; }
+.sf-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--bf-rule); }
+.sf-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 10px 18px;
+  padding: 14px 4px;
+  border-bottom: 1px solid var(--bf-rule);
+  border-left: 4px solid var(--row-accent);
+  padding-left: 14px;
+}
+.sf-row.is-off { opacity: 0.55; }
+.sf-date { display: flex; align-items: flex-start; gap: 8px; grid-row: span 3; }
+.sf-day { font-family: 'Chakra Petch', sans-serif; font-weight: 700; font-size: 64px; line-height: 0.8; letter-spacing: -0.05em; }
+.sf-mon { font-family: var(--bf-ui); font-size: 10px; line-height: 1.5; color: var(--bf-dim); text-transform: lowercase; }
+.sf-bands { margin: 0; font-family: 'Chakra Petch', sans-serif; font-weight: 700; font-size: 20px; line-height: 1.1; }
+.sf-bands a { text-decoration: none; }
+.sf-bands a:hover { text-decoration: underline; }
+.sf-bill p,
+.sf-where p { margin: 0 0 2px; }
+.sf-venue { font-family: var(--bf-ui); font-size: 12px; text-transform: lowercase; }
+.sf-act { display: flex; align-items: center; gap: 10px; }
+.sf-status { font-family: var(--bf-ui); font-size: 10px; padding: 2px 6px; border: 1px solid var(--row-accent); color: var(--row-accent); text-transform: lowercase; }
+@container (min-width: 760px) {
+  .sf-row { grid-template-columns: 130px minmax(0, 1.4fr) minmax(0, 1fr) auto; align-items: center; }
+  .sf-date { grid-row: auto; }
+}
+/* The flyer wall inside a window */
+.sysfile .past-flyer-details { font-family: var(--bf-mono); }
+.sysfile .grid > li > div:first-child { border-color: var(--bf-rule) !important; }
+
+/* Listening: covers stay full colour and flip to their negative on hover */
+.sysfile img.cover-art { transition: filter 160ms steps(2, end); }
+.sysfile .group:hover img.cover-art { filter: invert(1); transform: none; }
+
+/* Booking: the form is the point, so it sits right under a compact heading */
+.sf-booking > div > section { padding-top: 18px !important; padding-bottom: 14px !important; }
+.sf-booking > div > section .label { margin-bottom: 8px !important; }
+.sf-booking h1.display { font-size: clamp(44px, 9cqw, 110px) !important; }
+.sf-booking > div > div { padding-top: 18px !important; }

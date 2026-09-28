@@ -1,0 +1,26 @@
+name: Refresh Bandcamp streams
+
+# HosterAmp plays full tracks from Bandcamp through the Worker, but Bandcamp's
+# stream links expire after about a day and its pages refuse requests from
+# Cloudflare. So every 6 hours this looks up fresh links and hands them to the
+# Worker. Nothing is committed. See scripts/sync-bandcamp-streams.mjs.
+
+on:
+  schedule:
+    - cron: '23 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/sync-bandcamp-streams.mjs
+        env:
+          BANDCAMP_SYNC_TOKEN: ${{ secrets.BANDCAMP_SYNC_TOKEN }}

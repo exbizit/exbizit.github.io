@@ -11,7 +11,7 @@
  * floating player), a pause message (YouTube), or reload the frame (Spotify,
  * which otherwise can't be paused from outside without its own API).
  */
-type Entry = { el: HTMLIFrameElement; stop: () => void; activate?: () => void }
+type Entry = { el?: HTMLIFrameElement; stop: () => void; activate?: () => void }
 
 const entries = new Set<Entry>()
 let lastActive: Element | null = null
@@ -50,6 +50,33 @@ export function registerAudio(
       window.clearInterval(timer)
       lastActive = null
     }
+  }
+}
+
+/**
+ * A player the page controls directly (HosterAmp), which says itself when it
+ * starts. `claim()` stops every other player; an embed being clicked into
+ * calls this one's `stop()`.
+ */
+export function registerPlayer(stop: () => void): { claim: () => void; dispose: () => void } {
+  const entry: Entry = { stop }
+  entries.add(entry)
+  if (entries.size === 1) {
+    window.addEventListener('blur', onBlur)
+    timer = window.setInterval(check, 400)
+  }
+  return {
+    claim: () => {
+      for (const e of [...entries]) if (e !== entry) e.stop()
+    },
+    dispose: () => {
+      entries.delete(entry)
+      if (entries.size === 0) {
+        window.removeEventListener('blur', onBlur)
+        window.clearInterval(timer)
+        lastActive = null
+      }
+    },
   }
 }
 

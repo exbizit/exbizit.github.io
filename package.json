@@ -12,6 +12,7 @@
     "archive-shows": "node scripts/archive-shows.mjs",
     "listening": "node scripts/fetch-listening.mjs",
     "discography": "node scripts/fetch-discography.mjs",
+    "bandcamp": "node scripts/fetch-bandcamp.mjs",
     "spotify-auth": "node scripts/spotify-auth.mjs",
     "photos": "python3 scripts/build-photos.py"
   },
@@ -19,7 +20,8 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.1",
-    "three": "^0.186.0"
+    "three": "^0.186.0",
+    "webamp": "^2.3.1"
   },
   "devDependencies": {
     "@types/react": "^18.3.5",

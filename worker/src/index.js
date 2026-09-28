@@ -13,6 +13,9 @@
  *   POST   /cubefield/scores        { name, seconds }  -> the new score
  *   DELETE /cubefield/scores/<id>   hide a score; needs  Authorization: Bearer <ADMIN_TOKEN>
  *
+ *   GET    /bandcamp/stream?track=<id>   full-length track, relayed with CORS
+ *   PUT    /bandcamp/streams             { streams: { trackId: url } }; needs  Authorization: Bearer <BANDCAMP_SYNC_TOKEN>
+ *
  * Every post passes, in order: Turnstile bot check, length limits, rate limits,
  * then the deterministic vulgarity/link filter (filter.js). Passing posts
  * appear immediately. Cubefield scores skip the Turnstile check (there's no
@@ -57,8 +60,10 @@ export default {
     const origin = req.headers.get('Origin') ?? ''
     const allowed = (env.ALLOWED_ORIGINS ?? '').split(',').map(s => s.trim())
     const cors = {
-      'Access-Control-Allow-Origin': allowed.includes(origin) ? origin : allowed[0] ?? '*',
-      'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
+      // Any localhost port too, for local development
+      'Access-Control-Allow-Origin':
+        allowed.includes(origin) || /^http:\/\/localhost:\d+$/.test(origin) ? origin : allowed[0] ?? '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type, Authorization',
       Vary: 'Origin',
     }
@@ -74,6 +79,10 @@ export default {
     const parts = url.pathname.split('/').filter(Boolean)
 
     try {
+      if (parts[0] === 'bandcamp' && parts[1] === 'stream' && (req.method === 'GET' || req.method === 'HEAD'))
+        return await bandcampStream(req, env, url, cors)
+      if (parts[0] === 'bandcamp' && parts[1] === 'streams' && req.method === 'PUT')
+        return await bandcampStore(req, env, json)
       if (parts[0] === 'albums') {
         if (req.method === 'POST' && parts.length === 2 && parts[1] === 'likes')
           return await albumLikes(req, env, json)
@@ -102,6 +111,68 @@ export default {
       return json({ error: 'Something went wrong. Try again later.' }, 500)
     }
   },
+}
+
+/**
+ * GET /bandcamp/stream?track=<track id>
+ *
+ * Relays one full-length track from Bandcamp's CDN to the HosterAmp player,
+ * with the CORS headers Webamp needs (without them its EQ and visualiser go
+ * silent), forwarding Range so seeking works.
+ *
+ * Bandcamp's pages turn away requests from Cloudflare, so the Worker can't
+ * look stream links up itself: the "Refresh Bandcamp streams" GitHub Action
+ * pushes fresh ones every 6 hours (PUT /bandcamp/streams). Only tracks it has
+ * pushed, i.e. the bands' own, can be played, so this isn't an open proxy.
+ */
+async function bandcampStream(req, env, url, cors) {
+  const fail = (msg, status) => new Response(msg, { status, headers: cors })
+  const trackId = url.searchParams.get('track') ?? ''
+  if (!/^\d{1,20}$/.test(trackId)) return fail('Bad track', 400)
+
+  const row = await env.DB.prepare('SELECT url FROM bandcamp_streams WHERE track_id = ?').bind(trackId).first()
+  if (!row) return fail('Track not found', 404)
+
+  const range = req.headers.get('Range')
+  const upstream = await fetch(row.url, { method: req.method, headers: range ? { Range: range } : {} })
+  if (!upstream.ok) return fail('Stream unavailable', upstream.status === 403 || upstream.status === 410 ? 404 : 502)
+  const headers = new Headers(cors)
+  for (const h of ['Content-Type', 'Content-Length', 'Content-Range', 'Accept-Ranges'])
+    if (upstream.headers.get(h)) headers.set(h, upstream.headers.get(h))
+  headers.set('Access-Control-Expose-Headers', 'Content-Length, Content-Range, Accept-Ranges')
+  headers.set('Cache-Control', 'no-store')
+  return new Response(upstream.body, { status: upstream.status, headers })
+}
+
+/** PUT /bandcamp/streams  { streams: { "<track id>": "<t4.bcbits.com url>" } } */
+async function bandcampStore(req, env, json) {
+  const auth = req.headers.get('Authorization') ?? ''
+  if (!env.BANDCAMP_SYNC_TOKEN || auth !== `Bearer ${env.BANDCAMP_SYNC_TOKEN}`) return json({ error: 'Unauthorized' }, 401)
+  let body
+  try {
+    body = await req.json()
+  } catch {
+    return json({ error: 'Bad request' }, 400)
+  }
+  const rows = []
+  for (const [id, src] of Object.entries(body?.streams ?? {}).slice(0, 1000)) {
+    let u
+    try {
+      u = new URL(src)
+    } catch {
+      continue
+    }
+    // Bandcamp's audio CDN only
+    if (!/^\d{1,20}$/.test(id) || u.protocol !== 'https:' || !/^[a-z0-9-]+\.bcbits\.com$/.test(u.host)) continue
+    const expires = Number(u.searchParams.get('ts')) || Math.floor(Date.now() / 1000) + 86400
+    rows.push(
+      env.DB.prepare(
+        'INSERT INTO bandcamp_streams (track_id, url, expires, updated_at) VALUES (?, ?, ?, CURRENT_TIMESTAMP) ON CONFLICT(track_id) DO UPDATE SET url = excluded.url, expires = excluded.expires, updated_at = CURRENT_TIMESTAMP'
+      ).bind(id, u.href, expires)
+    )
+  }
+  if (rows.length) await env.DB.batch(rows)
+  return json({ stored: rows.length })
 }
 
 async function list(req, env, url) {

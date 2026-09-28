@@ -12,6 +12,7 @@ import MembersList from '../components/MembersList'
 import NextShowAlert from '../components/NextShowAlert'
 import Sigil from '../components/Sigil'
 import PhotoFrame from '../components/PhotoFrame'
+import PlayInAmp from '../os/PlayInAmp'
 import Lightbox from '../components/Lightbox'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { useBandFonts } from '../hooks/useBandFonts'
@@ -209,6 +210,7 @@ export default function BandPage({ defaultSlug }: { defaultSlug?: string } = {})
             </p>
           )}
 
+          <PlayInAmp slug={band.slug} />
           <SocialLinks socials={band.socials} accentColor={band.accentColor} />
           {/* Next show, then the release covers, in one row under the links */}
           <div className="mt-3 flex flex-wrap items-start gap-3">

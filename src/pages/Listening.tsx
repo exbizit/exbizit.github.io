@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import {
   LISTENING,
@@ -221,7 +221,7 @@ function Cover({
             src={art}
             alt={`${listen.album} by ${listen.artist}`}
             loading="lazy"
-            className="w-full h-full object-cover transition-transform duration-500 md:group-hover:scale-105"
+            className="cover-art w-full h-full object-cover transition-transform duration-500 md:group-hover:scale-105"
           />
         ) : (
           <div className="absolute inset-0 flex flex-col justify-end p-2">
@@ -339,6 +339,11 @@ export default function Listening() {
 
   const [likes, setLikes] = useState<Record<string, LikeState>>({})
   const [view, setView] = useState<'grid' | 'cubefield'>('grid')
+  // The desktop's Cubefield shortcut opens this page at /listening?cubefield
+  const location = useLocation()
+  useEffect(() => {
+    if (location.pathname === '/listening' && new URLSearchParams(location.search).has('cubefield')) setView('cubefield')
+  }, [location.key, location.pathname, location.search])
 
   // Cubefield leaderboard: fetched fresh each time the popover opens, rather
   // than kept in sync with Cubefield.tsx's own state, so a just-saved score
