@@ -228,15 +228,13 @@ export const BANDS: Band[] = [
     genre: ['shoegaze', 'indie rock', 'alternative'],
     press: [
       {
-        // Verbatim apart from the leading ellipsis, which marks the omitted opening
-        // clause. The reviewer's own hyphenation is kept as written.
         quote:
-          '\u2026a collaboration that scratches my ever-present shoegaze-rock itch ' +
-          'with every strum and perfectly-crafted ambience.',
-        source: 'START TRACK',
-        author: 'Newt Fangs',
-        url: 'https://start-track.com/ep-marys-white-lie-stable-of-stone/',
-        date: 'August 2026',
+          'Unlike My Bloody Valentine’s smothering blanket, Mary’s White Lie’s fuzz is but a thread woven into a tapestry of atmosphere. ' +
+          'It’s a fine, beautiful touch that treats shoegaze as a matter of style, not genre.',
+        source: 'Orlando Weekly',
+        author: 'Bao Le-Huu',
+        url: 'https://www.orlandoweekly.com/music/this-little-underground/new-album-by-orlando-shoegazers-marys-white-lie-enchants-and-intrigues/',
+        date: 'October 1, 2026',
       },
     ],
     members: [
