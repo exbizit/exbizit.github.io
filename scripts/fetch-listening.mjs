@@ -187,8 +187,8 @@ async function main() {
   ].filter(Boolean)
 
   if (missing.length) {
-    console.error(`Missing in .env.local: ${missing.join(', ')}`)
-    console.error('See the header of this file for the one-time setup.')
+    console.error(`Missing Spotify credentials: ${missing.join(', ')}`)
+    console.error('Set them in the process environment or .env.local. In GitHub Actions, select the environment containing the secrets and pass them through the step env.')
     process.exit(1)
   }
 

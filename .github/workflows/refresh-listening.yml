@@ -2,7 +2,8 @@ name: Refresh listening data
 
 # GitHub Pages only serves files — it never runs your code. This Action is what
 # actually executes `npm run listening`, commits the refreshed JSON, and lets the
-# deploy pick it up. Credentials live in repo Secrets, never in the repo itself.
+# deploy pick it up. Credentials live in the github-pages environment's Secrets,
+# never in the repo itself.
 
 on:
   schedule:
@@ -17,6 +18,8 @@ permissions:
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    # Spotify credentials are environment secrets, so this job must select it.
+    environment: github-pages
     steps:
       - uses: actions/checkout@v4
 
