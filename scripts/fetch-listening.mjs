@@ -138,6 +138,7 @@ function mapTrack(t) {
     artist: (t.artists ?? []).map(a => a.name).join(', ') || 'Unknown',
     album: t.album.name,
     albumId: t.album.id ?? null,
+    albumArtist: t.album.artists?.[0]?.name ?? t.artists?.[0]?.name ?? '',
     track: t.name,
     coverUrl: art ?? null,
     // Spotify only hands these out reliably to apps created before its Nov
@@ -259,21 +260,26 @@ async function main() {
   // One tile per album, but the other tracks off that record aren't thrown away —
   // they're merged into `tracks`, which the hover panel lists.
   //
-  // Keyed on Spotify's album id, because two tracks off the same record can carry
-  // different artist credits (a feature on one), which a name key would split.
+  // Match IDs first, then album artist + title: Spotify can publish multiple
+  // editions with different IDs. Album credits avoid splitting featured tracks.
   const byAlbum = new Map()
+  const byTitle = new Map()
   let merged = 0
   for (const t of external) {
     const k = t.albumId ?? `${(t.artistNames ?? [])[0] ?? ''}|||${t.album}`.toLowerCase()
-    const existing = byAlbum.get(k)
+    const titleKey = `${norm(t.albumArtist)}|||${norm(t.album)}`
+    const existing = byAlbum.get(k) ?? byTitle.get(titleKey)
     if (existing) {
       if (t.track && !existing.tracks.includes(t.track)) existing.tracks.push(t.track)
       merged++
+      byAlbum.set(k, existing)
     } else {
-      byAlbum.set(k, { ...t, tracks: t.track ? [t.track] : [] })
+      const entry = { ...t, tracks: t.track ? [t.track] : [] }
+      byAlbum.set(k, entry)
+      byTitle.set(titleKey, entry)
     }
   }
-  const unique = [...byAlbum.values()]
+  const unique = [...new Set(byAlbum.values())]
   if (merged) console.log(`merged ${merged} extra track(s) into their album tiles`)
 
   // What we've actually been playing by each top artist, for their hover panel.
@@ -322,7 +328,7 @@ async function main() {
     ...{},
     profileUrl: env('SPOTIFY_PROFILE_URL') ?? null,
     artists,
-    items: capped.map(({ artistNames, albumId, ...rest }) => rest),
+    items: capped.map(({ artistNames, albumId, albumArtist, ...rest }) => rest),
   }
 
   if (DRY) {
