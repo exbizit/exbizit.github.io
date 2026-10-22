@@ -70,33 +70,36 @@
 }
 .bf-id {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 14px;
-  padding: 36px 22px 24px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  padding: 12px 16px;
   min-width: 0;
 }
-.bf-logo { align-self: flex-start; height: clamp(56px, 11cqw, 116px); width: auto; }
+.bf-logo { height: clamp(32px, 5cqw, 48px); width: auto; max-width: 64px; object-fit: contain; }
 .bf-name {
   margin: 0;
   font-family: var(--bf-display);
   font-weight: var(--bf-display-weight);
   letter-spacing: var(--bf-display-tracking);
-  font-size: clamp(46px, 12cqw, 148px);
-  line-height: 0.84;
+  flex: 1;
+  min-width: 0;
+  font-size: clamp(32px, 6cqw, 76px);
+  line-height: 1;
   overflow-wrap: anywhere;
 }
-.bf-wordmark { display: block; height: clamp(72px, 17cqw, 210px); width: auto; max-width: 100%; object-fit: contain; object-position: left center; }
+.bf-wordmark { display: block; height: clamp(40px, 7cqw, 88px); width: auto; max-width: 100%; object-fit: contain; object-position: left center; }
 .bf-accent-bar {
-  height: 7px;
-  background: repeating-linear-gradient(90deg, var(--bf-accent) 0 26px, transparent 26px 31px);
+  display: none;
 }
 .bf-tagline {
   margin: 0;
-  max-width: 24ch;
+  flex-basis: 100%;
+  max-width: none;
   font-family: 'Chakra Petch', sans-serif;
   font-weight: 600;
-  font-size: clamp(18px, 2.8cqw, 28px);
+  font-size: clamp(12px, 1.6cqw, 16px);
   line-height: 1.08;
   text-transform: uppercase;
 }
@@ -106,7 +109,7 @@
 .bf-hero-img {
   position: relative;
   margin: 0;
-  min-height: 260px;
+  height: clamp(220px, 38cqw, 400px);
   border-top: 1px solid var(--bf-rule);
   background: #000;
   overflow: hidden;
@@ -148,26 +151,6 @@
   color: var(--bf-dim);
 }
 .bf-vert { display: none; }
-
-@container (min-width: 720px) {
-  .bf-hero { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr) 64px; min-height: 380px; }
-  .bf-hero-img { border-top: 0; border-left: 1px solid var(--bf-rule); }
-  .bf-vert {
-    display: block;
-    margin: 0;
-    border-left: 1px solid var(--bf-rule);
-    writing-mode: vertical-rl;
-    font-family: var(--bf-display);
-    font-weight: var(--bf-display-weight);
-    font-size: 58px;
-    line-height: 64px;
-    white-space: nowrap;
-    overflow: hidden;
-    color: transparent;
-    -webkit-text-stroke: 1px var(--bf-accent);
-    text-transform: uppercase;
-  }
-}
 
 /* ── Cells ─────────────────────────────────────────────────────────────── */
 .bf-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1px; background: var(--bf-rule); border-bottom: 1px solid var(--bf-rule); }
