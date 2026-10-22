@@ -77,7 +77,7 @@
   padding: 12px 16px;
   min-width: 0;
 }
-.bf-logo { height: clamp(32px, 5cqw, 48px); width: auto; max-width: 64px; object-fit: contain; }
+.bf-logo { height: clamp(44px, 6.5cqw, 64px); width: auto; max-width: 84px; object-fit: contain; }
 .bf-hero-with-image .bf-id {
   position: absolute;
   inset: auto 0 0;
@@ -96,11 +96,11 @@
   letter-spacing: var(--bf-display-tracking);
   flex: 1;
   min-width: 0;
-  font-size: clamp(32px, 6cqw, 76px);
+  font-size: clamp(40px, 7.5cqw, 96px);
   line-height: 1;
   overflow-wrap: anywhere;
 }
-.bf-wordmark { display: block; height: clamp(40px, 7cqw, 88px); width: auto; max-width: 100%; object-fit: contain; object-position: left center; }
+.bf-wordmark { display: block; height: clamp(52px, 9cqw, 112px); width: auto; max-width: 100%; object-fit: contain; object-position: left center; }
 .bf-accent-bar {
   display: none;
 }

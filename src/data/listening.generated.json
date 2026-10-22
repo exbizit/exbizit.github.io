@@ -1,7 +1,21 @@
 {
-  "updated": "2026-09-22T02:34:10.526Z",
+  "updated": "2026-10-22T05:11:56.976Z",
   "profileUrl": "https://open.spotify.com/user/brettbissey",
   "artists": [
+    {
+      "name": "They Are Gutting a Body of Water",
+      "imageUrl": "https://i.scdn.co/image/ab6761610000517492258ad2dfc70241d72496e3",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/2VhTBaV2Io9AJe661MUTEj",
+      "tracks": [
+        "texas instruments - Audiotree Live Version",
+        "peaches.x.tagabow.recovery",
+        "kool marder (ft. Cashier)",
+        "stone driveway bypass (ft. dupontpavilion, beat fella)",
+        "let it kill you",
+        "5dime (ft. DJ Manny)"
+      ]
+    },
     {
       "name": "Yeat",
       "imageUrl": "https://i.scdn.co/image/ab67616100005174fc759f7938b4c65bfe41c4ff",
@@ -9,11 +23,25 @@
       "url": "https://open.spotify.com/artist/3qiHUAX7zY4Qnjx8TNUzVx",
       "tracks": [
         "EARNËD IT",
-        "Goin Back 2 Ella",
+        "HOLY WATËR",
         "IN2THAT",
         "Forëally / 4Ly",
-        "Tëslas & Rovers",
-        "MISS MY DAWG (feat. Drake)"
+        "COCOON",
+        "Goin Back 2 Ella"
+      ]
+    },
+    {
+      "name": "Flowers For Emily",
+      "imageUrl": "https://i.scdn.co/image/ab67616100005174d01f68de5a4d62bafc3eb0a3",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/0VhdOT93Owd0K2RhpaqJk5",
+      "tracks": [
+        "Reversal",
+        "+44",
+        "Recover",
+        "Dissonance",
+        "Elijay, GA",
+        "a wild sheep chase"
       ]
     },
     {
@@ -22,12 +50,12 @@
       "genres": [],
       "url": "https://open.spotify.com/artist/1JQhIj3MeXcTYorKsa5SBz",
       "tracks": [
+        "peaches.x.tagabow.recovery",
+        "second.spring.x.winter.recovery",
+        "(dead.b).x.scott.cortez.3.33AM.recovery",
         "make.it.last.x.full.body.2.recovery",
-        "naoisa",
-        "in my head",
-        "make it last",
         "second spring",
-        "still asleep"
+        "naoisa"
       ]
     },
     {
@@ -36,105 +64,90 @@
       "genres": [],
       "url": "https://open.spotify.com/artist/699OTQXzgjhIYAHMy9RyPD",
       "tracks": [
-        "POP OUT",
         "OPM BABI",
-        "FOMDJ",
-        "TRIM (with Future)",
         "CRANK",
-        "OLYMPIAN"
+        "Not PLaying",
+        "FOMDJ",
+        "POP OUT",
+        "Punk Monk"
       ]
     },
     {
-      "name": "Wednesday",
-      "imageUrl": "https://i.scdn.co/image/ab67616100005174cbf22720296d758d8b373a85",
+      "name": "forty winks",
+      "imageUrl": "https://i.scdn.co/image/ab67616100005174ac74fece89337fb71e72c387",
       "genres": [],
-      "url": "https://open.spotify.com/artist/4j7DrazfBZLLD0OrVoAtEe",
+      "url": "https://open.spotify.com/artist/0jpSfOVe0Lec1vz5VjQH7S",
       "tracks": [
-        "Twin Plagues",
-        "June 2 - Early Version",
-        "Twin Plagues - Audiotree Live Version",
-        "Handsome Man",
-        "The Way Love Goes - Joe Harvey-Whyte Version",
-        "Reality TV Argument Bleeds"
+        "noise",
+        "commie bf",
+        "Spurs",
+        "liadfh",
+        "Faith"
       ]
     },
     {
-      "name": "Horse Vision",
-      "imageUrl": "https://i.scdn.co/image/ab676161000051747918e01b086d148982fabb07",
+      "name": "bill.",
+      "imageUrl": "https://i.scdn.co/image/ab676161000051742a0dbc27e52d873e3cff7531",
       "genres": [],
-      "url": "https://open.spotify.com/artist/28gAkTGnjn8QZllb4EU4OM",
+      "url": "https://open.spotify.com/artist/0Db56HcSi6EuL36ocgBYXs",
       "tracks": [
-        "YSL",
-        "11",
-        "My Man",
-        "Horseshow - Horse Vision REWORK",
-        "Toxoplasma",
-        "Back Of My Hand"
+        "Franku",
+        "claw.",
+        "distress",
+        "FIGGY",
+        "bigme"
       ]
     },
     {
-      "name": "Alex G",
-      "imageUrl": "https://i.scdn.co/image/ab67616100005174cfa32469a372188d27bd17b7",
+      "name": "Heatmiser",
+      "imageUrl": "https://i.scdn.co/image/ab6761610000517496b0839181282e3ddcb8934a",
       "genres": [],
-      "url": "https://open.spotify.com/artist/6lcwlkAjBPSKnFBZjjZFJs",
+      "url": "https://open.spotify.com/artist/59IPo3F7aZifhZtHnoGHbo",
       "tracks": [
-        "Your Agent - Art Studio",
-        "Welcome to Camp",
-        "Serpent Is Lord",
-        "Meeting Billy",
-        "Forever",
-        "Sex Talk"
+        "Get Lucky",
+        "Half Right",
+        "Low-Flying Jets",
+        "Plainclothes Man",
+        "Christian Brothers - Rock Version"
       ]
     },
     {
-      "name": "Bright Eyes",
-      "imageUrl": "https://i.scdn.co/image/ab676161000051744a1dbd8cba6b67acd9bd44e2",
+      "name": "Turnstile",
+      "imageUrl": "https://i.scdn.co/image/ab67616100005174a4c3fd0017b42344516dc16c",
       "genres": [],
-      "url": "https://open.spotify.com/artist/5o206eFLx38glA2bb4zqIU",
+      "url": "https://open.spotify.com/artist/2qnpHrOzdmOo1S4ox3j17x",
       "tracks": [
-        "The City Has Sex",
-        "Contrast And Compare",
-        "June On The West Coast",
-        "If Winter Ends",
-        "First Day of My Life"
+        "Death Grip",
+        "The Dream",
+        "New Rules",
+        "Heavy Hand",
+        "7",
+        "Keep It Moving"
       ]
     },
     {
-      "name": "sallywants",
-      "imageUrl": "https://i.scdn.co/image/ab6761610000517453e384d224c622d499b77f3e",
+      "name": "Guitar",
+      "imageUrl": "https://i.scdn.co/image/ab67616100005174f40d39f5a12af50ddc48d561",
       "genres": [],
-      "url": "https://open.spotify.com/artist/3sxUJTma27IDz1vRS8n8iZ",
+      "url": "https://open.spotify.com/artist/5hhxj6UF5Qg4bOMTpV7VSa",
       "tracks": [
-        "song for kim",
-        "fun",
-        "spin",
-        "illseeuthen"
+        "Twin Orbits",
+        "Kiss Me You Idiot",
+        "Every Day Without Fail",
+        "Baying of Dogs"
       ]
     },
     {
-      "name": "Bladee",
-      "imageUrl": "https://i.scdn.co/image/ab676161000051743c4ebaf1561b2ab468cca261",
+      "name": "Cap'n Jazz",
+      "imageUrl": "https://i.scdn.co/image/2128693a4598c64a0c14f25ba3ee0f8f2afd3ab2",
       "genres": [],
-      "url": "https://open.spotify.com/artist/2xvtxDNInKDV4AvGmjw6d1",
+      "url": "https://open.spotify.com/artist/3JhEcBWSCPXkRMt1VK14i4",
       "tracks": [
-        "The Flag is Raised",
-        "Western Union",
-        "Side by Side",
-        "Obedient",
-        "Be Nice 2 Me",
-        "Lovenote"
-      ]
-    },
-    {
-      "name": "soap box derby",
-      "imageUrl": "https://i.scdn.co/image/ab67616100005174d14a50bace710ffbbf440a02",
-      "genres": [],
-      "url": "https://open.spotify.com/artist/45Nv8P8qK8SveoOoBP4l9O",
-      "tracks": [
-        "bitter apparition",
-        "twelve hours",
-        "anniversary",
-        "a window between us"
+        "Little League",
+        "Puddle Splashers",
+        "In The Clear",
+        "Flashpoint: Catheter",
+        "Oh Messy Life"
       ]
     },
     {
@@ -145,177 +158,9 @@
       "tracks": [
         "Clara’s Mouth",
         "Soft Soap",
-        "Logger",
+        "Chainsaw",
         "Etch",
-        "Cue Sports"
-      ]
-    },
-    {
-      "name": "Weatherday",
-      "imageUrl": "https://i.scdn.co/image/ab676161000051740e3e87198646814b0554fe5b",
-      "genres": [],
-      "url": "https://open.spotify.com/artist/6pmR08TKSTs8rll6W99VnK",
-      "tracks": [
-        "Angel",
-        "Mio, Min Mio",
-        "Come In",
-        "Hornet Disaster"
-      ]
-    },
-    {
-      "name": "Eiafuawn",
-      "imageUrl": "https://i.scdn.co/image/ab676161000051749e2ec1abf74c15511dd1a697",
-      "genres": [],
-      "url": "https://open.spotify.com/artist/73su3oDG4DKZP77Jzz1CX6",
-      "tracks": [
-        "Take Me To My Room",
-        "People Talk",
-        "Lay Your Head Here In Mine",
-        "Incantation",
-        "No More Like That"
-      ]
-    },
-    {
-      "name": "Flowers For Emily",
-      "imageUrl": "https://i.scdn.co/image/ab67616100005174d01f68de5a4d62bafc3eb0a3",
-      "genres": [],
-      "url": "https://open.spotify.com/artist/0VhdOT93Owd0K2RhpaqJk5",
-      "tracks": [
-        "Recover",
-        "Reversal",
-        "Dissonance",
-        "+44",
-        "Calendar",
-        "a wild sheep chase"
-      ]
-    },
-    {
-      "name": "0 Miles Per Hour",
-      "imageUrl": "https://i.scdn.co/image/ab6761610000517437d15f89024bb8019b4cb2f8",
-      "genres": [],
-      "url": "https://open.spotify.com/artist/7lUAdOqmYKAK59QuGdvKK1",
-      "tracks": [
-        "Bite It Off",
-        "Losing Streak",
-        "Drown",
-        "Becky"
-      ]
-    },
-    {
-      "name": "They Are Gutting a Body of Water",
-      "imageUrl": "https://i.scdn.co/image/ab6761610000517492258ad2dfc70241d72496e3",
-      "genres": [],
-      "url": "https://open.spotify.com/artist/2VhTBaV2Io9AJe661MUTEj",
-      "tracks": [
-        "the chase",
-        "sour diesel",
-        "trainers",
-        "charter spec",
-        "chrises head",
-        "behind the waterfall"
-      ]
-    },
-    {
-      "name": "Turnstile",
-      "imageUrl": "https://i.scdn.co/image/ab67616100005174a4c3fd0017b42344516dc16c",
-      "genres": [],
-      "url": "https://open.spotify.com/artist/2qnpHrOzdmOo1S4ox3j17x",
-      "tracks": [
-        "NEVER ENOUGH: PORCHES VERSION",
-        "Gravity",
-        "SUNSHOWER: ANGEL DU$T VERSION",
-        "7",
-        "Keep It Moving"
-      ]
-    },
-    {
-      "name": "feeble little horse",
-      "imageUrl": "https://i.scdn.co/image/ab67616100005174091a3365d93f8d93cc1754d9",
-      "genres": [],
-      "url": "https://open.spotify.com/artist/2GJa7lPCjAB1rKXptXrfy8",
-      "tracks": [
-        "Doorway",
-        "Dior",
-        "Poison",
-        "Cradle",
-        "Guts",
-        "Upside Down"
-      ]
-    },
-    {
-      "name": "First Day Back",
-      "imageUrl": "https://i.scdn.co/image/ab6761610000517415d8f61435abd156748a2aee",
-      "genres": [],
-      "url": "https://open.spotify.com/artist/7DgsNBbuNxmm5et9oYHJgx",
-      "tracks": [
-        "Sure, Ok",
-        "Upstairs (212)",
-        "Paint"
-      ]
-    },
-    {
-      "name": "Earl Sweatshirt",
-      "imageUrl": "https://i.scdn.co/image/ab67616100005174e387d22e49d2324c7c69ea86",
-      "genres": [],
-      "url": "https://open.spotify.com/artist/3A5tHz1SfngyOZM2gItYKu",
-      "tracks": [
-        "Chicago",
-        "Leadbelly - feat. MIKE"
-      ]
-    },
-    {
-      "name": "MIKE",
-      "imageUrl": "https://i.scdn.co/image/ab67616100005174592451e2718b94f9c49d2ebe",
-      "genres": [],
-      "url": "https://open.spotify.com/artist/1wlzPS1hSNrkriIIwLFTmU",
-      "tracks": [
-        "Leadbelly - feat. MIKE"
-      ]
-    },
-    {
-      "name": "David Dondero",
-      "imageUrl": "https://i.scdn.co/image/ab67616100005174f4c3feeb789722ea5b754a2a",
-      "genres": [],
-      "url": "https://open.spotify.com/artist/7jur1Epb7EvLmmFDXF7alX",
-      "tracks": []
-    },
-    {
-      "name": "ROSALÍA",
-      "imageUrl": "https://i.scdn.co/image/ab676161000051749354faf80eb87961466edfbf",
-      "genres": [],
-      "url": "https://open.spotify.com/artist/7ltDVBr6mKbRvohxheJ9h1",
-      "tracks": [
-        "MALAMENTE - Cap.1: Augurio"
-      ]
-    },
-    {
-      "name": "This Is Lorelei",
-      "imageUrl": "https://i.scdn.co/image/ab676161000051747d1e0b88324e066cde952d8c",
-      "genres": [],
-      "url": "https://open.spotify.com/artist/0GmYGGZZIU8vHbI0bAXZun",
-      "tracks": [
-        "Oh No Now My",
-        "The Kid With the Crown"
-      ]
-    },
-    {
-      "name": "concealer.",
-      "imageUrl": "https://i.scdn.co/image/ab676161000051745865fe762406494f1ff9191a",
-      "genres": [],
-      "url": "https://open.spotify.com/artist/5y2ymtnwjo4qwclZR9512J",
-      "tracks": [
-        "Color Slowly Fading",
-        "Vanity, a Fractured Promise",
-        "Claymore"
-      ]
-    },
-    {
-      "name": "LSD and the Search for God",
-      "imageUrl": "https://i.scdn.co/image/ab67616100005174a2249caf2aedd80dd28b8875",
-      "genres": [],
-      "url": "https://open.spotify.com/artist/2feOOr1Yjovo67byuxvjZv",
-      "tracks": [
-        "This Time"
+        "Logger"
       ]
     },
     {
@@ -324,114 +169,120 @@
       "genres": [],
       "url": "https://open.spotify.com/artist/6Rs7Ufqb4h0FTuVg6wlqOy",
       "tracks": [
-        "Anytime",
-        "Talk About It"
+        "F&N"
       ]
     },
     {
-      "name": "Commander Venus",
-      "imageUrl": "https://i.scdn.co/image/715d025b5523d5b586697d4b819c8bb6d27eb7f7",
+      "name": "Dead Sullivan",
+      "imageUrl": "https://i.scdn.co/image/ab67616100005174543bc001c81945a50760ee8b",
       "genres": [],
-      "url": "https://open.spotify.com/artist/69OO6tdhMVQShSjm0jRJcA",
+      "url": "https://open.spotify.com/artist/6l1iT5q2DEGQTPIED2fU8I",
       "tracks": [
-        "We'll Always Have Paris"
+        "am i wrong (ft. A Country Western, Dead Sullivan)",
+        "letter and point (ft. Dead Sullivan, Scarlet Rae)",
+        "Head",
+        "I Don't Think They'd Understand",
+        "Asif"
       ]
     },
     {
-      "name": "Cameron Winter",
-      "imageUrl": "https://i.scdn.co/image/ab6761610000517470fea1b7a7a5c70c895109dc",
+      "name": "Cosmoline",
+      "imageUrl": "https://i.scdn.co/image/ab67616100005174d8595f68869a8974013621a0",
       "genres": [],
-      "url": "https://open.spotify.com/artist/0kGweFvHWUfh6oLnookVeO",
+      "url": "https://open.spotify.com/artist/7ATPCcpFAqJrSZyy39m3t4",
+      "tracks": [
+        "Invention",
+        "Popsicle",
+        "Aphasia"
+      ]
+    },
+    {
+      "name": "Influx Weaver",
+      "imageUrl": "https://i.scdn.co/image/ab67616100005174d75d71b74a736b9150358132",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/0OEKbADxhricX6Y4k6BHaL",
+      "tracks": [
+        "The New Life (I'll Miss Deborah)",
+        "Maybe In Another Life",
+        "Letters From The Future",
+        "Misery Chick"
+      ]
+    },
+    {
+      "name": "soap box derby",
+      "imageUrl": "https://i.scdn.co/image/ab67616100005174d14a50bace710ffbbf440a02",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/45Nv8P8qK8SveoOoBP4l9O",
+      "tracks": [
+        "twelve hours",
+        "bitter apparition",
+        "a window between us",
+        "anniversary"
+      ]
+    },
+    {
+      "name": "toe",
+      "imageUrl": "https://i.scdn.co/image/ab6761610000517498fbfdf3a15710fa2e4fa68d",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/0rpKM0MniNkXM1SLSglYUZ",
+      "tracks": [
+        "tremolo+delay"
+      ]
+    },
+    {
+      "name": "Bladee",
+      "imageUrl": "https://i.scdn.co/image/ab676161000051743c4ebaf1561b2ab468cca261",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/2xvtxDNInKDV4AvGmjw6d1",
+      "tracks": [
+        "Western Union",
+        "The Flag is Raised",
+        "Durins Bane",
+        "Highland Tyrant"
+      ]
+    },
+    {
+      "name": "Weatherday",
+      "imageUrl": "https://i.scdn.co/image/ab676161000051740e3e87198646814b0554fe5b",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/6pmR08TKSTs8rll6W99VnK",
+      "tracks": [
+        "Mio, Min Mio",
+        "Come In"
+      ]
+    },
+    {
+      "name": "Lucy Bedroque",
+      "imageUrl": "https://i.scdn.co/image/ab67616100005174100cfd4653979ed518fbf28f",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/2I8H267eH5va9da4vGt38O",
       "tracks": []
     },
     {
-      "name": "Magdalena Bay",
-      "imageUrl": "https://i.scdn.co/image/ab676161000051748257ff04aaf62d848030efeb",
+      "name": "Devstacks",
+      "imageUrl": "https://i.scdn.co/image/ab67616100005174d592793c191c9ee9c367c393",
       "genres": [],
-      "url": "https://open.spotify.com/artist/1oPRcJUkloHaRLYx0olBLJ",
+      "url": "https://open.spotify.com/artist/4Ijbgdusp7syatYSHIIulR",
       "tracks": [
-        "Killshot"
+        "Want Sum More"
       ]
     },
     {
-      "name": "Lip Critic",
-      "imageUrl": "https://i.scdn.co/image/ab676161000051746f98ac09426493033f2c35bf",
+      "name": "xaviersobased",
+      "imageUrl": "https://i.scdn.co/image/ab67616100005174837aeb70fbd21f9587dab56e",
       "genres": [],
-      "url": "https://open.spotify.com/artist/4ABuKdLlVyzLztIFR8ETX9",
+      "url": "https://open.spotify.com/artist/2oM7LMPFu882oC6jSwEqjd",
       "tracks": [
-        "Two Lucks"
+        "love hate"
       ]
     },
     {
-      "name": "James Ivy",
-      "imageUrl": "https://i.scdn.co/image/ab676161000051749a2f93412f1803a5db203432",
+      "name": "Ken Carson",
+      "imageUrl": "https://i.scdn.co/image/ab6761610000517435033cc5f61a8529cb15f1de",
       "genres": [],
-      "url": "https://open.spotify.com/artist/7t8sK02zmZ9f6e6eJA9oSJ",
+      "url": "https://open.spotify.com/artist/3gBZUcNeVumkeeJ19CY2sX",
       "tracks": [
-        "Morphine"
-      ]
-    },
-    {
-      "name": "Scrapbooking",
-      "imageUrl": "https://i.scdn.co/image/ab6761610000517462ab302d9420b7812e7db8b5",
-      "genres": [],
-      "url": "https://open.spotify.com/artist/05OBeVMgFQ4oJfiZahTurY",
-      "tracks": [
-        "Ambival3nce"
-      ]
-    },
-    {
-      "name": "bill.",
-      "imageUrl": "https://i.scdn.co/image/ab676161000051742a0dbc27e52d873e3cff7531",
-      "genres": [],
-      "url": "https://open.spotify.com/artist/0Db56HcSi6EuL36ocgBYXs",
-      "tracks": [
-        "Franku"
-      ]
-    },
-    {
-      "name": "Geese",
-      "imageUrl": "https://i.scdn.co/image/ab67616100005174bc9546a945c7563a9eb21f3d",
-      "genres": [],
-      "url": "https://open.spotify.com/artist/0WCo84qtCKfbyIf1lqQWB4",
-      "tracks": []
-    },
-    {
-      "name": "Deco Noir",
-      "imageUrl": "https://i.scdn.co/image/ab676161000051744012f7a389b7b5ccc8a8506a",
-      "genres": [],
-      "url": "https://open.spotify.com/artist/0g6xh0TsXZerp3aC05E84E",
-      "tracks": []
-    },
-    {
-      "name": "Flooding",
-      "imageUrl": "https://i.scdn.co/image/ab67616100005174a5ce3e8aa409b39a4f89c62e",
-      "genres": [],
-      "url": "https://open.spotify.com/artist/3w1bWeCjgPD3RbIp60ZRtw",
-      "tracks": [
-        "Delayed Gratification"
-      ]
-    },
-    {
-      "name": "Anna McClellan",
-      "imageUrl": "https://i.scdn.co/image/ab67616100005174a21c68036d05ad53d4c4a446",
-      "genres": [],
-      "url": "https://open.spotify.com/artist/2Y8G3abt5hRU7X9RNi7dlZ",
-      "tracks": [
-        "Flailing Orbits",
-        "Hot Water",
-        "Twirl",
-        "Restless",
-        "Gemini"
-      ]
-    },
-    {
-      "name": "Title Fight",
-      "imageUrl": "https://i.scdn.co/image/ab67616100005174ddf610c5554917515472fc89",
-      "genres": [],
-      "url": "https://open.spotify.com/artist/2CnhqfjUG0qzsru0SMuhrk",
-      "tracks": [
-        "Where Am I?"
+        "LiveLeak"
       ]
     },
     {
@@ -449,73 +300,258 @@
       ]
     },
     {
-      "name": "xaviersobased",
-      "imageUrl": "https://i.scdn.co/image/ab67616100005174837aeb70fbd21f9587dab56e",
+      "name": "Pz'",
+      "imageUrl": "https://i.scdn.co/image/ab676161000051749087490518ae4f6b178d6d78",
       "genres": [],
-      "url": "https://open.spotify.com/artist/2oM7LMPFu882oC6jSwEqjd",
-      "tracks": [
-        "Struggle Gang",
-        "Clorox"
-      ]
-    },
-    {
-      "name": "wished bone",
-      "imageUrl": "https://i.scdn.co/image/ab676161000051743f8951de14831594f522600d",
-      "genres": [],
-      "url": "https://open.spotify.com/artist/4PpncOYFkaKQZc82ONdm9c",
+      "url": "https://open.spotify.com/artist/1lLUEzsrrtS8LRMtg5xTGT",
       "tracks": []
     },
     {
-      "name": "A Country Western",
-      "imageUrl": "https://i.scdn.co/image/ab676161000051746d43ba91d0ad9ac07acfb1b3",
+      "name": "feeble little horse",
+      "imageUrl": "https://i.scdn.co/image/ab67616100005174091a3365d93f8d93cc1754d9",
       "genres": [],
-      "url": "https://open.spotify.com/artist/0JyEWuZBMpLOezjt2DDt8M",
+      "url": "https://open.spotify.com/artist/2GJa7lPCjAB1rKXptXrfy8",
       "tracks": [
-        "Blood Eagle"
+        "Doorway",
+        "Dior",
+        "Poison",
+        "Cradle",
+        "Guts",
+        "Upside Down"
       ]
     },
     {
-      "name": "Kind of Like Spitting",
-      "imageUrl": "https://i.scdn.co/image/ab67616d00001e023d2e21939cb456b7021b4633",
+      "name": "Alex G",
+      "imageUrl": "https://i.scdn.co/image/ab67616100005174cfa32469a372188d27bd17b7",
       "genres": [],
-      "url": "https://open.spotify.com/artist/1oCIe5XjeoEqglbAj10DPK",
-      "tracks": []
-    },
-    {
-      "name": "my point of you",
-      "imageUrl": "https://i.scdn.co/image/ab67616100005174512c0a5e940186dcfaab1717",
-      "genres": [],
-      "url": "https://open.spotify.com/artist/2c0LDipXPL8jKgYwEIkkSx",
-      "tracks": []
-    },
-    {
-      "name": "Toner",
-      "imageUrl": "https://i.scdn.co/image/ab676161000051742497415f2e01a41251f4ecb4",
-      "genres": [],
-      "url": "https://open.spotify.com/artist/3F5d8k90zTpcnmzYnqXMRw",
+      "url": "https://open.spotify.com/artist/6lcwlkAjBPSKnFBZjjZFJs",
       "tracks": [
-        "Cleo",
-        "'95 Slow"
+        "Gretel",
+        "Forever",
+        "Sum Secret",
+        "Bounce Boy",
+        "Far and Wide",
+        "Headlights"
       ]
     },
     {
-      "name": "Ken Carson",
-      "imageUrl": "https://i.scdn.co/image/ab6761610000517403c084aeb145ac1a0515a89f",
+      "name": "Wednesday",
+      "imageUrl": "https://i.scdn.co/image/ab67616100005174cbf22720296d758d8b373a85",
       "genres": [],
-      "url": "https://open.spotify.com/artist/3gBZUcNeVumkeeJ19CY2sX",
+      "url": "https://open.spotify.com/artist/4j7DrazfBZLLD0OrVoAtEe",
       "tracks": [
-        "LiveLeak"
+        "We Might as Well Be Strangers (ft. Wednesday)",
+        "Reality TV Argument Bleeds",
+        "Twin Plagues",
+        "June 2 - Early Version"
       ]
     },
     {
-      "name": "Summrs",
-      "imageUrl": "https://i.scdn.co/image/ab6761610000517448788ce621a921527f9df678",
+      "name": "Anna McClellan",
+      "imageUrl": "https://i.scdn.co/image/ab67616100005174a21c68036d05ad53d4c4a446",
       "genres": [],
-      "url": "https://open.spotify.com/artist/5L15t6I0PQS9SBXbiklPEN",
+      "url": "https://open.spotify.com/artist/2Y8G3abt5hRU7X9RNi7dlZ",
+      "tracks": [
+        "Drank Earlier",
+        "Twirl",
+        "Hot Water",
+        "Flailing Orbits",
+        "Restless"
+      ]
+    },
+    {
+      "name": "MJ Lenderman",
+      "imageUrl": "https://i.scdn.co/image/ab6761610000517427fa0080c12d5330cf5562b8",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/4tK6Z8fK7Sc9133byjPGIT",
+      "tracks": [
+        "You Have Bought Yourself A Boat - Live",
+        "Wristwatch"
+      ]
+    },
+    {
+      "name": "Touché Amoré",
+      "imageUrl": "https://i.scdn.co/image/ab67616100005174556e969aff552df9da7d332f",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/16QCJENzcdhwka9bTKYMVB",
+      "tracks": [
+        "Huckleberry",
+        "Negotiating the Charade",
+        "And Now It's Happening in Mine",
+        "Broken Records",
+        "Hipsterectomy"
+      ]
+    },
+    {
+      "name": "Weezer",
+      "imageUrl": "https://i.scdn.co/image/ab67616100005174ed4caac362c0498e92337a5c",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/3jOstUTkEu2JkjvRdBA5Gu",
+      "tracks": [
+        "We Might as Well Be Strangers (ft. Wednesday)",
+        "Across The Sea"
+      ]
+    },
+    {
+      "name": "Drake",
+      "imageUrl": "https://i.scdn.co/image/ab676161000051744293385d324db8558179afd9",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4",
+      "tracks": [
+        "MISS MY DAWG (feat. Drake)",
+        "IDGAF (feat. Yeat)"
+      ]
+    },
+    {
+      "name": "prettifun",
+      "imageUrl": "https://i.scdn.co/image/ab67616100005174ac465ae2e1060d01c4b00e92",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/3J3ngZn7GjzjwCPBkqtz65",
+      "tracks": [
+        "#FreePretti",
+        "Light"
+      ]
+    },
+    {
+      "name": "Charli xcx",
+      "imageUrl": "https://i.scdn.co/image/ab676161000051746fa76436a2bba83b9f1d6fd1",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/25uiPmTg16RbhZWAqwLBy5",
+      "tracks": [
+        "Yeah",
+        "Persona",
+        "SS26",
+        "Rock Music"
+      ]
+    },
+    {
+      "name": "Horse Vision",
+      "imageUrl": "https://i.scdn.co/image/ab67616100005174ef9b9de1f310770d3c648330",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/28gAkTGnjn8QZllb4EU4OM",
+      "tracks": [
+        "YSL"
+      ]
+    },
+    {
+      "name": "Hopper1000",
+      "imageUrl": "https://i.scdn.co/image/ab676161000051740753564291e3e1843e9664e0",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/5DB2hxtY9wL2fC5VYaAsYS",
       "tracks": []
+    },
+    {
+      "name": "Trapped Under Ice",
+      "imageUrl": "https://i.scdn.co/image/b7daae07e91d057ed5dba673314a071cde5852bd",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/2x48WoJGRLCpCWHEKXMZoB",
+      "tracks": [
+        "Pleased to Meet You"
+      ]
+    },
+    {
+      "name": "Her New Knife",
+      "imageUrl": "https://i.scdn.co/image/ab67616100005174b3ab66d89926d3d77dc6c19c",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/3BGUNVzuoQ79pOjLxJsZZg",
+      "tracks": [
+        "vitamin beauty",
+        "baiting breath (ft. Her New Knife)",
+        "skinny/baby"
+      ]
+    },
+    {
+      "name": "god of war",
+      "imageUrl": "https://i.scdn.co/image/ab67616d00001e021e0b63b8e3b609b5c1114bc8",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/7o3wJo5yKVGHHkTojIZ7Xp",
+      "tracks": [
+        "new deal",
+        "mischief night"
+      ]
+    },
+    {
+      "name": "sallywants",
+      "imageUrl": "https://i.scdn.co/image/ab6761610000517453e384d224c622d499b77f3e",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/3sxUJTma27IDz1vRS8n8iZ",
+      "tracks": [
+        "song for kim",
+        "fun",
+        "spin",
+        "illseeuthen"
+      ]
+    },
+    {
+      "name": "Bright Eyes",
+      "imageUrl": "https://i.scdn.co/image/ab676161000051744a1dbd8cba6b67acd9bd44e2",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/5o206eFLx38glA2bb4zqIU",
+      "tracks": [
+        "The City Has Sex"
+      ]
+    },
+    {
+      "name": "The Gerbils",
+      "imageUrl": "https://i.scdn.co/image/ab67616d00001e0296f965ae1adc3b19939cc821",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/4q2SrEkJOVGe1Yuug8HPRl",
+      "tracks": [
+        "Glue"
+      ]
+    },
+    {
+      "name": "Earl Sweatshirt",
+      "imageUrl": "https://i.scdn.co/image/ab67616100005174e387d22e49d2324c7c69ea86",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/3A5tHz1SfngyOZM2gItYKu",
+      "tracks": []
+    },
+    {
+      "name": "Sidney Gish",
+      "imageUrl": "https://i.scdn.co/image/ab67616100005174da47d55e5ababe4dab0808c1",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/2orBKFyc84jo9AZH5jarhI",
+      "tracks": []
+    },
+    {
+      "name": "0 Miles Per Hour",
+      "imageUrl": "https://i.scdn.co/image/ab6761610000517437d15f89024bb8019b4cb2f8",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/7lUAdOqmYKAK59QuGdvKK1",
+      "tracks": [
+        "Bite It Off",
+        "Losing Streak",
+        "Becky"
+      ]
+    },
+    {
+      "name": "skaiwater",
+      "imageUrl": "https://i.scdn.co/image/ab676161000051740a9cde1556ceeee0cc3f810d",
+      "genres": [],
+      "url": "https://open.spotify.com/artist/1URVdcNYXigvk6Dj0fHYOM",
+      "tracks": [
+        "cashapp",
+        "x",
+        "allah",
+        "ctrl",
+        "maxxxine",
+        "pearl"
+      ]
     }
   ],
   "items": [
+    {
+      "artist": "Nine Vicious",
+      "album": "Studio Addict",
+      "track": "F&N",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e021cec51f9e221e8bfcf5c987e",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/99/0e/6e/990e6ec2-5eea-8981-ecfa-c13a8f2f1724/mzaf_1550240104675421352.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/5CYG12r6ZdRx5LbIx64oKV",
+      "tracks": [
+        "F&N"
+      ]
+    },
     {
       "artist": "Yeat",
       "album": "COCOON",
@@ -525,182 +561,133 @@
       "url": "https://open.spotify.com/track/0F0uSTQGmuF1JxmEtbZFxw",
       "tracks": [
         "EARNËD IT",
+        "HOLY WATËR",
         "IN2THAT",
+        "COCOON",
         "MISS MY DAWG (feat. Drake)",
         "LUH BIRK",
-        "HOLY WATËR",
-        "COCOON",
         "TËNNIS"
       ]
     },
     {
-      "artist": "Total Wife, Full Body 2",
-      "album": "make.it.last.x.full.body.2.recovery",
-      "track": "make.it.last.x.full.body.2.recovery",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02d6bccb6c4b27389c31e5afb8",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/68/cc/ae/68ccaee5-f8e6-c9cb-903f-ad48230c23f5/mzaf_2251379102614309636.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/531gmabvCuMNEeVcHQjGgs",
+      "artist": "They Are Gutting a Body of Water, Audiotree",
+      "album": "They Are Gutting a Body of Water on Audiotree Live",
+      "track": "texas instruments - Audiotree Live Version",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02b97d67e1386cc3adc449bf71",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/82/38/a8/8238a8cf-100e-02ff-557d-b91ce6cfc0f4/mzaf_2573367595942054364.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/1NX7R5SgrO4JYUPfOWB4VL",
       "tracks": [
-        "make.it.last.x.full.body.2.recovery"
+        "texas instruments - Audiotree Live Version",
+        "63 skies - Audiotree Live Version",
+        "slocor tracksuit .5 - Audiotree Live Version",
+        "eightball - Audiotree Live Version",
+        "Moerenuma Park - Audiotree Live Version",
+        "violence I - Audiotree Live Version",
+        "french - Audiotree Live Version",
+        "takis - Audiotree Live Version",
+        "a wasp appears - Audiotree Live Version",
+        "sex benefits .5 - Audiotree Live Version"
       ]
     },
     {
-      "artist": "sallywants",
-      "album": "song for kim / fun",
-      "track": "song for kim",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e024bed2518aff9297a89badd67",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/4c/fc/4e/4cfc4e77-14e7-9c81-b4ad-6e48be2c25c2/mzaf_1924241752220134438.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/0PM0Jn3xpZqXsrqujglhIx",
+      "artist": "past self",
+      "album": "Gravetown",
+      "track": "Gravetown",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02cabf53cd4cce32b8936c5834",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/74/89/d6/7489d699-6c08-829d-3ccf-1edd121a7400/mzaf_3429248223300173409.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/0Toq58ILcNdZvzfFcwEtzq",
       "tracks": [
-        "song for kim",
-        "fun"
+        "Gravetown"
       ]
     },
     {
-      "artist": "Yeat",
-      "album": "4L",
-      "track": "Goin Back 2 Ella",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02172e4d38f7508dfdb5e4c015",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/1XGJkd545elGBmcNTHMjOD",
+      "artist": "Flowers For Emily",
+      "album": "Elijay",
+      "track": "Reversal",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0206b3ccdc0d5d016e4dad9d2a",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e6/b6/e0/e6b6e0de-8925-a8e5-cd49-192d4f77c24d/mzaf_5026060375507385930.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/2KVi7ff6DugfDBBvUznKrq",
       "tracks": [
-        "Goin Back 2 Ella",
-        "Forëally / 4Ly",
-        "Tëslas & Rovers",
-        "Ok Kool",
-        "Mountain Climbërs",
-        "Sorry Bout That",
-        "Livë Hi",
-        "All I See",
-        "Bëd Side",
-        "Off Tha Lot",
-        "Chanëlly",
-        "Talk 2 God",
-        "Swërved It",
-        "Money Twërk",
-        "Jus Wokëup",
-        "Trië 2 Tell U outro",
-        "WTF",
-        "Provë sum (feat. SeptembersRich)",
-        "Sidëwayz",
-        "Big Stonëz"
+        "Reversal",
+        "+44",
+        "Recover",
+        "Dissonance",
+        "Elijay, GA",
+        "a wild sheep chase",
+        "Everyday",
+        "Calendar",
+        "Taking"
       ]
     },
     {
-      "artist": "First Day Back",
-      "album": "Forward",
-      "track": "Sure, Ok",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0295be210d3b58d0796e577798",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d3/7a/1b/d37a1b4e-01a2-c2ca-0c9f-54d9d75c0600/mzaf_1937936828235754324.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/7fqfrQxzYG8qLzMuDX3tyJ",
+      "artist": "Total Wife, They Are Gutting a Body of Water",
+      "album": "come.back.down.x.recovery",
+      "track": "peaches.x.tagabow.recovery",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02bf92b1731f06d6b57f4e80f5",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/8a/a2/8c/8aa28cc8-55be-3886-94f6-a49255d0f02c/mzaf_466021206641989531.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/19ro3DWJGSe3C7ecbPVSGG",
       "tracks": [
-        "Sure, Ok",
-        "Upstairs (212)",
-        "Paint"
+        "peaches.x.tagabow.recovery",
+        "(dead.b).x.scott.cortez.3.33AM.recovery"
       ]
     },
     {
-      "artist": "Total Wife",
-      "album": "come back down",
-      "track": "naoisa",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e022d27b11607e9dacf350505af",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/e8/78/ca/e878ca34-3ca0-241e-bc39-6928d1c8f0f0/mzaf_16809118838355781867.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/76wZozulxDjEPjjVfgz3pg",
+      "artist": "They Are Gutting a Body of Water, Cashier",
+      "album": "KOOL FAITH / LOOSIES II",
+      "track": "kool marder (ft. Cashier)",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02af0bd44f39eec2408b132bb1",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/31/a4/f9/31a4f98a-7f69-72ac-3cff-2c20cea3978a/mzaf_38490267233478446.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/2usVwSuHBf9BdfyAhdeQmR",
       "tracks": [
-        "naoisa",
-        "in my head",
-        "make it last",
-        "second spring",
-        "still asleep",
-        "chloe",
-        "(dead b)",
-        "peaches",
-        "internetsupermagazine",
-        "ofersi3"
-      ]
-    },
-    {
-      "artist": "partner",
-      "album": "Digging",
-      "track": "Digging",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e027d3f57bb790ac36f0ac205c5",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/00/15/35/00153578-d479-333f-6046-e45ac8751b30/mzaf_3059029389556628619.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/2HVDnly7Yzlvdh8c34oaFK",
-      "tracks": [
-        "Digging"
-      ]
-    },
-    {
-      "artist": "sallywants",
-      "album": "spin",
-      "track": "spin",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02c0753eb8eec38c8ce6137e03",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/0VV5qw8aRLPwudmgDfjRok",
-      "tracks": [
-        "spin"
-      ]
-    },
-    {
-      "artist": "soap box derby",
-      "album": "a window between us / bitter apparition",
-      "track": "bitter apparition",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e022dc2ccbc1de60d9ced550272",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/b6/d0/05/b6d005f6-48c4-915e-e2f5-63156028e1ac/mzaf_11375731143398189539.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/2K412CJbRdiM2Hj1ES4b95",
-      "tracks": [
-        "bitter apparition",
-        "a window between us"
-      ]
-    },
-    {
-      "artist": "soap box derby",
-      "album": "twelve hours",
-      "track": "twelve hours",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02f6ee225816d0df324cb8b95c",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/de/a2/5d/dea25d15-65e1-bc9f-9697-7909b9e9e463/mzaf_16560424348333204708.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/2VaG8NIHO7sBaIQBGKcoyM",
-      "tracks": [
-        "twelve hours"
-      ]
-    },
-    {
-      "artist": "Che",
-      "album": "REST IN BASS: ENCORE",
-      "track": "MAKE OUT WITH MY CHOPPA",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02f7f1e129b06640d7836c9a5c",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/9c/64/3f/9c643f5b-ac70-3b76-bff6-8f6454a62581/mzaf_55077991987594612.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/1gK8piCdSoSZoLxB0K5mOe",
-      "tracks": [
-        "MAKE OUT WITH MY CHOPPA",
-        "MONSTER",
-        "CUTTHROAT",
-        "DIE HARD",
-        "HOLY MOLY",
-        "KING OF ROCK",
-        "WHATS LOVE",
-        "DIRTY SPRITE"
+        "kool marder (ft. Cashier)",
+        "stone driveway bypass (ft. dupontpavilion, beat fella)",
+        "let it kill you",
+        "5dime (ft. DJ Manny)",
+        "illusion hue (ft. Toner)",
+        "old irish (ft. Taurus Judge, Fib, Melaina Kol)",
+        "my Happening (ft. SPIRIT OF THE BEEHIVE)",
+        "paint the bride",
+        "am i wrong (ft. A Country Western, Dead Sullivan)",
+        "yellow dolphins (ft. Cooking, RXKNephew, FearDorian, Izzy Camina)",
+        "sport with Me",
+        "silkscreen rubberhead",
+        "raincheat (ft. Morgan Garrett)",
+        "a place where (ft. haloplus+, Full Body 2)",
+        "free willy",
+        "charter spec (ft. Horse Jumper of Love)",
+        "green goblin (ft. Hooky)",
+        "happy as a favor (ft. Tony Bontana, Hooky)",
+        "roku city hardcore (ft. Cooking)",
+        "the rook",
+        "rodman (ft. Hotline TNT)",
+        "God's little clown (ft. Greg Mendez)",
+        "size of a building (ft. Hooky)",
+        "Swoon (ft. Total Wife)",
+        "town crier (ft. LUCY (Cooper B. Handy), Full Body 2)",
+        "heart knower (ft. Full Body 2)",
+        "baiting breath (ft. Her New Knife)",
+        "the day the river flows backwards (ft. Options, Sam Lev)"
       ]
     },
     {
       "artist": "Playboi Carti",
       "album": "MUSIC",
-      "track": "POP OUT",
+      "track": "OPM BABI",
       "coverUrl": "https://i.scdn.co/image/ab67616d00001e026b219c8d8462bfe254a20469",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e5/07/b9/e507b9d8-e941-adac-0131-8077d4821e53/mzaf_11482399288140625428.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/3j3SfV4hAcR4XjCvW393Gr",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/76yJsfb1CUy5Um8nFL7jKQ",
       "tracks": [
-        "POP OUT",
         "OPM BABI",
-        "TRIM (with Future)",
         "CRANK",
+        "POP OUT",
         "OLYMPIAN",
-        "I SEEEEEE YOU BABY BOI",
         "EVIL J0RDAN",
+        "I SEEEEEE YOU BABY BOI",
         "LIKE WEEZY",
         "K POP",
         "FINE SHIT",
         "RADAR",
+        "TRIM (with Future)",
         "MOJO JOJO",
         "TOXIC (with Skepta)",
         "BACKD00R (feat. Kendrick Lamar & Jhené Aiko)",
@@ -720,172 +707,226 @@
       ]
     },
     {
-      "artist": "Bright Eyes",
-      "album": "Letting Off The Happiness",
-      "track": "The City Has Sex",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e024c31e8a6ae5e551495a27b90",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/40/1b/83/401b834f-a7c4-02b4-cd13-469ef193b6cb/mzaf_16302586099303937525.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/0jrMDJAYxwyRcRDCVZ7OeQ",
+      "artist": "Che",
+      "album": "REST IN BASS: ENCORE",
+      "track": "MAKE OUT WITH MY CHOPPA",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02f7f1e129b06640d7836c9a5c",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ff/ba/1e/ffba1e7b-bd25-6949-2e04-cbe3c8356308/mzaf_17598713835139442584.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/1gK8piCdSoSZoLxB0K5mOe",
       "tracks": [
-        "The City Has Sex",
-        "Contrast And Compare",
-        "June On The West Coast",
-        "If Winter Ends"
+        "MAKE OUT WITH MY CHOPPA",
+        "MONSTER",
+        "CUTTHROAT",
+        "DIE HARD",
+        "HOLY MOLY",
+        "KING OF ROCK",
+        "WHATS LOVE",
+        "DIRTY SPRITE"
       ]
     },
     {
-      "artist": "Bedridden",
-      "album": "Amateur Heartthrob",
-      "track": "Clara’s Mouth",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e020706ccbf7a9d5c242ab7aa1c",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/05/c6/4d/05c64d28-ceba-78a8-288c-24414689329f/mzaf_12090098335030639645.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/1Kbz3AER5Ga4O4U4C94EPM",
+      "artist": "0 Miles Per Hour",
+      "album": "Bite It Off",
+      "track": "Bite It Off",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02a16b2718382b26bcbaf47f5a",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/da/41/e6/da41e69e-345d-d80c-caba-43392240a8e9/mzaf_5714480910628652737.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/7sfBvf1OKYrOEfNwW75P1g",
       "tracks": [
-        "Clara’s Mouth",
-        "Soft Soap",
-        "Logger",
-        "Cue Sports"
+        "Bite It Off"
       ]
     },
     {
-      "artist": "Wednesday",
-      "album": "Twin Plagues",
-      "track": "Twin Plagues",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02e2adbcd227b4e6eea8923b71",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/19/41/60/194160da-75fc-eeeb-ac64-935475e246c5/mzaf_12155800457940482176.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/5OeHMVPyqAyfAkeZm9MwSI",
+      "artist": "Evanescence",
+      "album": "Fallen",
+      "track": "Bring Me To Life",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0225f49ab23f0ec6332efef432",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d2/b9/60/d2b96000-fd12-4645-106e-48238d264995/mzaf_4464035852986978967.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/0COqiPhxzoWICwFCS4eZcp",
       "tracks": [
-        "Twin Plagues",
-        "Handsome Man"
-      ]
-    },
-    {
-      "artist": "Eiafuawn",
-      "album": "Endless Body",
-      "track": "Take Me To My Room",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02d68a582eac818f6dd697c0b8",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/9a/d9/d0/9ad9d093-8097-fa6a-b7f7-121eb35f1afa/mzaf_15078034601612014378.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/5Zex4ANBUaqsDkFwoPTh6v",
-      "tracks": [
-        "Take Me To My Room",
-        "People Talk",
-        "Lay Your Head Here In Mine",
-        "Incantation"
-      ]
-    },
-    {
-      "artist": "Influx Weaver",
-      "album": "Influx Weaver",
-      "track": "Misery Chick",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02177c2d67e7b1bb8a0ab3bde2",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/4FEvjWW3kiwMQ65J0bPnuV",
-      "tracks": [
-        "Misery Chick"
-      ]
-    },
-    {
-      "artist": "soap box derby",
-      "album": "anniversary",
-      "track": "anniversary",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02b581953cd7b1c9f456f8958a",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/48/cf/5f/48cf5f7c-6d10-6d9d-9b11-70b9d27dd53f/mzaf_307185478820700470.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/5H0qzWcgVlD8dQzd6Q3uGB",
-      "tracks": [
-        "anniversary"
-      ]
-    },
-    {
-      "artist": "They Are Gutting a Body of Water",
-      "album": "LOTTO",
-      "track": "the chase",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0284670a29dc9517abaa833144",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/c2/00/84/c20084d2-0c4d-8636-a87a-a19b4f2e3c35/mzaf_7138624830503126858.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/6644GA3zEDSw7XChsTNY76",
-      "tracks": [
-        "the chase",
-        "sour diesel",
-        "trainers",
-        "chrises head",
-        "rl stine"
-      ]
-    },
-    {
-      "artist": "Wednesday",
-      "album": "Bleeds (Deluxe)",
-      "track": "June 2 - Early Version",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02fd9e42d13d827726d78063a0",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/eb/8e/5a/eb8e5a01-2f2d-f463-3d13-e51428aeb195/mzaf_3110248436662001808.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/6DuR0uC5L9oqUxlHvHuu8t",
-      "tracks": [
-        "June 2 - Early Version",
-        "The Way Love Goes - Joe Harvey-Whyte Version"
-      ]
-    },
-    {
-      "artist": "Toner",
-      "album": "Cleo",
-      "track": "Cleo",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e021e883d0fd4d29898ebccd6f4",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/52/fa/f4/52faf4ac-24a9-b1e6-384c-3f3b7d6ef0e8/mzaf_14241351213876075956.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/2GcyaxeLcrIezbiQckjf2R",
-      "tracks": [
-        "Cleo"
+        "Bring Me To Life"
       ]
     },
     {
       "artist": "sallywants",
-      "album": "illseeuthen",
-      "track": "illseeuthen",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02511160a253f5f739c78d985b",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/27/68/c3/2768c3fb-30ad-0bad-0acc-dfab0974f3f2/mzaf_16505006497113845154.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/2ZA04shbkBGLD3ASIpmSmW",
+      "album": "song for kim / fun",
+      "track": "song for kim",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e024bed2518aff9297a89badd67",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/4c/fc/4e/4cfc4e77-14e7-9c81-b4ad-6e48be2c25c2/mzaf_1924241752220134438.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/0PM0Jn3xpZqXsrqujglhIx",
       "tracks": [
-        "illseeuthen"
+        "song for kim",
+        "fun"
       ]
     },
     {
-      "artist": "Bladee, Ecco2k",
-      "album": "Crest",
-      "track": "The Flag is Raised",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e028504a0836dfaa61b28930505",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/fe/b0/08/feb008c2-2200-e3b2-8e6a-c3fedcc916ca/mzaf_4096352042257138502.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/7mebNFbb0ehL1IX1DMktdC",
+      "artist": "Heatmiser",
+      "album": "Mic City Sons",
+      "track": "Get Lucky",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e025287d6042c480fe8048cc646",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/84/43/41/844341a9-f6dd-b1b8-bb79-05658cefe9f4/mzaf_8664546776028385914.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/5PKjC9aNg0d15j8oft8Dbi",
       "tracks": [
-        "The Flag is Raised"
+        "Get Lucky",
+        "Half Right",
+        "Low-Flying Jets",
+        "Plainclothes Man"
       ]
     },
     {
       "artist": "Yeat",
-      "album": "ON NOTHING",
-      "track": "ON NOTHING",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e021122ea7021ef23a2a47e6fec",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/6a/29/77/6a29774b-1cde-2a24-c9a7-7b69c5dff602/mzaf_13454693018547391187.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/0EfkB8iQhNxfXCjrKVdms5",
+      "album": "4L",
+      "track": "Forëally / 4Ly",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02c3b6e029c7313c6d0f9ccc4b",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/1aztkqMhtL4XSuGASmEeCo",
       "tracks": [
-        "ON NOTHING"
+        "Forëally / 4Ly",
+        "Goin Back 2 Ella",
+        "Tëslas & Rovers",
+        "Off Tha Lot",
+        "Ok Kool",
+        "Livë Hi",
+        "Sorry Bout That",
+        "All I See",
+        "Money Twërk",
+        "Bëd Side",
+        "Jus Wokëup",
+        "Chanëlly",
+        "Mountain Climbërs",
+        "Talk 2 God",
+        "WTF",
+        "Swërved It",
+        "Provë sum (feat. SeptembersRich)",
+        "Trië 2 Tell U outro",
+        "Big Stonëz",
+        "Sidëwayz"
       ]
     },
     {
-      "artist": "TRASHWORLDFL",
-      "album": "Shapeshifter",
-      "track": "Shapeshifter",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02554abf81cb828b5000a342e3",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a6/13/5d/a6135d67-9d76-381a-eee1-c03c44d26004/mzaf_17250959298696469593.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/6pziaaVtgSSl0sEzqwsWTr",
+      "artist": "forty winks",
+      "album": "Love Is a Dog from Hell",
+      "track": "noise",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02e00c70378fe611cf8e3a577a",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/2b/81/e2/2b81e208-071d-4def-e8b8-38306cea7411/mzaf_1963760172614285237.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/08yMSAGeyIsgmw56NMD0TJ",
       "tracks": [
-        "Shapeshifter"
+        "noise",
+        "commie bf",
+        "liadfh",
+        "Faith"
       ]
     },
     {
-      "artist": "Commander Venus",
-      "album": "The Uneventful Vacation",
-      "track": "We'll Always Have Paris",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0251cc0d4b30095d6032667904",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/55/ab/da/55abda81-e41f-3356-b45d-9e298c652d36/mzaf_14571817423990516589.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/7BmiOQDz0O6jvX0L7GB4Zs",
+      "artist": "soap box derby",
+      "album": "twelve hours",
+      "track": "twelve hours",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02f6ee225816d0df324cb8b95c",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/de/a2/5d/dea25d15-65e1-bc9f-9697-7909b9e9e463/mzaf_16560424348333204708.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/2VaG8NIHO7sBaIQBGKcoyM",
       "tracks": [
-        "We'll Always Have Paris"
+        "twelve hours"
+      ]
+    },
+    {
+      "artist": "forty winks",
+      "album": "Spurs",
+      "track": "Spurs",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e026732f7d5c3d03bf0f689052b",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/17/01/f9/1701f98d-b17e-9587-4af1-85a8cdbf4f03/mzaf_15605226813471975840.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/6j5euOBeeD51c7MoPrVosk",
+      "tracks": [
+        "Spurs"
+      ]
+    },
+    {
+      "artist": "Total Wife, Winter",
+      "album": "second.spring.x.winter.recovery",
+      "track": "second.spring.x.winter.recovery",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e022352dc191d8163092303cc68",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/6b/84/96/6b8496df-4693-7b53-c08f-84a23c2b139f/mzaf_5695256469225607673.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/0MZqPVrooitHXFeKFg1nwN",
+      "tracks": [
+        "second.spring.x.winter.recovery"
+      ]
+    },
+    {
+      "artist": "Turnstile",
+      "album": "Pressure to Succeed",
+      "track": "Death Grip",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e026fcb0a0f9c77a56c8c0d0c4d",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/2f/96/34/2f963407-ac2e-86cc-351f-97c10bef08c7/mzaf_12399979895776096814.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/6BNPwD7KTEHu31hles8CyD",
+      "tracks": [
+        "Death Grip",
+        "The Dream",
+        "New Rules",
+        "Heavy Hand"
+      ]
+    },
+    {
+      "artist": "Playboi Carti",
+      "album": "Whole Lotta Red",
+      "track": "Not PLaying",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0298ea0e689c91f8fea726d9bb",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ce/61/9a/ce619acc-40f8-5bf0-c6d8-5649dacc5d3c/mzaf_9048266760750013994.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/03rcC8SVxCa9UdY5qgkITe",
+      "tracks": [
+        "Not PLaying",
+        "Punk Monk",
+        "Rockstar Made",
+        "Vamp Anthem",
+        "Beno!",
+        "New Tank",
+        "Slay3r"
+      ]
+    },
+    {
+      "artist": "bill.",
+      "album": "WIMMER",
+      "track": "Franku",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e024194167b84dee82543b5dda1",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e5/38/ed/e538ed32-d91a-e5df-4ae4-c325a445490b/mzaf_8303129247399692831.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/6cC63S7fXgKfqOWmEi2fPQ",
+      "tracks": [
+        "Franku",
+        "claw.",
+        "distress",
+        "FIGGY",
+        "bigme"
+      ]
+    },
+    {
+      "artist": "Ken Carson",
+      "album": "More Chaos",
+      "track": "LiveLeak",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0253b16cd45ce027fc7b65f9e8",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/35/b8/2b/35b82b47-5b16-da49-16b5-2453cdddd0f4/mzaf_5499941040599807095.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/7aURTqVzpZxkJfboCvGc69",
+      "tracks": [
+        "LiveLeak"
+      ]
+    },
+    {
+      "artist": "Protect",
+      "album": "Ball Hog For Life",
+      "track": "bbysit",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02697cc479559ea4a3bfe28216",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/17Hb9MiDyQ6lUH22IXVm4q",
+      "tracks": [
+        "bbysit"
+      ]
+    },
+    {
+      "artist": "soap box derby",
+      "album": "a window between us / bitter apparition",
+      "track": "bitter apparition",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e022dc2ccbc1de60d9ced550272",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/b6/d0/05/b6d005f6-48c4-915e-e2f5-63156028e1ac/mzaf_11375731143398189539.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/2K412CJbRdiM2Hj1ES4b95",
+      "tracks": [
+        "bitter apparition",
+        "a window between us"
       ]
     },
     {
@@ -932,6 +973,875 @@
       ]
     },
     {
+      "artist": "They Are Gutting a Body of Water",
+      "album": "LOTTO",
+      "track": "the chase",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0284670a29dc9517abaa833144",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/c2/00/84/c20084d2-0c4d-8636-a87a-a19b4f2e3c35/mzaf_7138624830503126858.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/6644GA3zEDSw7XChsTNY76",
+      "tracks": [
+        "the chase",
+        "sour diesel",
+        "trainers",
+        "chrises head"
+      ]
+    },
+    {
+      "artist": "They Are Gutting a Body of Water, Dead Sullivan, Scarlet Rae",
+      "album": "KOOL FAITH / LOOSIES II",
+      "track": "letter and point (ft. Dead Sullivan, Scarlet Rae)",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02f4d9627b71ad15d38a44c91c",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/be/2c/3a/be2c3a11-53fd-3178-0349-b822e4f4b82c/mzaf_14019935999655173379.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/1cSqCxEn5Wn8ZCBaJJjYJw",
+      "tracks": [
+        "letter and point (ft. Dead Sullivan, Scarlet Rae)"
+      ]
+    },
+    {
+      "artist": "Dead Sullivan",
+      "album": "Imbecile",
+      "track": "Head",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0237c96d68819b3c0c059f3ed2",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/58/44/c8/5844c8c5-461e-726d-dac3-1fb802ed5b7c/mzaf_12119943114984310191.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/1mBiijkbOpqClr6sd9PU6Z",
+      "tracks": [
+        "Head"
+      ]
+    },
+    {
+      "artist": "Ecco2k, Thaiboy Digital, Bladee",
+      "album": "Trash Island",
+      "track": "Western Union",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0289fc8b71ce74de508e3109af",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/f2/bf/57/f2bf57c8-a305-e177-3d5d-5a19a358a4a5/mzaf_7971060205105349918.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/1zX178V8sWozr96MrfmRun",
+      "tracks": [
+        "Western Union"
+      ]
+    },
+    {
+      "artist": "echotracer",
+      "album": "FUCKING22STEP",
+      "track": "FUCKING22STEP",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02e2ef6788d45bd51d9abfa287",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/a5/28/58/a52858c1-dacd-f4e3-c986-67de7de6db42/mzaf_280452920945837073.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/4BMgXHnS1KqKGLaNmtqhsC",
+      "tracks": [
+        "FUCKING22STEP"
+      ]
+    },
+    {
+      "artist": "Yeat",
+      "album": "2 Alivë",
+      "track": "Nvr again",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e024183f54486fdfa75df561225",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/8c/44/60/8c4460b9-01ee-85a1-cbc2-d280ea0f575e/mzaf_8252012770547270130.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/4J7IUiMAbCEBN15c2ekiDh",
+      "tracks": [
+        "Nvr again",
+        "On tha linë",
+        "Poppin",
+        "Taliban",
+        "Luh gëek",
+        "Rëal six",
+        "Jus bëtter"
+      ]
+    },
+    {
+      "artist": "Toner",
+      "album": "Silk Road",
+      "track": "Dark Ecstasy",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02b0d069095f62d33c3922087d",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/d6/1c/02/d61c0215-bec9-5530-19ce-55e7c96d009c/mzaf_4225597207989009711.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/4ZBbmH6cUDR9wniv8gFTAn",
+      "tracks": [
+        "Dark Ecstasy",
+        "'95 Slow"
+      ]
+    },
+    {
+      "artist": "Total Wife, Full Body 2",
+      "album": "make.it.last.x.full.body.2.recovery",
+      "track": "make.it.last.x.full.body.2.recovery",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02d6bccb6c4b27389c31e5afb8",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/68/cc/ae/68ccaee5-f8e6-c9cb-903f-ad48230c23f5/mzaf_2251379102614309636.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/531gmabvCuMNEeVcHQjGgs",
+      "tracks": [
+        "make.it.last.x.full.body.2.recovery"
+      ]
+    },
+    {
+      "artist": "xaviersobased",
+      "album": "with 2 (hosted by d9lton)",
+      "track": "love hate",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e029d2ed644358b6ec160c4c507",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/7LqHM8vXewc8jxsM7VBVUj",
+      "tracks": [
+        "love hate"
+      ]
+    },
+    {
+      "artist": "Total Wife",
+      "album": "come back down",
+      "track": "second spring",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e022d27b11607e9dacf350505af",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/6c/c3/a4/6cc3a4f1-f980-e741-6363-b178ed878216/mzaf_17145577911478905385.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/31Y30bearyQhBBXcrUbhGz",
+      "tracks": [
+        "second spring",
+        "naoisa",
+        "still asleep",
+        "in my head",
+        "make it last",
+        "chloe",
+        "(dead b)",
+        "peaches",
+        "internetsupermagazine",
+        "ofersi3"
+      ]
+    },
+    {
+      "artist": "Influx Weaver",
+      "album": "The New Life (I'll Miss Deborah)",
+      "track": "The New Life (I'll Miss Deborah)",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0236908e759c52ce63315af6b3",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/95/de/c7/95dec7d7-fe08-ecd5-b17f-bcde89c787f5/mzaf_13437241498022467611.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/2OUIqLAFQQ64R2s9CJqlOo",
+      "tracks": [
+        "The New Life (I'll Miss Deborah)",
+        "Maybe In Another Life",
+        "Letters From The Future"
+      ]
+    },
+    {
+      "artist": "Weatherday",
+      "album": "Come In",
+      "track": "Mio, Min Mio",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02a01a2f1fd91094fca2757927",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/85/02/b5/8502b5aa-9010-9f73-0618-3c49fbd33a78/mzaf_14864934660437125030.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/50rqbBHROa6zDSWBMfzKCs",
+      "tracks": [
+        "Mio, Min Mio",
+        "Come In"
+      ]
+    },
+    {
+      "artist": "In Color",
+      "album": "Headlights",
+      "track": "Headlights",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e021877c851703786488c223dc8",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d8/55/d9/d855d9cd-9724-a5b5-fdb4-9ec97954c5b5/mzaf_6804274688552633526.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/7G2u32iWqPhkg2u1z4WCZP",
+      "tracks": [
+        "Headlights"
+      ]
+    },
+    {
+      "artist": "Bedridden",
+      "album": "Amateur Heartthrob",
+      "track": "Clara’s Mouth",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e020706ccbf7a9d5c242ab7aa1c",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/05/c6/4d/05c64d28-ceba-78a8-288c-24414689329f/mzaf_12090098335030639645.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/1Kbz3AER5Ga4O4U4C94EPM",
+      "tracks": [
+        "Clara’s Mouth",
+        "Soft Soap",
+        "Logger"
+      ]
+    },
+    {
+      "artist": "cutting up the elephant",
+      "album": "cutting up the elephant",
+      "track": "Letters and Packages",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0208610cec413dfa5e0d4fba49",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a7/c9/3d/a7c93db4-77b9-851a-0737-71e25fea504d/mzaf_5556584768190622555.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/2Em7tUPRnsZNADNATuzkHq",
+      "tracks": [
+        "Letters and Packages",
+        "Are you coming back?"
+      ]
+    },
+    {
+      "artist": "angelhomicide",
+      "album": "money speakin (thewayidoit)",
+      "track": "money speakin (thewayidoit)",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e027d34a9bac1a16f971a859319",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/4PMfC4XV8krp8MchL24zTq",
+      "tracks": [
+        "money speakin (thewayidoit)"
+      ]
+    },
+    {
+      "artist": "First Day Back",
+      "album": "Forward",
+      "track": "Sure, Ok",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0295be210d3b58d0796e577798",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d3/7a/1b/d37a1b4e-01a2-c2ca-0c9f-54d9d75c0600/mzaf_1937936828235754324.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/7fqfrQxzYG8qLzMuDX3tyJ",
+      "tracks": [
+        "Sure, Ok"
+      ]
+    },
+    {
+      "artist": "Charli xcx",
+      "album": "Music, Fashion, Film",
+      "track": "Yeah",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02238e2ff91714a8db91b8a64d",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/43/03/89/43038985-f642-76e4-2435-49897c5512e4/mzaf_3178643924771693175.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/0N7tCm0qrH7JFmDfwkRfRI",
+      "tracks": [
+        "Yeah",
+        "Persona",
+        "SS26",
+        "Rock Music"
+      ]
+    },
+    {
+      "artist": "Maia Toakley",
+      "album": "Everything On Fire",
+      "track": "Everything On Fire",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02c3f57c624a8c00250b4c86ee",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/5b/82/5f/5b825f7e-a71c-9ee1-9c13-172474cf2287/mzaf_15745710452051026743.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/0UQqqjAgaF55dma8PxwMXp",
+      "tracks": [
+        "Everything On Fire"
+      ]
+    },
+    {
+      "artist": "Guitar",
+      "album": "Casting Spells on Turtlehead",
+      "track": "Twin Orbits",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02a9f2a2c5f3800afd470fbbff",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/df/75/9f/df759f60-4650-8db6-ccc5-575985d31a3b/mzaf_9323117145103408342.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/0UyVZACU4y6aulsTviXU1R",
+      "tracks": [
+        "Twin Orbits",
+        "Kiss Me You Idiot",
+        "Baying of Dogs"
+      ]
+    },
+    {
+      "artist": "Cap'n Jazz",
+      "album": "Analphabetapolothology",
+      "track": "Little League",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e021042c88a974fed41972c0f77",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/02/76/62/0276626f-137b-7e56-b98d-e4044dc49727/mzaf_4317169444791182526.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/1783hGvOoFRkxtW8QxjGWS",
+      "tracks": [
+        "Little League",
+        "Puddle Splashers",
+        "In The Clear",
+        "Flashpoint: Catheter",
+        "Oh Messy Life"
+      ]
+    },
+    {
+      "artist": "Anna McClellan",
+      "album": "Drank Earlier",
+      "track": "Drank Earlier",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0254b4ddd32b4bb6f98ccd0cc0",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/28UBlRV1N0PMo6E1dCpeNy",
+      "tracks": [
+        "Drank Earlier"
+      ]
+    },
+    {
+      "artist": "bonus",
+      "album": "LASO",
+      "track": "LASO",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e029907dd265bdf54994481f07b",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/61/4f/3e/614f3e0c-d916-1e7c-0ed1-6e7182947e18/mzaf_7026501946762565170.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/2dQA8VI7aO2gUn7vQcbleV",
+      "tracks": [
+        "LASO"
+      ]
+    },
+    {
+      "artist": "my bloody valentine",
+      "album": "Amateur",
+      "track": "Only Shallow",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02d51cbfb9e4a5795160302947",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/26/c0/34/26c0345f-f98d-8d80-2822-dd8a8b712364/mzaf_2539717901323878075.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/2pQ4A6w5HSurB5WiaLFhcF",
+      "tracks": [
+        "Only Shallow"
+      ]
+    },
+    {
+      "artist": "Nettspend, OsamaSon",
+      "album": "wake up",
+      "track": "wake up",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02f637c47f51e76510fed5b303",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/31CSh2lhzIfoKxJu8OTFau",
+      "tracks": [
+        "wake up"
+      ]
+    },
+    {
+      "artist": "Devstacks",
+      "album": "Want Sum More",
+      "track": "Want Sum More",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e026ac0a4fd20b40528ae84671c",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/3Hy44bIqF5DtUcyH5vEPxo",
+      "tracks": [
+        "Want Sum More"
+      ]
+    },
+    {
+      "artist": "Her New Knife",
+      "album": "chrome is lullaby",
+      "track": "vitamin beauty",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0253e6ef0338551af3729533a1",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d4/e9/37/d4e93775-5ffd-a4b8-99dd-192bb3c2e1da/mzaf_13198267586929618480.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/492YNcJNgGdD4QxIHUmdjD",
+      "tracks": [
+        "vitamin beauty",
+        "skinny/baby"
+      ]
+    },
+    {
+      "artist": "toe",
+      "album": "the book about my idle plot on a vague anxiety",
+      "track": "tremolo+delay",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02b5a7cac5f838dcd77512037d",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/fd/63/49/fd6349f9-d5fc-e521-6a6b-56527abc72d8/mzaf_13537494321172409409.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/4FMJnfuIHkiRMGuf4HcipI",
+      "tracks": [
+        "tremolo+delay"
+      ]
+    },
+    {
+      "artist": "Weezer, Wednesday",
+      "album": "Weezer",
+      "track": "We Might as Well Be Strangers (ft. Wednesday)",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02bab93e255f1e165f062503b9",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/4O0KzEvuPxIT0iom2QOdPO",
+      "tracks": [
+        "We Might as Well Be Strangers (ft. Wednesday)"
+      ]
+    },
+    {
+      "artist": "Lip Critic",
+      "album": "Theft World",
+      "track": "Two Lucks",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e022dd01abb077567509f00a39c",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/78/5e/fc/785efc4b-f9c6-590d-7aad-0ceb515d0286/mzaf_3085568195212804967.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/5W7hOwxnNoyzpLO0avKy7B",
+      "tracks": [
+        "Two Lucks"
+      ]
+    },
+    {
+      "artist": "DJ CAMGIRL",
+      "album": "Problems",
+      "track": "Blade Princess",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0235ff866ce735a9c72760251b",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/62oQ6n1OOU7ekT7B1I72ls",
+      "tracks": [
+        "Blade Princess"
+      ]
+    },
+    {
+      "artist": "Cashier",
+      "album": "Angels All Around",
+      "track": "Angels All Around",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02878b83e3b7606f45394910da",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/6LisCobTwCliy75U5ssys6",
+      "tracks": [
+        "Angels All Around"
+      ]
+    },
+    {
+      "artist": "Fontaines D.C.",
+      "album": "Dopamine Chamber",
+      "track": "Marianne",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02a01e49054c2135f979e06de0",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/0d/53/f0/0d53f01f-f769-c569-1cc4-59677357712d/mzaf_13531639013345706797.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/6OciU5g0hekPBP9MqbCKFs",
+      "tracks": [
+        "Marianne"
+      ]
+    },
+    {
+      "artist": "henry's dress",
+      "album": "henry's dress live at kzsu stanford 90.1 fm 26-01-1994",
+      "track": "sallys wants to",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02150f202213fa8f4fbce89bcc",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/6OiVYs5kOjBOO4IvtXLLDP",
+      "tracks": [
+        "sallys wants to"
+      ]
+    },
+    {
+      "artist": "Cosmoline",
+      "album": "Inventions",
+      "track": "Invention",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0262cb6246e0f79e6b16cecc0f",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/74ZoCqGM5s2ea5r4ynlKnJ",
+      "tracks": [
+        "Invention",
+        "Popsicle"
+      ]
+    },
+    {
+      "artist": "prettifun",
+      "album": "Pretti",
+      "track": "#FreePretti",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02986fb8c23fb36f54373ca88c",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/7J4u528WcygyHGYww0gWgo",
+      "tracks": [
+        "#FreePretti",
+        "Light"
+      ]
+    },
+    {
+      "artist": "Bladee, Ecco2k",
+      "album": "Crest",
+      "track": "The Flag is Raised",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e028504a0836dfaa61b28930505",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/7mebNFbb0ehL1IX1DMktdC",
+      "tracks": [
+        "The Flag is Raised"
+      ]
+    },
+    {
+      "artist": "fingerswoventogether",
+      "album": "3 song demo",
+      "track": "The Coldest Day of The Year",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02f9b0143a3b9f0d07fd7c80b6",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f6/dc/00/f6dc00dc-3cc0-b239-39b3-6a719ecb3b06/mzaf_6131093989384426858.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/080D58KbIjTHa00lbfFkFV",
+      "tracks": [
+        "The Coldest Day of The Year"
+      ]
+    },
+    {
+      "artist": "Lil Boom",
+      "album": "Caillou",
+      "track": "Caillou",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02f36abdebd0aac668f60c2961",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/0E9qJtNKc1ayEwo7lLcQJ7",
+      "tracks": [
+        "Caillou"
+      ]
+    },
+    {
+      "artist": "Harold Faltermeyer, Steve Stevens",
+      "album": "TOP GUN/SOUNDTRACK",
+      "track": "Top Gun Anthem - From \"Top Gun\" Original Soundtrack",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0254c5478cbb4de237fecf5e54",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/0Eodsilv1jAn83TGezUzaE",
+      "tracks": [
+        "Top Gun Anthem - From \"Top Gun\" Original Soundtrack"
+      ]
+    },
+    {
+      "artist": "Slowdive",
+      "album": "Slowdive",
+      "track": "Slomo",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02dacae168c80f791843f52439",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/0KYOthr76o5GlmYLEfp9OX",
+      "tracks": [
+        "Slomo"
+      ]
+    },
+    {
+      "artist": "Kate Bush",
+      "album": "Hounds Of Love",
+      "track": "Running Up That Hill (A Deal With God)",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02ad08f4b38efbff0c0da0f252",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/1PtQJZVZIdWIYdARpZRDFO",
+      "tracks": [
+        "Running Up That Hill (A Deal With God)"
+      ]
+    },
+    {
+      "artist": "A Country Western",
+      "album": "I Found",
+      "track": "I Found",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02179133e902236dd93647db51",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/1R11baYXQ1FpRSYmj5dGX8",
+      "tracks": [
+        "I Found"
+      ]
+    },
+    {
+      "artist": "Boo Boo Spoiler",
+      "album": "LYSMIGKMS",
+      "track": "LYSMIGKMS",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02f3e7ec28c6485e78f36c167f",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/1eDi7Orajio7kOeWTNlWJQ",
+      "tracks": [
+        "LYSMIGKMS"
+      ]
+    },
+    {
+      "artist": "Palomino Blond",
+      "album": "Creature Natural",
+      "track": "Creature Natural",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02bfa9da151016d5eb7cefc6b4",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/2cCxkhRyUocoiN289Bo5u6",
+      "tracks": [
+        "Creature Natural"
+      ]
+    },
+    {
+      "artist": "Angel Du$t",
+      "album": "COLD 2 THE TOUCH",
+      "track": "Cold 2 The Touch",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02e1534fa975eb1ca4957aae19",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d4/11/01/d4110138-b446-fdb8-96dd-7434fed4b2d5/mzaf_6771841814240351736.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/2s9XjCnrZsdJRKzhkv3K1V",
+      "tracks": [
+        "Cold 2 The Touch"
+      ]
+    },
+    {
+      "artist": "Silversun Pickups",
+      "album": "Carnavas",
+      "track": "Lazy Eye",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0267912bc4a3d1c1b7ee2d59a7",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/3TZXieYvqCuR40LZJbp6Ik",
+      "tracks": [
+        "Lazy Eye"
+      ]
+    },
+    {
+      "artist": "bugsy",
+      "album": "through floorboards",
+      "track": "through floorboards",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0279ee42086b69d6bfa47fc963",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/4F4fuzmpuaiiOSrBj805g6",
+      "tracks": [
+        "through floorboards"
+      ]
+    },
+    {
+      "artist": "warmbelly",
+      "album": "waiting for a tree",
+      "track": "waiting for a tree",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0241f91f053d2b4f5f823fb25b",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/4QoFMhrLdv780K1c1OobOL",
+      "tracks": [
+        "waiting for a tree"
+      ]
+    },
+    {
+      "artist": "Five Pebbles",
+      "album": "forgetmenot",
+      "track": "down softly",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e021a6afcc3d801fede5db6154b",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/4U0mlLQLvX59sKCbR4pzP3",
+      "tracks": [
+        "down softly"
+      ]
+    },
+    {
+      "artist": "Slurve",
+      "album": "Progress",
+      "track": "Progress",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02fe89f72e7285902a36643861",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/5IoHiUHIZ2FzjJsmHWXSP2",
+      "tracks": [
+        "Progress"
+      ]
+    },
+    {
+      "artist": "Alice In Chains",
+      "album": "Facelift",
+      "track": "Bleed The Freak",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e023cf83c82a8e976d7b51e2d00",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/b6/8c/29/b68c29b7-d019-2f7d-34a8-9e525b08a2da/mzaf_11374885758052044950.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/60l2m3BD5VY0HSc3xmSpPI",
+      "tracks": [
+        "Bleed The Freak"
+      ]
+    },
+    {
+      "artist": "Neutral Milk Hotel",
+      "album": "On Avery Island",
+      "track": "Naomi",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02400275493ae9dec2b648b434",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/6ZiXzxusqBqEeW1s6ukDlA",
+      "tracks": [
+        "Naomi"
+      ]
+    },
+    {
+      "artist": "Weezer",
+      "album": "Pinkerton",
+      "track": "Across The Sea",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02f4f9accdc0fb8ddee29e32b7",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/7JJPh9eOiSr8zYlBjcu2w0",
+      "tracks": [
+        "Across The Sea"
+      ]
+    },
+    {
+      "artist": "OsamaSon",
+      "album": "psykotic",
+      "track": "Addicted",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0241d8c624c257ffccbca8c3ad",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/7iZqma5DV0h12Orxlb20VU",
+      "tracks": [
+        "Addicted"
+      ]
+    },
+    {
+      "artist": "Yeat",
+      "album": "Up 2 Më",
+      "track": "Lying 4 fun",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02fb6da6fd52ffda0dba216b66",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/4VhHzTRapoR0Y1e9QKEijz",
+      "tracks": [
+        "Lying 4 fun",
+        "Gët Busy",
+        "Turban",
+        "Swërved It",
+        "Trëndy way (feat. SeptembersRich)",
+        "Rokstar"
+      ]
+    },
+    {
+      "artist": "Total Wife",
+      "album": "0",
+      "track": "nvrs",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0228448c50c20f008be18b48a3",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/0Km1W2D5DbjFXzc8W8PAED",
+      "tracks": [
+        "nvrs"
+      ]
+    },
+    {
+      "artist": "Total Wife, Baby Wave",
+      "album": "still life",
+      "track": "still life",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e025029444380cd7018df93a527",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/0k5queCEXsVUNSszcvrA9j",
+      "tracks": [
+        "still life",
+        "tap out"
+      ]
+    },
+    {
+      "artist": "Total Wife",
+      "album": "in/out",
+      "track": "rest",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e021b1a3ed4ea9595af306beeb5",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/5viE27qyFYTjWT2lL1mseJ",
+      "tracks": [
+        "rest"
+      ]
+    },
+    {
+      "artist": "2slimey",
+      "album": "More Anxiety",
+      "track": "Dirty Bitch",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e026764dd60b9aba203c2bd6a03",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/0BlJlOcsltz8FpqwGoHSq5",
+      "tracks": [
+        "Dirty Bitch"
+      ]
+    },
+    {
+      "artist": "Frankie Cosmos",
+      "album": "Zentropy",
+      "track": "Sad 2",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0208d73d51c742e1e0cf6c71c1",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/0HGhVw5sfho2uWyZN5ov3r",
+      "tracks": [
+        "Sad 2"
+      ]
+    },
+    {
+      "artist": "Bedridden",
+      "album": "Moths Strapped To Each Other's Backs",
+      "track": "Chainsaw",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02dca47710f076ce1e4abbcea8",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/0sbIAf97gUjvP0P6CnM7fE",
+      "tracks": [
+        "Chainsaw",
+        "Etch"
+      ]
+    },
+    {
+      "artist": "Dead Sullivan",
+      "album": "Best Friend",
+      "track": "I Don't Think They'd Understand",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02652a68c638838dd07c886b19",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/1RKdHEL610IvBJsjFuO3DN",
+      "tracks": [
+        "I Don't Think They'd Understand"
+      ]
+    },
+    {
+      "artist": "Total Wife",
+      "album": "a blip",
+      "track": "Here",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02cbcecce5d4068a7f65aa298d",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/1UbKrQSHCyKrTzJdQSZKad",
+      "tracks": [
+        "Here"
+      ]
+    },
+    {
+      "artist": "Guitar",
+      "album": "We're Headed To The Lake",
+      "track": "Every Day Without Fail",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02185324fdf3890de659efd475",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/1ifoquoDyxdnXTgoo7zoA4",
+      "tracks": [
+        "Every Day Without Fail"
+      ]
+    },
+    {
+      "artist": "Priests",
+      "album": "Nothing Feels Natural",
+      "track": "JJ",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e027db5b18ea2eb56f77a998c75",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/1orez4wPUf42d2jtvUpm0b",
+      "tracks": [
+        "JJ"
+      ]
+    },
+    {
+      "artist": "Dead Sullivan",
+      "album": "Reason",
+      "track": "Asif",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02c9a376d775a6d87e6e5dce07",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/22DOnWTrRMXdRgLkzLVsdt",
+      "tracks": [
+        "Asif"
+      ]
+    },
+    {
+      "artist": "Alex G",
+      "album": "House of Sugar",
+      "track": "Gretel",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02be5fb0d9169e28ac819cee1d",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/36zqSzaPzQWZYDCNm1klgY",
+      "tracks": [
+        "Gretel"
+      ]
+    },
+    {
+      "artist": "Cashier",
+      "album": "The Weight",
+      "track": "The Weight",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e021b8ce0da762af85cce704772",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/37auVkMndiZtMGrMc1xKJA",
+      "tracks": [
+        "The Weight"
+      ]
+    },
+    {
+      "artist": "0 Miles Per Hour",
+      "album": "Shell",
+      "track": "Losing Streak",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02631923f9d849c15846abfdd2",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/3FqH2jmGhx3o0ILYrpzCHh",
+      "tracks": [
+        "Losing Streak"
+      ]
+    },
+    {
+      "artist": "Cosmoline",
+      "album": "Contraband",
+      "track": "Aphasia",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02271e2f0c8197c367d68a90ab",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/3Lf3eYCAa1YTqjJzXhcfTs",
+      "tracks": [
+        "Aphasia"
+      ]
+    },
+    {
+      "artist": "Walking Blue",
+      "album": "Something Cosmic",
+      "track": "Stardust Spin Kick",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02e5c5bf5cb6623ab4a809bfc7",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/3TMGXdu9xGtsC9QWzZaf4x",
+      "tracks": [
+        "Stardust Spin Kick"
+      ]
+    },
+    {
+      "artist": "Tame Impala",
+      "album": "Currents",
+      "track": "New Person, Same Old Mistakes",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e029e1cfc756886ac782e363d79",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/52ojopYMUzeNcudsoz7O9D",
+      "tracks": [
+        "New Person, Same Old Mistakes"
+      ]
+    },
+    {
+      "artist": "A Good Year, Horse Vision",
+      "album": "Play",
+      "track": "YSL",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0241bd3860669e4eb0dce76032",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/5MuxHXUzhyetk9UaAvWtSJ",
+      "tracks": [
+        "YSL"
+      ]
+    },
+    {
+      "artist": "shower curtain",
+      "album": "words from a wishing well",
+      "track": "bedbugs",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02a1491a586be67c88f71736d6",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/5SP2QlItl7CyoNdxjKDEbn",
+      "tracks": [
+        "bedbugs"
+      ]
+    },
+    {
       "artist": "feeble little horse",
       "album": "bitknot",
       "track": "Doorway",
@@ -950,874 +1860,6 @@
         "Shopping",
         "Paris",
         "DMT"
-      ]
-    },
-    {
-      "artist": "concealer.",
-      "album": "This Room Could Be Heaven.",
-      "track": "Color Slowly Fading",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02e0c4e4537a283a6e2742d264",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/aa/40/c2/aa40c28b-6548-1fbb-d083-545d172d8973/mzaf_2407849345496985814.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/342hKxP5tTHRXWs20vWhQE",
-      "tracks": [
-        "Color Slowly Fading",
-        "Vanity, a Fractured Promise",
-        "Claymore"
-      ]
-    },
-    {
-      "artist": "Vein.fm",
-      "album": "Errorzone",
-      "track": "Virus://Vibrance",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02af89ca043be8fd7637b54df5",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/93/27/fa/9327fac2-c3c2-a583-3eb4-be3442d8f006/mzaf_1431030540639101997.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/3qy1GkfO8gJveL1RN7PVSf",
-      "tracks": [
-        "Virus://Vibrance"
-      ]
-    },
-    {
-      "artist": "A Good Year, Horse Vision",
-      "album": "Play",
-      "track": "YSL",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0241bd3860669e4eb0dce76032",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/7c/4f/e4/7c4fe44d-b168-c334-b032-0b86a0c6da15/mzaf_3007358753675916160.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/5MuxHXUzhyetk9UaAvWtSJ",
-      "tracks": [
-        "YSL"
-      ]
-    },
-    {
-      "artist": "Lip Critic",
-      "album": "Theft World",
-      "track": "Two Lucks",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e022dd01abb077567509f00a39c",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/78/5e/fc/785efc4b-f9c6-590d-7aad-0ceb515d0286/mzaf_3085568195212804967.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/5W7hOwxnNoyzpLO0avKy7B",
-      "tracks": [
-        "Two Lucks"
-      ]
-    },
-    {
-      "artist": "Yeat",
-      "album": "Up 2 Më",
-      "track": "Turban",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0237e87168ba4bc06413a2fc27",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/5a/78/72/5a787209-546f-3377-7931-73e43b8be6d6/mzaf_9628506615550668063.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/6Rxs3rW1SNNBZRrRckwU81",
-      "tracks": [
-        "Turban",
-        "Lying 4 fun",
-        "Cmon",
-        "Gët Busy",
-        "Swërved It",
-        "Trëndy way (feat. SeptembersRich)",
-        "Rokstar"
-      ]
-    },
-    {
-      "artist": "bill.",
-      "album": "WIMMER",
-      "track": "Franku",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e024194167b84dee82543b5dda1",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e5/38/ed/e538ed32-d91a-e5df-4ae4-c325a445490b/mzaf_8303129247399692831.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/6cC63S7fXgKfqOWmEi2fPQ",
-      "tracks": [
-        "Franku"
-      ]
-    },
-    {
-      "artist": "0 Miles Per Hour",
-      "album": "Bite It Off",
-      "track": "Bite It Off",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02a16b2718382b26bcbaf47f5a",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/da/41/e6/da41e69e-345d-d80c-caba-43392240a8e9/mzaf_5714480910628652737.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/7sfBvf1OKYrOEfNwW75P1g",
-      "tracks": [
-        "Bite It Off"
-      ]
-    },
-    {
-      "artist": "Flowers For Emily",
-      "album": "Elijay",
-      "track": "Recover",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0206b3ccdc0d5d016e4dad9d2a",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c1/8b/87/c18b87a6-e5dd-fdef-7a58-4a8fba89eabe/mzaf_17761276100223721513.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/6Gqt9BoifW6XPTmrtm4hhV",
-      "tracks": [
-        "Recover",
-        "Reversal",
-        "Dissonance",
-        "+44",
-        "Calendar",
-        "a wild sheep chase",
-        "Everyday",
-        "Elijay, GA",
-        "Taking"
-      ]
-    },
-    {
-      "artist": "Ecco2k, Thaiboy Digital, Bladee",
-      "album": "Trash Island",
-      "track": "Western Union",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0289fc8b71ce74de508e3109af",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/1zX178V8sWozr96MrfmRun",
-      "tracks": [
-        "Western Union"
-      ]
-    },
-    {
-      "artist": "A Country Western",
-      "album": "Blood Eagle",
-      "track": "Blood Eagle",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02baa9fa235480aec09a1b0b8e",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/bd/67/4e/bd674eaa-9063-e4fc-1335-0897685adae6/mzaf_14601930671529749715.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/7rTgGCxL3pC30l1AqHacC2",
-      "tracks": [
-        "Blood Eagle"
-      ]
-    },
-    {
-      "artist": "Kade McAlli, Yeat",
-      "album": "Steppin Out!",
-      "track": "Steppin Out!",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0214a41fd8732e27c54c7fb2e8",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/0hVrKuEI52VsMPhKf8JFl7",
-      "tracks": [
-        "Steppin Out!"
-      ]
-    },
-    {
-      "artist": "watts",
-      "album": "Retribution",
-      "track": "Death and War",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02bfa31b0ac7f416a45b3d3feb",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview113/v4/bf/33/3b/bf333ba9-3032-8d19-991e-4d940daf34d7/mzaf_15132201895164621552.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/71qLCPXTEx9AWumNd76RnA",
-      "tracks": [
-        "Death and War"
-      ]
-    },
-    {
-      "artist": "Alex G",
-      "album": "Teenage Sex and Death at Camp Miasma (Original Motion Picture Score)",
-      "track": "Your Agent - Art Studio",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e027094e72166970cb59799ab02",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/1C0yhGFiE9tQj9wCIHGG6L",
-      "tracks": [
-        "Your Agent - Art Studio",
-        "Welcome to Camp",
-        "Meeting Billy",
-        "Sex Talk",
-        "Lake Descent",
-        "DVD Rack"
-      ]
-    },
-    {
-      "artist": "Ken Carson",
-      "album": "More Chaos",
-      "track": "LiveLeak",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0253b16cd45ce027fc7b65f9e8",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/7aURTqVzpZxkJfboCvGc69",
-      "tracks": [
-        "LiveLeak"
-      ]
-    },
-    {
-      "artist": "PIXY, North West",
-      "album": "LEGACY (feat. North West)",
-      "track": "LEGACY (feat. North West)",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0244050f1cd3029a22de0c3933",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/7a/db/cd/7adbcd86-eb9b-65d7-3e10-05c1940fae4a/mzaf_4241643417715717298.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/110lZovwhbPK1THyMIKQMY",
-      "tracks": [
-        "LEGACY (feat. North West)"
-      ]
-    },
-    {
-      "artist": "Horse Vision",
-      "album": "Another Life",
-      "track": "11",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02626910f846af7c277e209e72",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/0c/8f/a7/0c8fa7db-b499-c5a7-f510-9f280f65751f/mzaf_13825141516599112308.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/0JZ1N3dBa5WHksh5PbPeum",
-      "tracks": [
-        "11",
-        "My Man",
-        "Toxoplasma",
-        "How Are We",
-        "Partly Get By",
-        "Segundi Garinasso",
-        "Chemicals",
-        "Donkey Horse",
-        "Dreams Are Fragile",
-        "Animal",
-        "Snow Angel",
-        "Another Life",
-        "Overexposure"
-      ]
-    },
-    {
-      "artist": "Cap'n Jazz",
-      "album": "Analphabetapolothology",
-      "track": "Little League",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e021042c88a974fed41972c0f77",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/02/76/62/0276626f-137b-7e56-b98d-e4044dc49727/mzaf_4317169444791182526.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/1783hGvOoFRkxtW8QxjGWS",
-      "tracks": [
-        "Little League",
-        "Oh Messy Life"
-      ]
-    },
-    {
-      "artist": "Wednesday, Audiotree",
-      "album": "Wednesday on Audiotree Live",
-      "track": "Twin Plagues - Audiotree Live Version",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02657a406fbed3889f5248b76f",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/3f/c2/16/3fc216f6-1bbb-756f-5535-0afd6ca9a229/mzaf_8888586669804084204.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/1HQ7CuKTQdXg3XxLjrbICN",
-      "tracks": [
-        "Twin Plagues - Audiotree Live Version",
-        "Billboard - Audiotree Live Version"
-      ]
-    },
-    {
-      "artist": "thredd, Horse Vision",
-      "album": "It's Lovely, Come On In REWORKS",
-      "track": "Horseshow - Horse Vision REWORK",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0246a58debdd68571419c4f6e6",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/23/e0/3e/23e03e13-4e4d-b849-6388-ff2d1bb33b07/mzaf_12114648173824177298.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/2PSXYxrJzGut4gbAkXtOgD",
-      "tracks": [
-        "Horseshow - Horse Vision REWORK"
-      ]
-    },
-    {
-      "artist": "novely",
-      "album": "gaps in the fence...i can see through",
-      "track": "a mirror is the saddest painting",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02e2c173aa637997e6f4c43e50",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/17/3a/95/173a951e-0821-4d34-68d1-1d49920615fd/mzaf_5380859538864727766.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/2mLw9aQ14oJXlVJEAhmN3g",
-      "tracks": [
-        "a mirror is the saddest painting"
-      ]
-    },
-    {
-      "artist": "Yeat",
-      "album": "2 Alivë",
-      "track": "On tha linë",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02ce4e6757336a09f7e7ead6ef",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/30/3f/68/303f681b-c393-c982-f5be-b3acb63321f8/mzaf_9937397578145869525.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/37nYSBS0MfRCm913QwCCYo",
-      "tracks": [
-        "On tha linë",
-        "Poppin",
-        "Taliban",
-        "Nvr again",
-        "Luh gëek",
-        "Rëal six",
-        "Jus bëtter",
-        "Outsidë (feat. Young Thug)"
-      ]
-    },
-    {
-      "artist": "Walking Blue",
-      "album": "Something Cosmic",
-      "track": "Stardust Spin Kick",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02e5c5bf5cb6623ab4a809bfc7",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/3TMGXdu9xGtsC9QWzZaf4x",
-      "tracks": [
-        "Stardust Spin Kick"
-      ]
-    },
-    {
-      "artist": "Bladee, Thaiboy Digital",
-      "album": "Icedancer",
-      "track": "Side by Side",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e027e041a457bd312e73440532a",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/69/54/b0/6954b078-4f83-023b-3d34-85a1810510e5/mzaf_186738161856970990.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/4f4q4xqoQEx6E0IyrNLkYS",
-      "tracks": [
-        "Side by Side",
-        "Be Nice 2 Me"
-      ]
-    },
-    {
-      "artist": "Horse Vision",
-      "album": "Back Of My Hand",
-      "track": "Back Of My Hand",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02b5885345a5a850fb02a01c17",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/8e/8d/a9/8e8da9c8-bbc5-3c53-5349-1b31db38e8fa/mzaf_10731235249746957687.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/5DBpe50clTbGYnJZCIbUVG",
-      "tracks": [
-        "Back Of My Hand"
-      ]
-    },
-    {
-      "artist": "Urge Overkill",
-      "album": "Saturation",
-      "track": "Sister Havana",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e020d497cb40b54b08f7262c435",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/6E8hhcSnvtevktpFSnHmjK",
-      "tracks": [
-        "Sister Havana"
-      ]
-    },
-    {
-      "artist": "Weatherday",
-      "album": "Hornet Disaster",
-      "track": "Angel",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02cfaf0d97c7414f80c27ccb9c",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b3/f5/ee/b3f5ee1a-7485-6d79-c81f-98e99b7b54e2/mzaf_906713332961717107.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/2RTlcEKqNPoJmLExbKMmqz",
-      "tracks": [
-        "Angel",
-        "Hornet Disaster"
-      ]
-    },
-    {
-      "artist": "Weatherday",
-      "album": "Come In",
-      "track": "Mio, Min Mio",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02a01a2f1fd91094fca2757927",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/50rqbBHROa6zDSWBMfzKCs",
-      "tracks": [
-        "Mio, Min Mio",
-        "Come In"
-      ]
-    },
-    {
-      "artist": "Bladee, Ecco2k",
-      "album": "Red Light",
-      "track": "Obedient",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02bc3f2817c8ae462c79fa924c",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/5adW1n6jrFcc4sRAtFeQVX",
-      "tracks": [
-        "Obedient"
-      ]
-    },
-    {
-      "artist": "Yeat",
-      "album": "2 Alivë (Geëk Pack)",
-      "track": "Dub",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0269544e798a3f04492041005d",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/2Ocbja3GNcxq9Ualmmvfc1",
-      "tracks": [
-        "Dub",
-        "Poppin",
-        "On tha linë",
-        "Nvr again"
-      ]
-    },
-    {
-      "artist": "dadbug",
-      "album": "Play Pretend",
-      "track": "Play Pretend",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e027091fe1aea23fc835f933c2b",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/0DECRwq85dOcj2pVPqfcXX",
-      "tracks": [
-        "Play Pretend"
-      ]
-    },
-    {
-      "artist": "Magdalena Bay",
-      "album": "A Little Rhythm and a Wicked Feeling",
-      "track": "Killshot",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02ae69f02d74849157de206294",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/0LJTfmgOMvlLd0u4HU9twm",
-      "tracks": [
-        "Killshot"
-      ]
-    },
-    {
-      "artist": "Mineral",
-      "album": "The Power Of Failing",
-      "track": "Gloria",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02f7fbbce048a7720d73f19057",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/3f/87/0e/3f870e6c-99d2-b75e-e206-e8aaaef0bf74/mzaf_16252046086749318449.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/0MsO7BppTUwGdMbzyIntz0",
-      "tracks": [
-        "Gloria"
-      ]
-    },
-    {
-      "artist": "Turnstile, Porches",
-      "album": "NEVER ENOUGH: VERSIONS",
-      "track": "NEVER ENOUGH: PORCHES VERSION",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02038299eec9d8e7fbf379214f",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/0jKddrlPSO6I7UXO4lTJt5",
-      "tracks": [
-        "NEVER ENOUGH: PORCHES VERSION",
-        "SUNSHOWER: ANGEL DU$T VERSION"
-      ]
-    },
-    {
-      "artist": "James Ivy",
-      "album": "The Seams",
-      "track": "Morphine",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0245e2eb0e4155837dc8a2751c",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/0tQ11M1wiEvUdpsvm7PrUe",
-      "tracks": [
-        "Morphine"
-      ]
-    },
-    {
-      "artist": "Anna McClellan",
-      "album": "Yes and No",
-      "track": "Flailing Orbits",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02a37a4773dee6e1f53c5108c5",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/0vfulFXh1kxIehZuCgaYjB",
-      "tracks": [
-        "Flailing Orbits"
-      ]
-    },
-    {
-      "artist": "Bedridden",
-      "album": "Moths Strapped To Each Other's Backs",
-      "track": "Etch",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02dca47710f076ce1e4abbcea8",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/98/50/5c/98505c0c-f05e-e9cd-e8b2-4fd820d822f3/mzaf_6727747421680807110.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/14nPGoIS6extztZ5lLx2fk",
-      "tracks": [
-        "Etch"
-      ]
-    },
-    {
-      "artist": "ROSALÍA",
-      "album": "El Mal Querer",
-      "track": "MALAMENTE - Cap.1: Augurio",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02b115d8632e69edce1a1da7d8",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/1B0BQaSRHxhI0AUlItY3LK",
-      "tracks": [
-        "MALAMENTE - Cap.1: Augurio"
-      ]
-    },
-    {
-      "artist": "Alex G",
-      "album": "DSU",
-      "track": "Serpent Is Lord",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02010f9ec0935571f6760f4405",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/1JZydhssgEIE0fE0UJKKuL",
-      "tracks": [
-        "Serpent Is Lord"
-      ]
-    },
-    {
-      "artist": "ceilings",
-      "album": "a violent display of affection",
-      "track": "a violent display of affection",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e026cde16c628594ec9a88a2239",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/1MFc1HAAIxN6mnklVORLl1",
-      "tracks": [
-        "a violent display of affection"
-      ]
-    },
-    {
-      "artist": "Flooding",
-      "album": "Flooding",
-      "track": "Delayed Gratification",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02a5836d3085ed9d0e4f355e8b",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/25/c5/5e/25c55e69-846f-80d1-2578-6da131352bb8/mzaf_2883618812784669589.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/1ViYbQX1ubJ97EyAkSW033",
-      "tracks": [
-        "Delayed Gratification"
-      ]
-    },
-    {
-      "artist": "velora",
-      "album": "Floating",
-      "track": "Floating",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0226ad3f961f50bb85c17a660a",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/1kdW79sLSc3gNXmoaCJGG5",
-      "tracks": [
-        "Floating"
-      ]
-    },
-    {
-      "artist": "Anna McClellan",
-      "album": "Space, you big cloud",
-      "track": "Hot Water",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e023f0b7915f8094860ea2be34b",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/1ofKoQtneoORBshcCVKeSv",
-      "tracks": [
-        "Hot Water",
-        "Twirl",
-        "Restless",
-        "Gemini"
-      ]
-    },
-    {
-      "artist": "Horse Vision",
-      "album": "You Could Have It",
-      "track": "You Could Have It",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0202788cf0203fc29e221b4874",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/2ndh30vZhrfL0Zpq8wRbvl",
-      "tracks": [
-        "You Could Have It"
-      ]
-    },
-    {
-      "artist": "Cro-Mags",
-      "album": "Before The Quarrel",
-      "track": "Hard Times",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02d5d6eb585292ad59edde6757",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ae/26/34/ae26345a-1b9c-0549-44c5-d2c63fc8078c/mzaf_11472027873744119110.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/2o3v9646q5cqBv5mdYXAYR",
-      "tracks": [
-        "Hard Times"
-      ]
-    },
-    {
-      "artist": "Nine Vicious",
-      "album": "SEDITION",
-      "track": "Anytime",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0252c35cc61b98a5f99391ac34",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/34SrvpZcl0aBIYcJeM44CD",
-      "tracks": [
-        "Anytime"
-      ]
-    },
-    {
-      "artist": "0 Miles Per Hour",
-      "album": "Shell",
-      "track": "Losing Streak",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02631923f9d849c15846abfdd2",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/3FqH2jmGhx3o0ILYrpzCHh",
-      "tracks": [
-        "Losing Streak"
-      ]
-    },
-    {
-      "artist": "Scrapbooking",
-      "album": "Ambival3nce",
-      "track": "Ambival3nce",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0241f6a351e92abb1bc40a80f7",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/3NcjvIQkGOCbTCPa69mJty",
-      "tracks": [
-        "Ambival3nce"
-      ]
-    },
-    {
-      "artist": "Alex G",
-      "album": "Trick",
-      "track": "Forever",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02967a4c16d8a54f634979cceb",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/3suf1WpGLuPpq2DXkkmyK5",
-      "tracks": [
-        "Forever"
-      ]
-    },
-    {
-      "artist": "ASkySoBlack",
-      "album": "Touch Heaven",
-      "track": "On For No One",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e022209e7026959c1d3d92ad288",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/41Ck2JXffjhfP8XwZoyza2",
-      "tracks": [
-        "On For No One"
-      ]
-    },
-    {
-      "artist": "Turnstile",
-      "album": "Nonstop Feeling",
-      "track": "Gravity",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0217bafa76e1da26c7167e5192",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/47BhgqJy3oRTGzjNTgf3hq",
-      "tracks": [
-        "Gravity"
-      ]
-    },
-    {
-      "artist": "Wednesday",
-      "album": "Bleeds",
-      "track": "Reality TV Argument Bleeds",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0279cc56467c944a260be5c2a9",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/50RLmAQv8YOGDi5iexOjH3",
-      "tracks": [
-        "Reality TV Argument Bleeds"
-      ]
-    },
-    {
-      "artist": "Alex G",
-      "album": "Teenage Sex and Death at Camp Miasma (Soundtrack Score Selections)",
-      "track": "Dipping",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e025b7bf6dd91a34d2fe55a679c",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/5I4gqacnigFYOW3iukAhtX",
-      "tracks": [
-        "Dipping"
-      ]
-    },
-    {
-      "artist": "couples therapy, Snail Trails",
-      "album": "Split with Snail Trails",
-      "track": "These stains are permanent",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02da1dd806f10a997a071b04c1",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/68/e6/a5/68e6a547-1968-94ee-e0ea-359934208b99/mzaf_13187630183072832077.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/5RKVEddNncsNFdi6Q9Z5e1",
-      "tracks": [
-        "These stains are permanent"
-      ]
-    },
-    {
-      "artist": "GASKET",
-      "album": "GASKET",
-      "track": "BLOOD TO BONE",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02a0ed1742dfe70576f780af4a",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/5aZn0ivVvgvuahcCi95DCQ",
-      "tracks": [
-        "BLOOD TO BONE"
-      ]
-    },
-    {
-      "artist": "Horse Vision",
-      "album": "Satellite",
-      "track": "Tracker",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e024971af33a37bf6c90daed1fd",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/5c753oc9dImpj2llpbiSJ6",
-      "tracks": [
-        "Tracker"
-      ]
-    },
-    {
-      "artist": "Modest Mouse",
-      "album": "Sad Sappy Sucker",
-      "track": "Mice Eat Cheese",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02f70395784775be1d949a1808",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/5ixu6blEg718Jy1D4V1Cf6",
-      "tracks": [
-        "Mice Eat Cheese"
-      ]
-    },
-    {
-      "artist": "Toner",
-      "album": "Silk Road",
-      "track": "'95 Slow",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02b0d069095f62d33c3922087d",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/1f/0c/28/1f0c28da-5ba4-2d14-6aa1-e43192673d4f/mzaf_11737052307371002259.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/5mvv5bI8M2uteYiaKeXa8p",
-      "tracks": [
-        "'95 Slow"
-      ]
-    },
-    {
-      "artist": "DENISE",
-      "album": "You Coward",
-      "track": "Actor",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02b75f1348eb3897c8b863cc2c",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/66sZozEe998ng28ZnNN6KW",
-      "tracks": [
-        "Actor"
-      ]
-    },
-    {
-      "artist": "Earl Sweatshirt, SURF GANG",
-      "album": "POMPEII // UTILITY",
-      "track": "Chicago",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e022da17f0e1d1ff1a6e9ccc424",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/6K2ABKfB7I8aops2Bpg5Cf",
-      "tracks": [
-        "Chicago",
-        "Leadbelly - feat. MIKE"
-      ]
-    },
-    {
-      "artist": "0 Miles Per Hour",
-      "album": "Drown",
-      "track": "Drown",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02e57a3622fe03f17d0332b17f",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/6m36OaY6HmcBY66hDqiLJ4",
-      "tracks": [
-        "Drown"
-      ]
-    },
-    {
-      "artist": "xaviersobased",
-      "album": "Struggle Gang",
-      "track": "Struggle Gang",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02f41b39b955b9c6cdff35d9b8",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/6t0h7q8YiU0hTQce4kGp59",
-      "tracks": [
-        "Struggle Gang"
-      ]
-    },
-    {
-      "artist": "Double Knee",
-      "album": "Repetition in Nature",
-      "track": "Repetition in Nature",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e029e464fd5a3c50766f0be9703",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/789Ky0eiaHGBGGybTIBMNC",
-      "tracks": [
-        "Repetition in Nature"
-      ]
-    },
-    {
-      "artist": "Grumpy",
-      "album": "OBL",
-      "track": "OBL",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02360adad4321aef4f76d09e5a",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/7AzkPpumtKrbTwYjzFftkd",
-      "tracks": [
-        "OBL"
-      ]
-    },
-    {
-      "artist": "Horse Vision",
-      "album": "Watching Over Me",
-      "track": "Watching Over Me",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e023ca638587029323c81ae108f",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/7C3gStt8d7SxtB28gxrM06",
-      "tracks": [
-        "Watching Over Me"
-      ]
-    },
-    {
-      "artist": "This Is Lorelei",
-      "album": "The Singer in My Band",
-      "track": "Oh No Now My",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02c456875e0df6d8195f4b5545",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/7DE2CbAoVkxoUUSJin8si1",
-      "tracks": [
-        "Oh No Now My",
-        "The Kid With the Crown"
-      ]
-    },
-    {
-      "artist": "Better Than This",
-      "album": "Cherry Coke",
-      "track": "Cherry Coke",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02b42d17a0389e6f83cb8a99ef",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/7HnMIrTT5w8gXJpeZcSg4K",
-      "tracks": [
-        "Cherry Coke"
-      ]
-    },
-    {
-      "artist": "Eiafuawn",
-      "album": "Birds In The Ground",
-      "track": "No More Like That",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0293c6439f9d26072c89f1be9c",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/7K3mac0IqCjLGmbZ47jOf9",
-      "tracks": [
-        "No More Like That"
-      ]
-    },
-    {
-      "artist": "Cro-Mags",
-      "album": "The Age of Quarrel",
-      "track": "We Gotta Know",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0225601037f697aff97709d2f1",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/7l2DMJS7sdl5na5yDKrm1x",
-      "tracks": [
-        "We Gotta Know"
-      ]
-    },
-    {
-      "artist": "LSD and the Search for God",
-      "album": "LSD and the Search for God",
-      "track": "This Time",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0261ecf8381a87d2a19246d5ef",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/7oETDTto5PYdqmQvEZi2i4",
-      "tracks": [
-        "This Time"
-      ]
-    },
-    {
-      "artist": "Back Off Cupids",
-      "album": "Back Off Cupids",
-      "track": "Meek Inherits Space",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02e2eae79ad3effea7aa0748c7",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/7rfzqUDmWrd6xn7Xuz9gu3",
-      "tracks": [
-        "Meek Inherits Space"
-      ]
-    },
-    {
-      "artist": "Duwap Kaine",
-      "album": "Disagree",
-      "track": "Disagree",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e025a8208c6042ab8fa2528ae89",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/0j1oCSyf33qqdmQ49Iro7r",
-      "tracks": [
-        "Disagree"
-      ]
-    },
-    {
-      "artist": "TTSSFU, SILVERWINGKILLER",
-      "album": "Blown Again",
-      "track": "Call U Back - SILVERWINGKILLER Remix",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0266fe5e523e5e5278c2aebb87",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/06ZkaayIBdZNBPZW7kXGkO",
-      "tracks": [
-        "Call U Back - SILVERWINGKILLER Remix"
-      ]
-    },
-    {
-      "artist": "Bladee",
-      "album": "Eversince",
-      "track": "Lovenote",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0270f48da229c61cd6a1af4d60",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/0Gsv7WTAx0i8nkR9Kpnhqj",
-      "tracks": [
-        "Lovenote"
-      ]
-    },
-    {
-      "artist": "Bright Eyes",
-      "album": "I'm Wide Awake, It's Morning",
-      "track": "First Day of My Life",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e028eded59eb143ee6000a77c62",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/0eBryM7ePQH3Klt3jz8xZd",
-      "tracks": [
-        "First Day of My Life"
       ]
     },
     {
@@ -1852,20 +1894,42 @@
       "url": "https://open.spotify.com/track/36JQQxmWRgFsr9pRL0jHuC",
       "tracks": [
         "Durins Bane",
-        "Highland Tyrant",
-        "Dolor",
-        "Stoner"
+        "Highland Tyrant"
       ]
     },
     {
-      "artist": "Weezer, Wednesday",
-      "album": "Weezer",
-      "track": "We Might as Well Be Strangers (ft. Wednesday)",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02bab93e255f1e165f062503b9",
+      "artist": "partner",
+      "album": "Digging",
+      "track": "Digging",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e027d3f57bb790ac36f0ac205c5",
       "previewUrl": null,
-      "url": "https://open.spotify.com/track/4O0KzEvuPxIT0iom2QOdPO",
+      "url": "https://open.spotify.com/track/2HVDnly7Yzlvdh8c34oaFK",
       "tracks": [
-        "We Might as Well Be Strangers (ft. Wednesday)"
+        "Digging"
+      ]
+    },
+    {
+      "artist": "Anna McClellan",
+      "album": "Space, you big cloud",
+      "track": "Twirl",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e023f0b7915f8094860ea2be34b",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/02g8gAfj3xVcKz3QpuE3uL",
+      "tracks": [
+        "Twirl",
+        "Hot Water",
+        "Restless"
+      ]
+    },
+    {
+      "artist": "sallywants",
+      "album": "spin",
+      "track": "spin",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02c0753eb8eec38c8ce6137e03",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/0VV5qw8aRLPwudmgDfjRok",
+      "tracks": [
+        "spin"
       ]
     },
     {
@@ -1879,38 +1943,25 @@
         "Huckleberry",
         "Negotiating the Charade",
         "Broken Records",
-        "Hipsterectomy",
-        "Changing Lanes"
+        "Hipsterectomy"
       ]
     },
     {
-      "artist": "Charli xcx",
-      "album": "Music, Fashion, Film",
-      "track": "SS26",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02238e2ff91714a8db91b8a64d",
+      "artist": "soap box derby",
+      "album": "anniversary",
+      "track": "anniversary",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02b581953cd7b1c9f456f8958a",
       "previewUrl": null,
-      "url": "https://open.spotify.com/track/0g8FizeHVo2cG7qxBfmckf",
+      "url": "https://open.spotify.com/track/5H0qzWcgVlD8dQzd6Q3uGB",
       "tracks": [
-        "SS26",
-        "Rock Music"
-      ]
-    },
-    {
-      "artist": "Flowers For Emily",
-      "album": "Sitting Confused",
-      "track": "Sitting Confused",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e028b9da079fc7754b89f66718c",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/0dwcnVpM3DbSWlW11P8wzG",
-      "tracks": [
-        "Sitting Confused"
+        "anniversary"
       ]
     },
     {
       "artist": "They Are Gutting a Body of Water, Horse Jumper of Love",
       "album": "charter spec",
       "track": "charter spec",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02152aadc32e3ead07f0b49113",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e029e935b692c537fd968d77d22",
       "previewUrl": null,
       "url": "https://open.spotify.com/track/5sJVINhLvFgmiL2RLWggDS",
       "tracks": [
@@ -1918,14 +1969,47 @@
       ]
     },
     {
-      "artist": "Nine Vicious",
-      "album": "EMOTIONS",
-      "track": "Talk About It",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e029382b279fa552e0fae460a85",
+      "artist": "Anna McClellan",
+      "album": "Yes and No",
+      "track": "Flailing Orbits",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02a37a4773dee6e1f53c5108c5",
       "previewUrl": null,
-      "url": "https://open.spotify.com/track/655xaThetgIXE8mSupvVpP",
+      "url": "https://open.spotify.com/track/0vfulFXh1kxIehZuCgaYjB",
       "tracks": [
-        "Talk About It"
+        "Flailing Orbits"
+      ]
+    },
+    {
+      "artist": "Alex G",
+      "album": "Trick",
+      "track": "Forever",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02967a4c16d8a54f634979cceb",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/3suf1WpGLuPpq2DXkkmyK5",
+      "tracks": [
+        "Forever"
+      ]
+    },
+    {
+      "artist": "Wednesday",
+      "album": "Bleeds",
+      "track": "Reality TV Argument Bleeds",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0279cc56467c944a260be5c2a9",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/50RLmAQv8YOGDi5iexOjH3",
+      "tracks": [
+        "Reality TV Argument Bleeds"
+      ]
+    },
+    {
+      "artist": "Wednesday",
+      "album": "Twin Plagues",
+      "track": "Twin Plagues",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02e2adbcd227b4e6eea8923b71",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/5OeHMVPyqAyfAkeZm9MwSI",
+      "tracks": [
+        "Twin Plagues"
       ]
     },
     {
@@ -1974,25 +2058,14 @@
       ]
     },
     {
-      "artist": "prettifun",
-      "album": "Pretti",
-      "track": "Light",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02986fb8c23fb36f54373ca88c",
+      "artist": "sallywants",
+      "album": "illseeuthen",
+      "track": "illseeuthen",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02511160a253f5f739c78d985b",
       "previewUrl": null,
-      "url": "https://open.spotify.com/track/4MARgoyXPn4qNw9qUN6yIr",
+      "url": "https://open.spotify.com/track/2ZA04shbkBGLD3ASIpmSmW",
       "tracks": [
-        "Light"
-      ]
-    },
-    {
-      "artist": "Yeat",
-      "album": "Million Dollar Minion",
-      "track": "Million Dollar Minion",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0227629cf0bb216ecf1fe6a537",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/1jHiP5OoRNAzKx6i8qIyKg",
-      "tracks": [
-        "Million Dollar Minion"
+        "illseeuthen"
       ]
     },
     {
@@ -2007,14 +2080,25 @@
       ]
     },
     {
-      "artist": "Weezer",
-      "album": "Weezer",
-      "track": "Hash Pipe",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e021e0dc5baaabda304b0ad1815",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c8/b9/91/c8b99109-7918-35be-86ef-5f44b8c13952/mzaf_4194190756458836811.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/2mPMFJvQ0v27gVqe5b6nDn",
+      "artist": "Yeat",
+      "album": "Million Dollar Minion",
+      "track": "Million Dollar Minion",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0227629cf0bb216ecf1fe6a537",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/1jHiP5OoRNAzKx6i8qIyKg",
       "tracks": [
-        "Hash Pipe"
+        "Million Dollar Minion"
+      ]
+    },
+    {
+      "artist": "Bright Eyes",
+      "album": "Letting Off The Happiness",
+      "track": "The City Has Sex",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e024c31e8a6ae5e551495a27b90",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/0jrMDJAYxwyRcRDCVZ7OeQ",
+      "tracks": [
+        "The City Has Sex"
       ]
     },
     {
@@ -2029,39 +2113,14 @@
       ]
     },
     {
-      "artist": "MJ Lenderman",
-      "album": "Manning Fireworks",
-      "track": "Manning Fireworks",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02b18fae872e1700b83e72a15b",
+      "artist": "Eiafuawn",
+      "album": "Endless Body",
+      "track": "Take Me To My Room",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02d68a582eac818f6dd697c0b8",
       "previewUrl": null,
-      "url": "https://open.spotify.com/track/6Ge9RrMoV65nlpjQ5YJOut",
+      "url": "https://open.spotify.com/track/5Zex4ANBUaqsDkFwoPTh6v",
       "tracks": [
-        "Manning Fireworks",
-        "Wristwatch",
-        "Joker Lips"
-      ]
-    },
-    {
-      "artist": "Yeat",
-      "album": "Lyfë",
-      "track": "Up off X",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02c665c7f2be1f6d3214a93a76",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/78MPwJNNwlQMbKLbF1kxKN",
-      "tracks": [
-        "Up off X"
-      ]
-    },
-    {
-      "artist": "Her New Knife",
-      "album": "chrome is lullaby",
-      "track": "vitamin beauty",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0253e6ef0338551af3729533a1",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/492YNcJNgGdD4QxIHUmdjD",
-      "tracks": [
-        "vitamin beauty",
-        "skinny/baby"
+        "Take Me To My Room"
       ]
     },
     {
@@ -2088,6 +2147,17 @@
       ]
     },
     {
+      "artist": "Influx Weaver",
+      "album": "Influx Weaver",
+      "track": "Misery Chick",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02177c2d67e7b1bb8a0ab3bde2",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/4FEvjWW3kiwMQ65J0bPnuV",
+      "tracks": [
+        "Misery Chick"
+      ]
+    },
+    {
       "artist": "MJ Lenderman",
       "album": "And The Wind (Live and Loose!)",
       "track": "You Have Bought Yourself A Boat - Live",
@@ -2096,6 +2166,17 @@
       "url": "https://open.spotify.com/track/661FdAC9WdjuQxf1sH5PrA",
       "tracks": [
         "You Have Bought Yourself A Boat - Live"
+      ]
+    },
+    {
+      "artist": "Wednesday",
+      "album": "Bleeds (Deluxe)",
+      "track": "June 2 - Early Version",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02fd9e42d13d827726d78063a0",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/6DuR0uC5L9oqUxlHvHuu8t",
+      "tracks": [
+        "June 2 - Early Version"
       ]
     },
     {
@@ -2121,25 +2202,25 @@
       ]
     },
     {
-      "artist": "Yeat",
-      "album": "2093 (P2)",
-      "track": "Never quit",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02c6ed8fc910b1dbcf012ca658",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d2/e0/2f/d2e02f8b-b0f2-3224-04c6-92c8efe25753/mzaf_3384374692260019992.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/03KgYnNIp4EOgPT2hS93QF",
-      "tracks": [
-        "Never quit"
-      ]
-    },
-    {
       "artist": "Touché Amoré",
       "album": "...To the Beat of a Dead Horse",
       "track": "And Now It's Happening in Mine",
       "coverUrl": "https://i.scdn.co/image/ab67616d00001e02ec9ae6f4fa4670665d7dcc25",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/30/61/67/3061677a-aae5-e3b0-2bee-53bb929468eb/mzaf_5310291018093513141.plus.aac.p.m4a",
+      "previewUrl": null,
       "url": "https://open.spotify.com/track/4i2ZnG3km6mvQ3zqcsEAio",
       "tracks": [
         "And Now It's Happening in Mine"
+      ]
+    },
+    {
+      "artist": "Flowers For Emily",
+      "album": "Sitting Confused",
+      "track": "Sitting Confused",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e028b9da079fc7754b89f66718c",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/0dwcnVpM3DbSWlW11P8wzG",
+      "tracks": [
+        "Sitting Confused"
       ]
     },
     {
@@ -2147,22 +2228,32 @@
       "album": "N0rth4evr",
       "track": "H0w Sh0uld ! f33l",
       "coverUrl": "https://i.scdn.co/image/ab67616d00001e028f4bb77764360ed866ccbcd1",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/4f/60/92/4f609240-bfd0-7b2d-86b8-4caefe640a39/mzaf_8040400771889957045.plus.aac.p.m4a",
+      "previewUrl": null,
       "url": "https://open.spotify.com/track/3gsTHXu2xjshL1LoEnqkuO",
       "tracks": [
         "H0w Sh0uld ! f33l"
       ]
     },
     {
-      "artist": "Flowers For Emily",
-      "album": "commemorate",
-      "track": "looking back",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e021bc61dd3e149c926724506aa",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/24/ad/c8/24adc806-f56b-2a5f-899b-1423e6ba8e2c/mzaf_7539855882293868825.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/1CYDySEHaUnDLLAzMPwXr8",
+      "artist": "They Are Gutting a Body of Water, Cashier",
+      "album": "kool marder",
+      "track": "kool marder",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02619abbc9e2395f682bba3811",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/0dFS0AQnHgY361lfAcT1ov",
       "tracks": [
-        "looking back",
-        "running"
+        "kool marder"
+      ]
+    },
+    {
+      "artist": "Toner",
+      "album": "Cleo",
+      "track": "Cleo",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e021e883d0fd4d29898ebccd6f4",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/2GcyaxeLcrIezbiQckjf2R",
+      "tracks": [
+        "Cleo"
       ]
     },
     {
@@ -2170,58 +2261,10 @@
       "album": "Life On A Plate",
       "track": "Bullion",
       "coverUrl": "https://i.scdn.co/image/ab67616d00001e0281c71871e6b7e7abf00ba1df",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/7b/d8/fe/7bd8fe9e-b755-5fb9-c703-a43d36d6956b/mzaf_5686844742595933930.plus.aac.p.m4a",
+      "previewUrl": null,
       "url": "https://open.spotify.com/track/3gooDJFGBLgQO9OOmYeB7s",
       "tracks": [
         "Bullion"
-      ]
-    },
-    {
-      "artist": "The Offspring",
-      "album": "Ixnay On The Hombre",
-      "track": "Gone Away - 1997",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02ba12c467b8cc7eb3be9e7d8b",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/fa/66/7e/fa667e5a-371a-29f4-b2fb-f03e37ede002/mzaf_2411581295439401783.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/5BnFZLH99sYav2cxJFGO2n",
-      "tracks": [
-        "Gone Away - 1997"
-      ]
-    },
-    {
-      "artist": "xaviersobased",
-      "album": "Xavier",
-      "track": "Clorox",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02d4505be67856eb999dc173f5",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/5zZdJwV4WehO2FSF8lJPwb",
-      "tracks": [
-        "Clorox"
-      ]
-    },
-    {
-      "artist": "Wyatt Smith",
-      "album": "ever",
-      "track": "bye bye",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e026042e6661d937421e6e13be7",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/80/e6/5c/80e65c8b-ac8e-5676-99b8-dbdb0639c492/mzaf_7952152610587958839.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/7rNiMbuFkKvB6KW6stD0wb",
-      "tracks": [
-        "bye bye"
-      ]
-    },
-    {
-      "artist": "Playboi Carti",
-      "album": "Whole Lotta Red",
-      "track": "Slay3r",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0298ea0e689c91f8fea726d9bb",
-      "previewUrl": null,
-      "url": "https://open.spotify.com/track/1eMNW1HQjF1dbb4GtnmpaX",
-      "tracks": [
-        "Slay3r",
-        "Rockstar Made",
-        "Vamp Anthem",
-        "Beno!",
-        "New Tank"
       ]
     },
     {
@@ -2229,7 +2272,7 @@
       "album": "Plastic",
       "track": "Plastic",
       "coverUrl": "https://i.scdn.co/image/ab67616d00001e021063df1633cf4e9a0a3dfc06",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/10/e5/8d/10e58dd6-f429-0bc7-b9e6-8185742b1e79/mzaf_5213541003415472804.plus.aac.p.m4a",
+      "previewUrl": null,
       "url": "https://open.spotify.com/track/6AlvNpUg5OOorMWX0vK32f",
       "tracks": [
         "Plastic",
@@ -2242,27 +2285,12 @@
       "album": "Either/Or",
       "track": "Cupid's Trick",
       "coverUrl": "https://i.scdn.co/image/ab67616d00001e022f3552dc6f9e4e2748c5b8ba",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/07/38/82/073882bf-ba57-376c-b2f3-06aa2125c236/mzaf_17726376154629714746.plus.aac.p.m4a",
+      "previewUrl": null,
       "url": "https://open.spotify.com/track/02dNJoluauc40mVrZaQCs4",
       "tracks": [
         "Cupid's Trick",
         "Rose Parade",
         "2:45 AM"
-      ]
-    },
-    {
-      "artist": "julie",
-      "album": "my anti-aircraft friend",
-      "track": "tenebrist",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02e3bfd44b116471999e47a910",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ad/54/d0/ad54d09e-9da8-dab2-852e-00e46dfa665c/mzaf_12151686101549240596.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/29YiKKAyxO054LY7wlDjzu",
-      "tracks": [
-        "tenebrist",
-        "catalogue",
-        "clairbourne practice",
-        "very little effort",
-        "knob"
       ]
     },
     {
@@ -2286,11 +2314,10 @@
       "album": "Triple Seven",
       "track": "Love On The Outside",
       "coverUrl": "https://i.scdn.co/image/ab67616d00001e02eccd9aa06e85c449878031ed",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/3f/8c/ee/3f8cee22-3be9-fdc9-79b0-2286f3145567/mzaf_17865213813617624753.plus.aac.p.m4a",
+      "previewUrl": null,
       "url": "https://open.spotify.com/track/1HS1Q38mPX3iAP66gTHt6E",
       "tracks": [
-        "Love On The Outside",
-        "Sick Sweet"
+        "Love On The Outside"
       ]
     },
     {
@@ -2298,7 +2325,7 @@
       "album": "Becky",
       "track": "Becky",
       "coverUrl": "https://i.scdn.co/image/ab67616d00001e023bda00ee36a451adbeacf00c",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/17/42/d0/1742d0b0-738f-ce40-f388-8d97ebcdebfa/mzaf_15775421024071568640.plus.aac.p.m4a",
+      "previewUrl": null,
       "url": "https://open.spotify.com/track/0njG4DXbyicHW9fqIkx31Z",
       "tracks": [
         "Becky"
@@ -2308,8 +2335,8 @@
       "artist": "Yeat",
       "album": "LYFESTYLE",
       "track": "GEEK TIMË",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02439a19a2f4a1f97e9d4de1dd",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a2/73/36/a27336b7-07c8-207a-74fd-9926910f9903/mzaf_10065953245083721782.plus.aac.p.m4a",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0250332d1d23d28482b2a72cdd",
+      "previewUrl": null,
       "url": "https://open.spotify.com/track/32ioWMgkyA6mFcXJMggBoz",
       "tracks": [
         "GEEK TIMË",
@@ -2321,14 +2348,15 @@
       ]
     },
     {
-      "artist": "Yeat",
-      "album": "2093",
-      "track": "Nothing Changë",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e028280cc0742ecadd06889d164",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/e2/42/59/e2425961-2e93-e265-0b92-455a4f745a93/mzaf_8840106043493180085.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/3rLjenWhYQNFGI1xrvTHWy",
+      "artist": "julie",
+      "album": "my anti-aircraft friend",
+      "track": "tenebrist",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02e3bfd44b116471999e47a910",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/29YiKKAyxO054LY7wlDjzu",
       "tracks": [
-        "Nothing Changë"
+        "tenebrist",
+        "catalogue"
       ]
     },
     {
@@ -2347,7 +2375,7 @@
       "album": "Headlights",
       "track": "Bounce Boy",
       "coverUrl": "https://i.scdn.co/image/ab67616d00001e021be0832f80073c2f8750887c",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/66/ee/dc/66eedc42-5995-46dc-ddde-ea48d38492b8/mzaf_11017608927053505434.plus.aac.p.m4a",
+      "previewUrl": null,
       "url": "https://open.spotify.com/track/5W0rCzma0XOkGw1WJGpt4m",
       "tracks": [
         "Bounce Boy",
@@ -2357,8 +2385,29 @@
         "Oranges",
         "Spinning",
         "Is It Still You In There?",
-        "June Guitar",
-        "Beam Me Up"
+        "June Guitar"
+      ]
+    },
+    {
+      "artist": "Yeat",
+      "album": "2093",
+      "track": "Nothing Changë",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0203e3ce4b238512cfb42dbc95",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/3rLjenWhYQNFGI1xrvTHWy",
+      "tracks": [
+        "Nothing Changë"
+      ]
+    },
+    {
+      "artist": "Nine Vicious",
+      "album": "Studio Addict",
+      "track": "F&N",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02ec498907d4d654cf5dfd66cd",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/99/0e/6e/990e6ec2-5eea-8981-ecfa-c13a8f2f1724/mzaf_1550240104675421352.plus.aac.p.m4a",
+      "url": "https://open.spotify.com/track/17pS6vMrWAf4B4M7kdOYlA",
+      "tracks": [
+        "F&N"
       ]
     },
     {
@@ -2377,7 +2426,7 @@
       "album": "Already Rich",
       "track": "Already Rich",
       "coverUrl": "https://i.scdn.co/image/ab67616d00001e026841cb9bfe5838611a97e2aa",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/5c/98/d5/5c98d5c3-50ef-d15b-f05d-59033a5710cb/mzaf_16845631484816881730.plus.aac.p.m4a",
+      "previewUrl": null,
       "url": "https://open.spotify.com/track/61eJ7HqXGyHfmHIqJApX7v",
       "tracks": [
         "Already Rich"
@@ -2399,10 +2448,22 @@
       "album": "Feël no wayz (Yeat mix)",
       "track": "Feël no wayz (Yeat mix)",
       "coverUrl": "https://i.scdn.co/image/ab67616d00001e02094cdc28bcb0006979fc2720",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d2/5f/ae/d25fae64-d2de-c08c-0871-aa0e8058488e/mzaf_5642600211656366929.plus.aac.p.m4a",
+      "previewUrl": null,
       "url": "https://open.spotify.com/track/7vE1GgXmR1XUGblvNStFcV",
       "tracks": [
         "Feël no wayz (Yeat mix)"
+      ]
+    },
+    {
+      "artist": "Flowers For Emily",
+      "album": "commemorate",
+      "track": "looking back",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e021bc61dd3e149c926724506aa",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/1CYDySEHaUnDLLAzMPwXr8",
+      "tracks": [
+        "looking back",
+        "running"
       ]
     },
     {
@@ -2410,10 +2471,23 @@
       "album": "pinkPrint 3",
       "track": "ctrl",
       "coverUrl": "https://i.scdn.co/image/ab67616d00001e02ed6aafa170119d49a0aff09f",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c4/53/a3/c453a30c-6956-97ce-bd98-025d85e8f980/mzaf_17388344619707130001.plus.aac.p.m4a",
+      "previewUrl": null,
       "url": "https://open.spotify.com/track/6UYHE1YrJyRatSsY9SAyFo",
       "tracks": [
         "ctrl"
+      ]
+    },
+    {
+      "artist": "Yeat",
+      "album": "2 Alivë (Geëk Pack)",
+      "track": "On tha linë",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02ddbc8eccc4c64cce7f032019",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/0hiXoBTywFbBkbgJNCfDL7",
+      "tracks": [
+        "On tha linë",
+        "Poppin",
+        "Nvr again"
       ]
     },
     {
@@ -2421,10 +2495,21 @@
       "album": "Dissonance",
       "track": "Dissonance",
       "coverUrl": "https://i.scdn.co/image/ab67616d00001e022a38e3f0fc543d64600ed404",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f8/4c/48/f84c48b2-3f48-1abe-7d0f-e57348e0dc52/mzaf_16003788231293561858.plus.aac.p.m4a",
+      "previewUrl": null,
       "url": "https://open.spotify.com/track/4w7LQTtPMtJ4yQbfBn0Fsk",
       "tracks": [
         "Dissonance"
+      ]
+    },
+    {
+      "artist": "MJ Lenderman",
+      "album": "Manning Fireworks",
+      "track": "Wristwatch",
+      "coverUrl": "https://i.scdn.co/image/ab67616d00001e02b18fae872e1700b83e72a15b",
+      "previewUrl": null,
+      "url": "https://open.spotify.com/track/4j2DQgFAyVuKOBFpq4vEPR",
+      "tracks": [
+        "Wristwatch"
       ]
     },
     {
@@ -2443,7 +2528,7 @@
       "album": "+44",
       "track": "+44",
       "coverUrl": "https://i.scdn.co/image/ab67616d00001e02dbabaa6bd075fc235b836c52",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/2b/7c/f2/2b7cf2f9-1047-2b38-43f0-0f9be484e970/mzaf_5046357728791748589.plus.aac.p.m4a",
+      "previewUrl": null,
       "url": "https://open.spotify.com/track/2TKc8YIKKCvUPf9gVOV6VL",
       "tracks": [
         "+44"
@@ -2454,22 +2539,11 @@
       "album": "Phteve",
       "track": "Recursion - Rocket Skates Session",
       "coverUrl": "https://i.scdn.co/image/ab67616d00001e020fe58188d5cf2330a8612656",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/45/39/40/453940f9-3906-7076-0430-d6f8c1c81693/mzaf_3993527392696434202.plus.aac.p.m4a",
+      "previewUrl": null,
       "url": "https://open.spotify.com/track/5Ape6BCGhl0M9OQQvZ2Sb3",
       "tracks": [
         "Recursion - Rocket Skates Session",
         "Sonichu Adventure - File Select"
-      ]
-    },
-    {
-      "artist": "GELO, Lil Wayne",
-      "album": "Tweaker (Remix)",
-      "track": "Tweaker (feat. Lil Wayne) - Remix",
-      "coverUrl": "https://i.scdn.co/image/ab67616d00001e0220b0519c5e37936ffa6faab6",
-      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/df/8d/1f/df8d1f08-20c0-aa1f-8da9-9a47b5834b28/mzaf_1157599152206113655.plus.aac.p.m4a",
-      "url": "https://open.spotify.com/track/16m5nuykE5WbvIjSAFvK6E",
-      "tracks": [
-        "Tweaker (feat. Lil Wayne) - Remix"
       ]
     }
   ]

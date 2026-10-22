@@ -151,8 +151,8 @@ html.os-mode body { height: 100%; overflow: hidden; }
   z-index: 1;
 }
 .os-icon {
-  width: 88px;
-  padding: 4px 3px;
+  width: 104px;
+  padding: 6px 4px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -164,15 +164,15 @@ html.os-mode body { height: 100%; overflow: hidden; }
   background: none;
 }
 .os-icon-img {
-  width: 40px;
-  height: 40px;
+  width: 56px;
+  height: 56px;
   display: grid;
   place-items: center;
   transition: transform 160ms ease;
 }
 .os-icon-label {
   font-family: var(--os-ui);
-  font-size: 8.5px;
+  font-size: 10px;
   line-height: 1.2;
   letter-spacing: 0.02em;
   text-align: center;
