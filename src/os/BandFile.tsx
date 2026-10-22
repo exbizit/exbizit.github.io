@@ -104,7 +104,7 @@ export default function BandFile({ slug }: { slug: string }) {
       </div>
 
       {/* ── Identity ─────────────────────────────────────────────────── */}
-      <section className="bf-hero">
+      <section className={`bf-hero${heroSrc ? ' bf-hero-with-image' : ''}`}>
         <div className="bf-id">
           {band.logo && <img className="bf-logo" src={band.logo} alt="" aria-hidden />}
           <h1 className="bf-name">

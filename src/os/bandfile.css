@@ -78,6 +78,17 @@
   min-width: 0;
 }
 .bf-logo { height: clamp(32px, 5cqw, 48px); width: auto; max-width: 64px; object-fit: contain; }
+.bf-hero-with-image .bf-id {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 3;
+  padding: 42px 16px 28px;
+  color: #fff;
+  background: linear-gradient(transparent, rgb(0 0 0 / 82%));
+  text-shadow: 0 2px 8px #000;
+}
+.bf-hero-with-image .bf-wordmark { filter: drop-shadow(0 2px 5px #000); }
+.bf-hero-with-image .bf-hero-img { border-top: 0; }
 .bf-name {
   margin: 0;
   font-family: var(--bf-display);
