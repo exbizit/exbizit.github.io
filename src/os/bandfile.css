@@ -419,5 +419,10 @@
 /* Booking: the form is the point, so it sits right under a compact heading */
 .sf-booking > div > section { padding-top: 18px !important; padding-bottom: 14px !important; }
 .sf-booking > div > section .label { margin-bottom: 8px !important; }
-.sf-booking h1.display { font-size: clamp(44px, 9cqw, 110px) !important; }
-.sf-booking > div > div { padding-top: 18px !important; }
+.sf-booking h1.display { font-size: clamp(28px, 6cqw, 40px) !important; }
+.sf-booking > div > div { padding-top: 16px !important; padding-bottom: 20px !important; }
+.sf-booking form { gap: 12px; display: flex; flex-direction: column; }
+.sf-booking form > * { margin-top: 0 !important; }
+.sf-booking input, .sf-booking select, .sf-booking textarea { padding: 8px 12px; }
+.sf-booking textarea { height: 100px; }
+.sf-booking form > button { padding-top: 10px; padding-bottom: 10px; }

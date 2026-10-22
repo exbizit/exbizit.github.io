@@ -27,6 +27,8 @@ export interface AppDef {
   render: () => ReactNode
   /** Window width the page is designed for */
   width?: number
+  /** Compact utility windows open centered at this height. */
+  height?: number
   accent?: string
 }
 
@@ -85,6 +87,10 @@ export const UTIL_APPS: AppDef[] = [
 ]
 
 export const BAND_APPS: AppDef[] = BANDS.map(b => bandApp(b.slug))
+
+const bookingApp = UTIL_APPS.find(a => a.id === 'contact')!
+bookingApp.width = 560
+bookingApp.height = 620
 
 const cache = new Map<string, AppDef>()
 

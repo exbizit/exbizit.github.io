@@ -64,8 +64,13 @@ export function desktopSize() {
   return { W: window.innerWidth, H: window.innerHeight - TASKBAR_H }
 }
 
-function initialRect(n: number, width?: number) {
+function initialRect(n: number, width?: number, height?: number) {
   const { W, H } = desktopSize()
+  if (height) {
+    const w = Math.min(width ?? 560, W - 24)
+    const h = Math.min(height, H - 24)
+    return { x: (W - w) / 2, y: (H - h) / 2, w, h }
+  }
   const step = (n % 6) * 26
   // Clear of the desktop icons, however many columns they wrapped into
   const icons = document.querySelector('.os-icons')?.getBoundingClientRect().right ?? 100
@@ -123,7 +128,7 @@ export function WindowManager({ children }: { children: ReactNode }) {
       const hit = ws.find(w => w.id === routeId)
       if (hit) return ws.map(w => (w.id === routeId ? { ...w, min: false, z, search: location.search } : w))
       const app = getApp(routeId)
-      return [...ws, { id: routeId, search: location.search, ...initialRect(ws.length, app?.width), z, min: false, max: false }]
+      return [...ws, { id: routeId, search: location.search, ...initialRect(ws.length, app?.width, app?.height), z, min: false, max: false }]
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.key])

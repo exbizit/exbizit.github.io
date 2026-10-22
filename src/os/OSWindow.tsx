@@ -28,7 +28,7 @@ export default function OSWindow({ win }: { win: Win }) {
   if (!app) return null
 
   const { W, H } = desktopSize()
-  const max = win.max || os.isMobile
+  const max = win.max || (os.isMobile && !app.height)
   const rect = max
     ? { x: 0, y: 0, w: W, h: H }
     : {
