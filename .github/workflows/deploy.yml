@@ -27,6 +27,8 @@ jobs:
   build:
     if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
+    # Contact keys are environment secrets and must be available at build time.
+    environment: github-pages
     steps:
       - uses: actions/checkout@v4
         with:
@@ -38,10 +40,18 @@ jobs:
           cache: npm
 
       - run: npm ci
+      - name: Verify contact form configuration
+        env:
+          VITE_W3F_KEY_PRIMARY: ${{ secrets.VITE_W3F_KEY_PRIMARY }}
+        run: |
+          if [ -z "$VITE_W3F_KEY_PRIMARY" ]; then
+            echo "::error::VITE_W3F_KEY_PRIMARY is missing from the github-pages environment."
+            exit 1
+          fi
       - run: npm run build
         env:
           # Web3Forms keys: .env.local isn't in the repo, so the build reads them
-          # from repo Settings -> Secrets and variables -> Actions.
+          # from Settings -> Environments -> github-pages -> Environment secrets.
           VITE_W3F_KEY_PRIMARY: ${{ secrets.VITE_W3F_KEY_PRIMARY }}
           VITE_W3F_KEY_HOSTER: ${{ secrets.VITE_W3F_KEY_HOSTER }}
           VITE_W3F_KEY_MARYS: ${{ secrets.VITE_W3F_KEY_MARYS }}

@@ -156,9 +156,7 @@ export default function Contact() {
 
             {!isContactConfigured && (
               <p className="font-mono text-xs text-center leading-relaxed" style={{ color: '#FF1744' }}>
-                Contact form not configured.
-                <br />
-                Copy .env.example to .env.local and add your Web3Forms keys.
+                The contact form is temporarily unavailable. Please try again later.
               </p>
             )}
           </form>
