@@ -4,6 +4,7 @@
  * `?layout=primary` in a link picks one, e.g. to share the desktop.
  */
 import { createContext, useCallback, useContext, useState, type ReactNode } from 'react'
+import { isMarysDomain } from './domain'
 
 export type SiteLayout = 'primary' | 'os'
 const KEY = 'site-layout'
@@ -15,9 +16,11 @@ function initial(): SiteLayout {
     return asked
   }
   try {
-    return localStorage.getItem(KEY) === 'os' ? 'os' : 'primary'
+    const saved = localStorage.getItem(KEY)
+    if (saved === 'os' || saved === 'primary') return saved
+    return isMarysDomain ? 'os' : 'primary'
   } catch {
-    return 'primary'
+    return isMarysDomain ? 'os' : 'primary'
   }
 }
 

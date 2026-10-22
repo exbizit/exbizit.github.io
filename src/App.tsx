@@ -1,5 +1,6 @@
-import { lazy, Suspense } from 'react'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { lazy, Suspense, useEffect } from 'react'
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
+import { hosterDestination, landingBandSlug } from './domain'
 import Nav from './components/Nav'
 import MusicPlayer from './components/MusicPlayer'
 import { MusicProvider } from './components/MusicContext'
@@ -26,6 +27,12 @@ export default function App() {
 
 function Layouts() {
   const { layout } = useLayout()
+  const location = useLocation()
+  const destination = hosterDestination(location.pathname, location.search, location.hash)
+  useEffect(() => {
+    if (destination) window.location.replace(destination)
+  }, [destination])
+  if (destination) return <BootScreen />
   if (layout === 'os') {
     return (
       <Suspense fallback={<BootScreen />}>
@@ -54,7 +61,7 @@ function PrimaryLayout() {
       <main>
         <Routes>
           {/* hoster.band IS the domain, so Hoster is the root page. */}
-          <Route path="/" element={<BandPage defaultSlug={ROOT_BAND_SLUG} />} />
+          <Route path="/" element={<BandPage defaultSlug={landingBandSlug} />} />
 
           {/* Static routes are declared before /:slug. React Router ranks static
               segments above dynamic ones, so these win even though a band slug

@@ -4,6 +4,7 @@
  * link (hoster.band/, /shows, /maryswhitelie, ...) still lands on its page.
  */
 import type { ReactNode } from 'react'
+import { landingBandSlug } from '../domain'
 import { BANDS, ROOT_BAND_SLUG, bandPath, getBandBySlug } from '../data/bands'
 import BandPage from '../pages/BandPage'
 import Listening from '../pages/Listening'
@@ -100,7 +101,7 @@ export function getApp(id: string): AppDef | undefined {
 /** The app a URL opens, or null for the bare desktop. */
 export function appIdForPath(pathname: string): string | null {
   const path = pathname.replace(/\/+$/, '') || '/'
-  if (path === '/') return `band:${ROOT_BAND_SLUG}`
+  if (path === '/') return `band:${landingBandSlug}`
   const u = UTIL_APPS.find(a => a.path === path)
   if (u) return u.id
   return `band:${path.slice(1)}`
