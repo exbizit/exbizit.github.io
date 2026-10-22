@@ -191,6 +191,18 @@ html.os-mode body { height: 100%; overflow: hidden; }
 }
 .os-icon:hover .os-icon-label,
 .os-icon:focus-visible .os-icon-label { background: var(--os-peri); text-shadow: none; }
+.os-icon.is-selected {
+  border-color: var(--os-peri);
+  background: hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 65% / 0.25);
+}
+.os-icon.is-selected .os-icon-label { background: var(--os-peri); text-shadow: none; }
+.os-selection-box {
+  position: fixed;
+  z-index: 2;
+  pointer-events: none;
+  border: 1px solid var(--os-peri);
+  background: hsl(var(--sys-h) calc(var(--sys-sat) * 100%) 65% / 0.2);
+}
 
 .os-jewel {
   position: relative;

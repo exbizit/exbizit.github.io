@@ -109,7 +109,7 @@ function DesktopMenu({ at, onClose }: { at: { x: number; y: number }; onClose: (
   )
 }
 
-function DesktopIcon({ to, label, icon, onClick }: { to?: string; label: string; icon: React.ReactNode; onClick?: () => void }) {
+function DesktopIcon({ to, label, icon, onClick, selected }: { to?: string; label: string; icon: React.ReactNode; onClick?: () => void; selected?: boolean }) {
   const inner = (
     <>
       <span className="os-icon-img">{icon}</span>
@@ -117,11 +117,11 @@ function DesktopIcon({ to, label, icon, onClick }: { to?: string; label: string;
     </>
   )
   return to ? (
-    <Link to={to} className="os-icon" draggable={false}>
+    <Link to={to} className={`os-icon${selected ? ' is-selected' : ''}`} data-desktop-icon={label} draggable={false}>
       {inner}
     </Link>
   ) : (
-    <button type="button" className="os-icon" onClick={onClick}>
+    <button type="button" className={`os-icon${selected ? ' is-selected' : ''}`} data-desktop-icon={label} onClick={onClick}>
       {inner}
     </button>
   )
@@ -133,10 +133,64 @@ export default function Desktop() {
   const amp = useAmp()
   const navigate = useNavigate()
   const [menu, setMenu] = useState<{ x: number; y: number } | null>(null)
+  const [box, setBox] = useState<{ x: number; y: number; width: number; height: number } | null>(null)
+  const [selected, setSelected] = useState<Set<string>>(new Set())
+  const drag = useRef<{ x: number; y: number; pointer: number; prior: Set<string> } | null>(null)
+
+  const endSelection = () => {
+    drag.current = null
+    setBox(null)
+  }
+
+  useEffect(() => {
+    const cancel = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        endSelection()
+        setSelected(new Set())
+      }
+    }
+    window.addEventListener('keydown', cancel)
+    return () => window.removeEventListener('keydown', cancel)
+  }, [])
 
   return (
     <div
       className="os-root"
+      onPointerDown={e => {
+        if (e.button !== 0 || e.pointerType === 'touch') return
+        if ((e.target as HTMLElement).closest('.os-icon, .os-win, .os-taskbar, #webamp, .os-ctxmenu')) return
+        e.preventDefault()
+        setMenu(null)
+        const prior = e.ctrlKey || e.metaKey || e.shiftKey ? new Set(selected) : new Set<string>()
+        setSelected(prior)
+        drag.current = { x: e.clientX, y: e.clientY, pointer: e.pointerId, prior }
+        setBox({ x: e.clientX, y: e.clientY, width: 0, height: 0 })
+        e.currentTarget.setPointerCapture(e.pointerId)
+      }}
+      onPointerMove={e => {
+        const start = drag.current
+        if (!start || start.pointer !== e.pointerId) return
+        const rect = {
+          x: Math.min(start.x, e.clientX), y: Math.min(start.y, e.clientY),
+          width: Math.abs(e.clientX - start.x), height: Math.abs(e.clientY - start.y),
+        }
+        setBox(rect)
+        const hits = new Set(start.prior)
+        e.currentTarget.querySelectorAll<HTMLElement>('[data-desktop-icon]').forEach(icon => {
+          const r = icon.getBoundingClientRect()
+          if (rect.width > 3 && rect.height > 3 && r.left < rect.x + rect.width && r.right > rect.x && r.top < rect.y + rect.height && r.bottom > rect.y) {
+            hits.add(icon.dataset.desktopIcon!)
+          }
+        })
+        setSelected(hits)
+      }}
+      onPointerUp={e => {
+        if (drag.current?.pointer !== e.pointerId) return
+        endSelection()
+        if (e.currentTarget.hasPointerCapture(e.pointerId)) e.currentTarget.releasePointerCapture(e.pointerId)
+      }}
+      onPointerCancel={endSelection}
+      onLostPointerCapture={endSelection}
       onContextMenu={e => {
         // Only the bare desktop; windows and the player keep the browser's menu
         const t = e.target as HTMLElement
@@ -150,15 +204,17 @@ export default function Desktop() {
 
       <nav className="os-icons" aria-label="Desktop">
         {BAND_APPS.map(a => (
-          <DesktopIcon key={a.id} to={a.path} label={a.label ?? a.title} icon={a.icon()} />
+          <DesktopIcon key={a.id} to={a.path} label={a.label ?? a.title} icon={a.icon()} selected={selected.has(a.label ?? a.title)} />
         ))}
         {UTIL_APPS.map(a => (
-          <DesktopIcon key={a.id} to={a.path} label={a.label ?? a.title} icon={a.icon()} />
+          <DesktopIcon key={a.id} to={a.path} label={a.label ?? a.title} icon={a.icon()} selected={selected.has(a.label ?? a.title)} />
         ))}
-        <DesktopIcon label="HosterAmp" icon={ICONS.amp()} onClick={amp.show} />
-        <DesktopIcon label="Cubefield" icon={ICONS.cubefield()} onClick={() => navigate('/listening?cubefield')} />
-        <DesktopIcon label="Primary layout" icon={ICONS.layout()} onClick={() => setLayout('primary')} />
+        <DesktopIcon label="HosterAmp" icon={ICONS.amp()} onClick={amp.show} selected={selected.has('HosterAmp')} />
+        <DesktopIcon label="Cubefield" icon={ICONS.cubefield()} onClick={() => navigate('/listening?cubefield')} selected={selected.has('Cubefield')} />
+        <DesktopIcon label="Primary layout" icon={ICONS.layout()} onClick={() => setLayout('primary')} selected={selected.has('Primary layout')} />
       </nav>
+
+      {box && <div className="os-selection-box" aria-hidden style={{ left: box.x, top: box.y, width: box.width, height: box.height }} />}
 
       <div className="os-windows">
         {os.windows.map(w => (
